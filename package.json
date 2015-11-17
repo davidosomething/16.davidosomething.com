@@ -1,0 +1,38 @@
+{
+  "name": "16-davidosomething-com",
+  "version": "1.0.0",
+  "description": "2016 theme for davidosomething.com",
+  "author": {
+    "name": "David O'Trakoun",
+    "email": "me@davidosomething.com",
+    "url": "http://davidosomething.com"
+  },
+  "scripts": {
+    "js": "jspm bundle-sfx assets/js/src/global assets/js/dist/global.js"
+  },
+  "jspm": {
+    "directories": {
+      "packages": "assets/jspm"
+    },
+    "dependencies": {
+      "jquery": "github:components/jquery@^2.1.4",
+      "normalize.css": "github:necolas/normalize.css@^3.0.3"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "css-mqpacker": "^4.0.0",
+    "cssnano": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "merge-stream": "^1.0.0"
+  }
+}

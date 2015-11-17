@@ -1,0 +1,11 @@
+{
+    "name": "davidosomething/16",
+    "description": "2016 theme for davidosomething.com",
+    "authors": [
+        {
+            "name": "David O'Trakoun",
+            "email": "me@davidosomething.com"
+        }
+    ],
+    "require": {}
+}
