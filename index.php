@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>davidosomething.com</title>
+
+<!-- wp_print_scripts -->
+<script src="assets/js/dist/global.js" async></script>
 
 <!-- wp_print_stylesheets -->
 <link rel="stylesheet" href="assets/css/global.css">
@@ -38,8 +43,5 @@
 
 
 <!-- wp_print_footer_scripts -->
-<script src="assets/jspm/system.js"></script>
-<script src="config.js"></script>
-<script>System.import('assets/js/dist/global.js');</script>
 </body>
 </html>
