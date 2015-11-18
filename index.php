@@ -5,24 +5,39 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>davidosomething.com</title>
-<script src="assets/js/dist/global.js" async></script>
-<link rel="stylesheet" href="assets/css/global.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="/assets/css/global.css">
+
+<script src="/assets/js/dist/global.js" async></script>
 </head>
 <body class="home">
 
-<header class="global__header">
+<header class="globaldiv global__header">
   <h1>davidosomething.com</h1>
 </header>
 
-<main>
+<main class="globaldiv">
 
-  <article class="article--excerpt">
+  <article class="article article--excerpt">
 
-    <header class="article--excerpt__header">
+    <header class="article__header">
       <h2>Article title goes here</h2>
+
+      <section class="article__meta">
+        on <time datetime="2015-05-16 19:00">November 12, 2015</time>
+
+        in <ul class="article__tags">
+          <li><span class="article__tag">tag 1</span></li>
+          <li><span class="article__tag">another</span></li>
+          <li><span class="article__tag">a longer tag</span></li>
+          <li><span class="article__tag">www</span></li>
+          <li><span class="article__tag">javascript</span></li>
+        </ul>
+      </section>
     </header>
 
-    <section classs="article--excerpt__body">
+    <section class="article__body">
       <p>Faucibus a maiores laborum cillum! Duis debitis vivamus aut proident
       accusantium nemo, dolorem suscipit! Reiciendis? Commodi! Volutpat
       possimus, tristique auctor tenetur venenatis ligula laoreet, tempora,
@@ -45,46 +60,39 @@
       Quae quisque, nemo harum ridiculus sapien in ut reprehenderit, eaque
       tempus at aenean nisi, ea, nibh perferendis.
       </p>
+
+      <pre><code class="js">
+var a = 1;
+var b = 2;
+
+if (a == 1) {
+  console.log(b);
+}</code></pre>
+
+      <p>Reprehenderit? Ducimus excepteur aperiam, dis occaecati? Sociosqu
+      metus dis, metus! Cursus excepteur, omnis risus. Mollis fermentum,
+      fermentum labore ullam leo voluptas eleifend doloribus molestias accumsan
+      diamlorem aenean, euismod etiam mauris, ducimus ipsa in inventore,
+      ultricies nihil deserunt minus fugiat! Quae quisque, nemo harum ridiculus
+      sapien in ut reprehenderit, eaque tempus at aenean nisi, ea, nibh
+      perferendis. </p>
+
     </section>
 
-    <footer class="article--footer">
-      <time datetime="2015-05-16 19:00">2015-05-16</time>
-    </footer>
-
-  </article>
-
-
-  <article class="article--excerpt">
-
-    <header class="article--excerpt__header">
-      <h2>Article title goes here</h2>
-    </header>
-
-    <section classs="article--excerpt__body">
-      <p>Ipsam recusandae adipisicing, nostrud temporibus metus nemo. Wisi,
-      ante sapiente laudantium, tempor! Deleniti nam elementum? Distinctio
-      litora! Sed sodales adipiscing excepturi aute blandit laborum? Maiores id
-      incidunt, praesentium dictum sequi. Quod quaerat laboris eleifend
-      voluptate nullam mus repellat, lacus tempora! Animi malesuada,
-      consequatur accumsan odit rerum ex irure. Risus, rerum purus. Nihil!
-      Nulla fringilla hymenaeos anim assumenda id aspernatur cursus? Voluptates
-      quis ab nascetur, interdum quo, blanditiis optio quisquam totam, ducimus
-      habitasse, nostrud quas, minus adipisicing minima donec. Adipisicing quo.
-      </p>
-    </section>
-
-    <footer class="article--footer">
-      <time datetime="2015-05-16 19:00">2015-05-16</time>
+    <footer class="article__footer">
     </footer>
 
   </article>
 
 </main>
 
-<nav class="global__nav">
+<nav class="globaldiv global__nav">
 </nav>
 
-<footer class="global__footer">
+<footer class="globaldiv global__footer">
+  <p class="copyright_notice">
+    Copyright &copy;2016 <a href="mailto:me@davidosomething.com">David O'Trakoun</a>
+  </p>
 </footer>
 
 

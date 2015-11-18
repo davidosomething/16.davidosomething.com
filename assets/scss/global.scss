@@ -6,11 +6,120 @@
 // colors
 // =============================================================================
 
-$primary-bg: #222;
-$primary-text: #f0f0f0;
+$c-primary-bg: #f7f7f2;
+$c-primary-text: #544;
+$c-primary-link: #48a;
+$c-primary-divider: #acacaa;
+
+$c-tertiary-text: #988;
+
+$c-header-text: #abc;
+
+// -----------------------------------------------------------------------------
+// Global
+// -----------------------------------------------------------------------------
 
 body {
-  background: $primary-bg;
-  color: $primary-text;
+  background: $c-primary-bg;
+  color: $c-primary-text;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: $c-primary-link;
+  text-decoration: none;
+}
+
+.globaldiv {
+  margin: 2% 4% 6%;
+}
+
+.global__header {
+}
+
+.global__header > h1 {
+  color: $c-header-text;
+}
+
+.global__nav {
+}
+
+.global__footer {
+}
+
+.home > main {
+}
+
+// -----------------------------------------------------------------------------
+// Article
+// -----------------------------------------------------------------------------
+
+.article {
+  max-width: 40em;
+}
+
+// -----------------------------------------------------------------------------
+// Article Parts
+// -----------------------------------------------------------------------------
+
+.article__tags .article__tag {
+  border: 1px $c-primary-divider solid;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  padding: 0.2em 0.5em;
+  text-transform: uppercase;
+}
+
+// -----------------------------------------------------------------------------
+// Article divisions and per-division Article Parts overrides
+// -----------------------------------------------------------------------------
+
+.article__header {
+  > h2 {
+    margin-bottom: 0;
+  }
+
+  > .article__meta {
+    color: $c-tertiary-text;
+    font-size: 0.8em;
+
+    time {
+      padding: 0 0.5em;
+    }
+
+    .article__tags {
+      display: inline-block;
+      font-size: 0.66em;
+      list-style: none;
+      padding: 0 0.5em;
+      vertical-align: middle;
+
+      > li {
+        display: inline-block;
+        margin: 0 0.5em 0 0;
+      }
+    }
+  }
+}
+
+
+.article__body {
+  line-height: 1.5;
+
+  p:first-child {
+    text-indent: 2ex;
+  }
+}
+
+.article__footer {
+  border-bottom: 1px $c-primary-divider solid;
+  padding: 1em;
+}
+
+// -----------------------------------------------------------------------------
+// Article Variants and per-variant overrides
+// -----------------------------------------------------------------------------
+
+.article--excerpt {
 }
 

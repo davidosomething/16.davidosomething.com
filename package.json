@@ -15,6 +15,7 @@
       "packages": "assets/jspm"
     },
     "dependencies": {
+      "highlight.js": "npm:highlight.js@^8.9.1",
       "jquery": "github:components/jquery@^2.1.4",
       "normalize.css": "github:necolas/normalize.css@^3.0.3"
     },
