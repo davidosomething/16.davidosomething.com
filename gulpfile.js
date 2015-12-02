@@ -32,7 +32,6 @@ gulp.task('css', function () {
       autoprefixer({
         browsers: ['last 2 versions']
       }),
-      cssnano
     ]))
     ;
 
@@ -42,6 +41,7 @@ gulp.task('css', function () {
 
   return merge(normalizeCss, globalSass)
     .pipe(concat('global.css'))
+    .pipe(postcss([ cssnano ]))
     .pipe(gulp.dest('./assets/css/'))
     ;
 
