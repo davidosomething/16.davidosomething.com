@@ -2,9 +2,9 @@
 // global.scss
 // =============================================================================
 
-// =============================================================================
-// colors
-// =============================================================================
+// -----------------------------------------------------------------------------
+// Colors
+// -----------------------------------------------------------------------------
 
 $c-primary-bg: #f7f7f2;
 $c-primary-text: #544;
@@ -14,6 +14,12 @@ $c-primary-divider: #acacaa;
 $c-tertiary-text: #988;
 
 $c-header-text: #abc;
+
+// -----------------------------------------------------------------------------
+// Sizes
+// -----------------------------------------------------------------------------
+
+$s-h2: 1.5em;
 
 // -----------------------------------------------------------------------------
 // Global
@@ -34,7 +40,7 @@ a {
 }
 
 .globalDiv {
-  margin: 2% 4% 6%;
+  margin: 2% 4% 4%;
 }
 
 // -----------------------------------------------------------------------------
@@ -54,8 +60,10 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalContent {
+  align-items: flex-start;
   display: flex;
   flex-flow: nowrap;
+  justify-content: space-around;
 }
 
 // -----------------------------------------------------------------------------
@@ -64,10 +72,17 @@ a {
 
 .globalNav {
   font-size: 0.5rem;
+  opacity: 0.25;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .globalNav__postlist {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -76,7 +91,9 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalFooter {
+  border-top: 1px $c-primary-divider solid;
   clear: both;
+  padding: 1em 0;
 }
 
 
@@ -94,7 +111,10 @@ a {
 // -----------------------------------------------------------------------------
 
 .article {
+  margin-top: 1em;
   max-width: 40em;
+
+  &:first-child { margin-top: 0; }
 }
 
 // -----------------------------------------------------------------------------
@@ -119,23 +139,23 @@ a {
   }
 
   > .article__meta {
+    align-items: center;
     color: $c-tertiary-text;
+    display: flex;
     font-size: 0.8em;
+    justify-content: space-between;
 
-    time {
-      padding: 0 0.5em;
-    }
+    time { }
 
     .article__tags {
       display: inline-block;
       font-size: 0.66em;
       list-style: none;
-      padding: 0 0.5em;
       vertical-align: middle;
 
       > li {
         display: inline-block;
-        margin: 0 0.5em 0 0;
+        margin: 0.2em 0.5em 0.2em 0;
       }
     }
   }
@@ -153,6 +173,10 @@ a {
 .article__footer {
   border-bottom: 1px $c-primary-divider solid;
   padding: 1em;
+
+  .article:last-child & {
+    border-bottom: 0;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -167,5 +191,11 @@ a {
 // -----------------------------------------------------------------------------
 
 .articleTile {
+  margin: 0 0 2em;
+  max-width: 40em;
+
+  > h2 {
+    margin: 0;
+  }
 }
 
