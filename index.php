@@ -25,16 +25,17 @@
       <article class="article article--excerpt">
 
         <header class="article__header">
-          <h2>Article title goes here</h2>
+          
+          <h2><a href="#" class="article__header__permalink">Article title goes here</a></h2>
 
           <section class="article__meta">
             <time datetime="2015-05-16 19:00">November 12, 2015</time>
             <ul class="article__tags">
-              <li><span class="article__tag">tag 1</span></li>
-              <li><span class="article__tag">another</span></li>
-              <li><span class="article__tag">a longer tag</span></li>
-              <li><span class="article__tag">www</span></li>
-              <li><span class="article__tag">javascript</span></li>
+              <li><a href="#" class="article__tag">tag 1</a></li>
+              <li><a href="#" class="article__tag">another</a></li>
+              <li><a href="#" class="article__tag">a longer tag</a></li>
+              <li><a href="#" class="article__tag">www</a></li>
+              <li><a href="#" class="article__tag">javascript</a></li>
             </ul>
           </section>
         </header>
@@ -218,36 +219,41 @@
 
     </main>
 
-    <nav class="globalDiv globalNav">
-      <ol class="globalNav__postlist">
-        <li>
-          <article class="articleTile">
-            <h2><a href="#">Another post title</a></h2>
-            <time itemprop="datePublished">Jan 10, 2015</time>
-          </article>
-        </li>
+    <nav class="globalNav">
+      <aside class="globalNav__widget widget--latestPosts">
+        <header>
+          <h1>Latest Posts</h1>
+        </header>
+        <ol class="globalNav__postlist">
+          <li>
+            <article class="articleTile">
+              <h2><a href="#">Another post title</a></h2>
+              <time itemprop="datePublished">Jan 10, 2015</time>
+            </article>
+          </li>
 
-        <li>
-          <article class="articleTile">
-            <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-            <time itemprop="datePublished">July 1, 2014</time>
-          </article>
-        </li>
+          <li>
+            <article class="articleTile">
+              <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
+              <time itemprop="datePublished">July 1, 2014</time>
+            </article>
+          </li>
 
-        <li>
-          <article class="articleTile">
-            <h2><a href="#">Another post title</a></h2>
-            <time itemprop="datePublished">Jan 10, 2015</time>
-          </article>
-        </li>
+          <li>
+            <article class="articleTile">
+              <h2><a href="#">Another post title</a></h2>
+              <time itemprop="datePublished">Jan 10, 2015</time>
+            </article>
+          </li>
 
-        <li>
-          <article class="articleTile">
-            <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-            <time itemprop="datePublished">July 1, 2014</time>
-          </article>
-        </li>
-      </ol>
+          <li>
+            <article class="articleTile">
+              <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
+              <time itemprop="datePublished">July 1, 2014</time>
+            </article>
+          </li>
+        </ol>
+      </aside>
     </nav>
 
   </div>

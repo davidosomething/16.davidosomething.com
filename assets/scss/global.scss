@@ -9,8 +9,10 @@
 $c-primary-bg: #f7f7f2;
 $c-primary-text: #544;
 $c-primary-link: #48a;
-$c-primary-divider: #acacaa;
+$c-primary-link--hover: #9ce;
+$c-primary-divider: #cccccf;
 
+$c-tertiary-bg: #e0f0ff;
 $c-tertiary-text: #988;
 
 $c-header-text: #abc;
@@ -19,7 +21,7 @@ $c-header-text: #abc;
 // Sizes
 // -----------------------------------------------------------------------------
 
-$s-h2: 1.5em;
+$s-h2: 1.5rem;
 
 // -----------------------------------------------------------------------------
 // Global
@@ -34,13 +36,21 @@ body {
 a {
   color: $c-primary-link;
   text-decoration: none;
+
+  &:hover {
+    color: $c-primary-link--hover;
+  }
 }
 
 .globalContainer {
 }
 
 .globalDiv {
-  margin: 2% 4% 4%;
+  margin: 2rem;
+
+  @media screen and (min-width: 641px) {
+    margin: 3rem;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -52,6 +62,11 @@ a {
 
 .globalHeader > h1 {
   color: $c-header-text;
+  font-size: 1.5em;
+
+  @media screen and (min-width: 481px) {
+    font-size: 2em;
+  }
 }
 
 
@@ -60,10 +75,12 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalContent {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: nowrap;
-  justify-content: space-around;
+  @media screen and (min-width: 769px) {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-around;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -71,13 +88,23 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalNav {
-  font-size: 0.5rem;
-  opacity: 0.25;
-  transition: opacity 0.2s;
+  display: none;
 
-  &:hover {
-    opacity: 1;
+  @media screen and (min-width: 769px) {
+    display: block;
+    font-size: 0.5rem;
+    margin-left: 8%;
+    opacity: 0.25;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
   }
+}
+
+.globalNav__widget {
+  margin-bottom: 0 0 3rem;
 }
 
 .globalNav__postlist {
@@ -93,6 +120,7 @@ a {
 .globalFooter {
   border-top: 1px $c-primary-divider solid;
   clear: both;
+  font-size: 0.8rem;
   padding: 1em 0;
 }
 
@@ -111,7 +139,7 @@ a {
 // -----------------------------------------------------------------------------
 
 .article {
-  margin-top: 1em;
+  margin-top: 3rem;
   max-width: 40em;
 
   &:first-child { margin-top: 0; }
@@ -123,10 +151,15 @@ a {
 
 .article__tags .article__tag {
   border: 1px $c-primary-divider solid;
+  color: inherit;
   display: inline-block;
   letter-spacing: 0.1em;
   padding: 0.2em 0.5em;
   text-transform: uppercase;
+
+  &:hover {
+    color: $c-primary-link--hover;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -134,7 +167,10 @@ a {
 // -----------------------------------------------------------------------------
 
 .article__header {
+  position: relative;
+
   > h2 {
+    font-size: $s-h2;
     margin: 0;
   }
 
@@ -145,19 +181,46 @@ a {
     font-size: 0.8em;
     justify-content: space-between;
 
-    time { }
+    time {
+      border: 1px transparent solid;
+      display: inline-block;
+      margin: 0.66em 0;
+      white-space: nowrap;
+    }
 
     .article__tags {
-      display: inline-block;
-      font-size: 0.66em;
-      list-style: none;
-      vertical-align: middle;
+      display: none;
 
-      > li {
+      @media screen and (min-width: 641px) {
         display: inline-block;
-        margin: 0.2em 0.5em 0.2em 0;
+        font-size: 0.66em;
+        list-style: none;
+        vertical-align: middle;
+
+        > li {
+          display: inline-block;
+          margin: 0.2em 0.5em 0.2em 0;
+        }
       }
     }
+  }
+}
+
+.article__header__permalink {
+  &::before {
+    content: '\1F517';
+    display: inline-block;
+    font-family: Apple Garamond, Arial, Liberation Sans;
+    font-size: $s-h2;
+    font-weight: normal;
+    left: -2rem;
+    opacity: 0.25;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &:hover::before {
+    visibility: visible;
   }
 }
 
@@ -172,7 +235,6 @@ a {
 
 .article__footer {
   border-bottom: 1px $c-primary-divider solid;
-  padding: 1em;
 
   .article:last-child & {
     border-bottom: 0;
