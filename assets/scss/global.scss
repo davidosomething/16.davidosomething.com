@@ -1,21 +1,38 @@
-// =============================================================================
-// global.scss
-// =============================================================================
+////
+/// global.scss
+//
+/// Global styles for davidosomething.com
+///
+/// @author David O'Trakoun <me@davidosomething.com>
+////
 
 // -----------------------------------------------------------------------------
 // Colors
 // -----------------------------------------------------------------------------
 
-$c-primary-bg:          #fafaf4;
-$c-primary-text:        #544;
-$c-primary-link:        #48a;
-$c-primary-link--hover: #9ce;
-$c-primary-divider:     #cccccf;
+$colors: (
+  primary-bg:          #fafaf4,
+  primary-text:        #3f3a30,
+  primary-link:        #48a,
+  primary-link--hover: #9ce,
+  primary-divider:     #cccccf,
 
-$c-tertiary-bg:         #e0f0ff;
-$c-tertiary-text:       #988;
+  tertiary-bg:         #e0f0ff,
+  tertiary-text:       #988,
 
-$c-header-text:         #abc;
+  header-text:         #abc,
+
+  globalSiteTitle-bg:   rgba(0,0,0,0.75),
+  globalSiteTitle-text: #fff,
+);
+
+// -----------------------------------------------------------------------------
+// Z-Indices
+// -----------------------------------------------------------------------------
+
+$z: (
+  siteHeader: 1,
+);
 
 // -----------------------------------------------------------------------------
 // Typography
@@ -30,17 +47,22 @@ $typeface-body--fallback: sans-serif;
 $fontsizes: (
   small: (
     h2: 1.4rem,
-    article__meta: 0.8em
+
+    globalSiteTitle: 0.8em,
+    article__meta: 0.8em,
+    article__body: 0.9em,
   ),
   medium: (
     h2: 2rem,
-    article__tags: 0.66em
+
+    article__tags: 0.66em,
+    article__body: 1em,
   ),
   nav: (
-    default: 0.5rem
+    default: 0.5rem,
   ),
   footer: (
-    default: 0.8rem
+    default: 0.8rem,
   ),
 );
 
@@ -57,9 +79,11 @@ $fontsizes: (
 // # Scale
 //
 $breakpoints: (
-  medium: 639px,
-  large:  1023px,
-  xlarge: 1367px,
+  small: 480px,
+  medium: 640px,
+  middle: 768px,
+  large:  1024px,
+  xlarge: 1368px,
 );
 
 @mixin mq($size) {
@@ -67,101 +91,183 @@ $breakpoints: (
   @media (min-width: $breakpoint) { @content; }
 }
 
+// -----------------------------------------------------------------------------
+// Icon before element
+// -----------------------------------------------------------------------------
 
-// -----------------------------------------------------------------------------
-// Link icon before element
-// -----------------------------------------------------------------------------
-@mixin link-icon-before {
+@mixin icon-before {
+  position: relative;
+
   &::before {
-    @include fs('small', 'h2');
-    content: '\1F517';
     display: inline-block;
     font-family: Apple Garamond, Arial, Liberation Sans;
     font-weight: normal;
-    left: -1.2em;
-    opacity: 0.1;
     position: absolute;
-  }
-
-  &:hover::before {
-    opacity: 0.25;
   }
 }
 
+@mixin link-icon-before {
+  @include icon-before;
+
+  &::before {
+    @include fs('small', 'h2');
+    content: '\1F517';
+    left: -1.2em;
+    opacity: 0.1;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
+  }
+}
+
+
 // -----------------------------------------------------------------------------
-// Global
+// Base styles
 // -----------------------------------------------------------------------------
 
 body {
-  background: $c-primary-bg;
-  color: $c-primary-text;
+  background: map-get($colors, 'primary-bg');
+  color: map-get($colors, 'primary-text');
   font-family: $typeface-body, $typeface-body--fallback;
 }
 
 a {
-  color: $c-primary-link;
+  color: map-get($colors, 'primary-link');
   text-decoration: none;
 
   &:hover {
-    color: $c-primary-link--hover;
+    color: map-get($colors, 'primary-link--hover');
   }
 }
 
-.globalContainer {
-}
+
+// -----------------------------------------------------------------------------
+// Global layout
+// -----------------------------------------------------------------------------
 
 .globalDiv {
-  margin: 1.5rem;
-  @include mq('large') { margin: 2rem; }
-  @include mq('xlarge') { margin: 3rem; }
+  margin: 1rem 1.5rem;
+  @include mq('medium') { margin: 1.5rem; }
+  @include mq('middle') { margin: 2rem; }
+  @include mq('large') { margin: 3rem; }
 }
+
+%globalBorder {
+  border-top: 1px map-get($colors, 'primary-divider') solid;
+}
+
+// -----------------------------------------------------------------------------
+// Site Header
+// -----------------------------------------------------------------------------
+
+.siteHeader {
+  left: 0;
+  margin: 0;
+  position: fixed;
+  text-transform: uppercase;
+  top: 0;
+  width: 100%;
+  z-index: map-get($z, 'siteHeader');
+}
+
+.siteTitle {
+  @include fs('small', 'globalSiteTitle');
+  background: map-get($colors, 'globalSiteTitle-bg');
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0.5rem 2rem;
+
+  > a {
+    color: map-get($colors, 'globalSiteTitle-text');
+
+    // Home icon
+    &::before {
+      content: '\2302';
+      float: left;
+      font-size: 1.1em;
+      margin-right: 0.4em;
+    }
+  }
+}
+
 
 // -----------------------------------------------------------------------------
 // Global Header
 // -----------------------------------------------------------------------------
 
-.globalHeader > h1 {
-  @include fs('small', 'h2');
-  color: $c-header-text;
-  @include mq('medium') { font-size: 2em; }
+@keyframes fadeGlobalHeader {
+  0% { opacity: 1; }
+  100% { opacity: 0.25; }
 }
 
+.globalHeader {
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-name: fadeGlobalHeader;
+  animation-timing-function: ease-in;
+  opacity: 0.25;
+  padding: 2rem 0 1rem; // room for fixed position siteHeader
+  transition: opacity 1s ease-out;
+
+  @include mq('small') { padding: 2rem 0 0; }
+  @include mq('middle') { padding: 3rem 0 1rem; }
+
+  &:hover {
+    opacity: 1;
+  }
+}
 
 // -----------------------------------------------------------------------------
 // Global Content
 // -----------------------------------------------------------------------------
 
 .globalContent {
-  @include mq('large') {
-    align-items: flex-start;
+  clear: both;
+
+  @include mq('middle') {
+    align-items: baseline;
     display: flex;
-    flex-flow: nowrap;
+    flex-flow: row;
     justify-content: space-around;
   }
 }
+
+.globalContent > header {
+  @include mq('middle') {
+    flex: 1 100%;
+  }
+}
+
+.globalContent > main {
+  @include mq('middle') {
+    flex: 1 auto;
+    order: 2;
+  }
+}
+
 
 // -----------------------------------------------------------------------------
 // Global Nav
 // -----------------------------------------------------------------------------
 
 .globalNav {
-  display: none;
+  @extend %globalBorder;
+  @include fs('nav', 'default');
+  opacity: 0.25;
+  transition: opacity 0.2s;
 
-  @include mq('large') {
-    @include fs('nav', 'default');
-    display: block;
-    margin-left: 8%;
-    opacity: 0.25;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 1;
-    }
+  @include mq('middle') {
+    border-top: 0;
+    flex: 1 auto;
   }
+
+  &:hover { opacity: 1; }
 }
 
 .globalNav__widget {
-  margin-bottom: 0 0 3rem;
+  margin-bottom: 3rem;
 }
 
 .globalNav__postlist {
@@ -170,13 +276,14 @@ a {
   padding: 0;
 }
 
+
 // -----------------------------------------------------------------------------
 // Global Footer
 // -----------------------------------------------------------------------------
 
 .globalFooter {
+  @extend %globalBorder;
   @include fs('footer', 'default');
-  border-top: 1px $c-primary-divider solid;
   clear: both;
   padding: 1em 0;
 }
@@ -193,22 +300,24 @@ a {
   &:first-child { margin-top: 0; }
 }
 
+
 // -----------------------------------------------------------------------------
 // Article Parts
 // -----------------------------------------------------------------------------
 
 .article__tags .article__tag {
-  border: 1px $c-primary-divider solid;
+  border: 1px map-get($colors, 'primary-divider') solid;
   color: inherit;
   display: inline-block;
   letter-spacing: 0.1em;
-  padding: 0.2em 0.5em;
+  padding: 0 0.5em;
   text-transform: uppercase;
 
   &:hover {
-    color: $c-primary-link--hover;
+    color: map-get($colors, 'primary-link--hover');
   }
 }
+
 
 // -----------------------------------------------------------------------------
 // Article divisions and per-division Article Parts overrides
@@ -226,7 +335,7 @@ a {
   > .article__meta {
     @include fs('small', 'article__meta');
     align-items: center;
-    color: $c-tertiary-text;
+    color: map-get($colors, 'tertiary-text');
     display: flex;
     justify-content: space-between;
 
@@ -256,16 +365,18 @@ a {
 }
 
 .article__header__permalink {
+  @include link-icon-before;
   color: inherit;
-
-  @include mq('large') {
-    @include link-icon-before();
-  }
 }
 
 
 .article__body {
+  @include fs('small', 'article__body');
   line-height: 1.5;
+
+  @include mq('medium') {
+    @include fs('medium', 'article__body');
+  }
 
   p:first-child {
     text-indent: 2ex;
@@ -283,12 +394,13 @@ a {
 }
 
 .article__footer {
-  border-bottom: 1px $c-primary-divider solid;
+  border-bottom: 1px map-get($colors, 'primary-divider') solid;
 
   .article:last-child & {
     border-bottom: 0;
   }
 }
+
 
 // -----------------------------------------------------------------------------
 // Article Variants and per-variant overrides
@@ -296,6 +408,7 @@ a {
 
 .article--excerpt {
 }
+
 
 // -----------------------------------------------------------------------------
 // ArticleTile
@@ -309,4 +422,60 @@ a {
     margin: 0;
   }
 }
+
+
+// -----------------------------------------------------------------------------
+// Home - Bio
+// -----------------------------------------------------------------------------
+
+.bio {
+  background: map-get($colors, 'tertiary-bg');
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+  text-align: center;
+
+  @include mq('small') {
+    display: block;
+    text-align: left;
+  }
+}
+
+.bio__author {
+  font-size: 1em;
+  line-height: 1;
+  margin: 0;
+  order: 1;
+
+  @include mq('small') {
+    display: inline-block;
+    margin: 1.2rem 0 0;
+  }
+
+  @include mq('middle') {
+    font-size: 1.5rem;
+  }
+
+  > a {
+    font-weight: normal;
+  }
+}
+
+.bio__avatar {
+  float: left;
+  order: 0;
+}
+
+.bio__links {
+  margin: 0;
+  order: 2;
+  padding: 0;
+
+  > li {
+    display: inline-block;
+  }
+}
+
+
+
 

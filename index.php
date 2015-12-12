@@ -13,26 +13,25 @@
 </head>
 <body class="home">
 
-<div class="globalContainer">
+<header class="siteHeader">
+  <h1 class="siteTitle"><a href="/">davidosomething.com</a></h1>
+</header>
 
-  <header class="globalDiv globalHeader">
-    <h1 class="globalSiteTitle">davidosomething.com</h1>
+<div class="globalBody">
+  <header class="globalHeader bio" itemscope itemtype="http://microformats.org/profile/hcard">
+    <h2 class="bio__author" itemprop="n">David O'Trakoun &lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</h2>
+    <div class="bio__avatar">
+      <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
+    </div>
+    <ul class="bio__links">
+      <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
+      <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
+    </ul>
   </header>
 
-  <div class="globalDiv globalContent">
-    <main>
-
-      <article class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
-        <h2 class="bio__header" itemprop="n">David O'Trakoun</h2>
-        <img class="bio__avatar" alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
-        <ul class="bio__links">
-          <li><a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a></li>
-          <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
-          <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
-          <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
-        </ul>
-      </article>
-
+  <div class="globalContent">
+    <main class="globalDiv">
       <article class="article article--excerpt">
 
         <header class="article__header">
@@ -262,10 +261,10 @@
 
     </main>
 
-    <nav class="globalNav">
+    <nav class="globalDiv globalNav">
       <aside class="globalNav__widget widget--latestPosts">
         <header>
-          <h1>Latest Posts</h1>
+          <h2>Latest Posts</h2>
         </header>
         <ol class="globalNav__postlist">
           <li>

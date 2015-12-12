@@ -1,3 +1,11 @@
+// =============================================================================
+// gulpfile.js
+//
+// Build tasks for davidosomething.com
+//
+// @author David O'Trakoun <me@davidosomething.com>
+// =============================================================================
+
 'use strict';
 
 var gulp        = require('gulp');
@@ -7,6 +15,7 @@ var sourcemaps  = require('gulp-sourcemaps');
 // =============================================================================
 // Require: CSS
 // =============================================================================
+
 var sass         = require('gulp-sass');
 var postcss      = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
@@ -16,6 +25,7 @@ var cssnano      = require('cssnano');
 // =============================================================================
 // Require: Stream manip
 // =============================================================================
+
 var merge  = require('merge-stream');
 var concat = require('gulp-concat');
 
@@ -50,6 +60,7 @@ gulp.task('css', function () {
 // =============================================================================
 // Task: JS
 // =============================================================================
+
 gulp.task('js', function () {
   exec('npm run js', function (err, stdout, stderr) {
     if (err) {
@@ -62,11 +73,20 @@ gulp.task('js', function () {
 });
 
 // =============================================================================
+// Task: Watch
+// =============================================================================
+
+gulp.task('watch', function () {
+  var sassWatcher = gulp.watch('./assets/scss/**/*.scss', [ 'css' ]);
+});
+
+// =============================================================================
 // Task: Default
 // =============================================================================
 
 gulp.task('default', function () {
 
-  gulp.start('css');
+  gulp.start('watch');
 
 });
+
