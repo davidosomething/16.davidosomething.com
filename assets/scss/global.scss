@@ -6,22 +6,87 @@
 // Colors
 // -----------------------------------------------------------------------------
 
-$c-primary-bg: #f7f7f2;
-$c-primary-text: #544;
-$c-primary-link: #48a;
+$c-primary-bg:          #fafaf4;
+$c-primary-text:        #544;
+$c-primary-link:        #48a;
 $c-primary-link--hover: #9ce;
-$c-primary-divider: #cccccf;
+$c-primary-divider:     #cccccf;
 
-$c-tertiary-bg: #e0f0ff;
-$c-tertiary-text: #988;
+$c-tertiary-bg:         #e0f0ff;
+$c-tertiary-text:       #988;
 
-$c-header-text: #abc;
+$c-header-text:         #abc;
 
 // -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+// Font
+$typeface-heading: 'Hind';
+$typeface-body:    'Hind';
+$typeface-body--fallback: sans-serif;
+
 // Sizes
-// -----------------------------------------------------------------------------
+$fontsizes: (
+  small: (
+    h2: 1.4rem,
+    article__meta: 0.8em
+  ),
+  medium: (
+    h2: 2rem,
+    article__tags: 0.66em
+  ),
+  nav: (
+    default: 0.5rem
+  ),
+  footer: (
+    default: 0.8rem
+  ),
+);
 
-$s-h2: 1.5rem;
+@mixin fs($breakpoint, $size) {
+  $fontsizes-for-breakpoint: map-get($fontsizes, $breakpoint);
+  $fontsize: map-get($fontsizes-for-breakpoint, $size);
+  font-size: $fontsize;
+}
+
+// -----------------------------------------------------------------------------
+// Media Queries
+// -----------------------------------------------------------------------------
+//
+// # Scale
+//
+$breakpoints: (
+  medium: 639px,
+  large:  1023px,
+  xlarge: 1367px,
+);
+
+@mixin mq($size) {
+  $breakpoint: #{map-get($breakpoints, $size)};
+  @media (min-width: $breakpoint) { @content; }
+}
+
+
+// -----------------------------------------------------------------------------
+// Link icon before element
+// -----------------------------------------------------------------------------
+@mixin link-icon-before {
+  &::before {
+    @include fs('small', 'h2');
+    content: '\1F517';
+    display: inline-block;
+    font-family: Apple Garamond, Arial, Liberation Sans;
+    font-weight: normal;
+    left: -1.2em;
+    opacity: 0.1;
+    position: absolute;
+  }
+
+  &:hover::before {
+    opacity: 0.25;
+  }
+}
 
 // -----------------------------------------------------------------------------
 // Global
@@ -30,7 +95,7 @@ $s-h2: 1.5rem;
 body {
   background: $c-primary-bg;
   color: $c-primary-text;
-  font-family: 'Lato', sans-serif;
+  font-family: $typeface-body, $typeface-body--fallback;
 }
 
 a {
@@ -46,27 +111,19 @@ a {
 }
 
 .globalDiv {
-  margin: 2rem;
-
-  @media screen and (min-width: 641px) {
-    margin: 3rem;
-  }
+  margin: 1.5rem;
+  @include mq('large') { margin: 2rem; }
+  @include mq('xlarge') { margin: 3rem; }
 }
 
 // -----------------------------------------------------------------------------
 // Global Header
 // -----------------------------------------------------------------------------
 
-.globalHeader {
-}
-
 .globalHeader > h1 {
+  @include fs('small', 'h2');
   color: $c-header-text;
-  font-size: 1.5em;
-
-  @media screen and (min-width: 481px) {
-    font-size: 2em;
-  }
+  @include mq('medium') { font-size: 2em; }
 }
 
 
@@ -75,7 +132,7 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalContent {
-  @media screen and (min-width: 769px) {
+  @include mq('large') {
     align-items: flex-start;
     display: flex;
     flex-flow: nowrap;
@@ -90,9 +147,9 @@ a {
 .globalNav {
   display: none;
 
-  @media screen and (min-width: 769px) {
+  @include mq('large') {
+    @include fs('nav', 'default');
     display: block;
-    font-size: 0.5rem;
     margin-left: 8%;
     opacity: 0.25;
     transition: opacity 0.2s;
@@ -118,21 +175,12 @@ a {
 // -----------------------------------------------------------------------------
 
 .globalFooter {
+  @include fs('footer', 'default');
   border-top: 1px $c-primary-divider solid;
   clear: both;
-  font-size: 0.8rem;
   padding: 1em 0;
 }
 
-
-// -----------------------------------------------------------------------------
-// Home
-// -----------------------------------------------------------------------------
-
-.home {
-  main {
-  }
-}
 
 // -----------------------------------------------------------------------------
 // Article
@@ -170,15 +218,16 @@ a {
   position: relative;
 
   > h2 {
-    font-size: $s-h2;
+    @include fs('small', 'h2');
+    line-height: 1.15;
     margin: 0;
   }
 
   > .article__meta {
+    @include fs('small', 'article__meta');
     align-items: center;
     color: $c-tertiary-text;
     display: flex;
-    font-size: 0.8em;
     justify-content: space-between;
 
     time {
@@ -191,9 +240,9 @@ a {
     .article__tags {
       display: none;
 
-      @media screen and (min-width: 641px) {
+      @include mq('medium') {
+        @include fs('medium', 'article__tags');
         display: inline-block;
-        font-size: 0.66em;
         list-style: none;
         vertical-align: middle;
 
@@ -207,20 +256,10 @@ a {
 }
 
 .article__header__permalink {
-  &::before {
-    content: '\1F517';
-    display: inline-block;
-    font-family: Apple Garamond, Arial, Liberation Sans;
-    font-size: $s-h2;
-    font-weight: normal;
-    left: -2rem;
-    opacity: 0.25;
-    position: absolute;
-    visibility: hidden;
-  }
+  color: inherit;
 
-  &:hover::before {
-    visibility: visible;
+  @include mq('large') {
+    @include link-icon-before();
   }
 }
 
@@ -230,6 +269,16 @@ a {
 
   p:first-child {
     text-indent: 2ex;
+  }
+
+  ol,
+  ul {
+    padding-left: 0;
+  }
+
+  li ol,
+  li ul {
+    padding-left: 1.2em;
   }
 }
 

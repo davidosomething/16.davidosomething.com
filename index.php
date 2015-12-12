@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>davidosomething.com</title>
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Hind:400,700">
 <link rel="stylesheet" href="/assets/css/global.css">
 
 <script src="/assets/js/dist/global.js" async></script>
@@ -16,17 +16,28 @@
 <div class="globalContainer">
 
   <header class="globalDiv globalHeader">
-    <h1>davidosomething.com</h1>
+    <h1 class="globalSiteTitle">davidosomething.com</h1>
   </header>
 
   <div class="globalDiv globalContent">
     <main>
 
+      <article class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
+        <h2 class="bio__header" itemprop="n">David O'Trakoun</h2>
+        <img class="bio__avatar" alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
+        <ul class="bio__links">
+          <li><a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a></li>
+          <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
+          <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
+          <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
+        </ul>
+      </article>
+
       <article class="article article--excerpt">
 
         <header class="article__header">
           
-          <h2><a href="#" class="article__header__permalink">Article title goes here</a></h2>
+          <h2><a class="article__header__permalink" href="#" rel="bookmark">First very long Article title goes here in the extremely lengthy words</a></h2>
 
           <section class="article__meta">
             <time datetime="2015-05-16 19:00">November 12, 2015</time>
@@ -53,6 +64,41 @@
           tortor.
           </p>
 
+          <ol>
+            <li>Ordered list item one</li>
+            <li>Ordered list item 2</li>
+            <li>Unordered list
+              <ul>
+                <li>Nested list item 1</li>
+                <li>Nested list item 1</li>
+                <li>Nested list item 1
+                  <ul>
+                    <li>Nested list item 1</li>
+                    <li>Ordered list
+                      <ol>
+                      <li>Ordered list item 2</li>
+                      <li>Nested list item 1</li>
+                      <li>Ordered list item 2</li>
+                      </ol>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Ordered list item 2</li>
+          </ol>
+
+          <ul>
+            <li>Nested list item 1</li>
+            <li>Ordered list
+              <ol>
+              <li>Ordered list item 2</li>
+              <li>Nested list item 1</li>
+              <li>Ordered list item 2</li>
+              </ol>
+            </li>
+          </ul>
+
           <p>Elit facilis aut augue potenti excepturi ex vehicula imperdiet harum
           sunt expedita at voluptates massa, odit eget exercitationem adipisicing
           mus laboris, eros aliquam sagittis! Reprehenderit? Ducimus excepteur
@@ -64,8 +110,7 @@
           tempus at aenean nisi, ea, nibh perferendis.
           </p>
 
-          <pre><code class="js">
-    var a = 1;
+          <pre><code class="js">    var a = 1;
     var b = 2;
 
     if (a == 1) {
@@ -128,8 +173,7 @@
           tempus at aenean nisi, ea, nibh perferendis.
           </p>
 
-          <pre><code class="js">
-    var a = 1;
+          <pre><code class="js">    var a = 1;
     var b = 2;
 
     if (a == 1) {
@@ -193,8 +237,7 @@
           tempus at aenean nisi, ea, nibh perferendis.
           </p>
 
-          <pre><code class="js">
-    var a = 1;
+          <pre><code class="js">    var a = 1;
     var b = 2;
 
     if (a == 1) {
