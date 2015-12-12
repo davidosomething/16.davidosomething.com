@@ -86,7 +86,7 @@ gulp.task('watch', function () {
 
 gulp.task('default', function () {
 
-  gulp.start('watch');
+  gulp.start('css', 'watch');
 
 });
 

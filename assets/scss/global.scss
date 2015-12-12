@@ -148,8 +148,7 @@ a {
 
 .globalDiv {
   margin: 1rem 1.5rem;
-  @include mq('medium') { margin: 1.5rem; }
-  @include mq('middle') { margin: 2rem; }
+  @include mq('small') { margin: 2rem; }
   @include mq('large') { margin: 3rem; }
 }
 
