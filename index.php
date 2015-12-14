@@ -22,15 +22,14 @@
     <section class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
       <h2 class="bio__author">
         <span class="bio__author__name" itemprop="fn">David O'Trakoun</span>
-        <span class="bio__author__email">&lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</span>
       </h2>
       <div class="bio__avatar">
         <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
       </div>
       <ul class="bio__links">
-        <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
-        <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
-        <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
+        <li><a href="https://github.com/davidosomething" class="icon-github" itemprop="url"><span>GitHub</span></a></li>
+        <li><a href="https://twitter.com/davidosomething" class="icon-twitter" itemprop="url"><span>Twitter</span></a></li>
+        <li><a href="https://www.linkedin.com/in/davidosomething/" class="icon-linkedin" itemprop="url"><span>LinkedIn</span></a></li>
       </ul>
     </section>
   </header>
@@ -315,7 +314,7 @@
 
   <footer class="globalDiv globalFooter">
     <p class="copyright_notice">
-      Copyright &copy;2016 <a href="mailto:me@davidosomething.com">David O'Trakoun</a>
+      Copyright &copy;2016 <a href="mailto:me@davidosomething.com" rel="author">David O'Trakoun</a>
     </p>
   </footer>
 

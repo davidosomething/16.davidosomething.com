@@ -64,7 +64,7 @@ $fontweight__heading: 900;
 $fontsizes: (
   default: (
     globalSiteTitle: 0.6rem,
-    bio__author:     1rem,
+    bio__author:     2rem,
     nav:             0.5rem,
     footer:          0.8rem,
     article__meta:   0.8em,
@@ -81,7 +81,6 @@ $fontsizes: (
     article__tags: 0.66em,
   ),
   middle: (
-    bio__author: 1.5rem,
   ),
   large: (
     body: 1.1em,
@@ -103,6 +102,39 @@ $fontsizes: (
   @include mq('middle') { @include bpfs('middle', $el); }
   @include mq('large') { @include bpfs('large', $el); }
   @include mq('xlarge') { @include bpfs('xlarge', $el); }
+}
+
+
+// -----------------------------------------------------------------------------
+// Icons
+// -----------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('/assets/fonts/icomoon.ttf?vj028t') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.icon-twitter::before {
+  content: '\e900';
+}
+.icon-github::before {
+  content: '\e901';
+}
+.icon-linkedin::before {
+  content: '\e902';
 }
 
 
@@ -254,8 +286,8 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   padding: 20rem 0 1rem; // room for fixed position siteHeader
 
-  @include mq('small') { padding: 20rem 0 1rem; }
-  @include mq('middle') { padding: 30rem 0.5rem 1rem; }
+  @include mq('small') { padding: 16rem 0 1rem; }
+  @include mq('middle') { padding: 18rem 0.5rem 1rem; }
 }
 
 // -----------------------------------------------------------------------------
@@ -490,7 +522,6 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .bio {
-  background-color: rgba(20,30,40,0.5);
   color: map-get($colors, 'primary-bg');
   display: flex;
   flex-flow: column;
@@ -517,12 +548,8 @@ h1, h2, h3, h4, h5, h6 {
 
   @include mq('small') {
     display: inline-block;
-    margin: 1.2rem 0 0;
+    margin: 0.2em 0 0;
   }
-}
-
-.bio__author__email {
-  font-weight: normal;
 }
 
 .bio__avatar {
@@ -547,6 +574,9 @@ h1, h2, h3, h4, h5, h6 {
 
   > li {
     display: inline-block;
+    margin: 0.5em 1em 0 0;
+
+    span { display: none; }
   }
 }
 
