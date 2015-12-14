@@ -7,6 +7,25 @@
 ////
 
 // -----------------------------------------------------------------------------
+// Media Queries
+// -----------------------------------------------------------------------------
+//
+// # Scale
+//
+$breakpoints: (
+  small:  480px,
+  medium: 640px,
+  middle: 768px,
+  large:  1024px,
+  xlarge: 1368px,
+);
+
+@mixin mq($size) {
+  $breakpoint: #{map-get($breakpoints, $size)};
+  @media (min-width: $breakpoint) { @content; }
+}
+
+// -----------------------------------------------------------------------------
 // Colors
 // -----------------------------------------------------------------------------
 
@@ -39,24 +58,25 @@ $z: (
 // -----------------------------------------------------------------------------
 
 // Font
-$typeface-heading: 'Hind';
-$typeface-body:    'Hind';
+$typeface-heading: 'Merriweather';
+$typeface-body:    $typeface-heading;
 $typeface-body--fallback: sans-serif;
 
 // Sizes
 $fontsizes: (
   small: (
-    h2: 1.4rem,
+    h2: 1.4em,
 
-    globalSiteTitle: 0.8em,
+    globalSiteTitle: 0.6em,
     article__meta: 0.8em,
     article__body: 0.9em,
   ),
   medium: (
-    h2: 2rem,
-
     article__tags: 0.66em,
     article__body: 1em,
+  ),
+  large: (
+    body: 1.1em,
   ),
   nav: (
     default: 0.5rem,
@@ -70,25 +90,6 @@ $fontsizes: (
   $fontsizes-for-breakpoint: map-get($fontsizes, $breakpoint);
   $fontsize: map-get($fontsizes-for-breakpoint, $size);
   font-size: $fontsize;
-}
-
-// -----------------------------------------------------------------------------
-// Media Queries
-// -----------------------------------------------------------------------------
-//
-// # Scale
-//
-$breakpoints: (
-  small: 480px,
-  medium: 640px,
-  middle: 768px,
-  large:  1024px,
-  xlarge: 1368px,
-);
-
-@mixin mq($size) {
-  $breakpoint: #{map-get($breakpoints, $size)};
-  @media (min-width: $breakpoint) { @content; }
 }
 
 // -----------------------------------------------------------------------------
@@ -130,6 +131,10 @@ body {
   background: map-get($colors, 'primary-bg');
   color: map-get($colors, 'primary-text');
   font-family: $typeface-body, $typeface-body--fallback;
+
+  @include mq('large') {
+    @include fs('large', 'body');
+  }
 }
 
 a {
@@ -139,6 +144,21 @@ a {
   &:hover {
     color: map-get($colors, 'primary-link--hover');
   }
+}
+
+
+// -----------------------------------------------------------------------------
+// Widget
+// -----------------------------------------------------------------------------
+
+%widget__title {
+  border-bottom: 1px map-get($colors, 'primary-divider') solid;
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: normal;
+  margin: 0 0 1em;
+  padding: 0.2em;
+  text-transform: capitalize;
 }
 
 
@@ -155,6 +175,7 @@ a {
 %globalBorder {
   border-top: 1px map-get($colors, 'primary-divider') solid;
 }
+
 
 // -----------------------------------------------------------------------------
 // Site Header
@@ -173,6 +194,7 @@ a {
 .siteTitle {
   @include fs('small', 'globalSiteTitle');
   background: map-get($colors, 'globalSiteTitle-bg');
+  font-family: sans-serif;
   font-weight: normal;
   line-height: 1;
   margin: 0;
@@ -180,12 +202,14 @@ a {
 
   > a {
     color: map-get($colors, 'globalSiteTitle-text');
+    letter-spacing: 0.1em;
 
     // Home icon
     &::before {
       content: '\2302';
       float: left;
-      font-size: 1.1em;
+      font-size: 1.5em;
+      line-height: 0.6em;
       margin-right: 0.4em;
     }
   }
@@ -211,7 +235,7 @@ a {
   transition: opacity 1s ease-out;
 
   @include mq('small') { padding: 2rem 0 0; }
-  @include mq('middle') { padding: 3rem 0 1rem; }
+  @include mq('middle') { padding: 3rem 0.5rem 1rem; }
 
   &:hover {
     opacity: 1;
@@ -242,7 +266,6 @@ a {
 .globalContent > main {
   @include mq('middle') {
     flex: 1 auto;
-    order: 2;
   }
 }
 
@@ -267,6 +290,10 @@ a {
 
 .globalNav__widget {
   margin-bottom: 3rem;
+
+  > header > h2 {
+    @extend %widget__title;
+  }
 }
 
 .globalNav__postlist {
@@ -293,10 +320,17 @@ a {
 // -----------------------------------------------------------------------------
 
 .article {
-  margin-top: 3rem;
+  margin: 3rem auto;
   max-width: 40em;
 
-  &:first-child { margin-top: 0; }
+  &:first-child {
+    margin-top: 0;
+
+    &::before {
+      @extend %widget__title;
+      content: 'Latest Post';
+    }
+  }
 }
 
 
@@ -308,8 +342,9 @@ a {
   border: 1px map-get($colors, 'primary-divider') solid;
   color: inherit;
   display: inline-block;
+  font-family: monospace;
   letter-spacing: 0.1em;
-  padding: 0 0.5em;
+  padding: 0.2em 0.5em;
   text-transform: uppercase;
 
   &:hover {
@@ -327,7 +362,7 @@ a {
 
   > h2 {
     @include fs('small', 'h2');
-    line-height: 1.15;
+    line-height: 1.24;
     margin: 0;
   }
 
@@ -414,7 +449,7 @@ a {
 // -----------------------------------------------------------------------------
 
 .articleTile {
-  margin: 0 0 2em;
+  margin: 0.5em 0 2em;
   max-width: 40em;
 
   > h2 {
@@ -428,7 +463,10 @@ a {
 // -----------------------------------------------------------------------------
 
 .bio {
-  background: map-get($colors, 'tertiary-bg');
+  background-color: map-get($colors, 'tertiary-bg');
+  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-flow: column;
   overflow: hidden;

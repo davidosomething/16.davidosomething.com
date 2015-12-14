@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>davidosomething.com</title>
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Hind:400,700">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic">
 <link rel="stylesheet" href="/assets/css/global.css">
 
 <script src="/assets/js/dist/global.js" async></script>
