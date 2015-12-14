@@ -20,7 +20,10 @@
 <div class="globalBody">
   <header class="globalHeader">
     <section class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
-      <h2 class="bio__author" itemprop="n">David O'Trakoun &lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</h2>
+      <h2 class="bio__author">
+        <span class="bio__author__name" itemprop="fn">David O'Trakoun</span>
+        <span class="bio__author__email">&lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</span>
+      </h2>
       <div class="bio__avatar">
         <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
       </div>
@@ -37,7 +40,7 @@
       <header class="pageHeader">
         <h2 class="pageHeader__title">Latest Posts</h2>
       </header>
-      <article class="article article--excerpt">
+      <article class="article article--excerpt" itemscope itemtype="http://schema.org/Article">
 
         <header class="article__header">
           <section class="article__meta">

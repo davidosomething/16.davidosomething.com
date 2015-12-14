@@ -64,8 +64,10 @@ $fontweight__heading: 900;
 $fontsizes: (
   default: (
     globalSiteTitle: 0.6rem,
+    bio__author:     1rem,
     nav:             0.5rem,
     footer:          0.8rem,
+    article__meta:   0.8em,
     article__body:   0.94em,
   ),
   small: (
@@ -73,11 +75,13 @@ $fontsizes: (
     h2: 1.8em,
     h3: 1.6em,
     h4: 1.4em,
-    article__meta: 0.8em,
     article__body: 1em,
   ),
   medium: (
     article__tags: 0.66em,
+  ),
+  middle: (
+    bio__author: 1.5rem,
   ),
   large: (
     body: 1.1em,
@@ -486,7 +490,7 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .bio {
-  background-color: rgba(40,30,20,0.5);
+  background-color: rgba(20,30,40,0.5);
   color: map-get($colors, 'primary-bg');
   display: flex;
   flex-flow: column;
@@ -506,7 +510,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bio__author {
-  font-size: 1em;
+  @include fs('bio__author');
   line-height: 1;
   margin: 0;
   order: 1;
@@ -515,14 +519,10 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     margin: 1.2rem 0 0;
   }
+}
 
-  @include mq('middle') {
-    font-size: 1.5rem;
-  }
-
-  > a {
-    font-weight: normal;
-  }
+.bio__author__email {
+  font-weight: normal;
 }
 
 .bio__avatar {
