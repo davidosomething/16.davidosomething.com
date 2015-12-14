@@ -14,26 +14,28 @@
 <body class="home">
 
 <header class="siteHeader">
-  <h1 class="siteTitle"><a href="/">davidosomething.com</a></h1>
+  <h1 class="siteHeader__title"><a href="/">davidosomething.com</a></h1>
 </header>
 
 <div class="globalBody">
-  <header class="globalHeader bio" itemscope itemtype="http://microformats.org/profile/hcard">
-    <h2 class="bio__author" itemprop="n">David O'Trakoun &lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</h2>
-    <div class="bio__avatar">
-      <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
-    </div>
-    <ul class="bio__links">
-      <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
-      <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
-      <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
-    </ul>
+  <header class="globalHeader">
+    <section class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
+      <h2 class="bio__author" itemprop="n">David O'Trakoun &lt;<a href="mailto:me@davidosomething.com" rel="author" itemprop="email">me@davidosomething.com</a>&gt;</h2>
+      <div class="bio__avatar">
+        <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
+      </div>
+      <ul class="bio__links">
+        <li><a href="https://github.com/davidosomething" itemprop="url">GitHub</a></li>
+        <li><a href="https://twitter.com/davidosomething" itemprop="url">Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/davidosomething/" itemprop="url">LinkedIn</a></li>
+      </ul>
+    </section>
   </header>
 
   <div class="globalContent">
     <main class="globalDiv">
-      <header>
-        <h2>Latest Posts</h2>
+      <header class="pageHeader">
+        <h2 class="pageHeader__title">Latest Posts</h2>
       </header>
       <article class="article article--excerpt">
 
@@ -270,11 +272,11 @@
     </main>
 
     <nav class="globalDiv globalNav">
-      <aside class="globalNav__widget widget--latestPosts">
-        <header>
-          <h2>Latest Posts</h2>
+      <aside class="widget widget--latestPosts">
+        <header class="widget__header">
+          <h2 class="widget__header__title">Latest Posts</h2>
         </header>
-        <ol class="globalNav__postlist">
+        <ol class="widget--latestPosts__postlist">
           <li>
             <article class="articleTile">
               <h2><a href="#">Another post title</a></h2>

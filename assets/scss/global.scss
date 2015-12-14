@@ -7,6 +7,25 @@
 ////
 
 // -----------------------------------------------------------------------------
+// Colors
+// -----------------------------------------------------------------------------
+
+$colors: (
+  primary-bg:          #fafaf4,
+  primary-text:        #3f3a30,
+  primary-link:        #48a,
+  primary-link--hover: #7ac,
+  primary-divider:     #cccccf,
+
+  tertiary-bg:         #e0f0ff,
+  tertiary-text:       #988,
+
+  globalSiteTitle-bg:   rgba(0,0,0,0.65),
+  globalSiteTitle-text: #fff,
+);
+
+
+// -----------------------------------------------------------------------------
 // Media Queries
 // -----------------------------------------------------------------------------
 //
@@ -25,31 +44,6 @@ $breakpoints: (
   @media (min-width: $breakpoint) { @content; }
 }
 
-// -----------------------------------------------------------------------------
-// Colors
-// -----------------------------------------------------------------------------
-
-$colors: (
-  primary-bg:          #fafaf4,
-  primary-text:        #3f3a30,
-  primary-link:        #48a,
-  primary-link--hover: #7ac,
-  primary-divider:     #cccccf,
-
-  tertiary-bg:         #e0f0ff,
-  tertiary-text:       #988,
-
-  globalSiteTitle-bg:   rgba(0,0,0,0.65),
-  globalSiteTitle-text: #fff,
-);
-
-// -----------------------------------------------------------------------------
-// Z-Indices
-// -----------------------------------------------------------------------------
-
-$z: (
-  siteHeader: 1,
-);
 
 // -----------------------------------------------------------------------------
 // Typography
@@ -57,45 +51,56 @@ $z: (
 
 $max-line-width: 46em;
 
-// Font
+// Font - Typeface
 $typeface__heading:        'Source Sans Pro';
 $typeface__body:           $typeface__heading;
 $typeface__body--fallback: sans-serif;
+
+// Font - Weights
 $fontweight__body:    300;
 $fontweight__heading: 900;
 
-// Sizes
+// Font - Sizes
 $fontsizes: (
+  default: (
+    globalSiteTitle: 0.6rem,
+    nav:             0.5rem,
+    footer:          0.8rem,
+    article__body:   0.94em,
+  ),
   small: (
     h1: 2.4em,
     h2: 1.8em,
     h3: 1.6em,
     h4: 1.4em,
-
-    globalSiteTitle: 0.6em,
     article__meta: 0.8em,
-    article__body: 0.9em,
+    article__body: 1em,
   ),
   medium: (
     article__tags: 0.66em,
-    article__body: 1em,
   ),
   large: (
     body: 1.1em,
   ),
-  nav: (
-    default: 0.5rem,
-  ),
-  footer: (
-    default: 0.8rem,
-  ),
 );
 
-@mixin fs($breakpoint, $size) {
+@mixin bpfs($breakpoint, $size) {
   $fontsizes-for-breakpoint: map-get($fontsizes, $breakpoint);
-  $fontsize: map-get($fontsizes-for-breakpoint, $size);
-  font-size: $fontsize;
+  @if $fontsizes-for-breakpoint {
+    $fontsize: map-get($fontsizes-for-breakpoint, $size);
+    font-size: $fontsize;
+  }
 }
+
+@mixin fs($el) {
+  @include bpfs('default', $el);
+  @include mq('small') { @include bpfs('small', $el); }
+  @include mq('medium') { @include bpfs('medium', $el); }
+  @include mq('middle') { @include bpfs('middle', $el); }
+  @include mq('large') { @include bpfs('large', $el); }
+  @include mq('xlarge') { @include bpfs('xlarge', $el); }
+}
+
 
 // -----------------------------------------------------------------------------
 // Icon before element
@@ -130,18 +135,24 @@ $fontsizes: (
 
 
 // -----------------------------------------------------------------------------
+// Z-Indices
+// -----------------------------------------------------------------------------
+
+$z: (
+  siteHeader: 1,
+);
+
+
+// -----------------------------------------------------------------------------
 // Base styles
 // -----------------------------------------------------------------------------
 
 body {
+  @include fs('body');
   background: map-get($colors, 'primary-bg');
   color: map-get($colors, 'primary-text');
   font-family: $typeface__body, $typeface__body--fallback;
   font-weight: $fontweight__body;
-
-  @include mq('large') {
-    @include fs('large', 'body');
-  }
 }
 
 a {
@@ -155,6 +166,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $fontweight__heading;
+  line-height: 1.24;
 }
 
 
@@ -202,8 +214,8 @@ h1, h2, h3, h4, h5, h6 {
   z-index: map-get($z, 'siteHeader');
 }
 
-.siteTitle {
-  @include fs('small', 'globalSiteTitle');
+.siteHeader__title {
+  @include fs('globalSiteTitle');
   background: map-get($colors, 'globalSiteTitle-bg');
   font-weight: normal;
   line-height: 1;
@@ -231,6 +243,11 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .globalHeader {
+  background-color: map-get($colors, 'primary-text');
+  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 20rem 0 1rem; // room for fixed position siteHeader
 
   @include mq('small') { padding: 20rem 0 1rem; }
@@ -243,35 +260,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .globalContent {
   clear: both;
-
-  @include mq('middle') {
-    align-items: baseline;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-around;
-  }
 }
 
-.globalContent > header {
-  @include mq('middle') {
-    flex: 1 100%;
-  }
+
+// -----------------------------------------------------------------------------
+// Global Main
+// -----------------------------------------------------------------------------
+
+.pageHeader {
+  margin: 0 auto;
+  max-width: $max-line-width;
 }
 
-.globalContent > main {
-  @include mq('middle') {
-    flex: 1 auto;
-  }
-
-  > header {
-    margin: 0 auto;
-    max-width: $max-line-width;
-
-    > h2 {
-      @include fs('small', 'h1');
-      font-weight: 900;
-    }
-  }
+.pageHeader__title {
+  @include fs('h1');
+  font-weight: 900;
 }
 
 
@@ -280,28 +283,23 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .globalNav {
-  @extend %globalBorder;
-  @include fs('nav', 'default');
+}
+
+.widget {
+  margin: 0 auto 3rem;
+  max-width: $max-line-width;
   opacity: 0.25;
   transition: opacity 0.2s;
 
-  @include mq('middle') {
-    border-top: 0;
-    flex: 1 auto;
-  }
-
   &:hover { opacity: 1; }
-}
 
-.globalNav__widget {
-  margin-bottom: 3rem;
-
-  > header > h2 {
+  > .widget__header > .widget__header__title {
     @extend %widget__title;
   }
 }
 
-.globalNav__postlist {
+.widget--latestPosts__postlist {
+  @include fs('nav');
   list-style: none;
   margin: 0;
   padding: 0;
@@ -314,9 +312,32 @@ h1, h2, h3, h4, h5, h6 {
 
 .globalFooter {
   @extend %globalBorder;
-  @include fs('footer', 'default');
+  @include fs('footer');
   clear: both;
   padding: 1em 0;
+}
+
+
+// -----------------------------------------------------------------------------
+// Layout: nav as sidebar
+// -----------------------------------------------------------------------------
+
+@include mq('large') {
+  .globalContent {
+    align-items: baseline;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
+
+  main {
+    flex: 1 auto;
+  }
+
+  .globalNav {
+    border-top: 0;
+    flex: 1 auto;
+  }
 }
 
 
@@ -325,7 +346,7 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .article {
-  margin: 3rem auto;
+  margin: 3rem auto 6em;
   max-width: 40em;
 
   &:first-child {
@@ -360,22 +381,20 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 
   > .article__title {
-    @include fs('small', 'h2');
+    @include fs('h2');
     font-weight: 900;
-    line-height: 1.24;
     margin: 0;
   }
 
   > .article__subtitle {
-    @include fs('small', 'h4');
+    @include fs('h4');
     color: map-get($colors, 'primary-divider');
     font-weight: 900;
-    line-height: 1.24;
-    margin: 0.5em 0 1em;
+    margin: 0 0 1em;
   }
 
   > .article__meta {
-    @include fs('small', 'article__meta');
+    @include fs('article__meta');
     align-items: center;
     color: map-get($colors, 'tertiary-text');
     display: flex;
@@ -388,10 +407,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .article__tags {
+      @include fs('article__tags');
       display: none;
 
       @include mq('medium') {
-        @include fs('medium', 'article__tags');
         display: inline-block;
         list-style: none;
         vertical-align: middle;
@@ -412,13 +431,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .article__body {
-  @include fs('small', 'article__body');
+  @include fs('article__body');
   line-height: 1.5;
-  margin: 0 1em;
-
-  @include mq('medium') {
-    @include fs('medium', 'article__body');
-  }
+  margin: 0 0 0 1em;
 
   p:first-child {
     text-indent: 2ex;
@@ -471,15 +486,12 @@ h1, h2, h3, h4, h5, h6 {
 // -----------------------------------------------------------------------------
 
 .bio {
-  background-color: map-get($colors, 'primary-text');
-  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(40,30,20,0.5);
   color: map-get($colors, 'primary-bg');
   display: flex;
   flex-flow: column;
   overflow: hidden;
+  padding: 1rem 0;
   text-align: center;
   text-shadow: 0 2px 2px map-get($colors, 'primary-text');
 
