@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>davidosomething.com</title>
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,700,700italic,900">
 <link rel="stylesheet" href="/assets/css/global.css">
 
 <script src="/assets/js/dist/global.js" async></script>
@@ -32,12 +32,12 @@
 
   <div class="globalContent">
     <main class="globalDiv">
+      <header>
+        <h2>Latest Posts</h2>
+      </header>
       <article class="article article--excerpt">
 
         <header class="article__header">
-          
-          <h2><a class="article__header__permalink" href="#" rel="bookmark">First very long Article title goes here in the extremely lengthy words</a></h2>
-
           <section class="article__meta">
             <time datetime="2015-05-16 19:00">November 12, 2015</time>
             <ul class="article__tags">
@@ -48,6 +48,10 @@
               <li><a href="#" class="article__tag">javascript</a></li>
             </ul>
           </section>
+
+          <h3 class="article__title"><a class="article__header__permalink" href="#" rel="bookmark">First very long Article title goes here in the extremely lengthy words</a></h3>
+
+          <h4 class="article__subtitle">First very long Article title goes here in the extremely lengthy words</h4>
         </header>
 
         <section class="article__body">
@@ -62,6 +66,8 @@
           rhoncus repellendus provident minima reprehenderit dicta, officia ab per
           tortor.
           </p>
+
+          <h2>First level article section header</h2>
 
           <ol>
             <li>Ordered list item one</li>
@@ -86,6 +92,8 @@
             </li>
             <li>Ordered list item 2</li>
           </ol>
+
+          <h3>Article section header level 2</h3>
 
           <ul>
             <li>Nested list item 1</li>
@@ -134,7 +142,7 @@
       <article class="article article--excerpt">
 
         <header class="article__header">
-          <h2>Article title goes here</h2>
+          <h3 class="article__title">Article title goes here</h3>
 
           <section class="article__meta">
             <time datetime="2015-05-16 19:00">November 12, 2015</time>
@@ -198,7 +206,7 @@
       <article class="article article--excerpt">
 
         <header class="article__header">
-          <h2>Article title goes here</h2>
+          <h3 class="article__title">Article title goes here</h3>
 
           <section class="article__meta">
             <time datetime="2015-05-16 19:00">November 12, 2015</time>

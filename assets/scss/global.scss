@@ -33,13 +33,11 @@ $colors: (
   primary-bg:          #fafaf4,
   primary-text:        #3f3a30,
   primary-link:        #48a,
-  primary-link--hover: #9ce,
+  primary-link--hover: #7ac,
   primary-divider:     #cccccf,
 
   tertiary-bg:         #e0f0ff,
   tertiary-text:       #988,
-
-  header-text:         #abc,
 
   globalSiteTitle-bg:   rgba(0,0,0,0.75),
   globalSiteTitle-text: #fff,
@@ -57,15 +55,22 @@ $z: (
 // Typography
 // -----------------------------------------------------------------------------
 
+$max-line-width: 46em;
+
 // Font
-$typeface-heading: 'Merriweather';
-$typeface-body:    $typeface-heading;
-$typeface-body--fallback: sans-serif;
+$typeface__heading:        'Source Sans Pro';
+$typeface__body:           $typeface__heading;
+$typeface__body--fallback: sans-serif;
+$fontweight__body:    300;
+$fontweight__heading: 900;
 
 // Sizes
 $fontsizes: (
   small: (
-    h2: 1.4em,
+    h1: 2.4em,
+    h2: 1.8em,
+    h3: 1.6em,
+    h4: 1.4em,
 
     globalSiteTitle: 0.6em,
     article__meta: 0.8em,
@@ -111,9 +116,10 @@ $fontsizes: (
   @include icon-before;
 
   &::before {
-    @include fs('small', 'h2');
     content: '\1F517';
+    font-size: 1em;
     left: -1.2em;
+    line-height: 1.2;
     opacity: 0.1;
   }
 
@@ -130,7 +136,8 @@ $fontsizes: (
 body {
   background: map-get($colors, 'primary-bg');
   color: map-get($colors, 'primary-text');
-  font-family: $typeface-body, $typeface-body--fallback;
+  font-family: $typeface__body, $typeface__body--fallback;
+  font-weight: $fontweight__body;
 
   @include mq('large') {
     @include fs('large', 'body');
@@ -144,6 +151,10 @@ a {
   &:hover {
     color: map-get($colors, 'primary-link--hover');
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $fontweight__heading;
 }
 
 
@@ -220,26 +231,11 @@ a {
 // Global Header
 // -----------------------------------------------------------------------------
 
-@keyframes fadeGlobalHeader {
-  0% { opacity: 1; }
-  100% { opacity: 0.25; }
-}
-
 .globalHeader {
-  animation-duration: 10s;
-  animation-iteration-count: 1;
-  animation-name: fadeGlobalHeader;
-  animation-timing-function: ease-in;
-  opacity: 0.25;
-  padding: 2rem 0 1rem; // room for fixed position siteHeader
-  transition: opacity 1s ease-out;
+  padding: 20rem 0 1rem; // room for fixed position siteHeader
 
-  @include mq('small') { padding: 2rem 0 0; }
-  @include mq('middle') { padding: 3rem 0.5rem 1rem; }
-
-  &:hover {
-    opacity: 1;
-  }
+  @include mq('small') { padding: 20rem 0 0; }
+  @include mq('middle') { padding: 30rem 0.5rem 1rem; }
 }
 
 // -----------------------------------------------------------------------------
@@ -266,6 +262,16 @@ a {
 .globalContent > main {
   @include mq('middle') {
     flex: 1 auto;
+  }
+
+  > header {
+    margin: 0 auto;
+    max-width: $max-line-width;
+
+    > h2 {
+      @include fs('small', 'h1');
+      font-weight: 900;
+    }
   }
 }
 
@@ -325,11 +331,6 @@ a {
 
   &:first-child {
     margin-top: 0;
-
-    &::before {
-      @extend %widget__title;
-      content: 'Latest Post';
-    }
   }
 }
 
@@ -360,10 +361,19 @@ a {
 .article__header {
   position: relative;
 
-  > h2 {
+  > .article__title {
     @include fs('small', 'h2');
+    font-weight: 900;
     line-height: 1.24;
     margin: 0;
+  }
+
+  > .article__subtitle {
+    @include fs('small', 'h4');
+    color: map-get($colors, 'primary-divider');
+    font-weight: 900;
+    line-height: 1.24;
+    margin: 0.5em 0 1em;
   }
 
   > .article__meta {
@@ -376,7 +386,6 @@ a {
     time {
       border: 1px transparent solid;
       display: inline-block;
-      margin: 0.66em 0;
       white-space: nowrap;
     }
 
@@ -407,6 +416,7 @@ a {
 .article__body {
   @include fs('small', 'article__body');
   line-height: 1.5;
+  margin: 0 1em;
 
   @include mq('medium') {
     @include fs('medium', 'article__body');
@@ -450,7 +460,7 @@ a {
 
 .articleTile {
   margin: 0.5em 0 2em;
-  max-width: 40em;
+  max-width: $max-line-width;
 
   > h2 {
     margin: 0;
@@ -463,18 +473,25 @@ a {
 // -----------------------------------------------------------------------------
 
 .bio {
-  background-color: map-get($colors, 'tertiary-bg');
+  background-color: map-get($colors, 'primary-text');
   background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  color: map-get($colors, 'primary-bg');
   display: flex;
   flex-flow: column;
   overflow: hidden;
   text-align: center;
+  text-shadow: 0 2px 2px map-get($colors, 'primary-text');
 
   @include mq('small') {
     display: block;
     text-align: left;
+  }
+
+  a {
+    color: map-get($colors, 'primary-bg');
   }
 }
 
@@ -512,7 +529,5 @@ a {
     display: inline-block;
   }
 }
-
-
 
 
