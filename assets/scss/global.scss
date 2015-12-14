@@ -39,7 +39,7 @@ $colors: (
   tertiary-bg:         #e0f0ff,
   tertiary-text:       #988,
 
-  globalSiteTitle-bg:   rgba(0,0,0,0.75),
+  globalSiteTitle-bg:   rgba(0,0,0,0.65),
   globalSiteTitle-text: #fff,
 );
 
@@ -205,7 +205,6 @@ h1, h2, h3, h4, h5, h6 {
 .siteTitle {
   @include fs('small', 'globalSiteTitle');
   background: map-get($colors, 'globalSiteTitle-bg');
-  font-family: sans-serif;
   font-weight: normal;
   line-height: 1;
   margin: 0;
@@ -234,7 +233,7 @@ h1, h2, h3, h4, h5, h6 {
 .globalHeader {
   padding: 20rem 0 1rem; // room for fixed position siteHeader
 
-  @include mq('small') { padding: 20rem 0 0; }
+  @include mq('small') { padding: 20rem 0 1rem; }
   @include mq('middle') { padding: 30rem 0.5rem 1rem; }
 }
 
@@ -343,7 +342,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px map-get($colors, 'primary-divider') solid;
   color: inherit;
   display: inline-block;
-  font-family: monospace;
   letter-spacing: 0.1em;
   padding: 0.2em 0.5em;
   text-transform: uppercase;
@@ -516,8 +514,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bio__avatar {
-  float: left;
+  margin: 0 1em;
   order: 0;
+
+  @include mq('small') {
+    float: left;
+  }
+
+  img {
+    background: rgba(255,255,255,0.75);
+    border-radius: 3em;
+    display: inline-block;
+  }
 }
 
 .bio__links {
