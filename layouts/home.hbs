@@ -1,44 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>davidosomething.com</title>
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,700,700italic,900">
-<link rel="stylesheet" href="/assets/css/global.css">
-
-<script src="/assets/js/dist/global.js" async></script>
-</head>
+{{> header }}
 <body class="home">
 
-<header class="siteHeader">
-  <h1 class="siteHeader__title"><a href="/">davidosomething.com</a></h1>
-</header>
+	{{> siteHeader }}
 
 <div class="globalBody">
-  <header class="globalHeader">
-    <section class="bio" itemscope itemtype="http://microformats.org/profile/hcard">
-      <h2 class="bio__author">
-        <span class="bio__author__name" itemprop="fn">David O'Trakoun</span>
-      </h2>
-      <div class="bio__avatar">
-        <img alt="Avatar" src="https://secure.gravatar.com/avatar/059a1d904137522399604e0d6a83a10c" itemprop="photo">
-      </div>
-      <ul class="bio__links">
-        <li><a href="https://github.com/davidosomething" class="icon-github" itemprop="url"><span>GitHub</span></a></li>
-        <li><a href="https://twitter.com/davidosomething" class="icon-twitter" itemprop="url"><span>Twitter</span></a></li>
-        <li><a href="https://www.linkedin.com/in/davidosomething/" class="icon-linkedin" itemprop="url"><span>LinkedIn</span></a></li>
-      </ul>
-    </section>
-  </header>
+  <header class="globalHeader">{{> bio }}</header>
 
   <div class="globalContent">
     <main class="globalDiv">
       <header class="pageHeader">
         <h2 class="pageHeader__title">Latest Posts</h2>
       </header>
+
       <article class="article article--excerpt" itemscope itemtype="http://schema.org/Article">
 
         <header class="article__header">
@@ -273,53 +246,12 @@
 
     </main>
 
-    <nav class="globalDiv globalNav">
-      <aside class="widget widget--latestPosts">
-        <header class="widget__header">
-          <h2 class="widget__header__title">Latest Posts</h2>
-        </header>
-        <ol class="widget--latestPosts__postlist">
-          <li>
-            <article class="articleTile">
-              <h2><a href="#">Another post title</a></h2>
-              <time itemprop="datePublished">Jan 10, 2015</time>
-            </article>
-          </li>
-
-          <li>
-            <article class="articleTile">
-              <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-              <time itemprop="datePublished">July 1, 2014</time>
-            </article>
-          </li>
-
-          <li>
-            <article class="articleTile">
-              <h2><a href="#">Another post title</a></h2>
-              <time itemprop="datePublished">Jan 10, 2015</time>
-            </article>
-          </li>
-
-          <li>
-            <article class="articleTile">
-              <h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-              <time itemprop="datePublished">July 1, 2014</time>
-            </article>
-          </li>
-        </ol>
-      </aside>
-    </nav>
+	{{> nav }}
 
   </div>
 
-  <footer class="globalDiv globalFooter">
-    <p class="copyright_notice">
-      Copyright &copy;2016 <a href="mailto:me@davidosomething.com" rel="author">David O'Trakoun</a>
-    </p>
-  </footer>
+	{{> siteFooter }}
 
 </div>
-
-<!-- wp_print_footer_scripts -->
 </body>
 </html>

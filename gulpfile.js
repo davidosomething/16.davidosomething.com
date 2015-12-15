@@ -121,7 +121,8 @@ gulp.task('generate', function () {
           .use(metalsmithPlugins.markdown())
           .use(metalsmithPlugins.layouts({
             engine:   'handlebars',
-            default:  'post.hbs',
+            partials: 'partials',
+            default:  'home.hbs',
           }))
     )
     .pipe(gulp.dest("./public"))
