@@ -58,6 +58,7 @@
     "gulpsmith": "^0.5.5",
     "handlebars": "^4.0.5",
     "harmonize": "^1.4.4",
+    "jspm": "^0.16.18",
     "lodash.assign": "^3.2.0",
     "merge-stream": "^1.0.0",
     "metalsmith": "^2.1.0",

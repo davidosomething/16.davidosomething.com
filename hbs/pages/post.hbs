@@ -5,19 +5,17 @@
 		<header class="globalHeader">{{> bio }}</header>
 		<div class="globalContent">
 			<main class="globalDiv">
-				<article class="article article--excerpt" itemscope itemtype="http://schema.org/Article">
+				<article class="article" itemscope itemtype="http://schema.org/Article">
 
 					<header class="article__header">
 						<section class="article__meta">
 							<time datetime="2015-05-16 19:00">November 12, 2015</time>
-							<ul class="article__tags">
-								{{#each tags}}<li><a href="#" class="article__tag">{{tag}}</a></li>{{/each}}
-							</ul>
+							{{> article__tags }}
 						</section>
 
-						<h3 class="article__title"><a class="article__header__permalink" href="#" rel="bookmark">{{{ title }}}</a></h3>
+						<h1 class="article__title"><a class="article__header__permalink" href="#" rel="bookmark">{{{ title }}}</a></h1>
 
-						<h4 class="article__subtitle">First very long Article title goes here in the extremely lengthy words</h4>
+						<h2 class="article__subtitle">First very long Article title goes here in the extremely lengthy words</h2>
 					</header>
 
 					<section class="article__body">
@@ -25,6 +23,7 @@
 					</section>
 
 					<footer class="article__footer">
+						{{> comments }}
 					</footer>
 
 				</article>
@@ -33,5 +32,6 @@
 		</div>
 		{{> siteFooter }}
 	</div>
+	{{> footer }}
 </body>
 </html>

@@ -139,7 +139,7 @@ gulp.task('html', function () {
           }
         }))
         .use(metalsmithPlugins.branch('posts/**')
-          .use(metalsmithPlugins.permalinks(':title'))
+          .use(metalsmithPlugins.permalinks('blog/:title'))
         )
         .use(metalsmithPlugins.branch('pages/**')
         )

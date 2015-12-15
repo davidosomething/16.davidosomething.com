@@ -1,0 +1,13 @@
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+	this.page.url = '{{ permalink }}';
+	this.page.identifier = '{{ slug }}';
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = '//davidosomething.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>

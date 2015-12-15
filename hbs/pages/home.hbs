@@ -10,15 +10,28 @@
 				</header>
 
 				{{#each collections.posts}}
-					<article>
-						<h1>{{{ title }}}</h1>
+					<article class="article article--excerpt" itemscope itemtype="http://schema.org/Article">
+						<header class="article__header">
+							<section class="article__meta">
+								<time datetime="2015-05-16 19:00">November 12, 2015</time>
+								{{> article__tags }}
+							</section>
+
+							<h1 class="article__title"><a class="article__header__permalink" href="#" rel="bookmark">{{{ title }}}</a></h1>
+
+							<h2 class="article__subtitle">First very long Article title goes here in the extremely lengthy words</h2>
+						</header>
+
+						<section class="article__body">
+							{{{ excerpt }}}
+						</section>
 					</article>
 				{{/each}}
-
 			</main>
 			{{> nav }}
 		</div>
 		{{> siteFooter }}
 	</div>
+	{{> footer }}
 </body>
 </html>
