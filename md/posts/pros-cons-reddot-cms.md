@@ -1,5 +1,5 @@
 ---
-title:      Pros &#038; Cons: RedDot CMS
+title:      Pros &#038; Cons of the RedDot CMS
 subheader:  
 date:       2010-02-03T19:29:10+00:00
 tags:

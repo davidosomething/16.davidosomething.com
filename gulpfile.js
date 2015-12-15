@@ -19,12 +19,13 @@ require('harmonize')(); // metalsmith uses ES6
 // Require: Gulp and node utils
 // -----------------------------------------------------------------------------
 
-var gulp       = require('gulp');
 var exec       = require('child_process').execSync;
+var assign     = require('lodash.assign');
+var gulp       = require('gulp');
+var gutil      = require('gulp-util');
+var concat     = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var merge      = require('merge-stream');
-var concat     = require('gulp-concat');
-var assign     = require('lodash.assign');
 var through    = require('through2');
 
 // -----------------------------------------------------------------------------
@@ -45,9 +46,11 @@ var cssnano      = require('cssnano');
 var gulpsmith   = require('gulpsmith');
 var frontmatter = require('gulp-front-matter');
 var metalsmithPlugins = {
-  markdown:   require('metalsmith-markdown'),
-  layouts:    require('metalsmith-layouts'),
-  permalinks: require('metalsmith-permalinks'),
+  branch:       require('metalsmith-branch'),
+  collections:  require('metalsmith-collections'),
+  markdown:     require('metalsmith-markdown'),
+  layouts:      require('metalsmith-layouts'),
+  permalinks:   require('metalsmith-permalinks'),
 };
 
 
@@ -78,7 +81,7 @@ gulp.task('css', function () {
   return merge(normalizeCss, globalSass)
     .pipe(concat('global.css'))
     .pipe(postcss([ cssnano ]))
-    .pipe(gulp.dest('./assets/css/'))
+    .pipe(gulp.dest('./public/assets/css/'))
     ;
 
 });
@@ -100,32 +103,54 @@ gulp.task('js', function () {
 
 
 // -----------------------------------------------------------------------------
-// Task: Generate
+// Task: Assets
 // -----------------------------------------------------------------------------
 
-gulp.task('generate', function () {
+gulp.task('assets', function () {
+  gulp.src('./assets/{fonts,img}/**')
+    .pipe(gulp.dest('./public/assets/'));
+});
 
-  var posts = gulp.src('./posts/md/podcasts-i-listen-to.md');
 
+// -----------------------------------------------------------------------------
+// Task: HTML
+// -----------------------------------------------------------------------------
+
+gulp.task('html', function () {
   var extendWithFrontmatter = function (file) {
     assign(file, file.frontMatter);
     delete file.frontMatter;
   };
 
-  var postData = posts.pipe(frontmatter()).on('data', extendWithFrontmatter);
+  var md = gulp.src('./md/**');
+  var data = md.pipe(frontmatter()).on('data', extendWithFrontmatter);
 
-  return postData
+  // Generate
+  data
     .pipe(
-        gulpsmith()
+      gulpsmith()
+        .use(metalsmithPlugins.markdown()) // files are html now
+        .use(metalsmithPlugins.collections({
+          pages: {
+            pattern: 'pages/**',
+          },
+          posts: {
+            pattern: 'posts/**',
+          }
+        }))
+        .use(metalsmithPlugins.branch('posts/**')
           .use(metalsmithPlugins.permalinks(':title'))
-          .use(metalsmithPlugins.markdown())
-          .use(metalsmithPlugins.layouts({
-            engine:   'handlebars',
-            partials: 'partials',
-            default:  'home.hbs',
-          }))
+        )
+        .use(metalsmithPlugins.branch('pages/**')
+        )
+        .use(metalsmithPlugins.layouts({
+          engine:    'handlebars',
+          directory: 'hbs/pages/',
+          partials:  'hbs/partials/',
+          default:   'post.hbs',
+        }))
     )
-    .pipe(gulp.dest("./public"))
+    .pipe(gulp.dest('./public'))
     ;
 
 });
@@ -144,7 +169,7 @@ gulp.task('watch', function () {
 
 gulp.task('default', function () {
 
-  gulp.start('css', 'watch');
+  gulp.start('js', 'css', 'assets', 'html', 'watch');
 
 });
 

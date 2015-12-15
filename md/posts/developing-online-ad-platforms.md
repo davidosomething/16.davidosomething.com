@@ -1,6 +1,6 @@
 ---
 title:      Developing Online Ad Platforms
-subheader:  tl;dr: Garbage in - garbage out. Ads aren’t developer friendly.
+subheader:  tl;dr garbage in - garbage out. Ads aren’t developer friendly.
 date:       2015-01-22T00:42:06+00:00
 tags:
   - ads

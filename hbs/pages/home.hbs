@@ -1,0 +1,24 @@
+{{> header }}
+<body class="home">
+	{{> siteHeader }}
+	<div class="globalBody">
+		<header class="globalHeader">{{> bio }}</header>
+		<div class="globalContent">
+			<main class="globalDiv">
+				<header class="pageHeader">
+					<h1 class="pageHeader__title">Latest Posts</h1>
+				</header>
+
+				{{#each collections.posts}}
+					<article>
+						<h1>{{{ title }}}</h1>
+					</article>
+				{{/each}}
+
+			</main>
+			{{> nav }}
+		</div>
+		{{> siteFooter }}
+	</div>
+</body>
+</html>

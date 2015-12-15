@@ -1,5 +1,5 @@
 ---
-title:      Rainmeter Skin: Nest
+title:      Rainmeter Skin - Nest
 subheader:  
 date:       2010-06-26T00:43:53+00:00
 tags:

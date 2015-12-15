@@ -1,5 +1,5 @@
 ---
-title:      Shuttle PC: Part 2
+title:      Shuttle PC - Part 2
 subheader:  
 date:       2010-10-28T15:08:45+00:00
 tags:

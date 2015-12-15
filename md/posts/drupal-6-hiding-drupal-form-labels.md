@@ -1,5 +1,5 @@
 ---
-title:      Drupal 6: Hiding Drupal Form Labels
+title:      Drupal 6 - Hiding Drupal Form Labels
 subheader:  
 date:       2010-02-16T14:46:10+00:00
 tags:
