@@ -129,6 +129,9 @@ var extendWithFrontmatter = function (fileData) {
   delete fileData.frontMatter;
 };
 
+
+// @TODO consider metalsmith-each to replace the following
+
 /**
  * formatPost
  *
@@ -205,6 +208,8 @@ gulp.task('html', function () {
         },
         posts: {
           pattern: 'posts/*',
+          sortBy: 'date',
+          reverse: true
         }
       }))
 

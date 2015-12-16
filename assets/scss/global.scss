@@ -395,6 +395,10 @@ h1, h2, h3, h4, h5, h6 {
 // Article Parts
 // -----------------------------------------------------------------------------
 
+.article__tags {
+  text-align: right;
+}
+
 .article__tags .article__tag {
   border: 1px map-get($colors, 'primary-divider') solid;
   color: inherit;
