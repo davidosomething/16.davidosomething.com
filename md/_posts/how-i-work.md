@@ -21,7 +21,7 @@ tags:
   - web
 hero:       
 slug:       how-i-work
-permalink:  http://davidosomething.com/blog/how-i-work/
+
 ---
 
 

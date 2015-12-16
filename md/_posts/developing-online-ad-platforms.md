@@ -6,7 +6,7 @@ tags:
   - ads
 hero:       
 slug:       developing-online-ad-platforms
-permalink:  http://davidosomething.com/blog/developing-online-ad-platforms/
+
 ---
 
 

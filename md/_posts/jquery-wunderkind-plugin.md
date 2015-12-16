@@ -9,7 +9,7 @@ tags:
   - plugin
 hero:       
 slug:       jquery-wunderkind-plugin
-permalink:  http://davidosomething.com/blog/jquery-wunderkind-plugin/
+
 ---
 
 

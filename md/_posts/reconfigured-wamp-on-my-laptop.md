@@ -10,7 +10,7 @@ tags:
   - php
 hero:       
 slug:       reconfigured-wamp-on-my-laptop
-permalink:  http://davidosomething.com/blog/reconfigured-wamp-on-my-laptop/
+
 ---
 
 

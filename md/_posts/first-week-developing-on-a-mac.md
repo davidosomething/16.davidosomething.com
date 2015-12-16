@@ -4,7 +4,7 @@ subheader:
 date:       2011-06-20T19:59:45+00:00
 hero:       
 slug:       first-week-developing-on-a-mac
-permalink:  http://davidosomething.com/blog/first-week-developing-on-a-mac/
+
 ---
 
 

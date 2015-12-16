@@ -8,7 +8,7 @@ tags:
   - php
 hero:       
 slug:       drupal-creating-an-e-mail-subscription-block
-permalink:  http://davidosomething.com/blog/drupal-creating-an-e-mail-subscription-block/
+
 ---
 
 

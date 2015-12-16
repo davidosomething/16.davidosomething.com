@@ -7,7 +7,7 @@ tags:
   - sql
 hero:       
 slug:       building-a-rating-system-in-coldfusion-and-sql-server
-permalink:  http://davidosomething.com/blog/building-a-rating-system-in-coldfusion-and-sql-server/
+
 ---
 
 

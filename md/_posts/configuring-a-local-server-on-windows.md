@@ -9,7 +9,7 @@ tags:
   - windows
 hero:       
 slug:       configuring-a-local-server-on-windows
-permalink:  http://davidosomething.com/blog/configuring-a-local-server-on-windows/
+
 ---
 
 

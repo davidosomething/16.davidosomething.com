@@ -8,7 +8,7 @@ tags:
   - ui
 hero:       
 slug:       time-input-interfaces
-permalink:  http://davidosomething.com/blog/time-input-interfaces/
+
 ---
 
 

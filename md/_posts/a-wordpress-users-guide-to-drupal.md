@@ -10,7 +10,7 @@ tags:
   - wordpress
 hero:       
 slug:       a-wordpress-users-guide-to-drupal
-permalink:  http://davidosomething.com/blog/a-wordpress-users-guide-to-drupal/
+
 ---
 
 

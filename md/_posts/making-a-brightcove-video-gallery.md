@@ -9,7 +9,7 @@ tags:
   - jquery
 hero:       
 slug:       making-a-brightcove-video-gallery
-permalink:  http://davidosomething.com/blog/making-a-brightcove-video-gallery/
+
 ---
 
 

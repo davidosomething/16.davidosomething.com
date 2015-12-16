@@ -4,7 +4,7 @@ subheader:
 date:       2013-01-09T00:03:12+00:00
 hero:       
 slug:       things-i-learned-and-did-in-2012
-permalink:  http://davidosomething.com/blog/things-i-learned-and-did-in-2012/
+
 ---
 
 

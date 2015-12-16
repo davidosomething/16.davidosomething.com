@@ -8,7 +8,7 @@ tags:
   - Scooter
 hero:       
 slug:       honda-metropolitan-in-boston
-permalink:  http://davidosomething.com/blog/honda-metropolitan-in-boston/
+
 ---
 
 

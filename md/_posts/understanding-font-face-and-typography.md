@@ -7,7 +7,7 @@ tags:
   - typography
 hero:       
 slug:       understanding-font-face-and-typography
-permalink:  http://davidosomething.com/blog/understanding-font-face-and-typography/
+
 ---
 
 

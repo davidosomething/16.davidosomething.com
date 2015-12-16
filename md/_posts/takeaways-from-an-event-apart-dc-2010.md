@@ -4,7 +4,7 @@ subheader:
 date:       2010-09-20T11:02:26+00:00
 hero:       
 slug:       takeaways-from-an-event-apart-dc-2010
-permalink:  http://davidosomething.com/blog/takeaways-from-an-event-apart-dc-2010/
+
 ---
 
 

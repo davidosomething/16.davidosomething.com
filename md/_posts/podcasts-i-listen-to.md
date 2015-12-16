@@ -8,7 +8,7 @@ tags:
   - web
 hero:       
 slug:       podcasts-i-listen-to
-permalink:  http://davidosomething.com/blog/podcasts-i-listen-to/
+
 ---
 
 

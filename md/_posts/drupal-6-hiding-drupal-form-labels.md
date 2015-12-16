@@ -8,7 +8,7 @@ tags:
   - php
 hero:       
 slug:       drupal-6-hiding-drupal-form-labels
-permalink:  http://davidosomething.com/blog/drupal-6-hiding-drupal-form-labels/
+
 ---
 
 

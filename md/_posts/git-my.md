@@ -9,7 +9,7 @@ tags:
   - script
 hero:       
 slug:       git-my
-permalink:  http://davidosomething.com/blog/git-my/
+
 ---
 
 

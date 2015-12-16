@@ -7,7 +7,7 @@ tags:
   - boston
 hero:       
 slug:       apartment-hunting-in-boston
-permalink:  http://davidosomething.com/blog/apartment-hunting-in-boston/
+
 ---
 
 

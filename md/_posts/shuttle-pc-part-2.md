@@ -7,7 +7,7 @@ tags:
   - Shuttle
 hero:       
 slug:       shuttle-pc-part-2
-permalink:  http://davidosomething.com/blog/shuttle-pc-part-2/
+
 ---
 
 

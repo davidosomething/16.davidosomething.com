@@ -4,7 +4,7 @@ subheader:
 date:       2011-08-30T12:29:56+00:00
 hero:       
 slug:       fix-cf-serializejson-number-conversion
-permalink:  http://davidosomething.com/blog/fix-cf-serializejson-number-conversion/
+
 ---
 
 

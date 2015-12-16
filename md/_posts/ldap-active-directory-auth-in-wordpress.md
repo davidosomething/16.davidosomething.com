@@ -8,7 +8,7 @@ tags:
   - wordpress
 hero:       
 slug:       ldap-active-directory-auth-in-wordpress
-permalink:  http://davidosomething.com/blog/ldap-active-directory-auth-in-wordpress/
+
 ---
 
 

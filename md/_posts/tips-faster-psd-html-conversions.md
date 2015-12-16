@@ -7,7 +7,7 @@ tags:
   - photoshop
 hero:       
 slug:       tips-faster-psd-html-conversions
-permalink:  http://davidosomething.com/blog/tips-faster-psd-html-conversions/
+
 ---
 
 

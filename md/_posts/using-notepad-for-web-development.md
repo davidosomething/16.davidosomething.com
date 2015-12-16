@@ -7,7 +7,7 @@ tags:
   - windows
 hero:       
 slug:       using-notepad-for-web-development
-permalink:  http://davidosomething.com/blog/using-notepad-for-web-development/
+
 ---
 
 

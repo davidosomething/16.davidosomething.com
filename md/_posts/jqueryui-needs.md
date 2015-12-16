@@ -8,7 +8,7 @@ tags:
   - jquery
 hero:       
 slug:       jqueryui-needs
-permalink:  http://davidosomething.com/blog/jqueryui-needs/
+
 ---
 
 

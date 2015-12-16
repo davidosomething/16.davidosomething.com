@@ -10,7 +10,7 @@ tags:
   - programming
 hero:       
 slug:       jqrpg-an-old-school-style-rpg-in-jquery
-permalink:  http://davidosomething.com/blog/jqrpg-an-old-school-style-rpg-in-jquery/
+
 ---
 
 

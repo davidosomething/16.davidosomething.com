@@ -7,7 +7,7 @@ tags:
   - outlook
 hero:       
 slug:       turn-off-annoying-auto-corrections-in-outlook-2011
-permalink:  http://davidosomething.com/blog/turn-off-annoying-auto-corrections-in-outlook-2011/
+
 ---
 
 

@@ -7,7 +7,7 @@ tags:
   - reddot
 hero:       
 slug:       pros-cons-reddot-cms
-permalink:  http://davidosomething.com/blog/pros-cons-reddot-cms/
+
 ---
 
 

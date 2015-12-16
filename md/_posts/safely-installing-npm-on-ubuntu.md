@@ -8,7 +8,7 @@ tags:
   - Ubuntu
 hero:       
 slug:       safely-installing-npm-on-ubuntu
-permalink:  http://davidosomething.com/blog/safely-installing-npm-on-ubuntu/
+
 ---
 
 

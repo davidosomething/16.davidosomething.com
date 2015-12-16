@@ -12,7 +12,7 @@ tags:
   - tracking
 hero:       
 slug:       google-analytics-iframes-and-multiple-domain-setups
-permalink:  http://davidosomething.com/blog/google-analytics-iframes-and-multiple-domain-setups/
+
 ---
 
 

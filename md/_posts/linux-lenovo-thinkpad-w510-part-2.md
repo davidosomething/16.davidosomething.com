@@ -14,7 +14,7 @@ tags:
   - w510
 hero:       
 slug:       linux-lenovo-thinkpad-w510-part-2
-permalink:  http://davidosomething.com/blog/linux-lenovo-thinkpad-w510-part-2/
+
 ---
 
 

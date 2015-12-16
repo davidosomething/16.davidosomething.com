@@ -6,7 +6,7 @@ tags:
   - insurance
 hero:       
 slug:       my-experience-with-masterrental-insurance
-permalink:  http://davidosomething.com/blog/my-experience-with-masterrental-insurance/
+
 ---
 
 

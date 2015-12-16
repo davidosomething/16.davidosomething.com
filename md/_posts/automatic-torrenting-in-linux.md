@@ -12,7 +12,7 @@ tags:
   - torrent
 hero:       
 slug:       automatic-torrenting-in-linux
-permalink:  http://davidosomething.com/blog/automatic-torrenting-in-linux/
+
 ---
 
 

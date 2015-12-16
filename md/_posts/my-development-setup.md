@@ -23,7 +23,7 @@ tags:
   - virtualbox
 hero:       
 slug:       my-development-setup
-permalink:  http://davidosomething.com/blog/my-development-setup/
+
 ---
 
 

@@ -15,7 +15,7 @@ tags:
   - testing
 hero:       
 slug:       grunt-wendy-casperjs
-permalink:  http://davidosomething.com/blog/grunt-wendy-casperjs/
+
 ---
 
 

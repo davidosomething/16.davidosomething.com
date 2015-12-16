@@ -7,7 +7,7 @@ tags:
   - windows
 hero:       
 slug:       shuttle-pc-new-harddrive-clonezilla-windows-7
-permalink:  http://davidosomething.com/blog/shuttle-pc-new-harddrive-clonezilla-windows-7/
+
 ---
 
 

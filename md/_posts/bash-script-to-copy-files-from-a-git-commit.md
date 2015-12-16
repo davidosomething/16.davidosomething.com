@@ -8,7 +8,7 @@ tags:
   - git
 hero:
 slug:       bash-script-to-copy-files-from-a-git-commit
-permalink:  http://davidosomething.com/blog/bash-script-to-copy-files-from-a-git-commit/
+
 ---
 
 

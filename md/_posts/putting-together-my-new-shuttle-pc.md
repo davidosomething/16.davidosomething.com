@@ -8,7 +8,7 @@ tags:
   - Shuttle
 hero:       
 slug:       putting-together-my-new-shuttle-pc
-permalink:  http://davidosomething.com/blog/putting-together-my-new-shuttle-pc/
+
 ---
 
 

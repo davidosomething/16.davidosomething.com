@@ -7,7 +7,7 @@ tags:
   - coldfusion
 hero:       
 slug:       quick-access-to-the-youtube-api-with-coldfusion
-permalink:  http://davidosomething.com/blog/quick-access-to-the-youtube-api-with-coldfusion/
+
 ---
 
 

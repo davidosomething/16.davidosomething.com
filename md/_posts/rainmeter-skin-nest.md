@@ -9,7 +9,7 @@ tags:
   - twitter
 hero:       
 slug:       rainmeter-skin-nest
-permalink:  http://davidosomething.com/blog/rainmeter-skin-nest/
+
 ---
 
 

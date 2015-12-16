@@ -9,7 +9,7 @@ tags:
   - jquery
 hero:       
 slug:       building-an-coldfusionajax-flickr-gallery
-permalink:  http://davidosomething.com/blog/building-an-coldfusionajax-flickr-gallery/
+
 ---
 
 
