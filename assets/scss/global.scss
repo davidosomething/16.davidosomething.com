@@ -290,6 +290,12 @@ h1, h2, h3, h4, h5, h6 {
   @include mq('middle') { padding: 18rem 0.5rem 1rem; }
 }
 
+.type--post .globalHeader {
+  padding: 2rem 0 1rem; // room for fixed position siteHeader
+  @include mq('small') { padding: 3rem 0 1rem; }
+  @include mq('middle') { padding: 6rem 0.5rem 1rem; }
+}
+
 // -----------------------------------------------------------------------------
 // Global Content
 // -----------------------------------------------------------------------------
@@ -464,11 +470,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.article__header__permalink {
-  @include link-icon-before;
+
+.article__header__link {
   color: inherit;
 }
 
+.article__header__link--permalink {
+  @include link-icon-before;
+  color: inherit;
+}
 
 .article__body {
   @include fs('article__body');
@@ -492,6 +502,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .article__footer {
   border-bottom: 1px map-get($colors, 'primary-divider') solid;
+  margin-top: 6em;
 
   .article:last-child & {
     border-bottom: 0;
