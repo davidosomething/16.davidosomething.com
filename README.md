@@ -32,17 +32,29 @@ Static generated site for davidosomething.com
 
 ## TODO 
 
+- title
+- meta + seo
+- sitemap
+- rss feed
+- clean up templates
 - finish templating
+- code highlighting
+
+### content
+
 - about me widget
 - featured articles widget
+- article share links
+
+### lint + deploy
+
+- lint task in gulp
+- site docs and styleguide generation
+- deploy to surge?/github?/openshift? via codeship?/deploybot?
+
+### js
+
 - current article should be highlighted if in a widget
 - react view for each article and widget
-- seo
 - babel
-- deploy to github?/openshift? via codeship?/deploybot?
-- article share links
-- permalinks and disqus
-- code highlighting
-- site docs and styleguide generation
-- lint task in gulp
 
