@@ -1,4 +1,4 @@
 ---
-layout: home.hbs
-title:  davidosomething.com
+title: home
+a: 1
 ---

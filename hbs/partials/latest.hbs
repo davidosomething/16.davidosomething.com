@@ -1,0 +1,22 @@
+<header class="pageHeader">
+	<h1 class="pageHeader__title">Latest Posts</h1>
+</header>
+
+{{#each collections.posts}}
+	<article class="article article--excerpt" itemscope itemtype="http://schema.org/Article">
+		<header class="article__header">
+			<section class="article__meta">
+				<time datetime="2015-05-16 19:00">November 12, 2015</time>
+				{{> article__tags }}
+			</section>
+
+			<h1 class="article__title"><a rel="bookmark" class="article__header__permalink" href="{{ permalink }}">{{{ title }}}</a></h1>
+
+			{{#if subtitle}}<h2 class="article__subtitle">{{{ subtitle }}}</h2>{{/if}}
+		</header>
+
+		<section class="article__body">
+			{{{ excerpt }}}
+		</section>
+	</article>
+{{/each}}

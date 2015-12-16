@@ -1,0 +1,16 @@
+{{> header }}
+<body class="type--{{ type }} section--{{ section }} {{#if slug}}slug--{{slug}}{{else}}page--{{page}}{{/if}}">
+	{{> siteHeader }}
+	<div class="globalBody">
+		<header class="globalHeader">{{> bio }}</header>
+		<div class="globalContent">
+			<main class="globalDiv">
+				{{! log collections.pages }}
+			</main>
+			{{> nav }}
+		</div>
+		{{> siteFooter }}
+	</div>
+	{{> footer }}
+</body>
+</html>

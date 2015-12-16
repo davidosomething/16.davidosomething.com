@@ -8,25 +8,26 @@
 
 'use strict';
 
-
 // =============================================================================
 // Requires
 // =============================================================================
 
-require('harmonize')(); // metalsmith uses ES6
+require('harmonize')();   // metalsmith uses ES6
 
 // -----------------------------------------------------------------------------
 // Require: Gulp and node utils
 // -----------------------------------------------------------------------------
 
+var util       = require('util');
 var exec       = require('child_process').execSync;
+var debug      = require('debug'); // DEBUG=gulp gulp to output
 var assign     = require('lodash.assign');
+var omit       = require('lodash.omit');
 var gulp       = require('gulp');
 var gutil      = require('gulp-util');
 var concat     = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var merge      = require('merge-stream');
-var through    = require('through2');
 
 // -----------------------------------------------------------------------------
 // Require: CSS
@@ -38,18 +39,19 @@ var autoprefixer = require('autoprefixer');
 var mqpacker     = require('css-mqpacker');
 var cssnano      = require('cssnano');
 
-
 // -----------------------------------------------------------------------------
 // Require: Static Generation
 // -----------------------------------------------------------------------------
 
+var slug        = require('slug');
 var gulpsmith   = require('gulpsmith');
 var frontmatter = require('gulp-front-matter');
 var metalsmithPlugins = {
   branch:       require('metalsmith-branch'),
   collections:  require('metalsmith-collections'),
-  markdown:     require('metalsmith-markdown'),
   layouts:      require('metalsmith-layouts'),
+  markdown:     require('metalsmith-markdown'),
+  paths:        require('metalsmith-paths'),
   permalinks:   require('metalsmith-permalinks'),
 };
 
@@ -71,18 +73,15 @@ gulp.task('css', function () {
       autoprefixer({
         browsers: ['last 2 versions']
       }),
-    ]))
-    ;
+    ]));
 
   var normalizeCss = gulp
-    .src('./assets/jspm/github/necolas/normalize.css@3.0.3/normalize.css')
-    ;
+    .src('./assets/jspm/github/necolas/normalize.css@3.0.3/normalize.css');
 
   return merge(normalizeCss, globalSass)
     .pipe(concat('global.css'))
     .pipe(postcss([ cssnano ]))
-    .pipe(gulp.dest('./public/assets/css/'))
-    ;
+    .pipe(gulp.dest('./public/assets/css/'));
 
 });
 
@@ -91,6 +90,7 @@ gulp.task('css', function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('js', function () {
+
   exec('npm run js', function (err, stdout, stderr) {
     if (err) {
       throw err;
@@ -99,59 +99,145 @@ gulp.task('js', function () {
       console.log('Build complete!');
     }
   });
-});
 
+});
 
 // -----------------------------------------------------------------------------
 // Task: Assets
 // -----------------------------------------------------------------------------
 
 gulp.task('assets', function () {
+
   gulp.src('./assets/{fonts,img}/**')
     .pipe(gulp.dest('./public/assets/'));
-});
 
+});
 
 // -----------------------------------------------------------------------------
 // Task: HTML
 // -----------------------------------------------------------------------------
 
+slug.defaults.mode = 'rfc3986';
+
+/**
+ * extendWithFrontmatter
+ *
+ * @param file
+ */
+var extendWithFrontmatter = function (fileData) {
+  assign(fileData, fileData.frontMatter);
+  delete fileData.frontMatter;
+};
+
+/**
+ * formatPost
+ *
+ * @param {Object} files keyed by filename from metalsmith
+ * @param {Object} metalsmith
+ * @param {Function} done
+ */
+metalsmithPlugins.formatPost = function (files, metalsmith, done) {
+  var log = debug('formatPost');
+  Object.keys(files).forEach(function (file) {
+    files[file].section = files[file].section || 'blog';
+    files[file].type    = files[file].type || 'post';
+    files[file].slug    = files[file].slug || slug(files[file].title);
+    log('formatPost ' + file);
+    log('  - section: ' + files[file].section);
+    log('  - type: ' + files[file].type);
+    log('  - slug: ' + files[file].slug);
+  });
+  done();
+};
+
+/**
+ * formatPage
+ *
+ * @param {Object} files keyed by filename from metalsmith
+ * @param {Object} metalsmith
+ * @param {Function} done
+ */
+metalsmithPlugins.formatPage = function (files, metalsmith, done) {
+  var log = debug('formatPage');
+  Object.keys(files).forEach(function (file) {
+    files[file].section = slug(files[file].paths.root) || 'root';
+    files[file].type    = files[file].type || 'page';
+    files[file].slug    = files[file].slug || slug(files[file].title);
+    log('formatPage ' + file);
+    log('  - section: ' + files[file].section);
+    log('  - type: ' + files[file].type);
+    log('  - slug: ' + files[file].slug);
+  });
+  done();
+};
+
+/**
+ * debugBranch
+ *
+ * @param {Object} files keyed by filename from metalsmith
+ * @param {Object} metalsmith
+ * @param {Function} done
+ */
+metalsmithPlugins.debugBranch = function (files, metalsmith, done) {
+  var log = debug('debugBranch');
+  Object.keys(files).forEach(function (file) {
+    var relevantInfo = omit(files[file], [
+      'stats', 'previous', 'next', 'mode', 'contents'
+    ]);
+    log( util.inspect(relevantInfo, {
+      showHidden: false, depth: null
+    }) );
+  });
+  done();
+};
+
 gulp.task('html', function () {
-  var extendWithFrontmatter = function (file) {
-    assign(file, file.frontMatter);
-    delete file.frontMatter;
-  };
 
-  var md = gulp.src('./md/**');
-  var data = md.pipe(frontmatter()).on('data', extendWithFrontmatter);
+  // Load default data and override with frontmatter
+  var data = gulp.src('./md/**')
+    .pipe(frontmatter()).on('data', extendWithFrontmatter)
 
-  // Generate
-  data
-    .pipe(
-      gulpsmith()
-        .use(metalsmithPlugins.markdown()) // files are html now
-        .use(metalsmithPlugins.collections({
-          pages: {
-            pattern: 'pages/**',
-          },
-          posts: {
-            pattern: 'posts/**',
-          }
-        }))
-        .use(metalsmithPlugins.branch('posts/**')
-          .use(metalsmithPlugins.permalinks('blog/:title'))
-        )
-        .use(metalsmithPlugins.branch('pages/**')
-        )
-        .use(metalsmithPlugins.layouts({
-          engine:    'handlebars',
-          directory: 'hbs/pages/',
-          partials:  'hbs/partials/',
-          default:   'post.hbs',
-        }))
+    // Extend global data with collections meta
+    .pipe(gulpsmith()
+      .use(metalsmithPlugins.collections({
+        pages: {
+          pattern: '!posts/*',
+        },
+        posts: {
+          pattern: 'posts/*',
+        }
+      }))
+
+    // Read markdown into {{ content }} and change sources to **.html
+    .use(metalsmithPlugins.markdown())
+
+    // Posts -- note the html file extension due to markdown()
+    .use(metalsmithPlugins.branch('posts/*.html')
+      .use(metalsmithPlugins.formatPost)
+      .use(metalsmithPlugins.permalinks({
+        pattern: 'blog/:slug',
+        relative: 'off',
+      }))
+      .use(metalsmithPlugins.paths({ property: 'paths' }))
+      .use(metalsmithPlugins.debugBranch)
     )
-    .pipe(gulp.dest('./public'))
-    ;
+
+    // Pages -- note the blog/ path due to permalinks()
+    .use(metalsmithPlugins.branch('!blog/**/*.html')
+      .use(metalsmithPlugins.paths({ property: 'paths' }))
+      .use(metalsmithPlugins.formatPage)
+      .use(metalsmithPlugins.debugBranch)
+    )
+
+    // Pump into HBS
+    .use(metalsmithPlugins.layouts({
+      engine:    'handlebars',
+      directory: 'hbs/layouts/',
+      partials:  'hbs/partials/',
+      default:   'default.hbs',
+    }))
+  )
+  .pipe(gulp.dest('./public'));
 
 });
 
@@ -160,7 +246,9 @@ gulp.task('html', function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('watch', function () {
+
   var sassWatcher = gulp.watch('./assets/scss/**/*.scss', [ 'css' ]);
+
 });
 
 // -----------------------------------------------------------------------------
@@ -169,7 +257,7 @@ gulp.task('watch', function () {
 
 gulp.task('default', function () {
 
-  gulp.start('js', 'css', 'assets', 'html', 'watch');
+  gulp.start('js', 'css', 'assets', 'html');
 
 });
 
