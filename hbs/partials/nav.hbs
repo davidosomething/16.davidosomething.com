@@ -4,33 +4,7 @@
 			<h2 class="widget__header__title">Latest Posts</h2>
 		</header>
 		<ol class="widget--latestPosts__postlist">
-			<li>
-				<article class="articleTile">
-					<h2><a href="#">Another post title</a></h2>
-					<time itemprop="datePublished">Jan 10, 2015</time>
-				</article>
-			</li>
-
-			<li>
-				<article class="articleTile">
-					<h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-					<time itemprop="datePublished">July 1, 2014</time>
-				</article>
-			</li>
-
-			<li>
-				<article class="articleTile">
-					<h2><a href="#">Another post title</a></h2>
-					<time itemprop="datePublished">Jan 10, 2015</time>
-				</article>
-			</li>
-
-			<li>
-				<article class="articleTile">
-					<h2><a href="#">This is a post title for a post in the nav postlist</a></h2>
-					<time itemprop="datePublished">July 1, 2014</time>
-				</article>
-			</li>
+			{{#each collections.latestPosts}}<li>{{> articleTile}}</li>{{/each}}
 		</ol>
 	</aside>
 </nav>

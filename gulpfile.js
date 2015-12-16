@@ -45,14 +45,18 @@ var cssnano      = require('cssnano');
 
 var slug        = require('slug');
 var gulpsmith   = require('gulpsmith');
-var frontmatter = require('gulp-front-matter');
 var metalsmithPlugins = {
-  branch:       require('metalsmith-branch'),
-  collections:  require('metalsmith-collections'),
-  layouts:      require('metalsmith-layouts'),
-  markdown:     require('metalsmith-markdown'),
-  paths:        require('metalsmith-paths'),
-  permalinks:   require('metalsmith-permalinks'),
+  branch:          require('metalsmith-branch'),
+  collections:     require('metalsmith-collections'),
+  ignore:          require('metalsmith-ignore'),
+  layouts:         require('metalsmith-layouts'),
+  markdown:        require('metalsmith-markdown'),
+  matters:         require('metalsmith-matters'),
+  paths:           require('metalsmith-paths'),
+  permalinks:      require('metalsmith-permalinks'),
+  registerHelpers: require('metalsmith-register-helpers'),
+  snippet:         require('metalsmith-snippet'),
+  summary:         require('metalsmith-summary'),
 };
 
 
@@ -119,17 +123,6 @@ gulp.task('assets', function () {
 
 slug.defaults.mode = 'rfc3986';
 
-/**
- * extendWithFrontmatter
- *
- * @param file
- */
-var extendWithFrontmatter = function (fileData) {
-  assign(fileData, fileData.frontMatter);
-  delete fileData.frontMatter;
-};
-
-
 // @TODO consider metalsmith-each to replace the following
 
 /**
@@ -142,9 +135,10 @@ var extendWithFrontmatter = function (fileData) {
 metalsmithPlugins.formatPost = function (files, metalsmith, done) {
   var log = debug('formatPost');
   Object.keys(files).forEach(function (file) {
+    files[file].excerpt = files[file].excerpt || files[file].snippet;
     files[file].section = files[file].section || 'blog';
-    files[file].type    = files[file].type || 'post';
     files[file].slug    = files[file].slug || slug(files[file].title);
+    files[file].type    = files[file].type || 'post';
     log('formatPost ' + file);
     log('  - section: ' + files[file].section);
     log('  - type: ' + files[file].type);
@@ -164,8 +158,8 @@ metalsmithPlugins.formatPage = function (files, metalsmith, done) {
   var log = debug('formatPage');
   Object.keys(files).forEach(function (file) {
     files[file].section = slug(files[file].paths.root) || 'root';
-    files[file].type    = files[file].type || 'page';
     files[file].slug    = files[file].slug || slug(files[file].title);
+    files[file].type    = files[file].type || 'page';
     log('formatPage ' + file);
     log('  - section: ' + files[file].section);
     log('  - type: ' + files[file].type);
@@ -196,20 +190,37 @@ metalsmithPlugins.debugBranch = function (files, metalsmith, done) {
 
 gulp.task('html', function () {
 
-  // Load default data and override with frontmatter
   var data = gulp.src('./md/**')
-    .pipe(frontmatter()).on('data', extendWithFrontmatter)
-
-    // Extend global data with collections meta
     .pipe(gulpsmith()
+
+      .use(metalsmithPlugins.summary.init())
+
+      .use(metalsmithPlugins.ignore('_drafts/*'))
+
+      .use(metalsmithPlugins.matters())
+
       .use(metalsmithPlugins.collections({
         pages: {
-          pattern: '!posts/*',
+          pattern: '!_*/*',
+          refer:   false,
         },
         posts: {
-          pattern: 'posts/*',
-          sortBy: 'date',
-          reverse: true
+          pattern: '_posts/*',
+          reverse: true,
+          sortBy:  'date',
+        },
+        latestPost: {
+          limit:   1,
+          pattern: '_posts/*',
+          refer:   false,
+          reverse: true,
+          sortBy:  'date',
+        },
+        latestPosts: {
+          limit:   10,
+          pattern: '_posts/*',
+          reverse: true,
+          sortBy:  'date',
         }
       }))
 
@@ -217,10 +228,13 @@ gulp.task('html', function () {
     .use(metalsmithPlugins.markdown())
 
     // Posts -- note the html file extension due to markdown()
-    .use(metalsmithPlugins.branch('posts/*.html')
+    .use(metalsmithPlugins.branch('_posts/*.html')
+      .use(metalsmithPlugins.snippet({
+        maxLength: 250,
+      }))
       .use(metalsmithPlugins.formatPost)
       .use(metalsmithPlugins.permalinks({
-        pattern: 'blog/:slug',
+        pattern:  'blog/:slug',
         relative: 'off',
       }))
       .use(metalsmithPlugins.paths({ property: 'paths' }))
@@ -235,12 +249,15 @@ gulp.task('html', function () {
     )
 
     // Pump into HBS
+    .use(metalsmithPlugins.registerHelpers({ directory: 'hbs/helpers' }))
     .use(metalsmithPlugins.layouts({
       engine:    'handlebars',
       directory: 'hbs/layouts/',
       partials:  'hbs/partials/',
       default:   'default.hbs',
     }))
+
+    .use(metalsmithPlugins.summary.print())
   )
   .pipe(gulp.dest('./public'));
 
