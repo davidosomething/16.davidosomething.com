@@ -135,10 +135,14 @@ slug.defaults.mode = 'rfc3986';
 metalsmithPlugins.formatPost = function (files, metalsmith, done) {
   var log = debug('formatPost');
   Object.keys(files).forEach(function (file) {
-    files[file].excerpt = files[file].excerpt || files[file].snippet;
-    files[file].section = files[file].section || 'blog';
-    files[file].slug    = files[file].slug || slug(files[file].title);
-    files[file].type    = files[file].type || 'post';
+    var data = files[file];
+    data.excerpt = data.excerpt || data.snippet;
+    data.section = data.section || 'blog';
+    data.slug    = data.slug || slug(data.title);
+    data.type    = data.type || 'post';
+    data.schema = {
+      itemtype: 'https://schema.org/BlogPosting'
+    };
     log('formatPost ' + file);
     log('  - section: ' + files[file].section);
     log('  - type: ' + files[file].type);
@@ -157,13 +161,17 @@ metalsmithPlugins.formatPost = function (files, metalsmith, done) {
 metalsmithPlugins.formatPage = function (files, metalsmith, done) {
   var log = debug('formatPage');
   Object.keys(files).forEach(function (file) {
-    files[file].section = slug(files[file].paths.root) || 'root';
-    files[file].slug    = files[file].slug || slug(files[file].title);
-    files[file].type    = files[file].type || 'page';
+    var data = files[file];
+    data.section = slug(data.paths.root) || 'root';
+    data.slug    = data.slug || slug(data.title);
+    data.type    = data.type || 'page';
+    data.schema = {
+      itemtype: 'https://schema.org/WebPage'
+    };
     log('formatPage ' + file);
-    log('  - section: ' + files[file].section);
-    log('  - type: ' + files[file].type);
-    log('  - slug: ' + files[file].slug);
+    log('  - section: ' + data.section);
+    log('  - type: ' + data.type);
+    log('  - slug: ' + data.slug);
   });
   done();
 };

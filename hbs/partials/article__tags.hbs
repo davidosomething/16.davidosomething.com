@@ -1,3 +1,7 @@
-<ul class="article__tags">
-	{{#each tags}}<li><a href="#" class="article__tag">{{.}}</a></li>{{/each}}
+<ul class="article__tags" itemscope itemtype="http://schema.org/ItemList">
+	{{#each tags}}
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="#" class="article__tag" itemprop="item"><span itemprop="name">{{.}}</span></a>
+		</li>
+	{{/each}}
 </ul>
