@@ -12,7 +12,7 @@
 // Requires
 // =============================================================================
 
-require('harmonize')();   // metalsmith uses ES6
+require('harmonize')(['harmony-generators']); // for metalsmith on old node
 
 // -----------------------------------------------------------------------------
 // Require: Gulp and node utils
