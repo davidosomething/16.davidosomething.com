@@ -177,10 +177,10 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     data.schema = {
       itemtype: 'https://schema.org/BlogPosting'
     };
-    log('formatPost ' + file);
-    log('  - section: ' + files[file].section);
-    log('  - type: ' + files[file].type);
-    log('  - slug: ' + files[file].slug);
+    log(`formatPost ${file}`);
+    log(`  - section: ${files[file].section}`);
+    log(`  - type: ${files[file].type}`);
+    log(`  - slug: ${files[file].slug}`);
   });
   done();
 };
@@ -202,10 +202,10 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
     data.schema = {
       itemtype: 'https://schema.org/WebPage'
     };
-    log('formatPage ' + file);
-    log('  - section: ' + data.section);
-    log('  - type: ' + data.type);
-    log('  - slug: ' + data.slug);
+    log(`formatPage ${file}`);
+    log(`  - section: ${data.section}`);
+    log(`  - type: ${data.type}`);
+    log(`  - slug: ${data.slug}`);
   });
   done();
 };
