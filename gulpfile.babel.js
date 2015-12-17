@@ -6,7 +6,9 @@
  * @author David O'Trakoun <me@davidosomething.com>
  */
 
-'use strict'
+/*eslint-disable no-console*/
+
+'use strict';
 
 // =============================================================================
 // Requires
@@ -21,12 +23,9 @@ require('harmonize')(['harmony-generators']); // for metalsmith on old node
 import util from 'util';
 import debug from 'debug'; // DEBUG=gulp gulp to output
 import { execSync as exec } from 'child_process';
-import assign from 'lodash.assign';
 import omit from 'lodash.omit';
 import gulp from 'gulp';
-import gutil from 'gulp-util';
 import concat from 'gulp-concat';
-import sourcemaps from 'gulp-sourcemaps';
 import merge from 'merge-stream';
 import del from 'del';
 
@@ -34,11 +33,17 @@ import del from 'del';
 // Require: CSS
 // -----------------------------------------------------------------------------
 
+import sassLint from 'gulp-sass-lint';
 import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import mqpacker from 'css-mqpacker';
 import cssnano from 'cssnano';
+
+// -----------------------------------------------------------------------------
+// Require: JS
+// -----------------------------------------------------------------------------
+
+import eslint from 'gulp-eslint';
 
 // -----------------------------------------------------------------------------
 // Require: Static Generation
@@ -63,8 +68,7 @@ import metalsmithSummary from 'metalsmith-summary';
 // Config
 // =============================================================================
 
-
-var dirs = {}
+var dirs = {};
 dirs.dist = './public/';
 dirs.assets = {
   source: `./assets`,
@@ -123,19 +127,25 @@ gulp.task('clean:all', () => {
 // Task: CSS
 // -----------------------------------------------------------------------------
 
+gulp.task('lint:css', () => {
+  gulp.src(`${dirs.css.source}/**/*.scss`)
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError());
+});
+
+
 gulp.task('css', () => {
 
-  var globalSass = gulp
-    .src(`${dirs.css.source}/global.scss`)
+  var globalSass = gulp.src(`${dirs.css.source}/global.scss`)
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
       autoprefixer({
-        browsers: ['last 2 versions']
+        browsers: ['last 2 versions'],
       }),
     ]));
 
-  var normalizeCss = gulp
-    .src(`${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`);
+  var normalizeCss = gulp.src(`${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`);
 
   return merge(normalizeCss, globalSass)
     .pipe(concat('global.css'))
@@ -148,9 +158,16 @@ gulp.task('css', () => {
 // Task: JS
 // -----------------------------------------------------------------------------
 
+gulp.task('lint:js', () => {
+  gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
 gulp.task('js', () => {
 
-  exec('npm run js', (err, stdout, stderr) => {
+  exec('npm run js', (err) => {
     if (err) {
       throw err;
     }
@@ -196,7 +213,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     data.slug    = data.slug || slug(data.title);
     data.type    = data.type || 'post';
     data.schema = {
-      itemtype: 'https://schema.org/BlogPosting'
+      itemtype: 'https://schema.org/BlogPosting',
     };
     log(`formatPost ${file}`);
     log(`  - section: ${files[file].section}`);
@@ -221,7 +238,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
     data.slug    = data.slug || slug(data.title);
     data.type    = data.type || 'page';
     data.schema = {
-      itemtype: 'https://schema.org/WebPage'
+      itemtype: 'https://schema.org/WebPage',
     };
     log(`formatPage ${file}`);
     log(`  - section: ${data.section}`);
@@ -242,10 +259,15 @@ var metalsmithDebugBranch = (files, metalsmith, done) => {
   var log = debug('debugBranch');
   Object.keys(files).forEach((file) => {
     var relevantInfo = omit(files[file], [
-      'stats', 'previous', 'next', 'mode', 'contents'
+      'stats',
+      'previous',
+      'next',
+      'mode',
+      'contents',
     ]);
     log( util.inspect(relevantInfo, {
-      showHidden: false, depth: null
+      showHidden: false,
+      depth: null,
     }) );
   });
   done();
@@ -253,7 +275,7 @@ var metalsmithDebugBranch = (files, metalsmith, done) => {
 
 gulp.task('html', () => {
 
-  var data = gulp.src('./md/**')
+  gulp.src('./md/**')
     .pipe(gulpsmith()
 
       .use(metalsmithSummary.init())
@@ -284,7 +306,7 @@ gulp.task('html', () => {
           pattern: '_posts/*',
           reverse: true,
           sortBy:  'date',
-        }
+        },
       }))
 
     // Read markdown into {{ content }} and change sources to **.html
@@ -317,7 +339,7 @@ gulp.task('html', () => {
       engine:    'handlebars',
       directory: 'hbs/layouts/',
       partials:  'hbs/partials/',
-      default:   'default.hbs',
+      'default':   'default.hbs',
     }))
 
     .use(metalsmithSummary.print())
@@ -332,7 +354,7 @@ gulp.task('html', () => {
 
 gulp.task('watch', () => {
 
-  var sassWatcher = gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
+  gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
 
 });
 

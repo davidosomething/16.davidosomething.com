@@ -22,6 +22,8 @@ $colors: (
 
   globalSiteTitle-bg:   rgba(0,0,0,0.65),
   globalSiteTitle-text: #fff,
+
+  avatar-bg: rgba(255,255,255,0.75),
 );
 
 
@@ -111,13 +113,13 @@ $fontsizes: (
 
 @font-face {
   font-family: 'icomoon';
-  src: url('/assets/fonts/icomoon.ttf?vj028t') format('truetype');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/icomoon.ttf?vj028t') format('truetype');
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+[class^='icon-'],
+[class*=' icon-'] {
   font-family: 'icomoon' !important;
   font-style: normal;
   font-variant: normal;
@@ -130,9 +132,11 @@ $fontsizes: (
 .icon-twitter::before {
   content: '\e900';
 }
+
 .icon-github::before {
   content: '\e901';
 }
+
 .icon-linkedin::before {
   content: '\e902';
 }
@@ -200,7 +204,12 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: $fontweight__heading;
   line-height: 1.24;
 }
@@ -324,8 +333,8 @@ h1, h2, h3, h4, h5, h6 {
 // Global Nav
 // -----------------------------------------------------------------------------
 
-.globalNav {
-}
+// .globalNav {
+// }
 
 .widget {
   margin: 0 auto 3rem;
@@ -514,8 +523,8 @@ h1, h2, h3, h4, h5, h6 {
 // Article Variants and per-variant overrides
 // -----------------------------------------------------------------------------
 
-.article--excerpt {
-}
+// .article--excerpt {
+// }
 
 
 // -----------------------------------------------------------------------------
@@ -576,7 +585,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   img {
-    background: rgba(255,255,255,0.75);
+    background: map-get($colors, 'avatar-bg');
     border-radius: 3em;
     display: inline-block;
   }
