@@ -61,6 +61,28 @@ import metalsmithSummary from 'metalsmith-summary';
 
 
 // =============================================================================
+// Config
+// =============================================================================
+
+
+var dirs = {}
+dirs.dist = './public/';
+dirs.assets = {
+  source: `./assets`,
+  dist:   `${dirs.dist}/assets`,
+};
+dirs.jspm = `${dirs.assets}/jspm`,
+dirs.css = {
+  source: `${dirs.assets.source}/scss`,
+  dist:   `${dirs.assets.dist}/css`,
+};
+dirs.js = {
+  source: `${dirs.assets.source}/js`,
+  dist:   `${dirs.assets.dist}/js`,
+};
+
+
+// =============================================================================
 // Tasks
 // =============================================================================
 
@@ -71,29 +93,29 @@ import metalsmithSummary from 'metalsmith-summary';
 
 gulp.task('clean:css', () => {
   return del([
-    './public/assets/css/**/*',
+    `${dirs.css.dist}/**/*`,
   ]);
 });
 
 
 gulp.task('clean:js', () => {
   return del([
-    './public/assets/js/**/*',
+    `${dirs.js.dist}/**/*`,
   ]);
 });
 
 
 gulp.task('clean:assets', () => {
   return del([
-    './public/assets/fonts/**/*',
-    './public/assets/img/**/*',
+    `${dirs.assets.dist}/fonts/**/*`,
+    `${dirs.assets.dist}/img/**/*`,
   ]);
 });
 
 
 gulp.task('clean:all', () => {
   return del([
-    './public/**/*',
+    `${dirs.dist}/**/*`,
   ]);
 });
 
@@ -105,7 +127,7 @@ gulp.task('clean:all', () => {
 gulp.task('css', () => {
 
   var globalSass = gulp
-    .src('./assets/scss/global.scss')
+    .src(`${dirs.css.source}/global.scss`)
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
       autoprefixer({
@@ -114,12 +136,12 @@ gulp.task('css', () => {
     ]));
 
   var normalizeCss = gulp
-    .src('./assets/jspm/github/necolas/normalize.css@3.0.3/normalize.css');
+    .src(`${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`);
 
   return merge(normalizeCss, globalSass)
     .pipe(concat('global.css'))
     .pipe(postcss([ cssnano ]))
-    .pipe(gulp.dest('./public/assets/css/'));
+    .pipe(gulp.dest(`${dirs.css.dist}/`));
 
 });
 
@@ -147,7 +169,7 @@ gulp.task('js', () => {
 gulp.task('assets', () => {
 
   gulp.src('./assets/{fonts,img}/**')
-    .pipe(gulp.dest('./public/assets/'));
+    .pipe(gulp.dest(`${dirs.assets.dist}/`));
 
 });
 
@@ -311,7 +333,7 @@ gulp.task('html', () => {
 
 gulp.task('watch', () => {
 
-  var sassWatcher = gulp.watch('./assets/scss/**/*.scss', [ 'css' ]);
+  var sassWatcher = gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
 
 });
 
