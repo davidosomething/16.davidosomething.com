@@ -8,8 +8,6 @@
 
 'use strict'
 
-import util from 'util';
-
 // =============================================================================
 // Requires
 // =============================================================================
@@ -20,16 +18,17 @@ require('harmonize')();   // metalsmith uses ES6
 // Require: Gulp and node utils
 // -----------------------------------------------------------------------------
 
-import { execSync as exec } from 'child_process';
+import util from 'util';
 import debug from 'debug'; // DEBUG=gulp gulp to output
+import { execSync as exec } from 'child_process';
 import assign from 'lodash.assign';
 import omit from 'lodash.omit';
 import gulp from 'gulp';
 import gutil from 'gulp-util';
-import del from 'del';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
 import merge from 'merge-stream';
+import del from 'del';
 
 // -----------------------------------------------------------------------------
 // Require: CSS
