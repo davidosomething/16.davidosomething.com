@@ -1,12 +1,14 @@
 /**
- * gulpfile.js
+ * gulpfile.babel.js
  *
  * Build tasks for davidosomething.com
  *
  * @author David O'Trakoun <me@davidosomething.com>
  */
 
-'use strict';
+'use strict'
+
+import util from 'util';
 
 // =============================================================================
 // Requires
@@ -18,57 +20,89 @@ require('harmonize')();   // metalsmith uses ES6
 // Require: Gulp and node utils
 // -----------------------------------------------------------------------------
 
-var util       = require('util');
-var exec       = require('child_process').execSync;
-var debug      = require('debug'); // DEBUG=gulp gulp to output
-var assign     = require('lodash.assign');
-var omit       = require('lodash.omit');
-var gulp       = require('gulp');
-var gutil      = require('gulp-util');
-var concat     = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
-var merge      = require('merge-stream');
+import { execSync as exec } from 'child_process';
+import debug from 'debug'; // DEBUG=gulp gulp to output
+import assign from 'lodash.assign';
+import omit from 'lodash.omit';
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import del from 'del';
+import concat from 'gulp-concat';
+import sourcemaps from 'gulp-sourcemaps';
+import merge from 'merge-stream';
 
 // -----------------------------------------------------------------------------
 // Require: CSS
 // -----------------------------------------------------------------------------
 
-var sass         = require('gulp-sass');
-var postcss      = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var mqpacker     = require('css-mqpacker');
-var cssnano      = require('cssnano');
+import sass from 'gulp-sass';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import mqpacker from 'css-mqpacker';
+import cssnano from 'cssnano';
 
 // -----------------------------------------------------------------------------
 // Require: Static Generation
 // -----------------------------------------------------------------------------
 
-var slug        = require('slug');
-var gulpsmith   = require('gulpsmith');
-var metalsmithPlugins = {
-  branch:          require('metalsmith-branch'),
-  collections:     require('metalsmith-collections'),
-  ignore:          require('metalsmith-ignore'),
-  layouts:         require('metalsmith-layouts'),
-  markdown:        require('metalsmith-markdown'),
-  matters:         require('metalsmith-matters'),
-  paths:           require('metalsmith-paths'),
-  permalinks:      require('metalsmith-permalinks'),
-  registerHelpers: require('metalsmith-register-helpers'),
-  snippet:         require('metalsmith-snippet'),
-  summary:         require('metalsmith-summary'),
-};
+import slug from 'slug';
+import gulpsmith from 'gulpsmith';
+import metalsmithBranch from 'metalsmith-branch';
+import metalsmithCollections from 'metalsmith-collections';
+import metalsmithIgnore from 'metalsmith-ignore';
+import metalsmithLayouts from 'metalsmith-layouts';
+import metalsmithMarkdown from 'metalsmith-markdown';
+import metalsmithMatters from 'metalsmith-matters';
+import metalsmithPaths from 'metalsmith-paths';
+import metalsmithPermalinks from 'metalsmith-permalinks';
+import metalsmithRegisterHelpers from 'metalsmith-register-helpers';
+import metalsmithSnippet from 'metalsmith-snippet';
+import metalsmithSummary from 'metalsmith-summary';
 
 
 // =============================================================================
 // Tasks
 // =============================================================================
 
+
+// -----------------------------------------------------------------------------
+// Task: Clean
+// -----------------------------------------------------------------------------
+
+gulp.task('clean:css', () => {
+  return del([
+    './public/assets/css/**/*',
+  ]);
+});
+
+
+gulp.task('clean:js', () => {
+  return del([
+    './public/assets/js/**/*',
+  ]);
+});
+
+
+gulp.task('clean:assets', () => {
+  return del([
+    './public/assets/fonts/**/*',
+    './public/assets/img/**/*',
+  ]);
+});
+
+
+gulp.task('clean:all', () => {
+  return del([
+    './public/**/*',
+  ]);
+});
+
+
 // -----------------------------------------------------------------------------
 // Task: CSS
 // -----------------------------------------------------------------------------
 
-gulp.task('css', function () {
+gulp.task('css', () => {
 
   var globalSass = gulp
     .src('./assets/scss/global.scss')
@@ -93,9 +127,9 @@ gulp.task('css', function () {
 // Task: JS
 // -----------------------------------------------------------------------------
 
-gulp.task('js', function () {
+gulp.task('js', () => {
 
-  exec('npm run js', function (err, stdout, stderr) {
+  exec('npm run js', (err, stdout, stderr) => {
     if (err) {
       throw err;
     }
@@ -110,7 +144,7 @@ gulp.task('js', function () {
 // Task: Assets
 // -----------------------------------------------------------------------------
 
-gulp.task('assets', function () {
+gulp.task('assets', () => {
 
   gulp.src('./assets/{fonts,img}/**')
     .pipe(gulp.dest('./public/assets/'));
@@ -132,9 +166,9 @@ slug.defaults.mode = 'rfc3986';
  * @param {Object} metalsmith
  * @param {Function} done
  */
-metalsmithPlugins.formatPost = function (files, metalsmith, done) {
+var metalsmithFormatPost = (files, metalsmith, done) => {
   var log = debug('formatPost');
-  Object.keys(files).forEach(function (file) {
+  Object.keys(files).forEach((file) => {
     var data = files[file];
     data.excerpt = data.excerpt || data.snippet;
     data.section = data.section || 'blog';
@@ -158,9 +192,9 @@ metalsmithPlugins.formatPost = function (files, metalsmith, done) {
  * @param {Object} metalsmith
  * @param {Function} done
  */
-metalsmithPlugins.formatPage = function (files, metalsmith, done) {
+var metalsmithFormatPage = (files, metalsmith, done) => {
   var log = debug('formatPage');
-  Object.keys(files).forEach(function (file) {
+  Object.keys(files).forEach((file) => {
     var data = files[file];
     data.section = slug(data.paths.root) || 'root';
     data.slug    = data.slug || slug(data.title);
@@ -183,9 +217,9 @@ metalsmithPlugins.formatPage = function (files, metalsmith, done) {
  * @param {Object} metalsmith
  * @param {Function} done
  */
-metalsmithPlugins.debugBranch = function (files, metalsmith, done) {
+var metalsmithDebugBranch = (files, metalsmith, done) => {
   var log = debug('debugBranch');
-  Object.keys(files).forEach(function (file) {
+  Object.keys(files).forEach((file) => {
     var relevantInfo = omit(files[file], [
       'stats', 'previous', 'next', 'mode', 'contents'
     ]);
@@ -196,18 +230,18 @@ metalsmithPlugins.debugBranch = function (files, metalsmith, done) {
   done();
 };
 
-gulp.task('html', function () {
+gulp.task('html', () => {
 
   var data = gulp.src('./md/**')
     .pipe(gulpsmith()
 
-      .use(metalsmithPlugins.summary.init())
+      .use(metalsmithSummary.init())
 
-      .use(metalsmithPlugins.ignore('_drafts/*'))
+      .use(metalsmithIgnore('_drafts/*'))
 
-      .use(metalsmithPlugins.matters())
+      .use(metalsmithMatters())
 
-      .use(metalsmithPlugins.collections({
+      .use(metalsmithCollections({
         pages: {
           pattern: '!_*/*',
           refer:   false,
@@ -233,39 +267,39 @@ gulp.task('html', function () {
       }))
 
     // Read markdown into {{ content }} and change sources to **.html
-    .use(metalsmithPlugins.markdown())
+    .use(metalsmithMarkdown())
 
     // Posts -- note the html file extension due to markdown()
-    .use(metalsmithPlugins.branch('_posts/*.html')
-      .use(metalsmithPlugins.snippet({
+    .use(metalsmithBranch('_posts/*.html')
+      .use(metalsmithSnippet({
         maxLength: 250,
       }))
-      .use(metalsmithPlugins.formatPost)
-      .use(metalsmithPlugins.permalinks({
+      .use(metalsmithFormatPost)
+      .use(metalsmithPermalinks({
         pattern:  'blog/:slug',
         relative: 'off',
       }))
-      .use(metalsmithPlugins.paths({ property: 'paths' }))
-      .use(metalsmithPlugins.debugBranch)
+      .use(metalsmithPaths({ property: 'paths' }))
+      .use(metalsmithDebugBranch)
     )
 
     // Pages -- note the blog/ path due to permalinks()
-    .use(metalsmithPlugins.branch('!blog/**/*.html')
-      .use(metalsmithPlugins.paths({ property: 'paths' }))
-      .use(metalsmithPlugins.formatPage)
-      .use(metalsmithPlugins.debugBranch)
+    .use(metalsmithBranch('!blog/**/*.html')
+      .use(metalsmithPaths({ property: 'paths' }))
+      .use(metalsmithFormatPage)
+      .use(metalsmithDebugBranch)
     )
 
     // Pump into HBS
-    .use(metalsmithPlugins.registerHelpers({ directory: 'hbs/helpers' }))
-    .use(metalsmithPlugins.layouts({
+    .use(metalsmithRegisterHelpers({ directory: 'hbs/helpers' }))
+    .use(metalsmithLayouts({
       engine:    'handlebars',
       directory: 'hbs/layouts/',
       partials:  'hbs/partials/',
       default:   'default.hbs',
     }))
 
-    .use(metalsmithPlugins.summary.print())
+    .use(metalsmithSummary.print())
   )
   .pipe(gulp.dest('./public'));
 
@@ -275,7 +309,7 @@ gulp.task('html', function () {
 // Task: Watch
 // -----------------------------------------------------------------------------
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
 
   var sassWatcher = gulp.watch('./assets/scss/**/*.scss', [ 'css' ]);
 
@@ -285,7 +319,7 @@ gulp.task('watch', function () {
 // Task: Default
 // -----------------------------------------------------------------------------
 
-gulp.task('default', function () {
+gulp.task('default', () => {
 
   gulp.start('js', 'css', 'assets', 'html');
 

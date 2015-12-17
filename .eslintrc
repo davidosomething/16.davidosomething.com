@@ -1,0 +1,9 @@
+{
+  "env": {
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "jsx":      true,
+    "modules":  true
+  }
+}

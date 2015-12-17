@@ -32,6 +32,9 @@ Static generated site for davidosomething.com
 
 ## TODO 
 
+- switch engine to node 4+ for native es2015
+    - remove es2015 babel core stuff
+
 - title
 - meta + seo
 - sitemap
