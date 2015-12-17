@@ -8,6 +8,7 @@ Static generated site for davidosomething.com
 
 ### Build
 
+- node >= 4.2.0
 - npm
 - gulp
 - metalsmith (via gulpsmith)
@@ -31,9 +32,6 @@ Static generated site for davidosomething.com
 - Handlebars templating
 
 ## TODO 
-
-- switch engine to node 4+ for native es2015
-    - remove es2015 babel core stuff
 
 - title
 - meta + seo

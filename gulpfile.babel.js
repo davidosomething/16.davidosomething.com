@@ -14,7 +14,7 @@
 // Requires
 // =============================================================================
 
-require('harmonize')(['harmony-generators']); // for metalsmith on old node
+//require('harmonize')(['harmony-generators']); // for metalsmith on old node
 
 // -----------------------------------------------------------------------------
 // Require: Gulp and node utils
@@ -49,6 +49,8 @@ import eslint from 'gulp-eslint';
 // Require: Static Generation
 // -----------------------------------------------------------------------------
 
+// import mdast from 'gulp-mdast';
+// import mdastLint from 'mdast-lint';
 import slug from 'slug';
 import gulpsmith from 'gulpsmith';
 import metalsmithBranch from 'metalsmith-branch';
@@ -194,6 +196,13 @@ gulp.task('assets', () => {
 // -----------------------------------------------------------------------------
 
 slug.defaults.mode = 'rfc3986';
+
+
+// gulp.task('lint:md', () => {
+//   gulp.src([ 'README.md', 'md#<{(||)}>#*.md' ])
+//     .pipe(mdast({ use: mdastLint }))
+// });
+
 
 // @TODO consider metalsmith-each to replace the following
 
