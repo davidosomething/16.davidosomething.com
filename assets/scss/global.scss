@@ -362,10 +362,16 @@ h6 {
 // -----------------------------------------------------------------------------
 
 .globalFooter {
-  @extend %globalBorder;
   @include fs('footer');
+  background-color: map-get($colors, 'primary-text');
+  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   clear: both;
-  padding: 1em 0;
+  color: map-get($colors, 'primary-bg');
+  padding: 4em 0;
+  text-align: center;
 }
 
 
