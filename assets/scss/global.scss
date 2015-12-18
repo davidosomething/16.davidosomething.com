@@ -95,11 +95,15 @@ $fontsizes: (
   default: (
     globalSiteTitle: 0.6rem,
     bio__author:     2rem,
-    nav:             0.8rem,
+    h1: 1.8em,
+    h2: 1.5em,
+    h3: 1.2em,
+    h4: 1.1em,
+    nav:             1em,
     postlist:        0.6em,
-    footer:          0.8rem,
     article__meta:   0.8em,
     article__body:   0.94em,
+    footer:          0.8em,
   ),
   small: (
     h1: 2.4em,
@@ -115,9 +119,14 @@ $fontsizes: (
   ),
   large: (
     body: 1.1em,
+    nav:  0.8em,
   ),
   xlarge: (
-    nav: 1rem,
+    body: 1.2em,
+    nav:  1em,
+  ),
+  xxlarge: (
+    body: 1.3em,
   )
 );
 
@@ -136,6 +145,7 @@ $fontsizes: (
   @include mq('middle') { @include bpfs('middle', $el); }
   @include mq('large') { @include bpfs('large', $el); }
   @include mq('xlarge') { @include bpfs('xlarge', $el); }
+  @include mq('xxlarge') { @include bpfs('xxlarge', $el); }
 }
 
 
@@ -373,7 +383,7 @@ hr {
 %widget__title {
   border-bottom: 1px map-get($colors, 'primary-divider') solid;
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   font-weight: normal;
   margin: 0 0 1em;
   padding: 0.2em 0;
