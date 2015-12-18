@@ -1,15 +1,12 @@
 ---
-title:      Rainmeter Skin - Nest
-subheader:  
-datePublished:     2010-06-26T00:43:53+00:00
+title: "Rainmeter Skin - Nest"
+datePublished: "2010-06-26T00:43:53+00:00"
 tags:
   - config
   - Rainmeter
   - skin
   - twitter
-hero:       
-slug:       rainmeter-skin-nest
-
+slug: rainmeter-skin-nest
 ---
 
 

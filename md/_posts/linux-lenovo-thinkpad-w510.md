@@ -1,16 +1,14 @@
 ---
-title:      Linux on the Lenovo ThinkPad W510
-subheader:  A post on this laptop's configuration and use.
-datePublished:     2014-05-01T22:15:13+00:00
+title: "Linux on the Lenovo ThinkPad W510"
+subheader: "A post on this laptop's configuration and use."
+datePublished: "2014-05-01T22:15:13+00:00"
 tags:
   - cinnamon
   - Linux
   - mint
   - thinkpad
   - w510
-hero:       
-slug:       linux-lenovo-thinkpad-w510
-
+slug: linux-lenovo-thinkpad-w510
 ---
 
 

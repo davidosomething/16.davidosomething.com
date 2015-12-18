@@ -1,13 +1,10 @@
 ---
-title:      Turn off Annoying Auto-corrections in Outlook 2011
-subheader:  
-datePublished:     2013-03-05T18:48:04+00:00
+title: "Turn off Annoying Auto-corrections in Outlook 2011"
+datePublished: "2013-03-05T18:48:04+00:00"
 tags:
   - apps
   - outlook
-hero:       
-slug:       turn-off-annoying-auto-corrections-in-outlook-2011
-
+slug: turn-off-annoying-auto-corrections-in-outlook-2011
 ---
 
 

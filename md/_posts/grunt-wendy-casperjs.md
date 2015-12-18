@@ -1,7 +1,7 @@
 ---
-title:      grunt-wendy &#8211; CasperJS for GruntJS
-subheader:  Super customizable, with output filtering
-datePublished:     2015-09-19T00:00:07+00:00
+title: "grunt-wendy &#8211; CasperJS for GruntJS"
+subheader: "Super customizable, with output filtering"
+datePublished: "2015-09-19T00:00:07+00:00"
 tags:
   - casper
   - casperjs
@@ -13,9 +13,7 @@ tags:
   - plugin
   - task
   - testing
-hero:       
-slug:       grunt-wendy-casperjs
-
+slug: grunt-wendy-casperjs
 ---
 
 

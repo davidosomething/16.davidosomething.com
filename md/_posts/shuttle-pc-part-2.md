@@ -1,13 +1,10 @@
 ---
-title:      Shuttle PC - Part 2
-subheader:  
-datePublished:     2010-10-28T15:08:45+00:00
+title: "Shuttle PC - Part 2"
+datePublished: "2010-10-28T15:08:45+00:00"
 tags:
   - hardware
   - Shuttle
-hero:       
-slug:       shuttle-pc-part-2
-
+slug: shuttle-pc-part-2
 ---
 
 

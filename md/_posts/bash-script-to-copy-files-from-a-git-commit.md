@@ -1,14 +1,11 @@
 ---
-title:      BASH script to copy files from a git commit
-subheader:
-datePublished:       2011-08-22T12:29:38+00:00
+title: "BASH script to copy files from a git commit"
+datePublished: "2011-08-22T12:29:38+00:00"
 tags:
   - bash script
   - copy
   - git
-hero:
-slug:       bash-script-to-copy-files-from-a-git-commit
-
+slug: bash-script-to-copy-files-from-a-git-commit
 ---
 
 

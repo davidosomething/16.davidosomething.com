@@ -1,7 +1,7 @@
 ---
-title:      Linux on the Lenovo ThinkPad W510 &#8211; Part 2
-subheader:  One month later as a pure linux user
-datePublished:     2014-05-29T18:25:31+00:00
+title: "Linux on the Lenovo ThinkPad W510 &#8211; Part 2"
+subheader: "One month later as a pure linux user"
+datePublished: "2014-05-29T18:25:31+00:00"
 tags:
   - arch
   - display
@@ -12,9 +12,7 @@ tags:
   - thinkpad
   - upgrade
   - w510
-hero:       
-slug:       linux-lenovo-thinkpad-w510-part-2
-
+slug: linux-lenovo-thinkpad-w510-part-2
 ---
 
 

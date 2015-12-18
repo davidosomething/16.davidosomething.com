@@ -1,16 +1,13 @@
 ---
-title:      Reconfigured WAMP on my laptop
-subheader:  
-datePublished:     2011-02-03T21:50:48+00:00
+title: "Reconfigured WAMP on my laptop"
+datePublished: "2011-02-03T21:50:48+00:00"
 tags:
   - apache
   - coldfusion
   - Mercurial
   - mysql
   - php
-hero:       
-slug:       reconfigured-wamp-on-my-laptop
-
+slug: reconfigured-wamp-on-my-laptop
 ---
 
 

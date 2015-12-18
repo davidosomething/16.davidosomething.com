@@ -1,14 +1,11 @@
 ---
-title:      Drupal 6 - Creating an E-mail Subscription Block
-subheader:  
-datePublished:       2010-02-10T12:17:39+00:00
+title: "Drupal 6 - Creating an E-mail Subscription Block"
+datePublished: '2010-02-10T12:17:39+00:00'
 tags:
   - cms
   - drupal
   - php
-hero:       
-slug:       drupal-creating-an-e-mail-subscription-block
-
+slug: drupal-creating-an-e-mail-subscription-block
 ---
 
 

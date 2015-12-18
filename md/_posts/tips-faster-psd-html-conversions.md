@@ -1,13 +1,10 @@
 ---
-title:      Tips for Faster PSD to HTML Conversions
-subheader:  
-datePublished:     2010-02-27T21:33:38+00:00
+title: Tips for Faster PSD to HTML Conversions
+datePublished: "2010-02-27T21:33:38+00:00"
 tags:
   - css
   - photoshop
-hero:       
-slug:       tips-faster-psd-html-conversions
-
+slug: tips-faster-psd-html-conversions
 ---
 
 

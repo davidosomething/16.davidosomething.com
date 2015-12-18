@@ -1,16 +1,13 @@
 ---
-title:      A WordPress User&#8217;s Guide to Drupal
-subheader:  
-datePublished:       2010-02-26T20:52:35+00:00
+title: "A WordPress User&#8217;s Guide to Drupal"
+datePublished: "2010-02-26T20:52:35+00:00"
 tags:
   - cms
   - drupal
   - mysql
   - php
   - wordpress
-hero:       
-slug:       a-wordpress-users-guide-to-drupal
-
+slug: a-wordpress-users-guide-to-drupal
 ---
 
 

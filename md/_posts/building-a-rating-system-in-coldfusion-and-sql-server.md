@@ -1,13 +1,10 @@
 ---
-title:      Building a Rating System in ColdFusion and SQL Server
-subheader:  
-datePublished:       2010-02-22T19:12:45+00:00
+title: "Building a Rating System in ColdFusion and SQL Server"
+datePublished: '2010-02-22T19:12:45+00:00'
 tags:
   - coldfusion
   - sql
-hero:       
-slug:       building-a-rating-system-in-coldfusion-and-sql-server
-
+slug: building-a-rating-system-in-coldfusion-and-sql-server
 ---
 
 

@@ -1,14 +1,11 @@
 ---
-title:      Putting together my new Shuttle PC
-subheader:  
-datePublished:     2010-10-20T12:12:16+00:00
+title: "Putting together my new Shuttle PC"
+datePublished: "2010-10-20T12:12:16+00:00"
 tags:
   - hardware
   - photoshop
   - Shuttle
-hero:       
-slug:       putting-together-my-new-shuttle-pc
-
+slug: putting-together-my-new-shuttle-pc
 ---
 
 

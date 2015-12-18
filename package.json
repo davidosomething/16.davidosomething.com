@@ -150,6 +150,10 @@
       "no-throw-literal": 2,
       "no-trailing-spaces": 2,
       "no-underscore-dangle": 0,
+      "no-unused-vars": [
+        2,
+        { "args": "none" }
+      ],
       "object-curly-spacing": [
         2,
         "always"
@@ -269,6 +273,7 @@
     "metalsmith-paths": "^2.1.1",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-snippet": "^2.0.0",
+    "metalsmith-validate": "^0.1.4",
     "metalsmith-widow": "^1.1.1",
     "slug": "^0.9.1"
   }

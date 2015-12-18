@@ -1,15 +1,12 @@
 ---
-title:      Configuring a Local Server on Windows
-subheader:  
-datePublished:       2010-01-29T08:18:27+00:00
+title: "Configuring a Local Server on Windows"
+datePublished: '2010-01-29T08:18:27+00:00'
 tags:
   - apache
   - server
   - software
   - windows
-hero:       
-slug:       configuring-a-local-server-on-windows
-
+slug: configuring-a-local-server-on-windows
 ---
 
 

@@ -75,6 +75,7 @@ import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithSnippet from 'metalsmith-snippet';
+import metalsmithValidate from 'metalsmith-validate';
 import metalsmithWidow from 'metalsmith-widow';
 
 import hbsHelperMoment from './hbs/helpers/moment.js';
@@ -112,14 +113,14 @@ dirs.js = {
 
 gulp.task('clean:css', () => {
   return del([
-    `${dirs.css.dist}/**/*`,
+    `${dirs.css.dist}/**/*`, //*/
   ]);
 });
 
 
 gulp.task('clean:js', () => {
   return del([
-    `${dirs.js.dist}/**/*`,
+    `${dirs.js.dist}/**/*`, //*/
   ]);
 });
 
@@ -127,14 +128,14 @@ gulp.task('clean:js', () => {
 gulp.task('clean:assets', () => {
   return del([
     `${dirs.assets.dist}/fonts/**/*`,
-    `${dirs.assets.dist}/img/**/*`,
+    `${dirs.assets.dist}/img/**/*`, //*/
   ]);
 });
 
 
 gulp.task('clean:all', () => {
   return del([
-    `${dirs.dist}/**/*`,
+    `${dirs.dist}/**/*`, //*/
   ]);
 });
 
@@ -144,7 +145,7 @@ gulp.task('clean:all', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:css', () => {
-  return gulp.src(`${dirs.css.source}/**/*.scss`)
+  return gulp.src(`${dirs.css.source}/**/*.scss`) //*/
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
@@ -189,7 +190,7 @@ gulp.task('css', () => {
 
 gulp.task('lint:js', () => {
 
-  return gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])
+  return gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])  //*/
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -219,15 +220,38 @@ gulp.task('assets', () => {
 // Task: HTML
 // -----------------------------------------------------------------------------
 
+//*/
+
 var now = new Date();
 slug.defaults.mode = 'rfc3986';
 
-// gulp.task('lint:md', () => {
-//
-//   return gulp.src([ 'README.md', 'md#<{(||)}>#*.md' ])
-//     .pipe(mdast({ use: mdastLint }))
-//
-// });
+gulp.task('lint:md', (cb) => {
+
+  metalsmith(__dirname)
+    .source('./md/')
+
+    // Posts -- note the html file extension due to markdown()
+    .use(metalsmithValidate({
+      pattern: '_posts/*',
+      metadata: {
+        title: true,
+        subheader: true,
+        datePublished: true,
+        description: true,
+        tags: {
+          exists: true,
+          type: 'Array',
+        },
+      },
+    }))
+    .build(function (err, files) {
+      if (err) {
+        return cb(err);
+      }
+      cb();
+    });
+
+});
 
 /**
  * formatPost

@@ -1,7 +1,6 @@
 ---
-title:      Google Analytics, iFrames, and Multiple Domain Setups
-subheader:  
-datePublished:     2010-02-24T14:38:56+00:00
+title: "Google Analytics, iFrames, and Multiple Domain Setups"
+datePublished: "2010-02-24T14:38:56+00:00"
 tags:
   - analytics
   - apache
@@ -10,9 +9,7 @@ tags:
   - iframe
   - javascript
   - tracking
-hero:       
-slug:       google-analytics-iframes-and-multiple-domain-setups
-
+slug: google-analytics-iframes-and-multiple-domain-setups
 ---
 
 

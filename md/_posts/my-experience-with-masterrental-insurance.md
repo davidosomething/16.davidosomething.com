@@ -1,12 +1,9 @@
 ---
-title:      My Experience with MasterRental Insurance
-subheader:  
-datePublished:     2010-03-07T19:57:47+00:00
+title: "My Experience with MasterRental Insurance"
+datePublished: "2010-03-07T19:57:47+00:00"
 tags:
   - insurance
-hero:       
-slug:       my-experience-with-masterrental-insurance
-
+slug: my-experience-with-masterrental-insurance
 ---
 
 

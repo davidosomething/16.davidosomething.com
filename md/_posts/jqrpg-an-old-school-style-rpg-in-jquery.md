@@ -1,16 +1,13 @@
 ---
-title:      jQRPG — An Old-School Style RPG in jQuery
-subheader:  
-datePublished:     2010-02-19T13:55:19+00:00
+title: "jQRPG — An Old-School Style RPG in jQuery"
+datePublished: "2010-02-19T13:55:19+00:00"
 tags:
   - css
   - games
   - javascript
   - jquery
   - programming
-hero:       
-slug:       jqrpg-an-old-school-style-rpg-in-jquery
-
+slug: jqrpg-an-old-school-style-rpg-in-jquery
 ---
 
 

@@ -1,13 +1,10 @@
 ---
-title:      Quick Access to the YouTube API with ColdFusion
-subheader:  
-datePublished:     2010-04-29T19:57:22+00:00
+title: "Quick Access to the YouTube API with ColdFusion"
+datePublished: "2010-04-29T19:57:22+00:00"
 tags:
   - API
   - coldfusion
-hero:       
-slug:       quick-access-to-the-youtube-api-with-coldfusion
-
+slug: quick-access-to-the-youtube-api-with-coldfusion
 ---
 
 

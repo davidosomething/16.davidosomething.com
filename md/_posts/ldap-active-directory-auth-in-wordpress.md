@@ -1,14 +1,11 @@
 ---
-title:      LDAP / Active Directory auth in WordPress
-subheader:  
-datePublished:     2010-11-18T16:12:53+00:00
+title: "LDAP / Active Directory auth in WordPress"
+datePublished: "2010-11-18T16:12:53+00:00"
 tags:
   - active directory
   - php
   - wordpress
-hero:       
-slug:       ldap-active-directory-auth-in-wordpress
-
+slug: ldap-active-directory-auth-in-wordpress
 ---
 
 

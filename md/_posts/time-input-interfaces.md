@@ -1,14 +1,11 @@
 ---
-title:      Time Input Interfaces
-subheader:  
-datePublished:     2010-02-05T16:27:41+00:00
+title: Time Input Interfaces
+datePublished: "2010-02-05T16:27:41+00:00"
 tags:
   - css
   - jquery
   - ui
-hero:       
-slug:       time-input-interfaces
-
+slug: "time-input-interfaces"
 ---
 
 

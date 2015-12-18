@@ -1,7 +1,7 @@
 ---
-title:      How I Work
-subheader:  The million things I do for web projects.
-datePublished:     2014-06-11T21:35:24+00:00
+title: "How I Work"
+subheader: "The things I do for web projects."
+datePublished: "2014-06-11T21:35:24+00:00"
 tags:
   - bower
   - branches
@@ -19,9 +19,7 @@ tags:
   - vagrant
   - vm
   - web
-hero:       
-slug:       how-i-work
-
+slug: how-i-work
 ---
 
 

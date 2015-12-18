@@ -1,15 +1,12 @@
 ---
-title:      Making a BrightCove video gallery
-subheader:  
-datePublished:     2011-12-16T14:00:33+00:00
+title: "Making a BrightCove video gallery"
+datePublished: "2011-12-16T14:00:33+00:00"
 tags:
   - API
   - brightcove
   - javascript
   - jquery
-hero:       
-slug:       making-a-brightcove-video-gallery
-
+slug: making-a-brightcove-video-gallery
 ---
 
 

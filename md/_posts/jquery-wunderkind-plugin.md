@@ -1,15 +1,12 @@
 ---
-title:      jQuery Wunderkind plugin
-subheader:  
-datePublished:     2011-03-03T23:18:46+00:00
+title: "jQuery Wunderkind plugin"
+datePublished: "2011-03-03T23:18:46+00:00"
 tags:
   - imagemap
   - javascript
   - jquery
   - plugin
-hero:       
-slug:       jquery-wunderkind-plugin
-
+slug: jquery-wunderkind-plugin
 ---
 
 

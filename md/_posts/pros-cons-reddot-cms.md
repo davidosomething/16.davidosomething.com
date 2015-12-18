@@ -1,13 +1,10 @@
 ---
-title:      Pros &#038; Cons of the RedDot CMS
-subheader:  
-datePublished:     2010-02-03T19:29:10+00:00
+title: "Pros &#038; Cons of the RedDot CMS"
+datePublished: "2010-02-03T19:29:10+00:00"
 tags:
   - cms
   - reddot
-hero:       
-slug:       pros-cons-reddot-cms
-
+slug: pros-cons-reddot-cms
 ---
 
 

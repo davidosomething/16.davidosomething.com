@@ -1,13 +1,10 @@
 ---
-title:      Understanding @font-face and Typography
-subheader:  
-datePublished:     2010-02-04T12:58:10+00:00
+title: "Understanding @font-face and Typography"
+datePublished: "2010-02-04T12:58:10+00:00"
 tags:
   - css
   - typography
-hero:       
-slug:       understanding-font-face-and-typography
-
+slug: understanding-font-face-and-typography
 ---
 
 

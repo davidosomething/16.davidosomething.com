@@ -1,7 +1,6 @@
 ---
 title: "Automatic torrenting in Linux / OSX"
-subheader:  
-datePublished: 2011-12-07T18:51:39+00:00
+datePublished: "2011-12-07T18:51:39+00:00"
 tags:
   - archlinux
   - CouchPotatoApp
@@ -10,9 +9,7 @@ tags:
   - Scheduling
   - seedbox
   - torrent
-hero:       
-slug:       automatic-torrenting-in-linux
-
+slug: automatic-torrenting-in-linux
 ---
 
 

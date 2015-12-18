@@ -47,13 +47,20 @@ $breakpoints: (
   xxlarge: 1650px,
 );
 
-@mixin mq($min, $max: null) {
-  $min-breakpoint: map-get($breakpoints, $min);
-  $mq: '(min-width: #{$min-breakpoint})';
-  @if $max {
-    $max-breakpoint: (map-get($breakpoints, $max) / 1px - 1) * 1px;
-    $mq: '(min-width: #{$min-breakpoint}) and (max-width: #{$max-breakpoint})'
+@mixin mq($min: null, $max: null) {
+  $mq: '';
+
+  @if $min {
+    $min-breakpoint: map-get($breakpoints, $min);
+    $mq: '(min-width: #{$min-breakpoint})';
   }
+
+  @if $max {
+    @if $mq { $mq: '#{$mq} and ' }
+    $max-breakpoint: (map-get($breakpoints, $max) / 1px - 1) * 1px;
+    $mq: '#{$mq}(max-width: #{$max-breakpoint})'
+  }
+
   @media #{$mq} { @content; }
 }
 
@@ -64,13 +71,11 @@ $breakpoints: (
 
 // Hide below large, flexbox compatible
 .mq--large {
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-
-  @include mq('large') {
-    height: auto;
-    visibility: visible;
+  @include to('large') {
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
   }
 }
 
@@ -182,18 +187,10 @@ $z: (
   text-transform: none;
 }
 
-.icon-twitter::before {
-  content: '\e900';
-}
-
-.icon-github::before {
-  content: '\e901';
-}
-
-.icon-linkedin::before {
-  content: '\e902';
-}
-
+.icon-linkedin-with-circle::before { content: '\e900'; }
+.icon-twitter-with-circle::before { content: '\e902'; }
+.icon-google-plus3::before { content: '\e903'; }
+.icon-github::before { content: '\e901'; }
 
 // -----------------------------------------------------------------------------
 // Icon before element
@@ -325,13 +322,13 @@ hr {
   white-space: nowrap;
 
   > * {
+    color: inherit;
     display: inline-block;
     vertical-align: middle;
   }
 }
 
 .siteHeader__siteName {
-  color: inherit;
   margin-right: 1em;
 
   // Home icon
@@ -409,11 +406,17 @@ hr {
   @include mq('small') {
     margin-top: 0.4em;
   }
+}
 
+.bio__avatar__link {
   img {
     background: map-get($colors, 'avatar-bg');
     border-radius: 3em;
     display: inline-block;
+  }
+
+  &:hover img {
+    background-color: map-get($colors, 'primary-link--hover');
   }
 }
 
@@ -428,6 +431,10 @@ hr {
     margin: 0.5rem 1rem 0 0;
 
     span { display: none; }
+  }
+
+  a:hover {
+    color: map-get($colors, 'primary-link--hover');
   }
 }
 
@@ -522,9 +529,10 @@ hr {
 }
 
 .globalDiv {
-  margin: 1rem 1.5rem;
-  @include mq('small') { margin: 2rem; }
-  @include mq('large') { margin: 3rem; }
+  margin: 0 1.5rem;
+  padding: 1rem 0;
+  @include mq('small') { margin: 0 2rem; padding: 2rem 0; }
+  @include mq('large') { margin: 0 3rem; padding: 3rem 0; }
 }
 
 
@@ -539,12 +547,14 @@ hr {
     flex-flow: row wrap;
     justify-content: space-between;
     max-width: $max-line-width;
+    width: 100%;
   }
 
   .globalNav > .widget {
     flex-basis: 48%;
-    margin-left: 0;
-    margin-right: 0;
+    flex-grow: 1;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 }
 

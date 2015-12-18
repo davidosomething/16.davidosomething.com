@@ -1,13 +1,10 @@
 ---
-title:      Shuttle PC - new harddrive, Clonezilla &#038; Windows 7
-subheader:  
-datePublished:     2010-12-03T23:12:44+00:00
+title: "Shuttle PC - new harddrive, Clonezilla &#038; Windows 7"
+datePublished: "2010-12-03T23:12:44+00:00"
 tags:
   - Shuttle
   - windows
-hero:       
-slug:       shuttle-pc-new-harddrive-clonezilla-windows-7
-
+slug: shuttle-pc-new-harddrive-clonezilla-windows-7
 ---
 
 

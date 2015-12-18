@@ -1,14 +1,11 @@
 ---
-title:      Safely installing npm on Ubuntu
-subheader:  
-datePublished:     2010-12-09T17:31:13+00:00
+title: "Safely installing npm on Ubuntu"
+datePublished: "2010-12-09T17:31:13+00:00"
 tags:
   - development
   - node.js
   - Ubuntu
-hero:       
-slug:       safely-installing-npm-on-ubuntu
-
+slug: safely-installing-npm-on-ubuntu
 ---
 
 

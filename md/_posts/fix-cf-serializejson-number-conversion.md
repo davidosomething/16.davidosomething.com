@@ -1,10 +1,7 @@
 ---
-title:      Fix CF SerializeJSON number conversion
-subheader:  
-datePublished:     2011-08-30T12:29:56+00:00
-hero:       
-slug:       fix-cf-serializejson-number-conversion
-
+title: "Fix CF SerializeJSON number conversion"
+datePublished: '2011-08-30T12:29:56+00:00'
+slug: fix-cf-serializejson-number-conversion
 ---
 
 

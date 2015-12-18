@@ -1,7 +1,6 @@
 ---
-title:      My Development Setup
-subheader:  
-datePublished:     2010-11-29T20:35:48+00:00
+title: "My Development Setup"
+datePublished: "2010-11-29T20:35:48+00:00"
 tags:
   - apache
   - bitbucket
@@ -21,9 +20,7 @@ tags:
   - SSH
   - Ubuntu
   - virtualbox
-hero:       
-slug:       my-development-setup
-
+slug: my-development-setup
 ---
 
 

@@ -1,14 +1,11 @@
 ---
-title:      Podcasts I listen to
-subheader:  
-datePublished:     2013-07-08T19:20:27+00:00
+title: "Podcasts I listen to"
+datePublished: "2013-07-08T19:20:27+00:00"
 tags:
   - dev
   - podcasts
   - web
-hero:       
-slug:       podcasts-i-listen-to
-
+slug: podcasts-i-listen-to
 ---
 
 
