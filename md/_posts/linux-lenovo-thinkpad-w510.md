@@ -1,7 +1,7 @@
 ---
 title:      Linux on the Lenovo ThinkPad W510
 subheader:  A post on this laptop's configuration and use.
-date:       2014-05-01T22:15:13+00:00
+datePublished:     2014-05-01T22:15:13+00:00
 tags:
   - cinnamon
   - Linux

@@ -1,7 +1,7 @@
 ---
 title:      JQueryUI needs&#8230;
 subheader:  
-date:       2010-04-17T15:49:37+00:00
+datePublished:     2010-04-17T15:49:37+00:00
 tags:
   - apache
   - javascript

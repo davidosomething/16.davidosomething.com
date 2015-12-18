@@ -1,7 +1,7 @@
 ---
 title:      Configuring a Local Server on Windows
 subheader:  
-date:       2010-01-29T08:18:27+00:00
+datePublished:       2010-01-29T08:18:27+00:00
 tags:
   - apache
   - server

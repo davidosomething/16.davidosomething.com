@@ -1,7 +1,7 @@
 ---
 title:      Linux on the Lenovo ThinkPad W510 &#8211; Part 2
 subheader:  One month later as a pure linux user
-date:       2014-05-29T18:25:31+00:00
+datePublished:     2014-05-29T18:25:31+00:00
 tags:
   - arch
   - display

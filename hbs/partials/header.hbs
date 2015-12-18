@@ -1,12 +1,18 @@
 <!doctype html>
-<html {{#if schema}}itemscope itemtype="{{schema.itemtype}}"{{/if}} dir="ltr" lang="en">
+<html {{#if schema}}itemscope itemtype="{{ schema.itemtype }}"{{/if}} dir="ltr" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="{{ site.description }}TODO">
 	<meta name="keywords" content="{{ csvtags }}TODO">
-	<meta itemprop="dateModified" content="{{ dateModified }}TODO">
+	<meta name="robots" content="noodp">
+	<meta name="google-site-verification" content="CUF_b2uUr3xngYZU_Assv-CXFtDTzQjFdoh3_S35FDQ">
+	<meta name="msvalidate.01" content="DB32AB8ADBD71157CA9F135EAD9EFE23">
+	<meta name="p:domain_verify" content="87f3b7851e149ff74531fdb012c62bf3">
+	<meta itemprop="dateModified" content="{{ moment dateModified toISOString=null }}">
+	<meta property="fb:admins" content="16109547">
+	<meta property="og:image" content="{{ image }}">
 	<title>davidosomething.com</title>
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,700,700italic,900">
 	<link rel="stylesheet" href="/assets/css/global.css">

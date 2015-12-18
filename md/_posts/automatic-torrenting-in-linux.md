@@ -1,7 +1,7 @@
 ---
-title:      Automatic torrenting in Linux / OSX
+title: "Automatic torrenting in Linux / OSX"
 subheader:  
-date:       2011-12-07T18:51:39+00:00
+datePublished: 2011-12-07T18:51:39+00:00
 tags:
   - archlinux
   - CouchPotatoApp

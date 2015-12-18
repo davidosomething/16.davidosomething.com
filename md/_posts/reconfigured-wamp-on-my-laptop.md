@@ -1,7 +1,7 @@
 ---
 title:      Reconfigured WAMP on my laptop
 subheader:  
-date:       2011-02-03T21:50:48+00:00
+datePublished:     2011-02-03T21:50:48+00:00
 tags:
   - apache
   - coldfusion

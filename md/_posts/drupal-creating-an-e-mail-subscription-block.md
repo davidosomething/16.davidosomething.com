@@ -1,7 +1,7 @@
 ---
 title:      Drupal 6 - Creating an E-mail Subscription Block
 subheader:  
-date:       2010-02-10T12:17:39+00:00
+datePublished:       2010-02-10T12:17:39+00:00
 tags:
   - cms
   - drupal

@@ -1,7 +1,7 @@
 ---
 title:      grunt-toggl
 subheader:  Automatically start a Toggl timer with a Grunt task
-date:       2014-04-29T22:30:24+00:00
+datePublished:     2014-04-29T22:30:24+00:00
 hero:       http://davidosomething.com/content/uploads/header-grunt-toggl.jpg
 slug:       grunt-toggl
 

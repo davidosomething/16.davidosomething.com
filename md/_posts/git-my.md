@@ -1,7 +1,7 @@
 ---
 title:      git-my
 subheader:  List the remote branches where you were the last committer
-date:       2015-03-29T22:39:39+00:00
+datePublished:     2015-03-29T22:39:39+00:00
 tags:
   - bash
   - development

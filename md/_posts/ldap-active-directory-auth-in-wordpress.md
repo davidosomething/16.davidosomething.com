@@ -1,7 +1,7 @@
 ---
 title:      LDAP / Active Directory auth in WordPress
 subheader:  
-date:       2010-11-18T16:12:53+00:00
+datePublished:     2010-11-18T16:12:53+00:00
 tags:
   - active directory
   - php

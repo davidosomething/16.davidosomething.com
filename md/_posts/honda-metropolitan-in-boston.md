@@ -1,7 +1,7 @@
 ---
 title:      Honda Metropolitan in Boston
 subheader:  
-date:       2010-04-02T13:58:46+00:00
+datePublished:     2010-04-02T13:58:46+00:00
 tags:
   - boston
   - insurance

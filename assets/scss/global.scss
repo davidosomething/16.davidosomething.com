@@ -492,7 +492,7 @@ h6 {
 .article__body {
   @include fs('article__body');
   line-height: 1.5;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 0.5em;
 
   p:first-child {
     text-indent: 2ex;
@@ -523,9 +523,11 @@ h6 {
 // Article Variants and per-variant overrides
 // -----------------------------------------------------------------------------
 
-// .article--excerpt {
-// }
-
+.article--excerpt .article__body {
+  height: 5 * 1.5em; // # of lines x .article__body line-height
+  overflow: hidden;
+  position: relative;
+}
 
 // -----------------------------------------------------------------------------
 // ArticleTile

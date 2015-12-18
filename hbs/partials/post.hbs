@@ -3,7 +3,7 @@
 	<meta itemprop="name" content="{{ slug }}">
 	<header class="article__header">
 		<section class="article__meta">
-			<time datetime="{{ moment date toISOString=null }}" itemprop="datePublished">{{ moment date format="D MMM YYYY" }}</time>
+			<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment date format="D MMM YYYY" }}</time>
 			{{> article__tags }}
 		</section>
 		<h1 class="article__title" itemprop="headline"><a rel="bookmark" class="article__header__link--permalink" href="{{ permalink }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>

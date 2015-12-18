@@ -1,7 +1,7 @@
 ---
 title:      Podcasts I listen to
 subheader:  
-date:       2013-07-08T19:20:27+00:00
+datePublished:     2013-07-08T19:20:27+00:00
 tags:
   - dev
   - podcasts

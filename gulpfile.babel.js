@@ -56,6 +56,7 @@ import slug from 'slug';
 import gulpsmith from 'gulpsmith';
 import metalsmithBranch from 'metalsmith-branch';
 import metalsmithCollections from 'metalsmith-collections';
+import metalsmithDefine from 'metalsmith-define';
 import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
@@ -216,7 +217,31 @@ slug.defaults.mode = 'rfc3986';
 // });
 
 
-// @TODO consider metalsmith-each to replace the following
+/**
+ * getDatePublished
+ *
+ * @param {Object} data
+ * @return {Date}
+ */
+var getDatePublished = function (data) {
+  return data.datePublished || new Date();
+};
+
+
+/**
+ * getDateModified
+ *
+ * @param {Object} data
+ * @return {Date}
+ */
+var getDateModified = function (data) {
+  if (data.dateModified) {
+    return data.dateModified;
+  }
+
+  return getDatePublished(data);
+};
+
 
 /**
  * formatPost
@@ -229,10 +254,13 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
   var log = debug('formatPost');
   Object.keys(files).forEach((file) => {
     var data = files[file];
-    data.excerpt = data.excerpt || data.snippet;
-    data.section = data.section || 'blog';
-    data.slug    = data.slug || slug(data.title);
-    data.type    = data.type || 'post';
+    data.excerpt        = data.excerpt || data.snippet;
+    data.section        = data.section || 'blog';
+    data.slug           = data.slug || slug(data.title);
+    data.type           = data.type || 'post';
+    data.image          = data.image || metalsmith.metadata().avatarUrl;
+    data.datePublished  = getDatePublished(data);
+    data.dateModified   = getDateModified(data);
     data.schema = {
       itemtype: 'https://schema.org/BlogPosting',
     };
@@ -255,9 +283,12 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
   var log = debug('formatPage');
   Object.keys(files).forEach((file) => {
     var data = files[file];
-    data.section = slug(data.paths.root) || 'root';
-    data.slug    = data.slug || slug(data.title);
-    data.type    = data.type || 'page';
+    data.section        = slug(data.paths.root) || 'root';
+    data.slug           = data.slug || slug(data.title);
+    data.type           = data.type || 'page';
+    data.image          = data.image || metalsmith.metadata().avatarUrl;
+    data.datePublished  = getDatePublished(data);
+    data.dateModified   = getDateModified(data);
     data.schema = {
       itemtype: 'https://schema.org/WebPage',
     };
@@ -301,6 +332,11 @@ gulp.task('html', () => {
 
       .use(metalsmithIgnore('_drafts/*'))
 
+      .use(metalsmithDefine({
+        avatarUrl: '/assets/img/avatar.png',
+        buildDate: new Date(),
+      }))
+
       .use(metalsmithMatters())
 
       .use(metalsmithCollections({
@@ -311,20 +347,20 @@ gulp.task('html', () => {
         posts: {
           pattern: '_posts/*',
           reverse: true,
-          sortBy:  'date',
+          sortBy:  'datePublished',
         },
         latestPost: {
           limit:   1,
           pattern: '_posts/*',
           refer:   false,
           reverse: true,
-          sortBy:  'date',
+          sortBy:  'datePublished',
         },
         latestPosts: {
           limit:   10,
           pattern: '_posts/*',
           reverse: true,
-          sortBy:  'date',
+          sortBy:  'datePublished',
         },
       }))
 
@@ -334,7 +370,7 @@ gulp.task('html', () => {
     // Posts -- note the html file extension due to markdown()
     .use(metalsmithBranch('_posts/*.html')
       .use(metalsmithSnippet({
-        maxLength: 250,
+        maxLength: 500,
       }))
       .use(metalsmithFormatPost)
       .use(metalsmithPermalinks({

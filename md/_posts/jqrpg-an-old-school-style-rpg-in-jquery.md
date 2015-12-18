@@ -1,7 +1,7 @@
 ---
 title:      jQRPG — An Old-School Style RPG in jQuery
 subheader:  
-date:       2010-02-19T13:55:19+00:00
+datePublished:     2010-02-19T13:55:19+00:00
 tags:
   - css
   - games

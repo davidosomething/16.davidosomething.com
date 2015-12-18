@@ -1,7 +1,7 @@
 ---
 title:      Takeaways from An Event Apart DC 2010
 subheader:  
-date:       2010-09-20T11:02:26+00:00
+datePublished:     2010-09-20T11:02:26+00:00
 hero:       
 slug:       takeaways-from-an-event-apart-dc-2010
 

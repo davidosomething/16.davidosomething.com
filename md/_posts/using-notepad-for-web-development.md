@@ -1,7 +1,7 @@
 ---
 title:      Using Notepad++ for Web Development
 subheader:  
-date:       2010-02-02T09:27:01+00:00
+datePublished:     2010-02-02T09:27:01+00:00
 tags:
   - software
   - windows
