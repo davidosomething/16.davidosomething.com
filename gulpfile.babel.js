@@ -350,7 +350,7 @@ gulp.task('html', (cb) => {
         relative: 'off',
       }))
       .use(metalsmithPaths({ property: 'paths' }))
-      .use(metalsmithBranchDebugger({ suffix: 'pages' }))
+      .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
 
     // Pages -- note the blog/ path due to permalinks()
