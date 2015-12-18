@@ -1,0 +1,9 @@
+{{! 10 latest posts widget }}
+<aside class="widget widget--latestPosts">
+	<header class="widget__header">
+		<h2 class="widget__header__title">Latest Posts</h2>
+	</header>
+	<ol class="widget__postlist">
+		{{#each collections.latestPosts}}<li>{{> articleTile}}</li>{{/each}}
+	</ol>
+</aside>

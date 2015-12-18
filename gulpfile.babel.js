@@ -57,14 +57,17 @@ import gulpsmith from 'gulpsmith';
 import metalsmithBranch from 'metalsmith-branch';
 import metalsmithCollections from 'metalsmith-collections';
 import metalsmithDefine from 'metalsmith-define';
+import metalsmithHeadings from 'metalsmith-headings';
 import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMatters from 'metalsmith-matters';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
-import metalsmithRegisterHelpers from 'metalsmith-register-helpers';
 import metalsmithSnippet from 'metalsmith-snippet';
+import metalsmithWidow from 'metalsmith-widow';
+
+import hbsHelperMoment from './hbs/helpers/moment.js';
 
 
 // =============================================================================
@@ -264,6 +267,11 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     data.schema = {
       itemtype: 'https://schema.org/BlogPosting',
     };
+    data.widgets = {
+      sharePost:    true,
+      aboutMe:      true,
+      latestPosts:  true,
+    };
     log(`formatPost ${file}`);
     log(`  - section: ${files[file].section}`);
     log(`  - type: ${files[file].type}`);
@@ -291,6 +299,10 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
     data.dateModified   = getDateModified(data);
     data.schema = {
       itemtype: 'https://schema.org/WebPage',
+    };
+    data.widgets = {
+      aboutMe:   true,
+      allPosts:  true,
     };
     log(`formatPage ${file}`);
     log(`  - section: ${data.section}`);
@@ -332,13 +344,21 @@ gulp.task('html', () => {
 
       .use(metalsmithIgnore('_drafts/*'))
 
+      // metadata here is attached to metalsmith instance
       .use(metalsmithDefine({
+        site: {
+          url:    'http://davidosomething.com/',
+          author: 'David O\'Trakoun',
+        },
         avatarUrl: '/assets/img/avatar.png',
         buildDate: new Date(),
       }))
 
+      // frontmatter metadata is attached to the main post object
       .use(metalsmithMatters())
 
+      // note: metadata attached to collections is attached to the object
+      // instance in collection.*
       .use(metalsmithCollections({
         pages: {
           pattern: '!_*/*',
@@ -365,10 +385,12 @@ gulp.task('html', () => {
       }))
 
     // Read markdown into {{ content }} and change sources to **.html
+    // metadata added here is attached to the main post object
     .use(metalsmithMarkdown())
 
     // Posts -- note the html file extension due to markdown()
     .use(metalsmithBranch('_posts/*.html')
+      .use(metalsmithHeadings())
       .use(metalsmithSnippet({
         maxLength: 500,
       }))
@@ -389,12 +411,29 @@ gulp.task('html', () => {
     )
 
     // Pump into HBS
-    .use(metalsmithRegisterHelpers({ directory: 'hbs/helpers' }))
+    // helpers is undocumented, but provided by consolidate.js (which
+    // is the interface metalsmith uses for handlebars)
+    /**
+     * @see {@link https://github.com/superwolff/metalsmith-layouts#consolidate}
+     * @see {@link https://github.com/tj/consolidate.js/blob/master/lib/consolidate.js#L709}
+     */
     .use(metalsmithLayouts({
       engine:    'handlebars',
       directory: 'hbs/layouts/',
       partials:  'hbs/partials/',
       'default':   'default.hbs',
+      helpers: {
+        moment: hbsHelperMoment,
+      },
+    }))
+
+    // Transform final HTML
+    .use(metalsmithWidow({
+      selectors: [
+        '.article__header__link--permalink',
+        '.article__header__link',
+        '.article__subheader',
+      ],
     }))
   )
   .pipe(gulp.dest('./public'));

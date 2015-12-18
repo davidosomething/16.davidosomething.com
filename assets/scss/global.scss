@@ -6,6 +6,11 @@
 /// @author David O'Trakoun <me@davidosomething.com>
 ////
 
+
+// =============================================================================
+// Config
+// =============================================================================
+
 // -----------------------------------------------------------------------------
 // Colors
 // -----------------------------------------------------------------------------
@@ -15,7 +20,7 @@ $colors: (
   primary-text:        #3f3a30,
   primary-link:        #48a,
   primary-link--hover: #7ac,
-  primary-divider:     #cccccf,
+  primary-divider:     #ddd,
 
   tertiary-bg:         #e0f0ff,
   tertiary-text:       #988,
@@ -41,9 +46,19 @@ $breakpoints: (
   xlarge: 1368px,
 );
 
-@mixin mq($size) {
-  $breakpoint: #{map-get($breakpoints, $size)};
-  @media (min-width: $breakpoint) { @content; }
+@mixin mq($min, $max: null) {
+  $min-breakpoint: map-get($breakpoints, $min);
+  $mq: '(min-width: #{$min-breakpoint})';
+  @if $max {
+    $max-breakpoint: (map-get($breakpoints, $max) / 1px - 1) * 1px;
+    $mq: '(min-width: #{$min-breakpoint}) and (max-width: #{$max-breakpoint})'
+  }
+  @media #{$mq} { @content; }
+}
+
+@mixin to($size) {
+  $breakpoint: map-get($breakpoints, $size);
+  @media (max-width: $breakpoint - 1) { @content; }
 }
 
 
@@ -67,16 +82,17 @@ $fontsizes: (
   default: (
     globalSiteTitle: 0.6rem,
     bio__author:     2rem,
-    nav:             0.5rem,
+    nav:             0.8rem,
+    postlist:        0.6em,
     footer:          0.8rem,
     article__meta:   0.8em,
     article__body:   0.94em,
   ),
   small: (
     h1: 2.4em,
-    h2: 1.8em,
-    h3: 1.6em,
-    h4: 1.4em,
+    h2: 2em,
+    h3: 1.8em,
+    h4: 1.5em,
     article__body: 1em,
   ),
   medium: (
@@ -108,8 +124,17 @@ $fontsizes: (
 
 
 // -----------------------------------------------------------------------------
-// Icons
+// Z-Indices
 // -----------------------------------------------------------------------------
+
+$z: (
+  siteHeader: 1,
+);
+
+
+// =============================================================================
+// Icons
+// =============================================================================
 
 @font-face {
   font-family: 'icomoon';
@@ -174,18 +199,9 @@ $fontsizes: (
 }
 
 
-// -----------------------------------------------------------------------------
-// Z-Indices
-// -----------------------------------------------------------------------------
-
-$z: (
-  siteHeader: 1,
-);
-
-
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Base styles
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 body {
   @include fs('body');
@@ -211,33 +227,42 @@ h4,
 h5,
 h6 {
   font-weight: $fontweight__heading;
-  line-height: 1.24;
+  line-height: 1;
 }
 
-
-// -----------------------------------------------------------------------------
-// Widget
-// -----------------------------------------------------------------------------
-
-%widget__title {
-  border-bottom: 1px map-get($colors, 'primary-divider') solid;
-  display: inline-block;
-  font-size: 0.5rem;
-  font-weight: normal;
-  margin: 0 0 1em;
-  padding: 0.2em;
-  text-transform: capitalize;
+code,
+kbd,
+samp,
+var {
+  background: #efe;
+  color: #344;
+  font-family: Menlo, Monaco, Consolas, 'DejaVu Sans', monospace;
+  font-size: 0.8em;
+  font-style: normal;
+  padding: 0 0.2em;
 }
 
+code {
+  background: inherit;
+}
 
-// -----------------------------------------------------------------------------
-// Global layout
-// -----------------------------------------------------------------------------
+pre {
+  border: 1px solid map-get($colors, 'primary-divider');
+  border-left: 1em solid map-get($colors, 'primary-divider');
+  margin: 1em 0;
+  overflow: auto;
+  padding: 0 1em;
+  white-space: pre;
+  word-wrap: normal;
+}
 
-.globalDiv {
-  margin: 1rem 1.5rem;
-  @include mq('small') { margin: 2rem; }
-  @include mq('large') { margin: 3rem; }
+hr {
+  border: 0;
+  border-top: 2px solid map-get($colors, 'primary-divider');
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
 }
 
 %globalBorder {
@@ -245,9 +270,9 @@ h6 {
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Site Header
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .siteHeader {
   left: 0;
@@ -283,9 +308,9 @@ h6 {
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Global Header
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .globalHeader {
   background-color: map-get($colors, 'primary-text');
@@ -305,18 +330,10 @@ h6 {
   @include mq('middle') { padding: 6rem 0.5rem 1rem; }
 }
 
-// -----------------------------------------------------------------------------
-// Global Content
-// -----------------------------------------------------------------------------
 
-.globalContent {
-  clear: both;
-}
-
-
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Global Main
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .pageHeader {
   margin: 0 auto;
@@ -329,37 +346,54 @@ h6 {
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Global Nav
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Widget
 // -----------------------------------------------------------------------------
 
-// .globalNav {
-// }
+%widget__title {
+  border-bottom: 1px map-get($colors, 'primary-divider') solid;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 0 0 1em;
+  padding: 0.2em 0;
+  text-transform: capitalize;
+}
+
+
 
 .widget {
+  @include fs('nav');
   margin: 0 auto 3rem;
-  max-width: $max-line-width;
-  opacity: 0.25;
-  transition: opacity 0.2s;
+  max-width: $max-line-width / 2;
 
-  &:hover { opacity: 1; }
+  @include mq('large') {
+    opacity: 0.25;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 1; }
+  }
 
   > .widget__header > .widget__header__title {
     @extend %widget__title;
   }
 }
 
-.widget--latestPosts__postlist {
-  @include fs('nav');
+.widget__postlist {
+  @include fs('postlist');
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Global Footer
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .globalFooter {
   @include fs('footer');
@@ -375,6 +409,44 @@ h6 {
 }
 
 
+// =============================================================================
+// Global layout
+// =============================================================================
+
+.globalContent {
+  align-items: center;
+  clear: both;
+  display: flex;
+  flex-flow: column;
+}
+
+.globalDiv {
+  margin: 1rem 1.5rem;
+  @include mq('small') { margin: 2rem; }
+  @include mq('large') { margin: 3rem; }
+}
+
+
+
+// -----------------------------------------------------------------------------
+// Layout: nav as grid
+// -----------------------------------------------------------------------------
+
+@include mq('small', 'large') {
+  .globalNav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    max-width: $max-line-width;
+  }
+
+  .globalNav > .widget {
+    flex-basis: 48%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 // -----------------------------------------------------------------------------
 // Layout: nav as sidebar
 // -----------------------------------------------------------------------------
@@ -382,25 +454,29 @@ h6 {
 @include mq('large') {
   .globalContent {
     align-items: baseline;
-    display: flex;
     flex-flow: row;
     justify-content: space-around;
   }
 
   main {
-    flex: 1 auto;
+    flex-basis: 40rem;
+    flex-grow: 1;
+    flex-shrink: 1;
   }
 
   .globalNav {
     border-top: 0;
-    flex: 1 auto;
+    flex-basis: 16rem;
+    flex-grow: 2; // let this go up to its basis size
+    flex-shrink: 2; // let this shrink down to 1/2th of .globalContent
+    margin: 0 3em 0 0;
   }
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Article
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .article {
   margin: 3rem auto 6em;
@@ -417,6 +493,7 @@ h6 {
 // -----------------------------------------------------------------------------
 
 .article__tags {
+  margin: 0;
   text-align: right;
 }
 
@@ -443,23 +520,22 @@ h6 {
 
   > .article__title {
     @include fs('h2');
-    font-weight: 900;
-    margin: 0;
+    margin: 0 0 0.2em;
   }
 
-  > .article__subtitle {
+  > .article__subheader {
     @include fs('h4');
     color: map-get($colors, 'primary-divider');
-    font-weight: 900;
-    margin: 0 0 1em;
+    margin: 0 0 0.2em;
   }
 
   > .article__meta {
     @include fs('article__meta');
-    align-items: center;
+    align-items: flex-start;
     color: map-get($colors, 'tertiary-text');
     display: flex;
     justify-content: space-between;
+    margin: 0.2em 0;
 
     time {
       border: 1px transparent solid;
@@ -484,7 +560,6 @@ h6 {
     }
   }
 }
-
 
 .article__header__link {
   color: inherit;
@@ -541,7 +616,6 @@ h6 {
 
 .articleTile {
   margin: 0.5em 0 2em;
-  max-width: $max-line-width;
 
   > h2 {
     margin: 0;
@@ -549,9 +623,9 @@ h6 {
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Home - Bio
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 .bio {
   color: map-get($colors, 'primary-bg');
@@ -612,4 +686,20 @@ h6 {
   }
 }
 
+
+// =============================================================================
+// Post
+// =============================================================================
+
+.section--blog {
+  .article__header {
+    > .article__title {
+      @include fs('h1');
+    }
+
+    > .article__subheader {
+      @include fs('h3');
+    }
+  }
+}
 

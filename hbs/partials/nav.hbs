@@ -1,11 +1,8 @@
 <nav class="globalDiv globalNav">
-	<aside class="widget widget--latestPosts">
-		<header class="widget__header">
-			<h2 class="widget__header__title">Latest Posts</h2>
-		</header>
-		<ol class="widget--latestPosts__postlist">
-			{{#each collections.latestPosts}}<li>{{> articleTile}}</li>{{/each}}
-		</ol>
-	</aside>
+	{{#if widgets.sharePost}}{{> widgets/sharePost }}{{/if}}
+	{{#if widgets.toc}}{{> widgets/toc }}{{/if}}
+	{{#if widgets.aboutMe}}{{> widgets/aboutMe }}{{/if}}
+	{{#if widgets.latestPosts}}{{> widgets/latestPosts }}{{/if}}
+	{{#if widgets.allPosts}}{{> widgets/allPosts }}{{/if}}
 </nav>
 
