@@ -150,10 +150,10 @@ gulp.task('css', () => {
         browsers: ['last 2 versions'],
       }),
     ]))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write());
 
   var vendor = gulp.src([
-  `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`
+    `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`,
   ]);
 
   return merge(vendor, globalSass)
