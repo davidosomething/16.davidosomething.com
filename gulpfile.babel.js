@@ -433,6 +433,7 @@ gulp.task('html', () => {
         '.article__header__link--permalink',
         '.article__header__link',
         '.article__subheader',
+        '.articleTile h2 a',
       ],
     }))
   )
