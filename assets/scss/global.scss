@@ -39,11 +39,12 @@ $colors: (
 // # Scale
 //
 $breakpoints: (
-  small:  480px,
-  medium: 640px,
-  middle: 768px,
-  large:  1024px,
-  xlarge: 1368px,
+  small:   480px,
+  medium:  640px,
+  middle:  768px,
+  large:   1024px,
+  xlarge:  1368px,
+  xxlarge: 1650px,
 );
 
 @mixin mq($min, $max: null) {
@@ -59,6 +60,18 @@ $breakpoints: (
 @mixin to($size) {
   $breakpoint: map-get($breakpoints, $size);
   @media (max-width: $breakpoint - 1) { @content; }
+}
+
+// Hide below large, flexbox compatible
+.mq--large {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  @include mq('large') {
+    height: auto;
+    visibility: visible;
+  }
 }
 
 
@@ -103,6 +116,9 @@ $fontsizes: (
   large: (
     body: 1.1em,
   ),
+  xlarge: (
+    nav: 1rem,
+  )
 );
 
 @mixin bpfs($breakpoint, $size) {
