@@ -6,6 +6,7 @@
  * @author David O'Trakoun <me@davidosomething.com>
  */
 
+/*eslint-env node*/
 /*eslint-disable no-console*/
 
 'use strict';
@@ -14,21 +15,28 @@
 // Requires
 // =============================================================================
 
-//require('harmonize')(['harmony-generators']); // for metalsmith on old node
-
 // -----------------------------------------------------------------------------
-// Require: Gulp and node utils
+// Node
 // -----------------------------------------------------------------------------
 
-import util from 'util';
-import debug from 'debug'; // DEBUG=gulp gulp to output
 import { exec } from 'child_process';
-import omit from 'lodash.omit';
+
+// -----------------------------------------------------------------------------
+// Vendor
+// -----------------------------------------------------------------------------
+
+import debug from 'debug'; // DEBUG=gulp gulp to output
+import defaults from 'lodash.defaults';
+import del from 'del';
+import merge from 'merge-stream';
+
+// -----------------------------------------------------------------------------
+// Require: Gulp generics
+// -----------------------------------------------------------------------------
+
 import gulp from 'gulp';
 import concat from 'gulp-concat';
-import merge from 'merge-stream';
 import sourcemaps from 'gulp-sourcemaps';
-import del from 'del';
 
 // -----------------------------------------------------------------------------
 // Require: CSS
@@ -53,15 +61,17 @@ import eslint from 'gulp-eslint';
 // import mdast from 'gulp-mdast';
 // import mdastLint from 'mdast-lint';
 import slug from 'slug';
-import gulpsmith from 'gulpsmith';
+
+import metalsmith from 'metalsmith';
 import metalsmithBranch from 'metalsmith-branch';
+import metalsmithBranchDebugger from './lib/metalsmith-branch-debugger';
 import metalsmithCollections from 'metalsmith-collections';
 import metalsmithDefine from 'metalsmith-define';
 import metalsmithHeadings from 'metalsmith-headings';
 import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
-import metalsmithMatters from 'metalsmith-matters';
+import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithSnippet from 'metalsmith-snippet';
@@ -209,8 +219,8 @@ gulp.task('assets', () => {
 // Task: HTML
 // -----------------------------------------------------------------------------
 
+var now = new Date();
 slug.defaults.mode = 'rfc3986';
-
 
 // gulp.task('lint:md', () => {
 //
@@ -218,33 +228,6 @@ slug.defaults.mode = 'rfc3986';
 //     .pipe(mdast({ use: mdastLint }))
 //
 // });
-
-
-/**
- * getDatePublished
- *
- * @param {Object} data
- * @return {Date}
- */
-var getDatePublished = function (data) {
-  return data.datePublished || new Date();
-};
-
-
-/**
- * getDateModified
- *
- * @param {Object} data
- * @return {Date}
- */
-var getDateModified = function (data) {
-  if (data.dateModified) {
-    return data.dateModified;
-  }
-
-  return getDatePublished(data);
-};
-
 
 /**
  * formatPost
@@ -257,28 +240,36 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
   var log = debug('formatPost');
   Object.keys(files).forEach((file) => {
     var data = files[file];
-    data.excerpt        = data.excerpt || data.snippet;
-    data.section        = data.section || 'blog';
-    data.slug           = data.slug || slug(data.title);
-    data.type           = data.type || 'post';
-    data.image          = data.image || metalsmith.metadata().avatarUrl;
-    data.datePublished  = getDatePublished(data);
-    data.dateModified   = getDateModified(data);
-    data.schema = {
-      itemtype: 'https://schema.org/BlogPosting',
+
+    var defaultData = {
+      excerpt:       data.snippet,
+      section:       'blog',
+      slug:          slug(data.title),
+      type:          'post',
+      image:         metalsmith.metadata().avatarUrl,
+      datePublished: now,
+      dateModified:  now,
+      schema: {
+        itemtype: 'https://schema.org/BlogPosting',
+      },
+      widgets: {
+        sharePost:    true,
+        aboutMe:      true,
+        latestPosts:  true,
+      },
     };
-    data.widgets = {
-      sharePost:    true,
-      aboutMe:      true,
-      latestPosts:  true,
-    };
+
+    files[file] = defaults(data, defaultData);
+
     log(`formatPost ${file}`);
+    log(`  - path: ${files[file].path}`);
     log(`  - section: ${files[file].section}`);
     log(`  - type: ${files[file].type}`);
     log(`  - slug: ${files[file].slug}`);
   });
   done();
 };
+
 
 /**
  * formatPage
@@ -291,98 +282,57 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
   var log = debug('formatPage');
   Object.keys(files).forEach((file) => {
     var data = files[file];
-    data.section        = slug(data.paths.root) || 'root';
-    data.slug           = data.slug || slug(data.title);
-    data.type           = data.type || 'page';
-    data.image          = data.image || metalsmith.metadata().avatarUrl;
-    data.datePublished  = getDatePublished(data);
-    data.dateModified   = getDateModified(data);
-    data.schema = {
-      itemtype: 'https://schema.org/WebPage',
+
+    var defaultData = {
+      slug:          slug(data.title),
+      type:          'page',
+      image:         metalsmith.metadata().avatarUrl,
+      datePublished: now,
+      dateModified:  now,
+      schema: {
+        itemtype: 'https://schema.org/WebPage',
+      },
+      widgets: {
+        aboutMe:   true,
+        allPosts:  true,
+      },
     };
-    data.widgets = {
-      aboutMe:   true,
-      allPosts:  true,
-    };
+
+    files[file] = defaults(data, defaultData);
+    files[file].section = slug(data.paths.root) || 'root';
+
     log(`formatPage ${file}`);
-    log(`  - section: ${data.section}`);
-    log(`  - type: ${data.type}`);
-    log(`  - slug: ${data.slug}`);
+    log(`  - path: ${files[file].path}`);
+    log(`  - section: ${files[file].section}`);
+    log(`  - type: ${files[file].type}`);
+    log(`  - slug: ${files[file].slug}`);
   });
   done();
 };
 
-/**
- * debugBranch
- *
- * @param {Object} files keyed by filename from metalsmith
- * @param {Object} metalsmith
- * @param {Function} done
- */
-var metalsmithDebugBranch = (files, metalsmith, done) => {
-  var log = debug('debugBranch');
-  Object.keys(files).forEach((file) => {
-    var relevantInfo = omit(files[file], [
-      'stats',
-      'previous',
-      'next',
-      'mode',
-      'contents',
-    ]);
-    log( util.inspect(relevantInfo, {
-      showHidden: false,
-      depth: null,
-    }) );
-  });
-  done();
-};
 
-gulp.task('html', () => {
+gulp.task('html', (cb) => {
 
-  return gulp.src('./md/**')
-    .pipe(gulpsmith()
+  metalsmith(__dirname)
+    .source('./md/')
+    .use(metalsmithIgnore('_drafts/*'))
 
-      .use(metalsmithIgnore('_drafts/*'))
-
-      // metadata here is attached to metalsmith instance
-      .use(metalsmithDefine({
-        site: {
-          url:    'http://davidosomething.com/',
-          author: 'David O\'Trakoun',
-        },
-        avatarUrl: '/assets/img/avatar.png',
-        buildDate: new Date(),
-      }))
-
-      // frontmatter metadata is attached to the main post object
-      .use(metalsmithMatters())
-
-      // note: metadata attached to collections is attached to the object
-      // instance in collection.*
-      .use(metalsmithCollections({
-        pages: {
-          pattern: '!_*/*',
-          refer:   false,
-        },
-        posts: {
-          pattern: '_posts/*',
-          reverse: true,
-          sortBy:  'datePublished',
-        },
-        latestPost: {
-          limit:   1,
-          pattern: '_posts/*',
-          refer:   false,
-          reverse: true,
-          sortBy:  'datePublished',
-        },
-        latestPosts: {
-          limit:   10,
-          pattern: '_posts/*',
-          reverse: true,
-          sortBy:  'datePublished',
-        },
-      }))
+    // metadata here is attached to metalsmith instance
+    .use(metalsmithDefine({
+      site: {
+        url:    'http://davidosomething.com/',
+        author: 'David O\'Trakoun',
+        meta: [
+          { name: 'author',                   content: 'David O\'Trakoun' },
+          { name: 'google-site-verification', content: 'CUF_b2uUr3xngYZU_Assv-CXFtDTzQjFdoh3_S35FDQ' },
+          { name: 'msvalidate.01',            content: 'DB32AB8ADBD71157CA9F135EAD9EFE23' },
+          { name: 'p:domain_verify',          content: '87f3b7851e149ff74531fdb012c62bf3' },
+          { property: 'fb:admins',            content: '16109547' },
+        ],
+      },
+      avatarUrl: '/assets/img/avatar.png',
+      buildDate: now,
+    }))
 
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object
@@ -400,15 +350,46 @@ gulp.task('html', () => {
         relative: 'off',
       }))
       .use(metalsmithPaths({ property: 'paths' }))
-      .use(metalsmithDebugBranch)
+      .use(metalsmithBranchDebugger({ suffix: 'pages' }))
     )
 
     // Pages -- note the blog/ path due to permalinks()
     .use(metalsmithBranch('!blog/**/*.html')
       .use(metalsmithPaths({ property: 'paths' }))
       .use(metalsmithFormatPage)
-      .use(metalsmithDebugBranch)
+      .use(metalsmithBranchDebugger({ suffix: 'pages' }))
     )
+
+    .use(metalsmithBranchDebugger({ suffix: 'all' }))
+
+    // metadata attached to collections is attached to the metalsmith global
+    // metadata().collections.INSTANCE.metadata, not to each file's metadata
+    .use(metalsmithCollections({
+      pages: {
+        pattern: '!blog/**',
+        refer:   false,
+      },
+      posts: {
+        pattern: 'blog/**',
+        reverse: true,
+        sortBy:  'datePublished',
+      },
+      latestPost: {
+        limit:   1,
+        pattern: 'blog/**',
+        refer:   false,
+        reverse: true,
+        sortBy:  'datePublished',
+      },
+      latestPosts: {
+        limit:   10,
+        pattern: 'blog/**',
+        reverse: true,
+        sortBy:  'datePublished',
+      },
+    }))
+
+    .use(metalsmithMetaDebugger())
 
     // Pump into HBS
     // helpers is undocumented, but provided by consolidate.js (which
@@ -436,8 +417,12 @@ gulp.task('html', () => {
         '.articleTile h2 a',
       ],
     }))
-  )
-  .pipe(gulp.dest('./public'));
+
+    .clean(false)
+    .destination('./public/')
+    .build((err) => {
+      cb(err);
+    });
 
 });
 

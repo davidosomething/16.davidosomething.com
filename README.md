@@ -11,7 +11,7 @@ Static generated site for davidosomething.com
 - node >= 4.2.0
 - npm
 - gulp
-- metalsmith (via gulpsmith)
+- metalsmith
 
 ### CSS
 
@@ -22,8 +22,8 @@ Static generated site for davidosomething.com
 
 ### JS
 
-- SystemJS loader
-- JSPM package manager
+- SystemJS loader (probably just gonna switch to webpack+hmr+react+browsersync)
+- JSPM package manager (probably just going to use npm)
 - Babel ES transpiler
 
 ### HTML
@@ -33,17 +33,14 @@ Static generated site for davidosomething.com
 
 ## TODO 
 
-- title
 - meta + seo
 - sitemap
 - rss feed
-- clean up templates
 - finish templating
 - code highlighting
 
 ### content
 
-- about me widget
 - featured articles widget
 - article share links
 
@@ -57,5 +54,4 @@ Static generated site for davidosomething.com
 
 - current article should be highlighted if in a widget
 - react view for each article and widget
-- babel
 
