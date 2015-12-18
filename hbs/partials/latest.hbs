@@ -10,7 +10,7 @@
 					<time datetime="{{ moment date toISOString=null }}" itemprop="datePublished">{{ moment date format="D MMM YYYY" }}</time>
 					{{> article__tags }}
 				</section>
-				<h1 class="article__title" itemprop="headline"><a class="article__header__link" href="{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
+				<h2 class="article__title" itemprop="headline"><a class="article__header__link" href="{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h2>
 				{{#if subtitle}}<h2 class="article__subtitle" itemprop="alternativeHeadline">{{{ subtitle }}}</h2>{{/if}}
 			</header>
 			<section class="article__body">{{{ excerpt }}}</section>

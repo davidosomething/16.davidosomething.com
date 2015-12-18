@@ -22,11 +22,12 @@
 
 import util from 'util';
 import debug from 'debug'; // DEBUG=gulp gulp to output
-import { execSync as exec } from 'child_process';
+import { exec } from 'child_process';
 import omit from 'lodash.omit';
 import gulp from 'gulp';
 import concat from 'gulp-concat';
 import merge from 'merge-stream';
+import sourcemaps from 'gulp-sourcemaps';
 import del from 'del';
 
 // -----------------------------------------------------------------------------
@@ -63,7 +64,6 @@ import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithRegisterHelpers from 'metalsmith-register-helpers';
 import metalsmithSnippet from 'metalsmith-snippet';
-import metalsmithSummary from 'metalsmith-summary';
 
 
 // =============================================================================
@@ -76,7 +76,7 @@ dirs.assets = {
   source: `./assets`,
   dist:   `${dirs.dist}/assets`,
 };
-dirs.jspm = `${dirs.assets}/jspm`,
+dirs.jspm = `${dirs.assets.source}/jspm`,
 dirs.css = {
   source: `${dirs.assets.source}/scss`,
   dist:   `${dirs.assets.dist}/css`,
@@ -130,7 +130,7 @@ gulp.task('clean:all', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:css', () => {
-  gulp.src(`${dirs.css.source}/**/*.scss`)
+  return gulp.src(`${dirs.css.source}/**/*.scss`)
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
@@ -140,18 +140,31 @@ gulp.task('lint:css', () => {
 gulp.task('css', () => {
 
   var globalSass = gulp.src(`${dirs.css.source}/global.scss`)
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(postcss([
       autoprefixer({
         browsers: ['last 2 versions'],
       }),
-    ]));
+    ]))
+    .pipe(sourcemaps.write())
 
-  var normalizeCss = gulp.src(`${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`);
+  var vendor = gulp.src([
+  `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`
+  ]);
 
-  return merge(normalizeCss, globalSass)
+  return merge(vendor, globalSass)
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(concat('global.css'))
+    .pipe(sourcemaps.write())
+
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(postcss([ cssnano ]))
+    .pipe(sourcemaps.write('./'))
+
     .pipe(gulp.dest(`${dirs.css.dist}/`));
 
 });
@@ -161,21 +174,18 @@ gulp.task('css', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:js', () => {
-  gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])
+
+  return gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
+
 });
 
-gulp.task('js', () => {
+gulp.task('js', (cb) => {
 
   exec('npm run js', (err) => {
-    if (err) {
-      throw err;
-    }
-    else {
-      console.log('Build complete!');
-    }
+    return cb(err);
   });
 
 });
@@ -186,7 +196,7 @@ gulp.task('js', () => {
 
 gulp.task('assets', () => {
 
-  gulp.src('./assets/{fonts,img}/**')
+  return gulp.src('./assets/{fonts,img}/**')
     .pipe(gulp.dest(`${dirs.assets.dist}/`));
 
 });
@@ -199,8 +209,10 @@ slug.defaults.mode = 'rfc3986';
 
 
 // gulp.task('lint:md', () => {
-//   gulp.src([ 'README.md', 'md#<{(||)}>#*.md' ])
+//
+//   return gulp.src([ 'README.md', 'md#<{(||)}>#*.md' ])
 //     .pipe(mdast({ use: mdastLint }))
+//
 // });
 
 
@@ -284,10 +296,8 @@ var metalsmithDebugBranch = (files, metalsmith, done) => {
 
 gulp.task('html', () => {
 
-  gulp.src('./md/**')
+  return gulp.src('./md/**')
     .pipe(gulpsmith()
-
-      .use(metalsmithSummary.init())
 
       .use(metalsmithIgnore('_drafts/*'))
 
@@ -350,8 +360,6 @@ gulp.task('html', () => {
       partials:  'hbs/partials/',
       'default':   'default.hbs',
     }))
-
-    .use(metalsmithSummary.print())
   )
   .pipe(gulp.dest('./public'));
 
@@ -363,7 +371,7 @@ gulp.task('html', () => {
 
 gulp.task('watch', () => {
 
-  gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
+  return gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
 
 });
 
@@ -371,9 +379,5 @@ gulp.task('watch', () => {
 // Task: Default
 // -----------------------------------------------------------------------------
 
-gulp.task('default', () => {
-
-  gulp.start('js', 'css', 'assets', 'html');
-
-});
+gulp.task('default', [ 'js', 'css', 'assets', 'html' ]);
 

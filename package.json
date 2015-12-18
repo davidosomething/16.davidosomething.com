@@ -250,6 +250,7 @@
     "gulp-postcss": "^6.0.1",
     "gulp-sass": "^2.1.0",
     "gulp-sass-lint": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-through": "^0.4.0",
     "gulpsmith": "^0.5.5",
     "handlebars": "^4.0.5",
@@ -268,7 +269,6 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-snippet": "^2.0.0",
-    "metalsmith-summary": "^1.0.0",
     "slug": "^0.9.1"
   }
 }
