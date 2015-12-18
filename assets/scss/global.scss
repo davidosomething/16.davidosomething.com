@@ -48,30 +48,24 @@ $breakpoints: (
 );
 
 @mixin mq($min: null, $max: null) {
-  $mq: '';
+  $mq: 'screen';
 
   @if $min {
     $min-breakpoint: map-get($breakpoints, $min);
-    $mq: '(min-width: #{$min-breakpoint})';
+    $mq: '#{$mq} and (min-width: #{$min-breakpoint})';
   }
 
   @if $max {
-    @if $mq { $mq: '#{$mq} and ' }
     $max-breakpoint: (map-get($breakpoints, $max) / 1px - 1) * 1px;
-    $mq: '#{$mq}(max-width: #{$max-breakpoint})'
+    $mq: '#{$mq} and (max-width: #{$max-breakpoint})';
   }
 
   @media #{$mq} { @content; }
 }
 
-@mixin to($size) {
-  $breakpoint: map-get($breakpoints, $size);
-  @media (max-width: $breakpoint - 1) { @content; }
-}
-
 // Hide below large, flexbox compatible
 .mq--large {
-  @include to('large') {
+  @include mq(null, 'large') {
     height: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;
