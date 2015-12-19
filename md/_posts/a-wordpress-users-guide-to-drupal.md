@@ -1,6 +1,6 @@
 ---
 title: "A WordPress User&#8217;s Guide to Drupal"
-datePublished: "2010-02-26T20:52:35+00:00"
+datePublished: 2010-02-26T20:52:35+00:00
 tags:
   - cms
   - drupal

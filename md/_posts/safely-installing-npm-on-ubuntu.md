@@ -1,6 +1,6 @@
 ---
 title: "Safely installing npm on Ubuntu"
-datePublished: "2010-12-09T17:31:13+00:00"
+datePublished: 2010-12-09T17:31:13+00:00
 tags:
   - development
   - node.js

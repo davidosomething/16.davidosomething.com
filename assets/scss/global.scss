@@ -490,7 +490,7 @@ hr {
   max-width: $max-line-width / 2;
 
   @include mq('large') {
-    opacity: 0.25;
+    opacity: 0.5;
     transition: opacity 0.2s;
 
     &:hover { opacity: 1; }
@@ -648,6 +648,7 @@ hr {
 // -----------------------------------------------------------------------------
 
 .article__header {
+  margin-bottom: 0.5em;
   position: relative;
 
   > .article__title {
@@ -703,7 +704,7 @@ hr {
 .article__body {
   @include fs('article__body');
   line-height: 1.5;
-  margin: 0 0 0 0.5em;
+  margin-left: 0.5em;
 
   p:first-child {
     text-indent: 2ex;

@@ -1,6 +1,6 @@
 ---
 title: "My Experience with MasterRental Insurance"
-datePublished: "2010-03-07T19:57:47+00:00"
+datePublished: 2010-03-07T19:57:47+00:00
 tags:
   - insurance
 slug: my-experience-with-masterrental-insurance

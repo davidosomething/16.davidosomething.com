@@ -1,6 +1,6 @@
 ---
 title: "Making a BrightCove video gallery"
-datePublished: "2011-12-16T14:00:33+00:00"
+datePublished: 2011-12-16T14:00:33+00:00
 tags:
   - API
   - brightcove

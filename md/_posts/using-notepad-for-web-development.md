@@ -1,6 +1,6 @@
 ---
-title: 'Using Notepad++ for Web Development'
-datePublished: '2010-02-02T09:27:01+00:00'
+title: "Using Notepad++ for Web Development"
+datePublished: 2010-02-02T09:27:01+00:00
 tags:
   - software
   - windows

@@ -1,6 +1,6 @@
 ---
 title: "jQuery Wunderkind plugin"
-datePublished: "2011-03-03T23:18:46+00:00"
+datePublished: 2011-03-03T23:18:46+00:00
 tags:
   - imagemap
   - javascript

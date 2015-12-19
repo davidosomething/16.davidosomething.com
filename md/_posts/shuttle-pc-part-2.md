@@ -1,6 +1,6 @@
 ---
 title: "Shuttle PC - Part 2"
-datePublished: "2010-10-28T15:08:45+00:00"
+datePublished: 2010-10-28T15:08:45+00:00
 tags:
   - hardware
   - Shuttle

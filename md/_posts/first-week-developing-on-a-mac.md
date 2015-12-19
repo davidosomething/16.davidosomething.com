@@ -1,6 +1,6 @@
 ---
 title: "First week developing on a Mac"
-datePublished: '2011-06-20T19:59:45+00:00'
+datePublished: 2011-06-20T19:59:45+00:00
 slug: first-week-developing-on-a-mac
 ---
 

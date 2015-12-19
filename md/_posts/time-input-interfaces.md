@@ -1,6 +1,6 @@
 ---
 title: Time Input Interfaces
-datePublished: "2010-02-05T16:27:41+00:00"
+datePublished: 2010-02-05T16:27:41+00:00
 tags:
   - css
   - jquery

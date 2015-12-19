@@ -1,13 +1,10 @@
 ---
 title: "Apartment Hunting in Boston"
-subheader:  
 datePublished: 2010-03-27T16:21:38+00:00
 tags:
   - apartment
   - boston
-hero:       
 slug: apartment-hunting-in-boston
-
 ---
 
 

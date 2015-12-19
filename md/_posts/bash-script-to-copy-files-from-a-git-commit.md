@@ -1,6 +1,6 @@
 ---
 title: "BASH script to copy files from a git commit"
-datePublished: "2011-08-22T12:29:38+00:00"
+datePublished: 2011-08-22T12:29:38+00:00
 tags:
   - bash script
   - copy

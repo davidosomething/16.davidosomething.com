@@ -1,6 +1,6 @@
 ---
 title: "My Development Setup"
-datePublished: "2010-11-29T20:35:48+00:00"
+datePublished: 2010-11-29T20:35:48+00:00
 tags:
   - apache
   - bitbucket

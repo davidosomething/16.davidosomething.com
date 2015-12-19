@@ -1,7 +1,7 @@
 ---
 title: "How I Work"
 subheader: "The things I do for web projects."
-datePublished: "2014-06-11T21:35:24+00:00"
+datePublished: 2014-06-11T21:35:24+00:00
 tags:
   - bower
   - branches

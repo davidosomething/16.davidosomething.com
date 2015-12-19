@@ -1,6 +1,6 @@
 ---
 title: "Putting together my new Shuttle PC"
-datePublished: "2010-10-20T12:12:16+00:00"
+datePublished: 2010-10-20T12:12:16+00:00
 tags:
   - hardware
   - photoshop

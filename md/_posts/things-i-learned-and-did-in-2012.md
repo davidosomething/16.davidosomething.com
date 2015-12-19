@@ -1,6 +1,6 @@
 ---
 title: "Things I learned and did in 2012"
-datePublished: "2013-01-09T00:03:12+00:00"
+datePublished: 2013-01-09T00:03:12+00:00
 slug: things-i-learned-and-did-in-2012
 ---
 
