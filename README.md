@@ -6,12 +6,7 @@ Static generated site for davidosomething.com
 
 ## Stack
 
-### Build
-
-- node >= 4.2.0
-- npm
-- gulp
-- metalsmith
+Req node >= 4.2.0 for ES6
 
 ### CSS
 
@@ -34,15 +29,21 @@ Static generated site for davidosomething.com
 
 ## TODO 
 
+- og tags
 - sitemap
 - rss feed
 - finish templating
+- analytics
+
+### css
+
+- browsersync css serve and update
 
 ### content
 
-- featured articles widget
-- article share links
 - cleanup 
+- add descriptions and images
+- article share links
 
 ### lint + deploy
 
@@ -54,4 +55,5 @@ Static generated site for davidosomething.com
 
 - current article should be highlighted if in a widget
 - react view for each article and widget
+- hot module reload
 
