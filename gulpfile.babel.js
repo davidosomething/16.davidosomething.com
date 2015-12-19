@@ -62,6 +62,8 @@ import eslint from 'gulp-eslint';
 // import mdastLint from 'mdast-lint';
 import slug from 'slug';
 
+import hljs from 'highlight.js';
+
 import metalsmith from 'metalsmith';
 import metalsmithBranch from 'metalsmith-branch';
 import metalsmithBranchDebugger from './lib/metalsmith-branch-debugger';
@@ -72,7 +74,6 @@ import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
-import metalsmithMetallic from 'metalsmith-metallic';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithSnippet from 'metalsmith-snippet';
@@ -235,6 +236,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
+      permalink:     `${siteData.site.url}/${data.path}`,
       schema: {
         itemtype: 'https://schema.org/BlogPosting',
       },
@@ -275,6 +277,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
+      permalink:     `${siteData.site.url}/${data.path}`,
       schema: {
         itemtype: 'https://schema.org/WebPage',
       },
@@ -306,13 +309,24 @@ gulp.task('html', (cb) => {
     // metadata here is attached to metalsmith instance
     .use(metalsmithDefine(siteData))
 
-    // This parses code blocks in markdown only, so must come before
-    // metalsmithMarkdown
-    .use(metalsmithMetallic())
-
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object
-    .use(metalsmithMarkdown())
+    .use(metalsmithMarkdown({
+      /**
+       * marked doesn't add this to parsed code blocks since it doesn't assume
+       * highlighting is for highlight.js
+       * @see {@link https://github.com/chjj/marked/pull/418}
+       */
+      langPrefix: 'hljs ',
+
+      // This options key gets passed to marked (whereas the parent object is
+      // the options key for the metalsmith-marked plugin)
+      options: {
+        highlight: function  (lang, code) {
+          return hljs.highlightAuto(lang, code).value;
+        },
+      },
+    }))
 
     // Posts -- note the html file extension due to markdown()
     .use(metalsmithBranch('_posts/*.html')
@@ -320,11 +334,11 @@ gulp.task('html', (cb) => {
       .use(metalsmithSnippet({
         maxLength: 500,
       }))
-      .use(metalsmithFormatPost)
       .use(metalsmithPermalinks({
         pattern:  'blog/:slug',
         relative: 'off',
       }))
+      .use(metalsmithFormatPost)
       .use(metalsmithPaths({ property: 'paths' }))
       .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
