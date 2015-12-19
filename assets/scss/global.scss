@@ -6,6 +6,7 @@
 /// @author David O'Trakoun <me@davidosomething.com>
 ////
 
+@import 'vendor/higlightjs.scss';
 
 // =============================================================================
 // Config
@@ -276,12 +277,7 @@ code {
 
 pre {
   border: 1px solid map-get($colors, 'primary-divider');
-  border-left: 1em solid map-get($colors, 'primary-divider');
   margin: 1em 0;
-  overflow: auto;
-  padding: 0 1em;
-  white-space: pre;
-  word-wrap: normal;
 }
 
 hr {
@@ -486,7 +482,7 @@ hr {
 
 .widget {
   @include fs('nav');
-  margin: 0 auto 3rem;
+  margin: 0 0 3rem;
   max-width: $max-line-width / 2;
 
   @include mq('large') {
@@ -532,10 +528,7 @@ hr {
 // =============================================================================
 
 .globalContent {
-  align-items: center;
   clear: both;
-  display: flex;
-  flex-flow: column;
 }
 
 .globalDiv {
@@ -548,11 +541,14 @@ hr {
   }
 
   @include mq('large') {
+    padding: 3rem 0;
+  }
+
+  @include mq('xlarge') {
     margin: 0 3rem;
     padding: 3rem 0;
   }
 }
-
 
 
 // -----------------------------------------------------------------------------
@@ -564,8 +560,10 @@ hr {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
     max-width: $max-line-width;
-    width: 100%;
+    padding: 2rem;
   }
 
   .globalNav > .widget {
@@ -580,9 +578,20 @@ hr {
 // Layout: nav as sidebar
 // -----------------------------------------------------------------------------
 
+@mixin navLeft {
+  main { order: 2; }
+}
+
+@mixin navRight {
+}
+
 @include mq('large') {
+  @include navLeft;
+
+
+  // two column layout
   .globalContent {
-    align-items: baseline;
+    display: flex;
     flex-flow: row;
     justify-content: space-around;
   }
@@ -596,9 +605,8 @@ hr {
   .globalNav {
     border-top: 0;
     flex-basis: 16rem;
-    flex-grow: 2; // let this go up to its basis size
-    flex-shrink: 2; // let this shrink down to 1/2th of .globalContent
-    margin: 0 3em 0 0;
+    flex-grow: 1; // let this go up to its basis size
+    flex-shrink: 1; // let this shrink down to 1/2th of .globalContent
   }
 }
 

@@ -72,6 +72,7 @@ import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
+import metalsmithMetallic from 'metalsmith-metallic';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithSnippet from 'metalsmith-snippet';
@@ -129,7 +130,7 @@ gulp.task('clean:all', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:css', () => {
-  return gulp.src(`${dirs.css.source}/**/*.scss`) //*/
+  return gulp.src([ `${dirs.css.source}/**/*.scss`, `!${dirs.css.source}/vendor/**/*.scss` ]) //*/
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
@@ -304,6 +305,10 @@ gulp.task('html', (cb) => {
 
     // metadata here is attached to metalsmith instance
     .use(metalsmithDefine(siteData))
+
+    // This parses code blocks in markdown only, so must come before
+    // metalsmithMarkdown
+    .use(metalsmithMetallic())
 
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object

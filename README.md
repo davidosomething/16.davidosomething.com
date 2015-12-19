@@ -29,20 +29,20 @@ Static generated site for davidosomething.com
 ### HTML
 
 - metalsmith static generated site
+- Highlight.js pre-processed for code blocks via metalsmith-metallic
 - Handlebars templating
 
 ## TODO 
 
-- meta + seo
 - sitemap
 - rss feed
 - finish templating
-- code highlighting
 
 ### content
 
 - featured articles widget
 - article share links
+- cleanup 
 
 ### lint + deploy
 
