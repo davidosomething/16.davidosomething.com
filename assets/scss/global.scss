@@ -240,9 +240,7 @@ a {
   font-weight: $fontweight__link;
   text-decoration: none;
 
-  &:hover {
-    color: map-get($colors, 'primary-link--hover');
-  }
+  &:hover { color: map-get($colors, 'primary-link--hover'); }
 }
 
 h1,
@@ -293,6 +291,11 @@ hr {
   border-top: 1px map-get($colors, 'primary-divider') solid;
 }
 
+%headerLink {
+  color: inherit;
+  &:hover { color: lighten(map-get($colors, 'primary-link'), 25%); }
+}
+
 
 // =============================================================================
 // Site Header
@@ -320,14 +323,10 @@ hr {
   white-space: nowrap;
 
   > * {
-    color: inherit;
+    @extend %headerLink;
     display: inline-block;
     font-weight: $fontweight__body;
     vertical-align: middle;
-
-    &:hover {
-      color: lighten(map-get($colors, 'primary-link--hover'), 20%);
-    }
   }
 }
 
@@ -385,7 +384,7 @@ hr {
   text-shadow: 0 2px 2px map-get($colors, 'primary-text');
 
   a {
-    color: map-get($colors, 'primary-bg');
+    @extend %headerLink;
     display: inline-block;
   }
 }
@@ -422,7 +421,7 @@ hr {
   }
 
   &:hover img {
-    background-color: map-get($colors, 'primary-link--hover');
+    background-color: map-get($colors, 'primary-link');
   }
 }
 
@@ -437,10 +436,6 @@ hr {
     margin: 0.5rem 1rem 0 0;
 
     span { display: none; }
-  }
-
-  a:hover {
-    color: map-get($colors, 'primary-link--hover');
   }
 }
 
@@ -701,7 +696,7 @@ hr {
 }
 
 .article__header__link {
-  color: inherit;
+  @extend %headerLink;
   font-weight: 900;
 }
 

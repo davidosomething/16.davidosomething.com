@@ -4,15 +4,16 @@
 {{/each}}
 {{! <meta> tags for post }}
 <meta name="robots" content="{{#if robots}}{{robots}}{{else}}index,noodp,follow{{/if}}">
-<meta name="twitter:title" content="{{{ site.title }}} | {{{ title }}}">
+<meta name="twitter:title" property="og:title" content="{{{ title }}}">
+<meta property="og:url" content="{{ permalink }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{{ og.type }}">
 {{#if description}}
 	<meta name="description" content="{{{ description }}}">
-	<meta name="og:description" content="{{{ description }}}">
-	<meta name="twitter:description" content="{{{ description }}}">
+	<meta name="twitter:description" property="og:description" content="{{{ description }}}">
 {{/if}}
 {{#if image}}
-	<meta property="og:image" content="{{ image }}">
-	<meta name="twitter:image" content="{{ image }}">
+	<meta name="twitter:image" property="og:image" content="{{ image }}">
 {{/if}}
 {{#if tags}}
 	<meta name="keywords" content="{{#each tags}}{{this}}{{#unless @last}},{{/unless}}{{/each}}">

@@ -1,13 +1,14 @@
 <!doctype html>
-<html {{#if schema}}itemscope itemtype="{{ schema.itemtype }}"{{/if}} dir="ltr" lang="en">
+<html {{#if schema}}itemscope itemtype="{{ schema.itemtype }}"{{/if}} dir="ltr" lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{{> head__meta}}
-	<title>davidosomething.com{{#if title}} | {{{ title }}}{{/if}}</title>
+	{{> meta}}
+	<title> {{ site.title }}{{#if title}} | {{{ title }}}{{/if}}</title>
 	<link rel="canonical" href="{{ permalink }}">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,700,900">
 	<link rel="stylesheet" href="/assets/css/global.css">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }} | RSS Feed" href="{{ site.rss }}">
 	<script src="/assets/js/global.js" async></script>
 </head>

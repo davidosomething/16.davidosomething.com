@@ -24,14 +24,13 @@ Req node >= 4.2.0 for ES6
 ### HTML
 
 - metalsmith static generated site
-- Highlight.js pre-processed for code blocks via metalsmith-metallic
+- Highlight.js pre-processed for code blocks
 - Handlebars templating
 
 ## TODO 
 
 - og tags
 - sitemap
-- rss feed
 - finish templating
 - analytics
 

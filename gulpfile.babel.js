@@ -69,6 +69,7 @@ import metalsmithBranch from 'metalsmith-branch';
 import metalsmithBranchDebugger from './lib/metalsmith-branch-debugger';
 import metalsmithCollections from 'metalsmith-collections';
 import metalsmithDefine from 'metalsmith-define';
+import metalsmithFeed from 'metalsmith-feed';
 import metalsmithHeadings from 'metalsmith-headings';
 import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
@@ -237,6 +238,9 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
       permalink:     `${siteData.site.url}/${data.path}`,
+      og: {
+        type: 'article',
+      },
       schema: {
         itemtype: 'https://schema.org/BlogPosting',
       },
@@ -277,7 +281,10 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
-      permalink:     `${siteData.site.url}/${data.path}`,
+      permalink:     `${siteData.site.url}/${data.path || ''}`,
+      og: {
+        type: 'page',
+      },
       schema: {
         itemtype: 'https://schema.org/WebPage',
       },
@@ -396,6 +403,7 @@ gulp.task('html', (cb) => {
       helpers: {
         moment: hbsHelperMoment,
       },
+      preventIndent: true,
     }))
 
     // Transform final HTML
@@ -406,6 +414,10 @@ gulp.task('html', (cb) => {
         '.article__subheader',
         '.articleTile h2 a',
       ],
+    }))
+
+    .use(metalsmithFeed({
+      collection: 'posts',
     }))
 
     .clean(false)
