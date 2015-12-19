@@ -656,7 +656,7 @@ hr {
 // -----------------------------------------------------------------------------
 
 .article__header {
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
   position: relative;
 
   > .article__title {
@@ -742,6 +742,10 @@ hr {
 // -----------------------------------------------------------------------------
 // Article Variants and per-variant overrides
 // -----------------------------------------------------------------------------
+
+.article--excerpt .article__header {
+  margin-bottom: 1em;
+}
 
 .article--excerpt .article__body {
   height: 5 * 1.5em; // # of lines x .article__body line-height
