@@ -1,58 +1,70 @@
-# davidosomething.com 2016
+# davidosomething.com for 2016
 
 > WORK IN PROGRESS
 
-Static generated site for davidosomething.com
+Static generated site for [davidosomething.com](http://davidosomething.com)
 
 ## Stack
 
-Req node >= 4.2.0 for ES6
+Requires node >= 4.2.0 for ES6 (I recommend using
+[nvm](https://github.com/creationix/nvm), for which `nvm use` will
+read `.nvmrc` and use the version of node specified there. The package
+[avn](https://github.com/wbyoung/avn) can auto-switch upon entering directory if
+installed).
+
+## Build
+
+```
+npm i -g gulp
+gulp
+```
+
+Output is generated in `public/`
+
+## TODO
 
 ### CSS
 
-- BEM syntax
-- SCSS compiled with node-sass
-- autoprefixed
-- cssnano
+- [x] BEM syntax
+    - [ ] needs lint rule
+- [x] SCSS compiled with node-sass
+- [x] postcss: autoprefixed, cssnano
+- [ ] browsersync css serve and update
 
 ### JS
 
-- SystemJS loader (probably just gonna switch to webpack+hmr+react+browsersync)
-- JSPM package manager (probably just going to use npm)
-- Babel ES transpiler
+- [x] SystemJS loader
+- [x] JSPM package manager (probably just going to use npm)
+- [x] Babel ES transpiler
+- [ ] react view for each article and widget
+- [ ] hot module reload
+- [ ] current article should be highlighted if in a widget
+- [ ] Google Analytics
 
 ### HTML
 
-- metalsmith static generated site
-- Highlight.js pre-processed for code blocks
-- Handlebars templating
+- [x] metalsmith static generated site
+- [x] Highlight.js pre-processed for code blocks
+- [x] Handlebars templating
 
-## TODO 
+### SEO
 
-- og tags
-- sitemap
-- finish templating
-- analytics
+- [x] Standard html meta tags
+- [x] Canonical links
+- [x] Site verifications for google, bing
+- [x] OpenGraph and Twitter meta tags
+- [x] schema.org microdata
+- [ ] sitemap
+- [x] robots meta
 
-### css
+### Content
 
-- browsersync css serve and update
+- [ ] article share buttons
+- [ ] cleanup, add descriptions and images
+- [ ] Useful 404 page
 
-### content
+### Deploy
 
-- cleanup 
-- add descriptions and images
-- article share links
-
-### lint + deploy
-
-- lint task in gulp
-- site docs and styleguide generation
-- deploy to surge?/github?/openshift? via codeship?/deploybot?
-
-### js
-
-- current article should be highlighted if in a widget
-- react view for each article and widget
-- hot module reload
+- [ ] site docs and styleguide generation
+- [ ] deploy to surge?/github?/openshift? via codeship?/deploybot?
 

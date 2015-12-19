@@ -129,7 +129,7 @@ $fontsizes: (
   ),
   xlarge: (
     body: 1.2em,
-    nav:  1em,
+    nav:  0.9em,
   ),
   xxlarge: (
     body: 1.3em,
@@ -470,14 +470,11 @@ hr {
   font-weight: $fontweight__body;
   margin: 0 0 1em;
   padding: 0.2em 0;
-  text-transform: capitalize;
 }
-
-
 
 .widget {
   @include fs('nav');
-  margin: 0 0 3rem;
+  margin: 0 0 2rem;
   max-width: $max-line-width / 2;
 
   @include mq('large') {
@@ -583,7 +580,6 @@ hr {
 @include mq('large') {
   @include navLeft;
 
-
   // two column layout
   .globalContent {
     display: flex;
@@ -599,9 +595,10 @@ hr {
 
   .globalNav {
     border-top: 0;
-    flex-basis: 16rem;
+    flex-basis: 0;
     flex-grow: 1; // let this go up to its basis size
     flex-shrink: 1; // let this shrink down to 1/2th of .globalContent
+    min-width: 12em;
   }
 }
 
@@ -613,6 +610,10 @@ hr {
 .article {
   margin: 3rem auto 6em;
   max-width: 40em;
+
+  @include mq('large') {
+    margin: 3rem 0 6rem;
+  }
 
   &:first-child {
     margin-top: 0;
