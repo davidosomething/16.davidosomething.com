@@ -275,7 +275,6 @@
     "metalsmith-paths": "^2.1.1",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-snippet": "^2.0.0",
-    "metalsmith-validate": "^0.1.4",
     "metalsmith-widow": "^1.1.1",
     "slug": "^0.9.1"
   }

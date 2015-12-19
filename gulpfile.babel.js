@@ -75,7 +75,6 @@ import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
 import metalsmithSnippet from 'metalsmith-snippet';
-import metalsmithValidate from 'metalsmith-validate';
 import metalsmithWidow from 'metalsmith-widow';
 
 import hbsHelperMoment from './hbs/helpers/moment.js';
@@ -85,22 +84,7 @@ import hbsHelperMoment from './hbs/helpers/moment.js';
 // Config
 // =============================================================================
 
-var dirs = {};
-dirs.dist = './public/';
-dirs.assets = {
-  source: `./assets`,
-  dist:   `${dirs.dist}/assets`,
-};
-dirs.jspm = `${dirs.assets.source}/jspm`,
-dirs.css = {
-  source: `${dirs.assets.source}/scss`,
-  dist:   `${dirs.assets.dist}/css`,
-};
-dirs.js = {
-  source: `${dirs.assets.source}/js`,
-  dist:   `${dirs.assets.dist}/js`,
-};
-
+import { siteData, dirs } from './lib/config.js';
 
 // =============================================================================
 // Tasks
@@ -222,53 +206,11 @@ gulp.task('assets', () => {
 
 //*/
 
-var now = new Date();
-var siteData = {
-  avatarUrl: '/assets/img/avatar.png',
-  buildDate: now,
-  site: {
-    url:          'http://davidosomething.com/',
-    title:        'davidosomething.com',
-    description:  'Web developer; super handsome. This is my personal website.',
-    meta: [
-      { name: 'author', content: 'David O\'Trakoun' },
-      { name: 'google-site-verification', content: 'CUF_b2uUr3xngYZU_Assv-CXFtDTzQjFdoh3_S35FDQ' },
-      { name: 'msvalidate.01',            content: 'DB32AB8ADBD71157CA9F135EAD9EFE23' },
-      { name: 'p:domain_verify',          content: '87f3b7851e149ff74531fdb012c62bf3' },
-      { property: 'fb:admins', content: '16109547' },
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@davidosomething' },
-    ],
-  },
-};
-
 slug.defaults.mode = 'rfc3986';
 
 gulp.task('lint:md', (cb) => {
 
-  metalsmith(__dirname)
-    .source('./md/')
-
-    // Posts -- note the html file extension due to markdown()
-    .use(metalsmithValidate({
-      pattern: '_posts/*',
-      metadata: {
-        title: true,
-        subheader: true,
-        datePublished: true,
-        description: true,
-        tags: {
-          exists: true,
-          type: 'Array',
-        },
-      },
-    }))
-    .build(function (err, files) {
-      if (err) {
-        return cb(err);
-      }
-      cb();
-    });
+  cb();
 
 });
 
@@ -290,8 +232,8 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       slug:          slug(data.title),
       type:          'post',
       image:         siteData.avatarUrl,
-      datePublished: now,
-      dateModified:  now,
+      datePublished: siteData.buildDate,
+      dateModified:  siteData.buildDate,
       schema: {
         itemtype: 'https://schema.org/BlogPosting',
       },
@@ -330,8 +272,8 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
       slug:          slug(data.title),
       type:          'page',
       image:         siteData.avatarUrl,
-      datePublished: now,
-      dateModified:  now,
+      datePublished: siteData.buildDate,
+      dateModified:  siteData.buildDate,
       schema: {
         itemtype: 'https://schema.org/WebPage',
       },

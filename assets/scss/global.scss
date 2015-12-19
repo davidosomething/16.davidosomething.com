@@ -18,12 +18,15 @@
 $colors: (
   primary-bg:          #fafaf4,
   primary-text:        #3f3a30,
-  primary-link:        #48a,
-  primary-link--hover: #7ac,
+  primary-link:        #38b,
+  primary-link--hover: #c46,
   primary-divider:     #ddd,
 
   tertiary-bg:         #e0f0ff,
   tertiary-text:       #988,
+
+  code-bg:    #efe,
+  code-text:  #344,
 
   globalSiteTitle-bg:   rgba(0,0,0,0.65),
   globalSiteTitle-text: #fff,
@@ -87,6 +90,7 @@ $typeface__body--fallback: sans-serif;
 
 // Font - Weights
 $fontweight__body:    300;
+$fontweight__link:    600;
 $fontweight__heading: 900;
 
 // Font - Sizes
@@ -232,6 +236,7 @@ body {
 
 a {
   color: map-get($colors, 'primary-link');
+  font-weight: $fontweight__link;
   text-decoration: none;
 
   &:hover {
@@ -257,8 +262,8 @@ code,
 kbd,
 samp,
 var {
-  background: #efe;
-  color: #344;
+  background: map-get($colors, 'code-bg');
+  color: map-get($colors, 'code-text');
   font-family: Menlo, Monaco, Consolas, 'DejaVu Sans', monospace;
   font-size: 0.8em;
   font-style: normal;
@@ -301,7 +306,6 @@ hr {
   @include fs('globalSiteTitle');
   background: map-get($colors, 'globalSiteTitle-bg');
   color: map-get($colors, 'globalSiteTitle-text');
-  font-weight: normal;
   left: 0;
   letter-spacing: 0.1em;
   line-height: 1;
@@ -322,7 +326,12 @@ hr {
   > * {
     color: inherit;
     display: inline-block;
+    font-weight: $fontweight__body;
     vertical-align: middle;
+
+    &:hover {
+      color: lighten(map-get($colors, 'primary-link--hover'), 20%);
+    }
   }
 }
 
@@ -376,7 +385,6 @@ hr {
   display: block;
   overflow: hidden;
   padding: 1rem 0;
-  text-align: center;
   text-align: left;
   text-shadow: 0 2px 2px map-get($colors, 'primary-text');
 
@@ -395,6 +403,10 @@ hr {
   @include mq('middle') {
     margin: 0;
   }
+}
+
+.bio__author__name {
+  font-weight: 900;
 }
 
 .bio__avatar {
@@ -448,7 +460,7 @@ hr {
 
 .pageHeader__title {
   @include fs('h1');
-  font-weight: 900;
+  font-weight: $fontweight__heading;
 }
 
 
@@ -464,7 +476,7 @@ hr {
   border-bottom: 1px map-get($colors, 'primary-divider') solid;
   display: inline-block;
   font-size: 0.8em;
-  font-weight: normal;
+  font-weight: $fontweight__body;
   margin: 0 0 1em;
   padding: 0.2em 0;
   text-transform: capitalize;
@@ -529,8 +541,16 @@ hr {
 .globalDiv {
   margin: 0 1.5rem;
   padding: 1rem 0;
-  @include mq('small') { margin: 0 2rem; padding: 2rem 0; }
-  @include mq('large') { margin: 0 3rem; padding: 3rem 0; }
+
+  @include mq('small') {
+    margin: 0 2rem;
+    padding: 2rem 0;
+  }
+
+  @include mq('large') {
+    margin: 0 3rem;
+    padding: 3rem 0;
+  }
 }
 
 
@@ -609,6 +629,7 @@ hr {
 .article__tag {
   color: inherit;
   display: inline-block;
+  font-weight: $fontweight__body;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
@@ -636,7 +657,7 @@ hr {
 
   > .article__subheader {
     @include fs('h4');
-    color: map-get($colors, 'primary-divider');
+    color: lighten(map-get($colors, 'primary-text'), 40%);
     margin: 0 0 0.2em;
   }
 
@@ -672,11 +693,11 @@ hr {
 
 .article__header__link {
   color: inherit;
+  font-weight: 900;
 }
 
 .article__header__link--permalink {
   @include link-icon-before;
-  color: inherit;
 }
 
 .article__body {
@@ -728,7 +749,7 @@ hr {
   margin: 0.5em 0 2em;
 
   > h2 {
-    margin: 0;
+    margin: 0 0 0.2em;
   }
 }
 
