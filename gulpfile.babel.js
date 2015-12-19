@@ -26,7 +26,7 @@ import { exec } from 'child_process';
 // -----------------------------------------------------------------------------
 
 import debug from 'debug'; // DEBUG=gulp gulp to output
-import defaults from 'lodash.defaults';
+import defaultsDeep from 'lodash.defaultsdeep';
 import del from 'del';
 import merge from 'merge-stream';
 
@@ -223,6 +223,25 @@ gulp.task('assets', () => {
 //*/
 
 var now = new Date();
+var siteData = {
+  avatarUrl: '/assets/img/avatar.png',
+  buildDate: now,
+  site: {
+    url:          'http://davidosomething.com/',
+    title:        'davidosomething.com',
+    description:  'Web developer; super handsome. This is my personal website.',
+    meta: [
+      { name: 'author', content: 'David O\'Trakoun' },
+      { name: 'google-site-verification', content: 'CUF_b2uUr3xngYZU_Assv-CXFtDTzQjFdoh3_S35FDQ' },
+      { name: 'msvalidate.01',            content: 'DB32AB8ADBD71157CA9F135EAD9EFE23' },
+      { name: 'p:domain_verify',          content: '87f3b7851e149ff74531fdb012c62bf3' },
+      { property: 'fb:admins', content: '16109547' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:site', content: '@davidosomething' },
+    ],
+  },
+};
+
 slug.defaults.mode = 'rfc3986';
 
 gulp.task('lint:md', (cb) => {
@@ -270,7 +289,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       section:       'blog',
       slug:          slug(data.title),
       type:          'post',
-      image:         metalsmith.metadata().avatarUrl,
+      image:         siteData.avatarUrl,
       datePublished: now,
       dateModified:  now,
       schema: {
@@ -283,7 +302,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       },
     };
 
-    files[file] = defaults(data, defaultData);
+    files[file] = defaultsDeep(data, defaultData);
 
     log(`formatPost ${file}`);
     log(`  - path: ${files[file].path}`);
@@ -310,7 +329,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
     var defaultData = {
       slug:          slug(data.title),
       type:          'page',
-      image:         metalsmith.metadata().avatarUrl,
+      image:         siteData.avatarUrl,
       datePublished: now,
       dateModified:  now,
       schema: {
@@ -322,7 +341,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
       },
     };
 
-    files[file] = defaults(data, defaultData);
+    files[file] = defaultsDeep(data, defaultData);
     files[file].section = slug(data.paths.root) || 'root';
 
     log(`formatPage ${file}`);
@@ -342,21 +361,7 @@ gulp.task('html', (cb) => {
     .use(metalsmithIgnore('_drafts/*'))
 
     // metadata here is attached to metalsmith instance
-    .use(metalsmithDefine({
-      site: {
-        url:    'http://davidosomething.com/',
-        author: 'David O\'Trakoun',
-        meta: [
-          { name: 'author',                   content: 'David O\'Trakoun' },
-          { name: 'google-site-verification', content: 'CUF_b2uUr3xngYZU_Assv-CXFtDTzQjFdoh3_S35FDQ' },
-          { name: 'msvalidate.01',            content: 'DB32AB8ADBD71157CA9F135EAD9EFE23' },
-          { name: 'p:domain_verify',          content: '87f3b7851e149ff74531fdb012c62bf3' },
-          { property: 'fb:admins',            content: '16109547' },
-        ],
-      },
-      avatarUrl: '/assets/img/avatar.png',
-      buildDate: now,
-    }))
+    .use(metalsmithDefine(siteData))
 
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object

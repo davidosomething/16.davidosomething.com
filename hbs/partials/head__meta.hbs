@@ -1,9 +1,20 @@
 {{! <meta> tags for site }}
-{{#each site.meta}}<meta {{#each this as |v k|}}{{k}}="{{{v}}}"{{/each}}>
+{{#each site.meta}}
+	<meta {{#each this as |v k|}}{{k}}="{{{v}}}"{{/each}}>
 {{/each}}
 {{! <meta> tags for post }}
-{{#if description}}<meta name="description" content="{{{ description }}}">
-{{/if}}{{#if tags}}<meta name="keywords" content="{{#each tags}}{{this}}{{#unless @last}},{{/unless}}{{/each}}">
-{{/if}}<meta name="robots" content="{{#if robots}}{{robots}}{{else}}index,noodp,follow{{/if}}">
+<meta name="robots" content="{{#if robots}}{{robots}}{{else}}index,noodp,follow{{/if}}">
+<meta name="twitter:title" content="{{{ site.title }}} | {{{ title }}}">
+{{#if description}}
+	<meta name="description" content="{{{ description }}}">
+	<meta name="og:description" content="{{{ description }}}">
+	<meta name="twitter:description" content="{{{ description }}}">
+{{/if}}
+{{#if image}}
+	<meta property="og:image" content="{{ image }}">
+	<meta name="twitter:image" content="{{ image }}">
+{{/if}}
+{{#if tags}}
+	<meta name="keywords" content="{{#each tags}}{{this}}{{#unless @last}},{{/unless}}{{/each}}">
+{{/if}}
 <meta itemprop="dateModified" content="{{ moment dateModified toISOString=null }}">
-{{#if image}}<meta property="og:image" content="{{ image }}">{{/if}}

@@ -152,7 +152,9 @@
       "no-underscore-dangle": 0,
       "no-unused-vars": [
         2,
-        { "args": "none" }
+        {
+          "args": "none"
+        }
       ],
       "object-curly-spacing": [
         2,
@@ -258,7 +260,7 @@
     "handlebars": "^4.0.5",
     "helper-moment": "^0.1.0",
     "jspm": "^0.16.18",
-    "lodash.defaults": "^3.1.2",
+    "lodash.defaultsdeep": "^3.10.0",
     "lodash.omit": "^3.1.0",
     "merge-stream": "^1.0.0",
     "metalsmith": "^2.1.0",
