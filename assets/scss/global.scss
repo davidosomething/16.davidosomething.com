@@ -447,6 +447,8 @@ hr {
 .pageHeader {
   margin: 0 auto;
   max-width: $max-line-width;
+
+  @include mq('large') { margin: 0; }
 }
 
 .pageHeader__title {
@@ -609,15 +611,11 @@ hr {
 
 .article {
   margin: 3rem auto 6em;
-  max-width: 40em;
+  max-width: $max-line-width;
 
-  @include mq('large') {
-    margin: 3rem 0 6rem;
-  }
+  @include mq('large') { margin: 3rem 0 6rem; }
 
-  &:first-child {
-    margin-top: 0;
-  }
+  &:first-child { margin-top: 0; }
 }
 
 

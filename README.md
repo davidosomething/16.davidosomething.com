@@ -59,8 +59,10 @@ Output is generated in `public/`
 
 ### Content
 
+- [x] cleanup
+- [ ] fix old image urls
 - [ ] article share buttons
-- [ ] cleanup, add descriptions and images
+- [ ] add descriptions and images
 - [ ] Useful 404 page
 
 ### Deploy
