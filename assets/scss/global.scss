@@ -328,7 +328,9 @@ hr {
     vertical-align: middle;
   }
 
-  a:hover { color: map-get($colors, 'primary-divider'); }
+  a:hover {
+    color: lighten(map-get($colors, 'primary-link--hover'), 25%);
+  }
 }
 
 .siteHeader__siteName {
@@ -421,9 +423,7 @@ hr {
     display: inline-block;
   }
 
-  &:hover img {
-    background-color: map-get($colors, 'primary-link');
-  }
+  &:hover img { background-color: lighten(map-get($colors, 'primary-link--hover'), 25%); }
 }
 
 .bio__links {
@@ -515,7 +515,13 @@ hr {
   padding: 4em 0;
   text-align: center;
 
-  a { @extend %link--underlined; }
+  a {
+    @extend %link--underlined;
+    &:hover {
+      border-color: lighten(map-get($colors, 'primary-link--hover'), 25%);
+      color: lighten(map-get($colors, 'primary-link--hover'), 25%);
+    }
+  }
 }
 
 
