@@ -33,13 +33,13 @@ Output is generated in `public/`
 
 ### JS
 
+- [x] Google Analytics
 - [x] SystemJS loader
 - [x] JSPM package manager (probably just going to use npm)
 - [x] Babel ES transpiler
 - [ ] react view for each article and widget
 - [ ] hot module reload
 - [ ] current article should be highlighted if in a widget
-- [ ] Google Analytics
 
 ### HTML
 

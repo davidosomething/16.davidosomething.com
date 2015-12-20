@@ -230,6 +230,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     var data = files[file];
 
     var defaultData = {
+      description:   data.description || data.subheader || '',
       excerpt:       data.snippet,
       section:       'blog',
       slug:          slug(data.title),
