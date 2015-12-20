@@ -312,7 +312,10 @@ gulp.task('html', (cb) => {
 
   metalsmith(__dirname)
     .source('./md/')
-    .use(metalsmithIgnore('_drafts/*'))
+    .use(metalsmithIgnore([
+      '_archive/*',
+      '_drafts/*',
+    ]))
 
     // metadata here is attached to metalsmith instance
     .use(metalsmithDefine(siteData))
