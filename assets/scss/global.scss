@@ -17,17 +17,18 @@
 // -----------------------------------------------------------------------------
 
 $colors: (
-  primary-bg:          #fafaf4,
-  primary-text:        #3f3a30,
-  primary-link:        #38b,
-  primary-link--hover: #c46,
-  primary-divider:     #ddd,
+  primary-bg:            #fafaf4,
+  primary-text:          #3f3a30,
+  primary-aside:         #988,
+  primary-link:          inherit,
+  primary-link--hover:   #38b,
+  primary-divider:       #eee,
 
-  tertiary-bg:         #e0f0ff,
-  tertiary-text:       #988,
+  secondary-link:        #38b,
+  secondary-link--hover: #c46,
 
-  code-bg:    #efe,
-  code-text:  #344,
+  code-bg:               #efe,
+  code-text:             #344,
 
   globalSiteTitle-bg:   rgba(0,0,0,0.65),
   globalSiteTitle-text: #fff,
@@ -237,10 +238,18 @@ body {
 
 a {
   color: map-get($colors, 'primary-link');
-  font-weight: $fontweight__link;
   text-decoration: none;
-
   &:hover { color: map-get($colors, 'primary-link--hover'); }
+}
+
+%link--header {
+  color: inherit;
+  &:hover { color: lighten(map-get($colors, 'primary-link--hover'), 25%); }
+}
+
+%link--underlined {
+  border-bottom: 1px map-get($colors, 'primary-text') dotted;
+  &:hover { border-bottom: 1px map-get($colors, 'primary-link--hover') dotted; }
 }
 
 h1,
@@ -287,16 +296,6 @@ hr {
   padding: 0;
 }
 
-%globalBorder {
-  border-top: 1px map-get($colors, 'primary-divider') solid;
-}
-
-%headerLink {
-  color: inherit;
-  &:hover { color: lighten(map-get($colors, 'primary-link'), 25%); }
-}
-
-
 // =============================================================================
 // Site Header
 // =============================================================================
@@ -323,11 +322,13 @@ hr {
   white-space: nowrap;
 
   > * {
-    @extend %headerLink;
+    @extend %link--header;
     display: inline-block;
     font-weight: $fontweight__body;
     vertical-align: middle;
   }
+
+  a:hover { color: map-get($colors, 'primary-divider'); }
 }
 
 .siteHeader__siteName {
@@ -384,7 +385,7 @@ hr {
   text-shadow: 0 2px 2px map-get($colors, 'primary-text');
 
   a {
-    @extend %headerLink;
+    @extend %link--header;
     display: inline-block;
   }
 }
@@ -465,15 +466,6 @@ hr {
 // Widget
 // -----------------------------------------------------------------------------
 
-%widget__title {
-  border-bottom: 1px map-get($colors, 'primary-divider') solid;
-  display: inline-block;
-  font-size: 0.8em;
-  font-weight: $fontweight__body;
-  margin: 0 0 1em;
-  padding: 0.2em 0;
-}
-
 .widget {
   @include fs('nav');
   margin: 0 0 2rem;
@@ -485,10 +477,18 @@ hr {
 
     &:hover { opacity: 1; }
   }
+}
 
-  > .widget__header > .widget__header__title {
-    @extend %widget__title;
-  }
+.widget__title {
+  background: map-get($colors, 'primary-divider');
+  display: inline-block;
+  font-size: 0.8em;
+  margin: 0 0 1em;
+  padding: 0.5em 1em;
+}
+
+.widget__body {
+  margin: 0 0 0 0.5em;
 }
 
 .widget__postlist {
@@ -514,6 +514,8 @@ hr {
   color: map-get($colors, 'primary-bg');
   padding: 4em 0;
   text-align: center;
+
+  a { @extend %link--underlined; }
 }
 
 
@@ -667,7 +669,7 @@ hr {
   > .article__meta {
     @include fs('article__meta');
     align-items: flex-start;
-    color: map-get($colors, 'tertiary-text');
+    color: map-get($colors, 'primary-aside');
     display: flex;
     justify-content: space-between;
     margin: 0.2em 0;
@@ -695,7 +697,7 @@ hr {
 }
 
 .article__header__link {
-  @extend %headerLink;
+  @extend %link--header;
   font-weight: 900;
 }
 
@@ -708,8 +710,8 @@ hr {
   line-height: 1.5;
   margin-left: 0.5em;
 
-  p:first-child {
-    text-indent: 2ex;
+  a {
+    @extend %link--underlined;
   }
 
   ol,
@@ -720,6 +722,10 @@ hr {
   li ol,
   li ul {
     padding-left: 1.2em;
+  }
+
+  p:first-child {
+    text-indent: 2ex;
   }
 }
 
@@ -757,6 +763,8 @@ hr {
 
   > h2 {
     margin: 0 0 0.2em;
+
+    > a { font-weight: $fontweight__link; }
   }
 }
 
