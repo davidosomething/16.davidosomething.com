@@ -873,3 +873,21 @@ body:not(.slug--home) .globalHeader {
   }
 }
 
+
+// =============================================================================
+// Print
+// =============================================================================
+
+@media print {
+  .globalHeader,
+  .globalNav,
+  .article__footer {
+    display: none;
+  }
+  .globalContent {
+    margin-top: 2em;
+  }
+
+}
+
+
