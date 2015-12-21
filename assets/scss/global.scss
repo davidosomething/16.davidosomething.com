@@ -81,7 +81,8 @@ $breakpoints: (
 // Typography
 // -----------------------------------------------------------------------------
 
-$max-line-width: 38em;
+$readable-header-width: 48rem;
+$readable-body-width: 40em;
 
 // Font - Typeface
 $typeface__heading:        'Source Sans Pro';
@@ -445,7 +446,6 @@ hr {
 
 .pageHeader {
   margin: 0 auto;
-  max-width: $max-line-width;
 
   @include mq('large') { margin: 0; }
 }
@@ -454,6 +454,7 @@ hr {
   @include fs('h1');
   font-weight: $fontweight__heading;
   margin-top: 0;
+  max-width: $readable-header-width;
 }
 
 
@@ -468,7 +469,10 @@ hr {
 .widget {
   @include fs('nav');
   margin: 0 0 3rem;
-  max-width: $max-line-width / 2;
+
+  @include mq('small') {
+    max-width: $readable-body-width / 2;
+  }
 
   @include mq('large') {
     opacity: 0.5;
@@ -553,18 +557,24 @@ hr {
 
 
 // -----------------------------------------------------------------------------
-// Layout: nav as grid
+// Layout: one-column -- nav as grid
 // -----------------------------------------------------------------------------
 
 @include mq('small', 'large') {
+  .globalContent {
+    margin: 0 2rem;
+  }
+
+  .globalDiv {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 46rem;
+  }
+
   .globalNav {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $max-line-width;
-    padding: 2rem;
   }
 
   .globalNav > .widget {
@@ -576,7 +586,7 @@ hr {
 }
 
 // -----------------------------------------------------------------------------
-// Layout: nav as sidebar
+// Layout: two-column -- nav as sidebar
 // -----------------------------------------------------------------------------
 
 @mixin navLeft {
@@ -630,7 +640,6 @@ hr {
 
 .article {
   margin: 0 auto 4em;
-  max-width: $max-line-width;
 
   @include mq('large') {
     margin-left: 0;
@@ -673,6 +682,7 @@ hr {
 
 .article__header {
   margin-bottom: 2em;
+  max-width: $readable-header-width;
   position: relative;
 
   > .article__title {
@@ -728,7 +738,8 @@ hr {
 .article__body {
   @include fs('article__body');
   line-height: 1.5;
-  margin-left: 0.5em;
+  margin-left: 1em;
+  max-width: $readable-body-width;
 
   a {
     @extend %link--underlined;
@@ -746,12 +757,8 @@ hr {
 }
 
 .article__footer {
-  border-bottom: 1px map-get($colors, 'primary-divider') solid;
-  margin-top: 6em;
-
-  .article:last-child & {
-    border-bottom: 0;
-  }
+  margin-top: 2em;
+  max-width: $readable-header-width;
 }
 
 
