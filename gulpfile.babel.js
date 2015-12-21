@@ -121,7 +121,7 @@ gulp.task('clean:assets', () => {
 });
 
 
-gulp.task('clean:all', () => {
+gulp.task('clean', () => {
   return del([
     `${dirs.dist}/**/*`, //*/
   ]);
@@ -203,6 +203,19 @@ gulp.task('assets', () => {
     .pipe(gulp.dest(`${dirs.assets.dist}/`));
 
 });
+
+
+// -----------------------------------------------------------------------------
+// Task: Static
+// -----------------------------------------------------------------------------
+
+gulp.task('static', () => {
+
+  return gulp.src('./static/**')
+    .pipe(gulp.dest(`${dirs.dist}/`));
+
+});
+
 
 // -----------------------------------------------------------------------------
 // Task: HTML
@@ -457,5 +470,5 @@ gulp.task('watch', () => {
 // Task: Default
 // -----------------------------------------------------------------------------
 
-gulp.task('default', [ 'js', 'css', 'assets', 'html' ]);
+gulp.task('default', [ 'js', 'css', 'assets', 'html', 'static' ]);
 

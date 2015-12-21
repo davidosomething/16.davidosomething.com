@@ -1,13 +1,21 @@
 /**
- * Modified for facebook - limited dependency twitter web intents
- * @see twitter.js
+ * Web intents for sharing
+ * Adapted from twitter's code
+ * @see {@link https://dev.twitter.com/web/intents#follow-intent}
  */
+
+const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
 
 export const configs = {
   facebook: {
     intentRegex: /facebook\.com\/dialog\/share\?(\w+)/,
     width: 600,
     height: 500,
+  },
+  google: {
+    intentRegex: /plus\.google\.com\/share\?(\w+)/,
+    width: 500,
+    height: 525,
   },
   twitter: {
     intentRegex: /twitter\.com\/intent\/(\w+)/,
@@ -17,12 +25,10 @@ export const configs = {
 };
 
 export function shareIntent(config) {
-  const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
-
   var winHeight = screen.height;
   var winWidth = screen.width;
 
-  function handleIntent(e) {
+  var handleIntent = (e) => {
     e = e || window.event;
     var target = e.target || e.srcElement;
     var m;
@@ -43,13 +49,13 @@ export function shareIntent(config) {
           top = Math.round((winHeight / 2) - (config.height / 2));
         }
 
-        window.open(target.href, 'intent', windowOptions + ',width=' + config.width +
-                                           ',height=' + config.height + ',left=' + left + ',top=' + top);
+        let options = `${windowOptions},width=${config.width},height=${config.height},left=${left},top=${top}`;
+        window.open(target.href, 'intent', options);
         e.returnValue = false;
         e.preventDefault && e.preventDefault();
       }
     }
-  }
+  };
 
   if (document.addEventListener) {
     document.addEventListener('click', handleIntent, false);

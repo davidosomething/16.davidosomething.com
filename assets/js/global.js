@@ -1,4 +1,5 @@
 import { configs, shareIntent } from './shareIntent.js';
 
-shareIntent(configs.twitter);
 shareIntent(configs.facebook);
+shareIntent(configs.google);
+shareIntent(configs.twitter);
