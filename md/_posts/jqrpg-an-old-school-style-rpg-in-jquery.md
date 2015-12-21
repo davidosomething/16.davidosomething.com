@@ -29,7 +29,7 @@ the [Javascript jQuery Hotkeys Plugin](http://code.google.com/p/js-hotkeys/).
 I’m surprised no one has created a complete, working one yet, as tile-based RPGs
 are much easier to make than action games with collision detection.
 
-![jQRPG Screenshot](http://davidosomething.com/content/uploads/jqrpg.png "jQRPG Screenshot")
+![jQRPG Screenshot](/assets/img/posts/jqrpg.png "jQRPG Screenshot")
 
 If anyone is interested, I might continue building this, adding in turn-based
 menu battles (oh boy!), a shop system, and AJAX saving and loading with an HTML5

@@ -16,8 +16,7 @@ tags:
 slug: grunt-wendy-casperjs
 ---
 
-![grunt-wendy logo](/assets/img/posts/wendy.png)
-
+<img src="/assets/img/posts/wendy.png" class="image--left" alt="grunt-wendy logo">
 [grunt-wendy](https://github.com/davidosomething/grunt-wendy) is my latest Grunt
 plugin. It’s a CasperJS test runner with customizable filtering and formatting
 options, which CasperJS alone lacks.

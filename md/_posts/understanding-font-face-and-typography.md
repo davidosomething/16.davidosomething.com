@@ -21,7 +21,7 @@ in multiple files, splitting a typeface into bold, light, italics, oblique, and
 combinations of those. The font Aurulent used on davidosomething.com is one
 example, coming in four styles:
 
-![Aurulent Sans Typeface](http://davidosomething.com/content/uploads/aurulent.png "Aurulent Sans Typeface")
+![Aurulent Sans Typeface](/assets/img/posts/aurulent.png "Aurulent Sans Typeface")
 
 <cite>[Aurulent Sans on Font Squirrel](http://www.fontsquirrel.com/fonts/Aurulent-Sans)</cite>
 
@@ -121,7 +121,7 @@ Mozilla Firefox 3.6 does a thing called faux bold, which uses math (devil’s
 magic!) to stretch the font and make it appear bold. The result is the top
 sample, while the true bold Aurulent Sans is on the bottom:
 
-![Aurulent bold and faux bold](http://davidosomething.com/content/uploads/aurulent_bold.png "Aurulent bold and faux bold")
+![Aurulent bold and faux bold](/assets/img/posts/aurulent_bold.png "Aurulent bold and faux bold")
 
 The difference is pretty clear in the letters e, w, and r. If you care enough
 about typography to be using @font-face, the top rendering should be considered

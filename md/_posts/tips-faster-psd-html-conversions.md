@@ -46,7 +46,7 @@ of where everything goes.
 
 #### Save for Web
 
-![Save For Web Dialog](http://davidosomething.com/content/uploads/saveforweb-350x300.jpg)
+![Save For Web Dialog](/assets/img/posts/saveforweb-350x300.jpg)
 
 Alt+Ctrl+Shift+S, or on Macs, Cmd+Opt+Shift+S. This is the key combination
 you’ll use to save every piece of the PSD you’re going to use for your design.
@@ -55,7 +55,7 @@ you’re saving based on quality and size.
 
 #### Convert to Smart Object
 
-![Convert to Smart Object](http://davidosomething.com/content/uploads/converttosmartobject.png "Convert to Smart Object")
+![Convert to Smart Object](/assets/img/posts/converttosmartobject.png "Convert to Smart Object")
 
 For groups of layers (including text) that doesn’t use layer blending options
 and aren’t affected by adjustment layers, select the layers and/or groups
@@ -107,7 +107,7 @@ like I am at least you can find the relative size now that you have them all.
 
 #### Flattened Versions
 
-![Normal and inverted flattened designs](http://davidosomething.com/content/uploads/invert.jpg "Normal and inverted flattened designs")
+![Normal and inverted flattened designs](/assets/img/posts/invert.jpg "Normal and inverted flattened designs")
 
 Save a flattened version of the site. Print it out if you want. This will be
 useful for reference by eye, and for working with the Pixel Perfect Firebug
@@ -132,7 +132,7 @@ creating the same `<div id="wrapper">` you do for every layout.
 
 #### Quickly get Image Dimensions
 
-![Image Dimensions Column](http://davidosomething.com/content/uploads/imagedimensions-350x300.jpg "Image Dimensions Column")
+![Image Dimensions Column](/assets/img/posts/imagedimensions-350x300.jpg "Image Dimensions Column")
 
 For Windows users, in Explorer you can add a Dimensions column to the detail
 view. Right click on the column names and Dimensions should be one of the
@@ -140,7 +140,7 @@ options available.
 
 ### Design in Firefox
 
-![Firefox](http://davidosomething.com/content/uploads/firefox.png "Firefox")
+![Firefox](/assets/img/posts/uploads/firefox.png "Firefox")
 
 The number of development tools in Firefox makes it the single, indisputably
 best browser for web development. This is not to say it is the best at
@@ -156,7 +156,7 @@ the Web Developer extension for quick validation.
 
 #### Web Developer
 
-![Element information from Web Developer](http://davidosomething.com/content/uploads/webdeveloper.png "Element information from Web Developer")
+![Element information from Web Developer](/assets/img/posts/webdeveloper.png "Element information from Web Developer")
 
 The designer and framework you’re using and should have covered most things this
 extension would be used to debug, but there are a few things left that it can
@@ -180,7 +180,7 @@ As I mentioned before in the Photoshop Slicing section, sometimes I’ll slice t
 
 #### In Place CSS Editing with Firebug and the Arrow Keys
 
-![Editing CSS in place with Firebug](http://davidosomething.com/content/uploads/firebug_css.png "Editing CSS in place with Firebug")
+![Editing CSS in place with Firebug](/assets/img/posts/firebug_css.png "Editing CSS in place with Firebug")
 
 One of the best things about Firebug is the ability to edit CSS in place. From
 either the HTML or CSS tab, you can add and edit rules and properties by
@@ -204,12 +204,12 @@ technique described earlier to quickly get everything in the exact pixel
 location.
 
 Here’s an example of the inverted overlay on top of this post, one pixel off:
-![Pixel Perfect inverted overlay, 1px off](http://davidosomething.com/content/uploads/overlay_off-465x400.png "Pixel Perfect inverted overlay, 1px off")
+![Pixel Perfect inverted overlay, 1px off](/assets/img/posts/overlay_off-465x400.png "Pixel Perfect inverted overlay, 1px off")
 
 And here is the same overlay when the elements are in the exact positions (I
 shifted the overlay, but for designing you should shift the elements):
 
-![Pixel Perfect inverted overlay, correct position](http://davidosomething.com/content/uploads/overlay_on-465x400.png "Pixel Perfect inverted overlay, correct position")
+![Pixel Perfect inverted overlay, correct position](/assets/img/posts/overlay_on-465x400.png "Pixel Perfect inverted overlay, correct position")
 
 Using Firefox and Firebug to do your design, you’re just moving blocks around
 with the arrow keys. It’s WYSIWYG editing without the pitfalls!

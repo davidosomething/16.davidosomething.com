@@ -13,7 +13,7 @@ I like real IDEs for console and application programming, but for web
 development I’ve always felt most comfortable using a text editor. Notepad++ is
 my editor of choice because it is fast and feature rich.
 
-![Notepad++ screenshot](http://davidosomething.com/content/uploads/npp-350x238.png "Notepad++ screenshot")
+![Notepad++ screenshot](/assets/img/posts/npp-350x238.png "Notepad++ screenshot")
 
 ### Editor Settings
 

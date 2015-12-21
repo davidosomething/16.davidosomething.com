@@ -2,11 +2,16 @@
 title: "grunt-toggl"
 subheader: "Automatically start a Toggl timer with a Grunt task"
 datePublished: 2014-04-29T22:30:24+00:00
-hero: "http://davidosomething.com/content/uploads/header-grunt-toggl.jpg"
+hero: "/assets/img/posts/header-grunt-toggl.jpg"
+tags:
+  - grunt
+  - toggl
+  - timetracking
+  - gtd
 slug: grunt-toggl
 ---
 
-![grunt-toggl logo](http://davidosomething.com/content/uploads/grunt-toggl-logo.png)
+<img src="/assets/img/posts/grunt-toggl-logo.png" alt="grunt-toggl logo" class="image--left">
 
 ## Start using grunt-toggl today!
 

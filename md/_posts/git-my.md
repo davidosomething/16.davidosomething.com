@@ -15,9 +15,9 @@ To remedy this, I wrote a shell script that gets all the remote git branches and
 filters them out based on the last committer. It then lists the ones where you
 were the last committer.
 
-You can find the script here:
+You can find the script here:  
 [https://github.com/davidosomething/git-my](https://github.com/davidosomething/git-my)
 
-Here’s a screenshot of it in action:
+Here’s a screenshot of it in action:  
 ![Screenshot of git-my](https://raw.githubusercontent.com/davidosomething/git-my/docs/screenshot.png)
 
