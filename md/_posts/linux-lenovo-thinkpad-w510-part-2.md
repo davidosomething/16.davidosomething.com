@@ -1,5 +1,5 @@
 ---
-title: "Linux on the Lenovo ThinkPad W510 &#8211; Part 2"
+title: "Linux on the Lenovo ThinkPad W510 – Part 2"
 subheader: "A one month retrospective on using linux, only, on my primary laptop"
 datePublished: 2014-05-29T18:25:31+00:00
 tags:

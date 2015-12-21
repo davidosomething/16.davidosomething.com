@@ -1,5 +1,5 @@
 ---
-title: "Linux on the Lenovo Thinkpad W510 &#8211; Part 3"
+title: "Linux on the Lenovo Thinkpad W510 – Part 3"
 subheader: "ArchLinux NVidia 340.xx Legacy Driver Updates"
 datePublished: 2014-10-30T21:45:11+00:00
 tags:

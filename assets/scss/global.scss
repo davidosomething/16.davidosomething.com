@@ -501,6 +501,35 @@ hr {
   padding: 0;
 }
 
+// -----------------------------------------------------------------------------
+// Widget: Share Post
+// -----------------------------------------------------------------------------
+
+.shareButton {
+  border-radius: 0.2em;
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0.5em 0.8em 0.7em;
+
+  &::before,
+  span {
+    display: inline-block;
+  }
+
+  &::before {
+    padding-right: 0.4em;
+  }
+}
+
+.shareButton--tweet {
+  background: #1b95e0;
+  color: white;
+
+  &:hover {
+    background: #0c7abf;
+    color: white;
+  }
+}
 
 // =============================================================================
 // Global Footer

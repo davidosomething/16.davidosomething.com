@@ -81,6 +81,7 @@ import metalsmithSnippet from 'metalsmith-snippet';
 import metalsmithWidow from 'metalsmith-widow';
 
 import hbsHelperMoment from './hbs/helpers/moment.js';
+import hbsUriEncode from './hbs/helpers/uriencode.js';
 
 
 // =============================================================================
@@ -405,7 +406,8 @@ gulp.task('html', (cb) => {
       partials:  'hbs/partials/',
       'default':   'default.hbs',
       helpers: {
-        moment: hbsHelperMoment,
+        moment:     hbsHelperMoment,
+        uriencode:  hbsUriEncode,
       },
       preventIndent: true,
     }))
