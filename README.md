@@ -1,6 +1,6 @@
 # davidosomething.com for 2016
 
-> WORK IN PROGRESS
+> Ready, but always WIP. See TODO section for what's left.
 
 Static generated site for [davidosomething.com](http://davidosomething.com)
 
@@ -37,6 +37,7 @@ Output is generated in `public/`
 - [x] SystemJS loader
 - [x] JSPM package manager (probably just going to use npm)
 - [x] Babel ES transpiler
+- [ ] can further refactor share link popups
 - [ ] react view for each article and widget
 - [ ] hot module reload
 - [ ] current article should be highlighted if in a widget
@@ -54,19 +55,19 @@ Output is generated in `public/`
 - [x] Site verifications for google, bing
 - [x] OpenGraph and Twitter meta tags
 - [x] schema.org microdata
-- [ ] sitemap
+- [x] sitemap
 - [x] robots meta
 
 ### Content
 
 - [x] cleanup
 - [x] fix old image urls
-- [ ] article share buttons
+- [x] article share buttons
     - [x] twitter
     - [x] facebook
     - [x] google+
 - [ ] add descriptions and images
-- [ ] Useful 404 page
+- [x] Useful 404 page
 
 ### Deploy
 

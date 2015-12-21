@@ -77,6 +77,7 @@ import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
 import metalsmithPaths from 'metalsmith-paths';
 import metalsmithPermalinks from 'metalsmith-permalinks';
+import metalsmithSitemap from 'metalsmith-sitemap';
 import metalsmithSnippet from 'metalsmith-snippet';
 import metalsmithWidow from 'metalsmith-widow';
 
@@ -425,6 +426,13 @@ gulp.task('html', (cb) => {
 
     .use(metalsmithFeed({
       collection: 'posts',
+    }))
+
+    .use(metalsmithSitemap({
+      hostname:         siteData.site.url,
+      omitIndex:        true,
+      modifiedProperty: 'datePublished',
+      urlProperty:      'permalink',
     }))
 
     .clean(false)
