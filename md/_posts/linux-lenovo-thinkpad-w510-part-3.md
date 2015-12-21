@@ -9,7 +9,6 @@ tags:
   - w510
 slug: "linux-lenovo-thinkpad-w510-part-3"
 ---
-
 The NVidia drivers after 343.22 no longer support the NVidia Quadro FX 880M GPU
 for the ThinkPad W510 so I had to switch to legacy drivers (340-xx).
 

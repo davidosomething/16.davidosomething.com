@@ -6,8 +6,6 @@ tags:
   - boston
 slug: apartment-hunting-in-boston
 ---
-
-
 <p>Allston is no place for a non-college student to live. Roxbury isn&#8217;t so great either. In an effort to get off of the college-populated and super slow B-Line of the MBTA, I&#8217;ve been looking for new apartments near Coolidge Corner. Here&#8217;s what I&#8217;ve been picking up through this experience:</p>
 <h3>Searching for results? Let them search for you!</h3>
 <p>The only sites worth checking out are specific Realtor sites. Use their search engines if you are feeling ambitious, because they will turn up results not in Craigslist.</p>

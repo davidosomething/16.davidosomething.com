@@ -10,7 +10,6 @@ tags:
   - gtd
 slug: grunt-toggl
 ---
-
 <img src="/assets/img/posts/grunt-toggl-logo.png" alt="grunt-toggl logo" class="image--left">
 
 ## Start using grunt-toggl today!

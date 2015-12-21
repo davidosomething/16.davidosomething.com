@@ -8,8 +8,6 @@ tags:
   - windows
 slug: configuring-a-local-server-on-windows
 ---
-
-
 <p>I will probably use this post as a reference for myself next time I have to set up a local development environment. It&#8217;s a well-learned fact that a properly set-up local server will reduce hiccups in development and ease in the transition to a production server.</p>
 <h3 class="noted">XAMPP Post-installation Configuration</h3>
 <p>I use the <a href="http://www.apachefriends.org/en/xampp.html">XAMPP</a> package on my laptop. This typically comes well configured (e.g. PHP memory limit is 128mb!), but there are a couple things it doesn&#8217;t do:</p>

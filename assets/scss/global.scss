@@ -99,7 +99,7 @@ $fontsizes: (
   default: (
     globalSiteTitle: 0.66rem,
     bio__author:     1.4rem,
-    bio__links:      2rem,
+    bio__links:      1.6rem,
     h1: 1.6em,
     h2: 1.5em,
     h3: 1.2em,
@@ -112,6 +112,7 @@ $fontsizes: (
   ),
   small: (
     bio__author:     2rem,
+    bio__links:      2rem,
     h1: 2.4em,
     h2: 2em,
     h3: 1.8em,
@@ -356,7 +357,7 @@ hr {
 
 .globalHeader {
   background-color: map-get($colors, 'primary-text');
-  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-image: url('/assets/img/bg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -366,7 +367,7 @@ hr {
   @include mq('middle') { padding: 18rem 0.5rem 1rem; }
 }
 
-.type--post .globalHeader {
+body:not(.slug--home) .globalHeader {
   padding: 2rem 0 1rem; // room for fixed position siteHeader
   @include mq('small') { padding: 3rem 0 1rem; }
   @include mq('middle') { padding: 6rem 0.5rem 1rem; }
@@ -511,16 +512,22 @@ hr {
   padding: 0;
 
   li {
-    display: inline-block;
-    margin: 0 0.2em 0.2em;
+    display: block;
+    margin: 0 0 0.5em;
+    overflow: hidden;
   }
 }
 
 .shareButton {
   border-radius: 0.2em;
+  box-sizing: border-box;
+  color: white;
   display: inline-block;
   font-size: 0.8em;
-  padding: 0.5em 0.8em 0.7em;
+  min-width: 12em;
+  padding: 0.5em 0.8em 0.6em;
+
+  &:hover { color: white; }
 
   i::before,
   span {
@@ -528,46 +535,37 @@ hr {
   }
 
   i::before {
-    padding-right: 0.4em;
+    padding-right: 0.8em;
+    position: relative;
     width: 1em;
   }
 
-  span {
-    font-weight: 600;
-  }
+  span { font-weight: 600; }
 }
 
-.shareButton--tweet {
+.shareButton--twitter {
   background: #1b95e0;
-  color: white;
-
-  &:hover {
-    background: #0c7abf;
-    color: white;
-  }
-
-  i::before {
-    position: relative;
-    top: 2px;
-  }
+  &:hover { background: #0c7abf; }
+  i::before { top: 2px; }
 }
 
 .shareButton--facebook {
   background: #4661b0;
-  color: white;
-
-  &:hover {
-    background: darken(#4661b0, 10%);
-    color: white;
-  }
+  &:hover { background: darken(#4661b0, 10%); }
 
   i::before {
     content: 'f';
     font-weight: 900;
     left: 0.4em;
-    position: relative;
   }
 }
+
+.shareButton--google {
+  background: #dc4437;
+  &:hover { background: darken(#dc4437, 10%); }
+  i::before { top: 1px; }
+}
+
 
 // =============================================================================
 // Global Footer

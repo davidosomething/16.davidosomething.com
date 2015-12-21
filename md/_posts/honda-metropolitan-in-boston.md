@@ -7,7 +7,6 @@ tags:
   - Scooter
 slug: honda-metropolitan-in-boston
 ---
-
 The Honda Metropolitan is a 49cc gas-powered scooter. Because of its small size
 and vehicle classification, it is a very convenient mode of transportation in
 Boston, where the streets are crowded and parking is expensive.

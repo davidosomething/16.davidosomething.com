@@ -8,8 +8,6 @@ tags:
   - jquery
 slug: building-an-coldfusionajax-flickr-gallery
 ---
-
-
 <p>This is a long article that will show you how to do any/all of the following:</p>
 <ul>
 <li><a href="#section_utfawc">Use the flickr API with ColdFusion</a></li>

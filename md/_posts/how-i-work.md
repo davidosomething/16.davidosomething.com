@@ -21,7 +21,6 @@ tags:
   - web
 slug: how-i-work
 ---
-
 Creating a website is just not as simple as it used to be. In order to do things
 right, I need all kinds of tools: compilers, linters, package managers,
 optimizers and minifiers, etc. Aside from that I need to consider things like

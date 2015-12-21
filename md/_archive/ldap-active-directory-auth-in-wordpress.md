@@ -7,8 +7,6 @@ tags:
   - wordpress
 slug: ldap-active-directory-auth-in-wordpress
 ---
-
-
 <p>
  I am going to discuss LDAP / Active Directory authentication in PHP and WordPress using custom directory schemas. If you want to integrate your PHP application or WordPress login with LDAP but aren&#8217;t using a typical LDAP setup (with organizational units and such, or requiring the domain prefix: &#8216;domainusername&#8217;), then read on.
 </p>

@@ -7,8 +7,6 @@ tags:
   - ui
 slug: "time-input-interfaces"
 ---
-
-
 <p>Digital clocks are better than analog clocks at telling time. You know it&#8217;s true<br />
 and I won&#8217;t go into any more detail than that. Analog clocks still serve a very<br />
 practical function, though: that of time input.<br />

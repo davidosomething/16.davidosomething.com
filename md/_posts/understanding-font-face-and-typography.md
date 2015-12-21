@@ -7,7 +7,6 @@ tags:
   - typography
 slug: understanding-font-face-and-typography
 ---
-
 davidosomething.com currently uses the @font-face CSS rule to load and define
 **fonts**. The key point is that fonts, and not typefaces, are defined. A font
 is “any variant in a typeface’s size and style” (<cite>[Jon

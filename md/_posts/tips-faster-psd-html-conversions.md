@@ -7,7 +7,6 @@ tags:
   - photoshop
 slug: tips-faster-psd-html-conversions
 ---
-
 Ever wonder how those PSD to HTML services do the job with such a quick
 turnaround, sometimes guaranteeing valid code in 24 hours on even the most
 complex PSDs? The task is roughly 40% breaking up the PSD logically, 20% coding,

@@ -3,8 +3,6 @@ title: "Things I learned and did in 2012"
 datePublished: 2013-01-09T00:03:12+00:00
 slug: things-i-learned-and-did-in-2012
 ---
-
-
 <p>Blog&#8217;s been quiet for a while, here&#8217;s a list of things I&#8217;ve learned and some significant experiences from 2012:</p>
 <ul>
 <li>Used <a href="http://vagrantup.com/">Vagrant</a> to spin up Ubuntu VirtualBox VMs on the fly</li>

@@ -1,5 +1,5 @@
 {{!
-	Default page
+	Single post
 }}
 {{> globalStart }}
 <article class="article" itemprop="mainEntity">
@@ -7,7 +7,12 @@
 	<header class="article__header">
 		<h1 class="article__title" itemprop="headline"><a rel="bookmark" class="article__header__link article__header__link--permalink" href="{{ permalink }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
 		{{#if subheader}}<h2 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h2>{{/if}}
+		<section class="article__meta">
+			<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
+			{{> article__tags }}
+		</section>
 	</header>
 	<section class="article__body" itemprop="articleBody">{{{ contents }}}</section>
+	<footer class="article__footer">{{> comments }}</footer>
 </article>
 {{> globalEnd }}

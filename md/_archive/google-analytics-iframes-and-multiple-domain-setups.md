@@ -11,8 +11,6 @@ tags:
   - tracking
 slug: google-analytics-iframes-and-multiple-domain-setups
 ---
-
-
 <p>Google&#8217;s FAQ and help pags do a horrible job explaining how to use the tag other than pasting it into your code. Tracking for cross-domain and frame/iframe scenarios are not explained. There is documentation on the Google Analytics javascript, though, and provisions for doing the complex tracking. Here I will try to explain a common scenario I&#8217;ve had to deal with recently:</p>
 <h3>The Scenario</h3>
 <ul>

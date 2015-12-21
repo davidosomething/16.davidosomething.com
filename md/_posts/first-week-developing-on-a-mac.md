@@ -7,7 +7,6 @@ tags:
   - osx
   - development
 ---
-
 The following is a whining session about developing on OSX. It’s not all bad.
 
 I had been using an old (2004) DELL machine at work with Windows XP. Needless to

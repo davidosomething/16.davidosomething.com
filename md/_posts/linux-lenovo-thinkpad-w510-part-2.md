@@ -14,7 +14,6 @@ tags:
   - w510
 slug: linux-lenovo-thinkpad-w510-part-2
 ---
-
 I’m leaving Linux Mint 16 behind. The RC for Linux Mint 17 is out so maybe that
 will fix some things, but the main problem I’ve had is with installing packages.
 Apt just doesn’t cut it, especially when I think back to when I was using

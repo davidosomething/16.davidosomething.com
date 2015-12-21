@@ -7,8 +7,6 @@ tags:
   - Ubuntu
 slug: safely-installing-npm-on-ubuntu
 ---
-
-
 <p>npm is a package manager for node.js. Using this to download libraries that extend node.js will make your life a lot easier.</p>
 <p>I did this on Ubuntu 10.10, it should work in all versions AFAIK. You can change the paths to your liking. I don&#8217;t really use my home (~) since I don&#8217;t use Ubuntu as my primary OS (it&#8217;s just a VM for a development server), so I just leave stuff wherever.</p>
 <pre># make sure you're in your home dir

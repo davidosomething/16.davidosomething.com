@@ -7,8 +7,6 @@ tags:
   - jquery
 slug: jqueryui-needs
 ---
-
-
 <p>One of my old projects an Apache Virtual Host configuration app (built to test the JQueryUI 1.8 release candidates), uses JQueryUI heavily. While building this app, I found a lot of UI elements that were very simple to create and should be part of JQueryUI were completely missing from the library.<br />
 <a href="http://davidosomething.com/content/uploads/apachevhost.png"><img src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="http://davidosomething.com/content/uploads/apachevhost-590x326.png" alt="" title="Apache VHost Configurator" width="590" height="326" class="lazy lazy-hidden aligncenter size-medium wp-image-308" /><noscript><img src="http://davidosomething.com/content/uploads/apachevhost-590x326.png" alt="" title="Apache VHost Configurator" width="590" height="326" class="aligncenter size-medium wp-image-308" /></noscript></a></p>
 <h3>Collapsible DIV</h3>

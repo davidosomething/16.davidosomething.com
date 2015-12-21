@@ -6,8 +6,6 @@ tags:
   - ads
 slug: developing-online-ad-platforms
 ---
-
-
 <p>Ads are a major part of the web. As a developer, the only way to avoid them is to work on a single project that will never serve ads, such as a company website or a well-funded X-as-a-service (SaaS, PaaS, etc.) project (e.g. GitHub probably won’t embed ads, … although I can see native advertising eventually appearing in the feed like Facebook has).</p>
 <p>I’m going to go out there and say it: <strong>there are currently no developer-friendly advertising platforms</strong>. If you plan on implementing ads on your site, especially from multiple ad providers, you’re in for a world of hurt. I know this for a fact, having worked both agency-side and client-side. I’ve seen the full gamut when it comes to online advertising — I’ve both built those embeddable ad modules and their micro-APIs, and integrated them into major websites.</p>
 <h2 id="the-problems"><a href="#the-problems" name="the-problems"></a>The Problems</h2>

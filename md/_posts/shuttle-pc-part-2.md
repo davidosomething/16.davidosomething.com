@@ -7,7 +7,6 @@ tags:
   - Shuttle
 slug: shuttle-pc-part-2
 ---
-
 I didn’t read the parts compatibility guide online before buying the RAM and
 graphics cards so the Shuttle wasn’t working up until last week. Since
 I couldn’t see anything for lack of graphics and I don’t have another DDR3

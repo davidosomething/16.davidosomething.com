@@ -8,8 +8,6 @@ tags:
   - twitter
 slug: rainmeter-skin-nest
 ---
-
-
 <p><a href="http://davidosomething.com/content/uploads/nest2.jpg"><img src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="http://davidosomething.com/content/uploads/nest2-350x300.jpg" alt="" title="nest names below" width="350" height="300" class="lazy lazy-hidden alignright size-thumbnail wp-image-380" /><noscript><img src="http://davidosomething.com/content/uploads/nest2-350x300.jpg" alt="" title="nest names below" width="350" height="300" class="alignright size-thumbnail wp-image-380" /></noscript></a><strong>Updated 2010-06-26 10:52 PM</strong> &#8212; added alternate config (nest-namebelow.ini) with tweets below names so you can see more. See screenshot.</p>
 <p><strong>Updated 2010-06-26 5:07 PM</strong> &#8212; packaged as rmskin, showing 6 tweets<br />
 <strong>Updated 2010-06-26 3:44 AM</strong> &#8212; fixed ClipString</p>

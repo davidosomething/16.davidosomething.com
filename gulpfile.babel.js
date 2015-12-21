@@ -231,6 +231,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     var data = files[file];
 
     var defaultData = {
+      layout:        data.layout || 'post.hbs',
       description:   data.description || data.subheader || '',
       excerpt:       data.snippet,
       section:       'blog',

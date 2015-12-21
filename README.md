@@ -64,8 +64,7 @@ Output is generated in `public/`
 - [ ] article share buttons
     - [x] twitter
     - [x] facebook
-    - [ ] google+
-    - [ ] reddit
+    - [x] google+
 - [ ] add descriptions and images
 - [ ] Useful 404 page
 

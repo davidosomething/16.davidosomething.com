@@ -6,8 +6,6 @@ tags:
   - coldfusion
 slug: quick-access-to-the-youtube-api-with-coldfusion
 ---
-
-
 <p>I&#8217;ve recently been put on a project that aims to use the YouTube API to grab custom playlists and video queries. Rather than use <a href="http://youtubecfc.riaforge.org/">Raymond Camden&#8217;s CF8+ compatible CFC</a>, I decided to learn the YouTube API and write something up on my own. This was actually quite easy&mdash;here&#8217;s what I came up with.</p>
 <h3>Getting videos through a query</h3>
 <p>All this takes is a simple <code>cfhttp</code> request:</p>

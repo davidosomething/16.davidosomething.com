@@ -6,8 +6,6 @@ tags:
   - sql
 slug: building-a-rating-system-in-coldfusion-and-sql-server
 ---
-
-
 <p>This is a <em>very</em> simple tutorial on how to create a rating system (for rating anything) in Adobe ColdFusion. For this example, we will be creating a game arcade, consisting of a games table and a ratings table.</p>
 <h4>Requirements:</h4>
 <ul>

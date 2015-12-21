@@ -10,7 +10,6 @@ tags:
   - w510
 slug: linux-lenovo-thinkpad-w510
 ---
-
 I bought a crappy PC laptop as a backup since my MacBook’s been failing. I’ve
 gone full Linux on it since I spend most of the day in a terminal and browser,
 so except for Photoshop I’m comfortable. I’ll probably buy a new MacBook when

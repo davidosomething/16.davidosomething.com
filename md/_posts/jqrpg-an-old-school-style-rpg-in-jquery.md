@@ -10,8 +10,7 @@ tags:
   - programming
 slug: jqrpg-an-old-school-style-rpg-in-jquery
 ---
-
-Javascript/[jQuery](http://docs.jquery.com/Browser_Compatibility) and CSS
+JavaScript/[jQuery](http://docs.jquery.com/Browser_Compatibility) and CSS
 compatibility is finally at a decent state amongst major browsers (IE and ACID3
 notwithstanding). At least, similar/the same DOM manipulation behavior can be
 reproduced across those browsers. Not only that, but the JavaScript rendering

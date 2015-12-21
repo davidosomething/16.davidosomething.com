@@ -9,8 +9,6 @@ tags:
   - wordpress
 slug: a-wordpress-users-guide-to-drupal
 ---
-
-
 <p>Anyone who has worked with both knows that anything you can do in WordPress, you can <a href="http://drupal.org/node/41373">do in Drupal</a>, and <a href="http://podscms.org/">vice</a> <a href="http://www.corephp.com/wordpress/wordpress-integration-for-joomla-1.5.html">versa</a>. It just takes some elbow grease.<br />
 I am a huge advocate of WordPress as both a personal blogging engine and a <a href="http://mu.wordpress.org/">multiuser CMS</a>. It is easy to setup and theme, has a largely backed community, and has an extensive selection of plugins (with great focus on SEO and social blogging) making it an excellent choice for sites of any size.<br />
 Drupal is <a href="http://www.packtpub.com/award">still regarded as the Best Open Source PHP CMS</a>, though, and is commonly used by large corporations, government, and universities. Drupal has a large following and plugins for nearly any operation as well. It is a great thing to learn because of its broad market, but WordPress developers might find some difficulty getting acclimated&mdash;Drupal has a much higher learning curve.</p>

@@ -4,7 +4,6 @@ subheader: "What I learned at my first An Event Apart conference"
 datePublished: 2010-09-20T11:02:26+00:00
 slug: takeaways-from-an-event-apart-dc-2010
 ---
-
 So I just got back from the Washington, DC iteration of An Event Apart. I feel
 that if you follow all the speakers’ blogs and read Smashing Magazine’s content
 (or nontent, as it is), they’re really just saying the same thing. The real

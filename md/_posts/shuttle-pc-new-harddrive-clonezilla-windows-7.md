@@ -7,7 +7,6 @@ tags:
   - windows
 slug: shuttle-pc-new-harddrive-clonezilla-windows-7
 ---
-
 I bought a [new harddrive](http://www.newegg.com/Product/Product.aspx?Item=N82E16822145304)
 on sale after Cyber Monday to replace the 250 GB harddrive in my Shuttle. It’s
 a bare drive, which means it doesn’t come with a SATA cable or box. Now I’ve got

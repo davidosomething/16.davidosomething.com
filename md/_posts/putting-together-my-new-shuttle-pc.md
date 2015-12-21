@@ -8,7 +8,6 @@ tags:
   - Shuttle
 slug: putting-together-my-new-shuttle-pc
 ---
-
 Feeling a bit prodigious, I bought a Shuttle PC the other day (SH55). It totally
 looks like a toaster, but it’s cool. It’s going to be an always-on HTPC for the
 living room.

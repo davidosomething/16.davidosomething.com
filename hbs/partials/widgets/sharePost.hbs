@@ -5,8 +5,9 @@
 	</header>
 	<section class="widget__body">
 		<ul class="shareButtonList">
-			<li><a class="shareButton shareButton--tweet" href="https://twitter.com/intent/tweet?text={{ uriencode title }}&amp;url={{ uriencode permalink }}&amp;via=davidosomething"><i class="icon-twitter-with-circle"></i><span>tweet this post</span></a></li>
-			<li><a class="shareButton shareButton--facebook" href="http://www.facebook.com/dialog/share?app_id={{ fbAppId }}&amp;display=popup&amp;href={{ uriencode permalink }}&amp;redirect_uri={{ uriencode permalink }}"><i class="icon-facebook"></i><span>share on facebook</span></a></li>
+			<li><a class="shareButton shareButton--twitter" href="https://twitter.com/intent/tweet?text={{ uriencode title }}&amp;url={{ uriencode permalink }}&amp;via=davidosomething"><i class="icon-twitter-with-circle"></i><span>Tweet this post</span></a></li>
+			<li><a class="shareButton shareButton--facebook" href="http://www.facebook.com/dialog/share?app_id={{ fbAppId }}&amp;display=popup&amp;href={{ uriencode permalink }}&amp;redirect_uri={{ uriencode permalink }}"><i class="icon-facebook"></i><span>Share on Facebook</span></a></li>
+			{{! https://developers.google.com/+/web/share/#share-link }}<li><a class="shareButton shareButton--google" href="https://plus.google.com/share?url={{ uriencode permalink }}"><i class="icon-google-plus3"></i><span>Share on Google+</span></a></li>
 		</ul>
 	</section>
 </aside>

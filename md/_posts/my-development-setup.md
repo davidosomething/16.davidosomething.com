@@ -23,7 +23,6 @@ tags:
   - virtualbox
 slug: my-development-setup
 ---
-
 Although I primarily develop on a Windows PC, I still consider Linux (also Unix
 and OSX) the most powerful and practical environment for setting up web and
 database servers, DNS, and version control repositories (as a master on DVCS).

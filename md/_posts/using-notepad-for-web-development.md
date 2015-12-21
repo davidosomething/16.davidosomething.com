@@ -6,9 +6,7 @@ tags:
   - software
   - windows
 slug: using-notepad-for-web-development
-
 ---
-
 I like real IDEs for console and application programming, but for web
 development I’ve always felt most comfortable using a text editor. Notepad++ is
 my editor of choice because it is fast and feature rich.

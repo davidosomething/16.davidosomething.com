@@ -6,8 +6,6 @@ tags:
   - reddot
 slug: pros-cons-reddot-cms
 ---
-
-
 <p>As a disclaimer, this article is only a matter of opinion from a professional developer. It should not be taken as business advice.</p>
 <p class="image"><img src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="http://davidosomething.com/content/uploads/reddot.png" alt="RedDot Logo" title="RedDot Logo" width="350" height="121" class="lazy lazy-hidden size-full wp-image-16" /><noscript><img src="http://davidosomething.com/content/uploads/reddot.png" alt="RedDot Logo" title="RedDot Logo" width="350" height="121" class="size-full wp-image-16" /></noscript></p>
 <p>I don&#8217;t claim to be the most knowledgeable resource on the product (I&#8217;ve never written a plugin, for one thing)&mdash; see the people at the <a href="http://www.reddotcmsblog.com/">Unofficial RedDot CMS blog</a> for that. Also, I&#8217;ve only had experience with RedDot 6 through 9 (the latest is called OpenText CMS 10, I believe). I am, however, experienced with the implementation of various content management solutions. </p>

@@ -5,8 +5,6 @@ tags:
   - insurance
 slug: my-experience-with-masterrental-insurance
 ---
-
-
 <p>MasterRental is a service provided by MasterCard when you rent a vehicle and pay for all rental related expenses with your MasterCard. It serves as a supplemental insurance if you are already insured by another plan (i.e., it may cover things your car insurance, the primary insurance, did now). If you aren&#8217;t, MasterRental will serve as your primary insurance (that&#8217;s what I did).</p>
 <h3>Disclaimer</h3>
 <p>There are specific conditions you must follow in order to qualify for MasterRental, so make sure you check the terms and conditions that came with your card. They should be similar (likely identical) to <a href="http://www.mastercard.com/us/personal/en/cardholderservices/guidetobenefits/pdf/11660_rent_save_2006.pdf">the MasterRental terms on the MasterCard site</a>, but check with your card provider to be sure. The benefits pamphlet is actually a really great read and may enlighten you to the other benefits of using a credit card (e.g., free extended warranties and refunds for things that the store may not accept).</p>

@@ -7,7 +7,6 @@ tags:
   - script
 slug: git-my
 ---
-
 Git doesn’t track who created branches. This makes it difficult to keep track of
 your own branches when you have a lot of them checked out locally.
 

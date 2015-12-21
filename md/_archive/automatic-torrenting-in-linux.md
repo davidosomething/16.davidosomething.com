@@ -11,8 +11,6 @@ tags:
   - torrent
 slug: automatic-torrenting-in-linux
 ---
-
-
 <p><em>This is all hypothetical. Do this at your own risk.</em></p>
 <ul>
 <li>12-10-2011 &#8212; updated blocklist script</li>

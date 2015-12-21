@@ -7,8 +7,6 @@ tags:
   - git
 slug: bash-script-to-copy-files-from-a-git-commit
 ---
-
-
 <p>This is a small BASH script I wrote to create a folder of changed files for web deployment. This is useful for a small project that doesn&#8217;t need a complicated deployment system. It should live in a folder within the project. There should be folders called &#8220;deploy&#8221; and &#8220;filelists&#8221; in the folder as well. Of course, you can edit the script to change those requirements.</p>
 <p>The script takes a single argument &#8212; a git hash or revision name (e.g., HEAD). It gets the git commit log for that commit and stores the logged filenames into a new file tagged with the date. That files list is then read and each folder mentioned in the list is created in a &#8220;deploy&#8221; folder. The corresponding file (assumed to be a directory level lower) is copied into the appropriate folder in the deploy folder.</p>
 <h3>Usage:</h3>

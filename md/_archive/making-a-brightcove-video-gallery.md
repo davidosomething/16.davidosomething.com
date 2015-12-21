@@ -8,8 +8,6 @@ tags:
   - jquery
 slug: making-a-brightcove-video-gallery
 ---
-
-
 <p><ins>Update 12-19-2011</ins>: Noting that this example uses the Flash/JS API. It would be trivial to convert it to BrightCove&#8217;s &#8220;SmartAPI,&#8221; just replace the <code>loadVideo</code> method with <code>loadVideoById</code>, include the <samp>includeAPI</samp> parameter in the embed code, and copy whatever tiny tweaks to the variables from the SmartAPI code.</p>
 <p>In this post I&#8217;ll detail how to create a standard video gallery (you know, one giant video with some thumbnails under it that can switch the video out) using BrightCove and some good coding practices. There&#8217;s no BrightCove widget or plugin that does this in a user friendly manner AFAIK.</p>
 <p>Unfortunately BrightCove is a paid-only service so I don&#8217;t have an account to provide examples with.</p>

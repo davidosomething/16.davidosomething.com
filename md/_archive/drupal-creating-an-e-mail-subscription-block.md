@@ -7,8 +7,6 @@ tags:
   - php
 slug: drupal-creating-an-e-mail-subscription-block
 ---
-
-
 <p>The Drupal manual does a good job telling you how to <a href="http://drupal.org/node/206753">create a plain old block module</a> but other tutorials on module development are a hundredfold more complicated. The goal of this article is to follow up on the Drupal developer&#8217;s guide by creating another only slightly more advanced block.</p>
 <h4>Prerequisites</h4>
 <p>You should:</p>
