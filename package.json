@@ -28,6 +28,9 @@
   "scripts": {
     "js": "jspm bundle-sfx assets/js/global public/assets/js/global.js"
   },
+  "babel" :{
+    "presets": [ "es2015" ]
+  },
   "eslintConfig": {
     "env": {
       "browser": true,
