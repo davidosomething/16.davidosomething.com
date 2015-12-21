@@ -1,8 +1,10 @@
 # davidosomething.com for 2016
 
-> Ready, but always WIP. See TODO section for what's left.
+> Static generated site for [davidosomething.com](http://davidosomething.com)
 
-Static generated site for [davidosomething.com](http://davidosomething.com)
+[![Upstream][upstreamBadge]][upstreamLink]
+[![David dependency status][davidBadge]][davidLink]
+[![Development Dependency Status][davidDevBadge]][davidDevLink]
 
 ## Stack
 
@@ -75,3 +77,11 @@ Output is generated in `public/`
 - [ ] site docs and styleguide generation
 - [ ] deploy to surge?/github?/openshift? via codeship?/deploybot?
 
+----
+
+[davidBadge]:       https://david-dm.org/davidosomething/16.davidosomething.com.png?theme=shields.io
+[davidLink]:        https://david-dm.org/davidosomething/16.davidosomething.com#info=dependencies
+[davidDevBadge]:    https://david-dm.org/davidosomething/16.davidosomething.com/dev-status.png?theme=shields.io
+[davidDevLink]:     https://david-dm.org/davidosomething/16.davidosomething.com#info=devDependencies
+[upstreamBadge]:    https://img.shields.io/badge/upstream-GitHub-lightgrey.svg
+[upstreamLink]:     https://github.com/davidosomething/16.davidosomething.com
