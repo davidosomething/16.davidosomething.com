@@ -1,5 +1,4 @@
-import twitter from './twitter.js';
-import facebook from './facebook.js';
+import { configs, shareIntent } from './shareIntent.js';
 
-twitter();
-facebook();
+shareIntent(configs.twitter);
+shareIntent(configs.facebook);
