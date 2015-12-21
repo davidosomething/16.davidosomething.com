@@ -1,5 +1,10 @@
-assets/css/
-assets/js/dist/
+# packages
 assets/jspm/
 node_modules/
+
+# generated
 public/
+
+# private
+md/_drafts/
+
