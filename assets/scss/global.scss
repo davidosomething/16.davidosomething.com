@@ -505,19 +505,35 @@ hr {
 // Widget: Share Post
 // -----------------------------------------------------------------------------
 
+.shareButtonList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 0.2em 0.2em;
+  }
+}
+
 .shareButton {
   border-radius: 0.2em;
   display: inline-block;
   font-size: 0.8em;
   padding: 0.5em 0.8em 0.7em;
 
-  &::before,
+  i::before,
   span {
     display: inline-block;
   }
 
-  &::before {
+  i::before {
     padding-right: 0.4em;
+    width: 1em;
+  }
+
+  span {
+    font-weight: 600;
   }
 }
 
@@ -528,6 +544,28 @@ hr {
   &:hover {
     background: #0c7abf;
     color: white;
+  }
+
+  i::before {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.shareButton--facebook {
+  background: #4661b0;
+  color: white;
+
+  &:hover {
+    background: darken(#4661b0, 10%);
+    color: white;
+  }
+
+  i::before {
+    content: 'f';
+    font-weight: 900;
+    left: 0.4em;
+    position: relative;
   }
 }
 
