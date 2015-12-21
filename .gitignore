@@ -1,6 +1,7 @@
 # packages
 assets/jspm/
 node_modules/
+npm-debug.*
 
 # generated
 public/

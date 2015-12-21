@@ -71,7 +71,6 @@ import metalsmithCollections from 'metalsmith-collections';
 import metalsmithDefine from 'metalsmith-define';
 import metalsmithFeed from 'metalsmith-feed';
 import metalsmithHeadings from 'metalsmith-headings';
-import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
@@ -314,11 +313,12 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
 gulp.task('html', (cb) => {
 
   metalsmith(__dirname)
-    .source('./md/')
-    .use(metalsmithIgnore([
+    .ignore([
+      '!**/*.md',
       '_archive/*',
       '_drafts/*',
-    ]))
+    ])
+    .source('./md/')
 
     // metadata here is attached to metalsmith instance
     .use(metalsmithDefine(siteData))
