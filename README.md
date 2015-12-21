@@ -60,8 +60,12 @@ Output is generated in `public/`
 ### Content
 
 - [x] cleanup
-- [ ] fix old image urls
+- [x] fix old image urls
 - [ ] article share buttons
+    - [x] twitter
+    - [x] facebook
+    - [ ] google+
+    - [ ] reddit
 - [ ] add descriptions and images
 - [ ] Useful 404 page
 
