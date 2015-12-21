@@ -1,7 +1,10 @@
 /* TEAM */
-    Owner:    David O'Trakoun
-  Twitter:    @davidosomething
+Owner:        David O'Trakoun
+Twitter:      @davidosomething
 
 /* SITE */
- Language:    English
+Name:         davidosomething.com
+Domain:       davidosomething.com
+Language:     English
+Built with:   HTML5, markdown, CSS3, es2015, babel, handlebars, lodash, jspm, gulp, autoprefixer, metalsmith
 
