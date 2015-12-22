@@ -6,6 +6,8 @@
 [![David dependency status][davidBadge]][davidLink]
 [![Development Dependency Status][davidDevBadge]][davidDevLink]
 
+[![screenshot][screenshot]][screenshot]
+
 ## Stack
 
 Requires node >= 4.2.0 for ES6 (I recommend using
@@ -79,6 +81,7 @@ Output is generated in `public/`
 
 ----
 
+[screenshot]:       https://raw.githubusercontent.com/davidosomething/16.davidosomething.com/dev/meta/screenshot.jpg
 [davidBadge]:       https://david-dm.org/davidosomething/16.davidosomething.com.png?theme=shields.io
 [davidLink]:        https://david-dm.org/davidosomething/16.davidosomething.com#info=dependencies
 [davidDevBadge]:    https://david-dm.org/davidosomething/16.davidosomething.com/dev-status.png?theme=shields.io
