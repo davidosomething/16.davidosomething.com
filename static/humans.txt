@@ -6,5 +6,7 @@ Twitter:      @davidosomething
 Name:         davidosomething.com
 Domain:       davidosomething.com
 Language:     English
-Built with:   HTML5, markdown, CSS3, es2015, babel, handlebars, lodash, jspm, gulp, autoprefixer, metalsmith
+
+/* GENERATORS */
+Favicons:     http://www.favicon-generator.org/
 
