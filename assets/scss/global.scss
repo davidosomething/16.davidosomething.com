@@ -90,9 +90,10 @@ $typeface__body:           $typeface__heading;
 $typeface__body--fallback: sans-serif;
 
 // Font - Weights
-$fontweight__body:    300;
-$fontweight__link:    600;
-$fontweight__heading: 900;
+$fw__body:    300;
+$fw__strong:  600;
+$fw__bold:    700;
+$fw__heading: 900;
 
 // Font - Sizes
 $fontsizes: (
@@ -100,10 +101,10 @@ $fontsizes: (
     globalSiteTitle: 0.66rem,
     bio__author:     1.4rem,
     bio__links:      1.6rem,
-    h1: 1.6em,
-    h2: 1.5em,
-    h3: 1.2em,
-    h4: 1.1em,
+    h1: 1.66em,
+    h2: 1.6em,
+    h3: 1.4em,
+    h4: 1.2em,
     nav:             1em,
     postlist:        0.66em,
     article__meta:   0.66em,
@@ -214,7 +215,7 @@ $z: (
     content: '\1F517';
     font-size: 1em;
     left: -1.2em;
-    line-height: 1.2;
+    line-height: 1.5;
     opacity: 0.1;
   }
 
@@ -233,7 +234,15 @@ body {
   background: map-get($colors, 'primary-bg');
   color: map-get($colors, 'primary-text');
   font-family: $typeface__body, $typeface__body--fallback;
-  font-weight: $fontweight__body;
+  font-weight: $fw__body;
+}
+
+strong {
+  font-weight: $fw__strong;
+}
+
+b {
+  font-weight: $fw__bold;
 }
 
 a {
@@ -258,8 +267,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: $fontweight__heading;
-  line-height: 1;
+  font-weight: $fw__heading;
+  line-height: 1.2;
 }
 
 p {
@@ -324,7 +333,7 @@ hr {
   > * {
     @extend %link--header;
     display: inline-block;
-    font-weight: $fontweight__body;
+    font-weight: $fw__body;
     vertical-align: middle;
   }
 
@@ -453,7 +462,7 @@ body:not(.slug--home) .globalHeader {
 
 .pageHeader__title {
   @include fs('h1');
-  font-weight: $fontweight__heading;
+  font-weight: $fw__heading;
   margin-top: 0;
   max-width: $readable-header-width;
 }
@@ -602,7 +611,7 @@ body:not(.slug--home) .globalHeader {
 }
 
 .globalDiv {
-  margin: 0 1.5rem;
+  margin: 0 1rem;
   padding: 1rem 0;
 
   @include mq('small') {
@@ -727,7 +736,7 @@ body:not(.slug--home) .globalHeader {
 .article__tag {
   color: inherit;
   display: inline-block;
-  font-weight: $fontweight__body;
+  font-weight: $fw__body;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
@@ -746,7 +755,7 @@ body:not(.slug--home) .globalHeader {
 // -----------------------------------------------------------------------------
 
 .article__header {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   max-width: $readable-header-width;
   position: relative;
 
@@ -757,7 +766,7 @@ body:not(.slug--home) .globalHeader {
 
   > .article__subheader {
     @include fs('h4');
-    color: lighten(map-get($colors, 'primary-text'), 40%);
+    font-weight: $fw__body;
     margin: 0 0 0.2em;
   }
 
@@ -803,7 +812,7 @@ body:not(.slug--home) .globalHeader {
 .article__body {
   @include fs('article__body');
   line-height: 1.5;
-  margin-left: 1em;
+  margin-left: 0.5em;
   max-width: $readable-body-width;
 
   a {
@@ -832,7 +841,7 @@ body:not(.slug--home) .globalHeader {
 // -----------------------------------------------------------------------------
 
 .article--excerpt .article__header {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .article--excerpt .article__body {
@@ -852,7 +861,7 @@ body:not(.slug--home) .globalHeader {
   > h2 {
     margin: 0 0 0.2em;
 
-    > a { font-weight: $fontweight__link; }
+    > a { font-weight: $fw__strong; }
   }
 }
 
@@ -862,6 +871,12 @@ body:not(.slug--home) .globalHeader {
 // =============================================================================
 
 .section--blog {
+  .article {
+    @include mq(null, 'large') {
+      margin-bottom: 2em;
+    }
+  }
+
   .article__header {
     > .article__title {
       @include fs('h1');
@@ -869,6 +884,7 @@ body:not(.slug--home) .globalHeader {
 
     > .article__subheader {
       @include fs('h3');
+      font-weight: $fw__body;
     }
   }
 }

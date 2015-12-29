@@ -15,7 +15,7 @@ slug: grunt-wendy-casperjs
 plugin. It’s a CasperJS test runner with customizable filtering and formatting
 options, which CasperJS alone lacks.
 
-## Start using it?
+## Installation
 
 ```bash
 npm install --save-dev grunt-wendy
