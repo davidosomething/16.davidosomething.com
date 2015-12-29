@@ -101,14 +101,14 @@ import { siteData, dirs } from './lib/config.js';
 
 gulp.task('clean:css', () => {
   return del([
-    `${dirs.css.dist}/**/*`, //*/
+    `${dirs.css.dist}/**/*`,
   ]);
 });
 
 
 gulp.task('clean:js', () => {
   return del([
-    `${dirs.js.dist}/**/*`, //*/
+    `${dirs.js.dist}/**/*`,
   ]);
 });
 
@@ -116,14 +116,14 @@ gulp.task('clean:js', () => {
 gulp.task('clean:assets', () => {
   return del([
     `${dirs.assets.dist}/fonts/**/*`,
-    `${dirs.assets.dist}/img/**/*`, //*/
+    `${dirs.assets.dist}/img/**/*`,
   ]);
 });
 
 
 gulp.task('clean', () => {
   return del([
-    `${dirs.dist}/**/*`, //*/
+    `${dirs.dist}/**/*`,
   ]);
 });
 
@@ -133,7 +133,7 @@ gulp.task('clean', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:css', () => {
-  return gulp.src([ `${dirs.css.source}/**/*.scss`, `!${dirs.css.source}/vendor/**/*.scss` ]) //*/
+  return gulp.src([ `${dirs.css.source}/**/*.scss`, `!${dirs.css.source}/vendor/**/*.scss` ])
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
@@ -178,7 +178,7 @@ gulp.task('css', () => {
 
 gulp.task('lint:js', () => {
 
-  return gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])  //*/
+  return gulp.src([ 'gulpfile.babel.js', `${dirs.js.source}/**/*.js` ])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -220,8 +220,6 @@ gulp.task('static', () => {
 // -----------------------------------------------------------------------------
 // Task: HTML
 // -----------------------------------------------------------------------------
-
-//*/
 
 slug.defaults.mode = 'rfc3986';
 
