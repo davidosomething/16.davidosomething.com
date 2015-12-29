@@ -19,70 +19,71 @@
 // Node
 // -----------------------------------------------------------------------------
 
-import { exec } from 'child_process';
+const exec = require('child_process').exec;
 
 // -----------------------------------------------------------------------------
 // Vendor
 // -----------------------------------------------------------------------------
 
-import debug from 'debug'; // DEBUG=gulp gulp to output
-import defaultsDeep from 'lodash.defaultsdeep';
-import del from 'del';
-import merge from 'merge-stream';
+const debug        = require('debug'); // DEBUG      = gulp gulp to output
+const defaultsDeep = require('lodash.defaultsdeep');
+const del          = require('del');
+const merge        = require('merge-stream');
 
 // -----------------------------------------------------------------------------
 // Require: Gulp generics
 // -----------------------------------------------------------------------------
 
-import gulp from 'gulp';
-import concat from 'gulp-concat';
-import sourcemaps from 'gulp-sourcemaps';
+const gulp       = require('gulp');
+const concat     = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
 
 // -----------------------------------------------------------------------------
 // Require: CSS
 // -----------------------------------------------------------------------------
 
-import sassLint from 'gulp-sass-lint';
-import sass from 'gulp-sass';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
+const sassLint     = require('gulp-sass-lint');
+const sass         = require('gulp-sass');
+const postcss      = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano      = require('cssnano');
 
 // -----------------------------------------------------------------------------
 // Require: JS
 // -----------------------------------------------------------------------------
 
-import eslint from 'gulp-eslint';
+const eslint = require('gulp-eslint');
 
 // -----------------------------------------------------------------------------
 // Require: Static Generation
 // -----------------------------------------------------------------------------
 
-// import mdast from 'gulp-mdast';
-// import mdastLint from 'mdast-lint';
-import slug from 'slug';
+// const mdast = require('gulp-mdast');
+// const mdastLint = require('mdast-lint');
+const slug = require('slug');
 
-import hljs from 'highlight.js';
+const hljs = require('highlight.js');
 
-import metalsmith from 'metalsmith';
-import metalsmithBranch from 'metalsmith-branch';
-import metalsmithBranchDebugger from './lib/metalsmith-branch-debugger';
-import metalsmithCollections from 'metalsmith-collections';
-import metalsmithDefine from 'metalsmith-define';
-import metalsmithFeed from 'metalsmith-feed';
-import metalsmithHeadings from 'metalsmith-headings';
-import metalsmithIgnore from 'metalsmith-ignore';
-import metalsmithLayouts from 'metalsmith-layouts';
-import metalsmithMarkdown from 'metalsmith-markdown';
-import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
-import metalsmithPaths from 'metalsmith-paths';
-import metalsmithPermalinks from 'metalsmith-permalinks';
-import metalsmithSitemap from 'metalsmith-sitemap';
-import metalsmithSnippet from 'metalsmith-snippet';
-import metalsmithWidow from 'metalsmith-widow';
+const metalsmith = require('metalsmith');
 
-import hbsHelperMoment from './hbs/helpers/moment.js';
-import hbsUriEncode from './hbs/helpers/uriencode.js';
+const metalsmithBranch         = require('metalsmith-branch');
+const metalsmithBranchDebugger = require('./lib/metalsmith-branch-debugger');
+const metalsmithCollections    = require('metalsmith-collections');
+const metalsmithDefine         = require('metalsmith-define');
+const metalsmithFeed           = require('metalsmith-feed');
+const metalsmithHeadings       = require('metalsmith-headings');
+const metalsmithIgnore         = require('metalsmith-ignore');
+const metalsmithLayouts        = require('metalsmith-layouts');
+const metalsmithMarkdown       = require('metalsmith-markdown');
+const metalsmithMetaDebugger   = require('./lib/metalsmith-meta-debugger');
+const metalsmithPaths          = require('metalsmith-paths');
+const metalsmithPermalinks     = require('metalsmith-permalinks');
+const metalsmithSitemap        = require('metalsmith-sitemap');
+const metalsmithSnippet        = require('metalsmith-snippet');
+const metalsmithWidow          = require('metalsmith-widow');
+
+const hbsHelperMoment = require('./hbs/helpers/moment.js');
+const hbsUriEncode    = require('./hbs/helpers/uriencode.js');
 
 
 // =============================================================================
@@ -116,8 +117,7 @@ gulp.task('clean:js', () => {
 
 gulp.task('clean:assets', () => {
   return del([
-    `${dirs.assets.dist}/fonts/**/*`,
-    `${dirs.assets.dist}/img/**/*`,
+    `${dirs.assets.dist}/**/*`,
   ]);
 });
 

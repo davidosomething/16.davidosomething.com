@@ -1,5 +1,6 @@
 var helperMoment = require('helper-moment');
 
-export default (str, pattern) => {
+module.exports = (str, pattern) => {
   return helperMoment(str, pattern);
 };
+
