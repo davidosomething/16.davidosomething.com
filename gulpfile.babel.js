@@ -39,6 +39,13 @@ const concat     = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
 // -----------------------------------------------------------------------------
+// Require: Images
+// -----------------------------------------------------------------------------
+
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+
+// -----------------------------------------------------------------------------
 // Require: CSS
 // -----------------------------------------------------------------------------
 
@@ -198,12 +205,27 @@ gulp.task('js', (cb) => {
 // Task: Assets
 // -----------------------------------------------------------------------------
 
-gulp.task('assets', () => {
+gulp.task('fonts', () => {
 
-  return gulp.src('./assets/{fonts,img}/**')
-    .pipe(gulp.dest(`${dirs.assets.dist}/`));
+  return gulp.src(dirs.assets.source + '/fonts/**')
+    .pipe(gulp.dest(`${dirs.assets.dist}/fonts/`));
 
 });
+
+
+gulp.task('images', () => {
+
+  return gulp.src(dirs.assets.source + '/img/**')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [ { removeViewBox: false } ],
+      use:         [ pngquant() ],
+    }))
+    .pipe(gulp.dest(`${dirs.assets.dist}/img/`));
+
+});
+
+gulp.task('assets', [ 'fonts', 'images' ]);
 
 
 // -----------------------------------------------------------------------------
