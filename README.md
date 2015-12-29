@@ -52,7 +52,7 @@ Output is generated in `public/`
 - [x] metalsmith static generated site
 - [x] Highlight.js pre-processed for code blocks
 - [x] Handlebars templating
-- [ ] eventually remove metalsmith and just use react to render static
+- [ ] eventually remove hbs + metalsmith and use react + gatsby
 
 ### SEO
 

@@ -71,6 +71,7 @@ import metalsmithCollections from 'metalsmith-collections';
 import metalsmithDefine from 'metalsmith-define';
 import metalsmithFeed from 'metalsmith-feed';
 import metalsmithHeadings from 'metalsmith-headings';
+import metalsmithIgnore from 'metalsmith-ignore';
 import metalsmithLayouts from 'metalsmith-layouts';
 import metalsmithMarkdown from 'metalsmith-markdown';
 import metalsmithMetaDebugger from './lib/metalsmith-meta-debugger';
@@ -221,7 +222,15 @@ gulp.task('static', () => {
 // Task: HTML
 // -----------------------------------------------------------------------------
 
-slug.defaults.mode = 'rfc3986';
+slug.defaults.modes['dkoslug'] = {
+  replacement:  '-',
+  symbols:      true,
+  remove:       /[.]/g,
+  lower:        true,
+  charmap:      slug.charmap,
+  multicharmap: slug.multicharmap,
+};
+slug.defaults.mode = 'dkoslug';
 
 gulp.task('lint:md', (cb) => {
 
@@ -242,8 +251,8 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     var data = files[file];
 
     var defaultData = {
-      layout:        data.layout || 'post.hbs',
-      description:   data.description || data.subheader || '',
+      layout:        'post.hbs',
+      description:   data.subheader || '',
       excerpt:       data.snippet,
       section:       'blog',
       slug:          slug(data.title),
@@ -324,12 +333,12 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
 gulp.task('html', (cb) => {
 
   metalsmith(__dirname)
-    .ignore([
-      '!**/*.md',
-      '_archive/*',
-      '_drafts/*',
-    ])
     .source('./md/')
+    .use(metalsmithIgnore([
+      '!**/*.md',
+      '_archive/**',
+      '_drafts/**',
+    ]))
 
     // metadata here is attached to metalsmith instance
     .use(metalsmithDefine(siteData))
@@ -359,11 +368,11 @@ gulp.task('html', (cb) => {
       .use(metalsmithSnippet({
         maxLength: 500,
       }))
+      .use(metalsmithFormatPost)
       .use(metalsmithPermalinks({
         pattern:  'blog/:slug',
         relative: 'off',
       }))
-      .use(metalsmithFormatPost)
       .use(metalsmithPaths({ property: 'paths' }))
       .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
