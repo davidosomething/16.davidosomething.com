@@ -195,7 +195,7 @@ gulp.task('lint:js', () => {
 
 gulp.task('js', (cb) => {
 
-  exec('npm run js', (err) => {
+  exec('npm run bundle', (err) => {
     return cb(err);
   });
 
