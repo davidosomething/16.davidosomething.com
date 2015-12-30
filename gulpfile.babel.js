@@ -78,12 +78,10 @@ const metalsmithBranchDebugger = require('./lib/metalsmith-branch-debugger');
 const metalsmithCollections    = require('metalsmith-collections');
 const metalsmithDefine         = require('metalsmith-define');
 const metalsmithFeed           = require('metalsmith-feed');
-const metalsmithHeadings       = require('metalsmith-headings');
 const metalsmithIgnore         = require('metalsmith-ignore');
 const metalsmithLayouts        = require('metalsmith-layouts');
 const metalsmithMarkdown       = require('metalsmith-markdown');
 const metalsmithMetaDebugger   = require('./lib/metalsmith-meta-debugger');
-const metalsmithPaths          = require('metalsmith-paths');
 const metalsmithPermalinks     = require('metalsmith-permalinks');
 const metalsmithSitemap        = require('metalsmith-sitemap');
 const metalsmithSnippet        = require('metalsmith-snippet');
@@ -284,7 +282,6 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
-      permalink:     `${siteData.site.url}/${data.path || ''}`,
       og: {
         type: 'article',
       },
@@ -300,13 +297,38 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
 
     files[file] = defaultsDeep(data, defaultData);
 
-
     log(`formatPost ${file}`);
-    log(`  - path: ${files[file].path}`);
-    log(`  - section: ${files[file].section}`);
-    log(`  - type: ${files[file].type}`);
-    log(`  - slug: ${files[file].slug}`);
+    log(`  - slug:      ${files[file].slug}`);
+    log(`  - section:   ${files[file].section}`);
+    log(`  - type:      ${files[file].type}`);
   });
+
+  done();
+};
+
+
+/**
+ * metalsmithAssignPermalink required since metalsmith-permalinks uses the
+ * filedata.permalink as a boolean to determine whether or not to generate
+ * a permalink for the file. This is run after metalsmith-permalinks to set
+ * the value of filedata.permalink to the actual permalink url as a string.
+ *
+ * @param {Object} files
+ * @param {Object} metalsmith
+ * @param {Function} done
+ */
+var metalsmithAssignPermalink = (files, metalsmith, done) => {
+  var log = debug('assignPermalink');
+  Object.keys(files).forEach((file) => {
+    var data = files[file];
+
+    files[file].permalink = `${siteData.site.url}/${data.path || ''}`;
+
+    log(`assignPermalink ${file}`);
+    log(`  - path:      ${files[file].path}`);
+    log(`  - permalink: ${files[file].permalink}`);
+  });
+
   done();
 };
 
@@ -325,11 +347,11 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
 
     var defaultData = {
       slug:          slug(data.title),
+      section:       'root',
       type:          'page',
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
-      permalink:     `${siteData.site.url}/${data.path || ''}`,
       og: {
         type: 'page',
       },
@@ -343,14 +365,13 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
     };
 
     files[file] = defaultsDeep(data, defaultData);
-    files[file].section = slug(data.paths.root) || 'root';
 
     log(`formatPage ${file}`);
-    log(`  - path: ${files[file].path}`);
+    log(`  - slug:    ${files[file].slug}`);
     log(`  - section: ${files[file].section}`);
-    log(`  - type: ${files[file].type}`);
-    log(`  - slug: ${files[file].slug}`);
+    log(`  - type:    ${files[file].type}`);
   });
+
   done();
 };
 
@@ -389,23 +410,22 @@ gulp.task('html', (cb) => {
 
     // Posts -- note the html file extension due to markdown()
     .use(metalsmithBranch('_posts/*.html')
-      .use(metalsmithHeadings())
       .use(metalsmithSnippet({
         maxLength: 500,
       }))
-      .use(metalsmithPaths({ property: 'paths' }))
+      .use(metalsmithFormatPost)
       .use(metalsmithPermalinks({
         pattern:  'blog/:slug',
         relative: 'off',
       }))
-      .use(metalsmithFormatPost)
+      .use(metalsmithAssignPermalink)
       .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
 
     // Pages -- note the blog/ path due to permalinks()
     .use(metalsmithBranch('!blog/**/*.html')
-      .use(metalsmithPaths({ property: 'paths' }))
       .use(metalsmithFormatPage)
+      .use(metalsmithAssignPermalink)
       .use(metalsmithBranchDebugger({ suffix: 'pages' }))
     )
 
