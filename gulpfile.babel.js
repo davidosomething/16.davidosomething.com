@@ -205,14 +205,10 @@ gulp.task('js', (cb) => {
 // Task: Assets
 // -----------------------------------------------------------------------------
 
-gulp.task('fonts', () => {
-
-  return gulp.src(dirs.assets.source + '/fonts/**')
-    .pipe(gulp.dest(`${dirs.assets.dist}/fonts/`));
-
-});
-
-
+// Note this task modifies the source images in place -- that is, they are
+// overwritten by compressed versions.
+// This is not part of the normal build, just used to optimize images.
+// @TODO process only new files
 gulp.task('images', () => {
 
   return gulp.src(dirs.assets.source + '/img/**')
@@ -221,11 +217,17 @@ gulp.task('images', () => {
       svgoPlugins: [ { removeViewBox: false } ],
       use:         [ pngquant() ],
     }))
-    .pipe(gulp.dest(`${dirs.assets.dist}/img/`));
+    .pipe(gulp.dest(`${dirs.assets.source}/img/`));
 
 });
 
-gulp.task('assets', [ 'fonts', 'images' ]);
+// Copy from assets from source to dist
+gulp.task('assets', () => {
+
+  return gulp.src(dirs.assets.source + '/{fonts,img}/**')
+    .pipe(gulp.dest(`${dirs.assets.dist}/`));
+
+});
 
 
 // -----------------------------------------------------------------------------
