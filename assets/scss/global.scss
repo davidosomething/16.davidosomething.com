@@ -583,7 +583,7 @@ body:not(.slug--home) .globalHeader {
 .globalFooter {
   @include fs('footer');
   background-color: map-get($colors, 'primary-text');
-  background-image: url('http://davidosomething.com/content/themes/crass/assets/img/bg.jpg');
+  background-image: url('/assets/img/bg.jpg');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
