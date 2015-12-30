@@ -24,7 +24,8 @@ and sass-lint instead of the scss-lint gem.
 
 JS-wise I am using es2015, but not really using any of its cool features except
 arrow functions and dynamic templating. Metalsmith uses generators, so it
-requires the node harmony flag or babel; I opted to use node v4.2 and babel.
+requires either node version 4.2+ or 0.12 with the harmony flag on; I opted to
+use node v4.2.
 
 ## Migrating from WordPress
 
