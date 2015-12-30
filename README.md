@@ -20,7 +20,8 @@ installed).
 
 ```
 npm i
-npm i -g gulp
+npm i -g gulp jspm
+jspm install
 gulp
 ```
 

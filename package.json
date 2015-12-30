@@ -26,7 +26,8 @@
     "node": ">=4.2.0"
   },
   "scripts": {
-    "js": "jspm bundle-sfx assets/js/global public/assets/js/global.js"
+    "buildjs": "jspm bundle-sfx assets/js/global public/assets/js/global.js",
+    "deploy": "surge ./public"
   },
   "eslintConfig": {
     "env": {
