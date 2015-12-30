@@ -1,0 +1,10 @@
+language: node_js
+before_script:
+  - npm install -g gulp jspm
+install:
+  - npm install
+  - jspm install
+script:
+  - gulp
+deploy:
+  - npm run deploy
