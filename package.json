@@ -280,6 +280,7 @@
     "metalsmith-sitemap": "^1.0.0",
     "metalsmith-snippet": "^2.0.0",
     "metalsmith-widow": "^1.1.1",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "surge": "^0.17.4"
   }
 }
