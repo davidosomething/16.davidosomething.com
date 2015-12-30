@@ -284,7 +284,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       image:         siteData.avatarUrl,
       datePublished: siteData.buildDate,
       dateModified:  siteData.buildDate,
-      permalink:     `${siteData.site.url}/${data.path}`,
+      permalink:     `${siteData.site.url}/${data.path || ''}`,
       og: {
         type: 'article',
       },
@@ -299,6 +299,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
     };
 
     files[file] = defaultsDeep(data, defaultData);
+
 
     log(`formatPost ${file}`);
     log(`  - path: ${files[file].path}`);
@@ -392,12 +393,12 @@ gulp.task('html', (cb) => {
       .use(metalsmithSnippet({
         maxLength: 500,
       }))
-      .use(metalsmithFormatPost)
+      .use(metalsmithPaths({ property: 'paths' }))
       .use(metalsmithPermalinks({
         pattern:  'blog/:slug',
         relative: 'off',
       }))
-      .use(metalsmithPaths({ property: 'paths' }))
+      .use(metalsmithFormatPost)
       .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
 
