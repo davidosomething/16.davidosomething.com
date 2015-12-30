@@ -16,9 +16,12 @@ read `.nvmrc` and use the version of node specified there. The package
 [avn](https://github.com/wbyoung/avn) can auto-switch upon entering directory if
 installed).
 
+NOTE: g++ version 4.8 or higher is required for node-gyp compilation on node 4.
+This particularly applies to the Travis-CI deployment.
+
 ## Build
 
-```
+```bash
 npm i
 npm i -g gulp jspm
 jspm install
@@ -73,13 +76,16 @@ Output is generated in `public/`
     - [x] twitter
     - [x] facebook
     - [x] google+
-- [ ] add descriptions and images
+- [x] add descriptions
+- [ ] add images
+    - [ ] image hosting? e.g. cloudinary
 - [x] Useful 404 page
 
 ### Deploy
 
 - [ ] site docs and styleguide generation
-- [ ] deploy to surge?/github?/openshift? via codeship?/deploybot?
+- [x] deploy to surge
+    - [x] using travis
 
 ----
 
