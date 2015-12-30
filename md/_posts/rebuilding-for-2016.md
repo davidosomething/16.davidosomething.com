@@ -85,7 +85,7 @@ added bonus of hot-reloading for previewing posts.
 
 ## Open source
 
-The site source is [on github](https://github.com/davidosomething/16.davidosomething.com)
+The site source is [on github](https://github.com/davidosomething/16.davidosomething.com).
 Kinda nice that there's nothing to hide (database pws, dot-env files, whatever),
 now that there's no backend.
 
