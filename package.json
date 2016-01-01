@@ -270,7 +270,6 @@
     "metalsmith-branch": "0.0.4",
     "metalsmith-build-date": "^0.2.0",
     "metalsmith-collections": "^0.7.0",
-    "metalsmith-define": "^1.0.0",
     "metalsmith-feed": "^0.2.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.4.2",

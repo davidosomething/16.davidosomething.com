@@ -76,7 +76,6 @@ const metalsmith = require('metalsmith');
 const metalsmithBranch         = require('metalsmith-branch');
 const metalsmithBranchDebugger = require('./lib/metalsmith-branch-debugger');
 const metalsmithCollections    = require('metalsmith-collections');
-const metalsmithDefine         = require('metalsmith-define');
 const metalsmithFeed           = require('metalsmith-feed');
 const metalsmithIgnore         = require('metalsmith-ignore');
 const metalsmithLayouts        = require('metalsmith-layouts');
@@ -379,6 +378,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
 gulp.task('html', (cb) => {
 
   metalsmith(__dirname)
+    .metadata(siteData)
     .source('./md/')
     .use(metalsmithIgnore([
       '!**/*.md',
@@ -387,7 +387,6 @@ gulp.task('html', (cb) => {
     ]))
 
     // metadata here is attached to metalsmith instance
-    .use(metalsmithDefine(siteData))
 
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object
