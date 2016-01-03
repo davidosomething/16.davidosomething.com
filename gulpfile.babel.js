@@ -39,6 +39,12 @@ const concat     = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
 // -----------------------------------------------------------------------------
+// Require: BrowserSync
+// -----------------------------------------------------------------------------
+
+const browserSync = require('browser-sync').create();
+
+// -----------------------------------------------------------------------------
 // Require: Images
 // -----------------------------------------------------------------------------
 
@@ -173,7 +179,8 @@ gulp.task('css', () => {
     .pipe(postcss([ cssnano ]))
     .pipe(sourcemaps.write('./'))
 
-    .pipe(gulp.dest(`${dirs.css.dist}/`));
+    .pipe(gulp.dest(`${dirs.css.dist}/`))
+    .pipe(browserSync.stream({ match: '**/*.css' }));
 
 });
 
@@ -508,12 +515,17 @@ gulp.task('html', (cb) => {
 });
 
 // -----------------------------------------------------------------------------
-// Task: Watch
+// Task: Watch and Sync
 // -----------------------------------------------------------------------------
 
-gulp.task('watch', () => {
+gulp.task('sync', () => {
 
-  return gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
+  browserSync.init({
+    open: false,
+    proxy: 'http://d16.dev',
+  });
+
+  gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
 
 });
 
