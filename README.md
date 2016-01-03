@@ -38,7 +38,7 @@ Output is generated in `public/`
     - [ ] needs lint rule
 - [x] SCSS compiled with node-sass
 - [x] postcss: autoprefixed, cssnano
-- [ ] browsersync css serve and update
+- [x] browsersync css serve and update
 
 ### JS
 
