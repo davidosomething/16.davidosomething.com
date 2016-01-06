@@ -522,7 +522,9 @@ gulp.task('sync', () => {
 
   browserSync.init({
     open: false,
-    proxy: 'http://d16.dev',
+    server: {
+      baseDir: './public'
+    },
   });
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
