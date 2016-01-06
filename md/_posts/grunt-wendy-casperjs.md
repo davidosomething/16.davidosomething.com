@@ -1,7 +1,7 @@
 ---
-title: "grunt-wendy – CasperJS for GruntJS"
-subheader: "A super customizable CasperJS test runner with output filtering"
-datePublished: 2015-09-19T00:00:07+00:00
+title:          "grunt-wendy – CasperJS for GruntJS"
+subheader:      "A super customizable CasperJS test runner with output filtering"
+datePublished:  2015-09-19T00:00:07+00:00
 tags:
   - casperjs
   - e2e
