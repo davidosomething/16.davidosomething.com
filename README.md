@@ -35,7 +35,7 @@ Output is generated in `public/`
 ### CSS
 
 - [x] BEM syntax
-    - [ ] needs lint rule
+    - [x] needs lint rule
 - [x] SCSS compiled with node-sass
 - [x] postcss: autoprefixed, cssnano
 - [x] browsersync css serve and update
