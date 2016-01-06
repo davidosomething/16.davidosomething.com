@@ -69,10 +69,12 @@ $breakpoints: (
 // Hide below large, flexbox compatible
 .mq--large {
   @include mq(null, 'large') {
-    height: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    visibility: hidden !important;
+    body & {
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
   }
 }
 
@@ -177,15 +179,17 @@ $z: (
   src: url('/assets/fonts/icomoon.ttf?vj028t') format('truetype');
 }
 
-[class^='icon-'],
-[class*=' icon-'] {
-  font-family: 'icomoon' !important;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  speak: none;
-  text-transform: none;
+body {
+  [class^='icon-'],
+  [class*=' icon-'] {
+    font-family: 'icomoon';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+  }
 }
 
 .icon-linkedin-with-circle::before { content: '\e900'; }
@@ -594,6 +598,7 @@ body:not(.slug--home) .globalHeader {
 
   a {
     @extend %link--underlined;
+
     &:hover {
       border-color: lighten(map-get($colors, 'primary-link--hover'), 25%);
       color: lighten(map-get($colors, 'primary-link--hover'), 25%);
@@ -667,8 +672,8 @@ body:not(.slug--home) .globalHeader {
   main { order: 2; }
 }
 
-@mixin navRight {
-}
+//@mixin navRight {
+//}
 
 @include mq('large') {
   @include navLeft;
@@ -900,10 +905,10 @@ body:not(.slug--home) .globalHeader {
   .article__footer {
     display: none;
   }
+
   .globalContent {
     margin-top: 2em;
   }
-
 }
 
 

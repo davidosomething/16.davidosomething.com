@@ -17,8 +17,8 @@ rules:
   single-line-per-selector: 1
 
   # Disallows
-  no-color-keywords: 1
-  no-color-literals: 1
+  no-color-keywords: 0
+  no-color-literals: 0
   no-css-comments: 1
   no-debug: 1
   no-duplicate-properties: 1
@@ -43,7 +43,11 @@ rules:
   force-pseudo-nesting: 0
 
   # Name Formats
-  class-name-format: 0
+  class-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: '[a-zA-Z0-9]+'
   function-name-format: 0
   id-name-format: 0
   mixin-name-format: 0
@@ -51,10 +55,16 @@ rules:
   variable-name-format: 0
 
   # Style Guide
-  bem-depth: 0
+  bem-depth:
+    - 1
+    -
+      max-depth: 2
   border-zero: 1
   brace-style: 1
-  clean-import-paths: 1
+  clean-import-paths:
+    - 1
+    -
+      filename-extension: true
   empty-args: 1
   hex-length: 1
   hex-notation: 1
