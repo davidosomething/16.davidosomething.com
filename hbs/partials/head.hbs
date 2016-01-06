@@ -9,12 +9,13 @@
 	<meta name="theme-color" content="#ffffff">
 	{{> meta}}
 	<title>{{ site.title }}{{#if title}} | {{{ title }}}{{/if}}</title>
-	<link rel="canonical" href="{{ permalink }}">
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,700,900">
-	<link rel="stylesheet" href="/assets/css/global.css">
-	<link rel="alternate" type="application/rss+xml" title="{{ site.title }} | RSS Feed" href="{{ site.rss }}">
-	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 	<link rel="author" type="text/plain" href="/humans.txt">
+	<link rel="canonical" href="{{ permalink }}">
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }} | RSS Feed" href="{{ site.rss }}">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com/">
+	<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//davidosomething.disqus.com">
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -29,6 +30,8 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,700,900">
+	<link rel="stylesheet" href="/assets/css/global.css">
 	<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments);};ga.l=+new Date;ga('create','{{ gaId }}','auto');ga('send','pageview');</script>
 	<script async src="//www.google-analytics.com/analytics.js"></script>
 	<script async src="/assets/js/global.js"></script>
