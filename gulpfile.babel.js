@@ -43,6 +43,7 @@ const sourcemaps = require('gulp-sourcemaps');
 // -----------------------------------------------------------------------------
 
 const browserSync = require('browser-sync').create();
+const htmlInjector = require('bs-html-injector');
 
 // -----------------------------------------------------------------------------
 // Require: Images
@@ -523,11 +524,16 @@ gulp.task('sync', () => {
   browserSync.init({
     open: false,
     server: {
-      baseDir: './public'
+      baseDir: './public',
     },
   });
 
+  browserSync.use(htmlInjector, {
+    files: './public/**/*.html',
+  });
+
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
+  gulp.watch(`${dirs.templates.source}/**/*.hbs`, [ 'html' ]);
 
 });
 
