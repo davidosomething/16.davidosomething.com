@@ -26,4 +26,5 @@ install:
 script:
 - gulp
 after_success:
-  - npm run deploy
+- npm run deploy
+- wait
