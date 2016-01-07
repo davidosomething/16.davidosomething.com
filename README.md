@@ -28,64 +28,63 @@ jspm install
 gulp
 ```
 
+## Deploy
+
+There are scripts configured in package.json to deploy:
+
+- `deploy-surge` will deploy to surge
+- `deploy-github` will deploy to GitHub Pages
+    - An environment variable, GITHUB_TOKEN with public_repo permissions is
+      expected to exist for this task.
+- `deploy` will run both
+
 Output is generated in `public/`
 
 ## TODO
 
-### CSS
-
-- [x] BEM syntax
-    - [x] needs lint rule
-- [x] SCSS compiled with node-sass
-- [x] postcss: autoprefixed, cssnano
-- [x] browsersync css serve and update
-
-### JS
-
-- [x] Google Analytics
-- [x] SystemJS loader
-- [x] JSPM package manager (probably just going to use npm)
-- [x] Babel ES transpiler
-- [ ] can further refactor share link popups
-- [ ] react view for each article and widget
-- [ ] hot module reload
-- [ ] current article should be highlighted if in a widget
-
-### HTML
-
-- [x] metalsmith static generated site
-- [x] Highlight.js pre-processed for code blocks
-- [x] Handlebars templating
-- [ ] eventually remove hbs + metalsmith and use react + gatsby
-
-### SEO
-
-- [x] Standard html meta tags
-- [x] Canonical links
-- [x] Site verifications for google, bing
-- [x] OpenGraph and Twitter meta tags
-- [x] schema.org microdata
-- [x] sitemap
-- [x] robots meta
-
-### Content
-
-- [x] cleanup
-- [x] fix old image urls
-- [x] article share buttons
-    - [x] twitter
-    - [x] facebook
-    - [x] google+
-- [x] add descriptions
-- [ ] add images
-    - [ ] image hosting? e.g. cloudinary
-- [x] Useful 404 page
-
-### Deploy
-
-- [ ] site docs and styleguide generation
-- [x] deploy to surge
-    - [x] using travis
+- CSS
+    - [x] BEM syntax
+        - [x] needs lint rule
+    - [x] SCSS compiled with node-sass
+    - [x] postcss: autoprefixed, cssnano
+    - [x] browsersync css serve and update
+- JS
+    - [x] Google Analytics
+    - [x] SystemJS loader
+    - [x] JSPM package manager (probably just going to use npm)
+    - [x] Babel ES transpiler
+    - [ ] can further refactor share link popups
+    - [ ] react view for each article and widget
+    - [ ] hot module reload
+    - [ ] current article should be highlighted if in a widget
+- HTML
+    - [x] metalsmith static generated site
+    - [x] Highlight.js pre-processed for code blocks
+    - [x] Handlebars templating
+    - [ ] eventually remove hbs + metalsmith and use react + gatsby
+- SEO
+    - [x] Standard html meta tags
+    - [x] Canonical links
+    - [x] Site verifications for google, bing
+    - [x] OpenGraph and Twitter meta tags
+    - [x] schema.org microdata
+    - [x] sitemap
+    - [x] robots meta
+- Content
+    - [x] cleanup
+    - [x] fix old image urls
+    - [x] article share buttons
+        - [x] twitter
+        - [x] facebook
+        - [x] google+
+    - [x] add descriptions
+    - [ ] add images
+        - [ ] image hosting? e.g. cloudinary
+    - [x] Useful 404 page
+- Deploy
+    - [ ] site docs and styleguide generation
+    - [x] deploy to surge
+        - [x] using travis
 
 ----
 

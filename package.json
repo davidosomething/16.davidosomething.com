@@ -27,7 +27,9 @@
   },
   "scripts": {
     "bundle": "jspm bundle-sfx assets/js/global public/assets/js/global.js",
-    "deploy": "surge ./public"
+    "deploy": "npm run deploy-surge & npm run deploy-github",
+    "deploy-surge": "surge ./public",
+    "deploy-github": "gh-pages -d ./public -r https://$GITHUB_TOKEN@github.com/davidosomething/davidosomething.github.io.git -b master"
   },
   "eslintConfig": {
     "env": {
@@ -252,6 +254,7 @@
     "cssnano": "^3.4.0",
     "debug": "^2.2.0",
     "del": "^2.2.0",
+    "gh-pages": "^0.8.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.1.1",
