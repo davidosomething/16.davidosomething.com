@@ -14,8 +14,11 @@ env:
   - CXX=g++-4.8
   - secure: foSclTYU3qgST+Oot0QgnI8cTOvbGLCjcDubP9bN1Nts5VB9PAk/YFq817prmkpSlfvDUkCT5uf8pOvboN3Ufa9ZRhKW8CcqXlaUpgrAhvbDp/OO3WgFxWZVPBPtNZveaJcrYoiMtOSdpizo6X43EGgp+pao3qK0fTYekM+nluLg2o3T9einDCKSbf9+sp0rb8TwKmy6WQNtK3PMtDrwJufCPiwTg8ZlkZ7SfRkd1LqV6+OWUDr++AOCFk4xf2v7dknFykzYj4fZAUi+c/ifz+38tPEwCLUNRtA81hH0hOc1xwk/zYxQ0lSEdvKAehnP2fEkhZYFrl/e3h8QsI7y0NnO3Yq3S7cW6sLwWLsz9ugW6M6tlpARVsn708yInpU/zFlq8zDMMFDQ8lpcBdElIcC4mkxrSIulbWBZVINuVgVXjVLXkUxMRi5HOeHOcAZWggzxmAsVqQenc6yn2Ewo5I8DyftipVtfs0gghz64czyC58bXv3iUzfJb879mtDGGJlbuHpTNt8BhOx205KKDWNVv3cieDJD2nyEBLpO5b4lrQui5p6+oZ2AdUyBzbYnBr1/pudFOxLAmnEjdeJEilgkspNGvOLBGPlRAcfdKFOn/D9URqBdG+rc1xOp9cJ2ZMFlPo2Iy9PoyTtMC1Fm0JO1dmkD9PFNIdo9xAQ62SPc=
   - secure: pQEfW4m952h4FplQVPTr2kau/hjTIjupFZN0fx0gYMNagP4ms3QrnpKoC5BeRZOx1GP6iEJxE/2imHXpL8YfdNpnsrdarshUXVNY894CmG7dO7XHrH4BtdV4eSCSQvcj1Cvbv8cC4RJfIt/eDb3CUjao0vyS+jTarKTEl/u0iFiJbm24cqH+WYf1eX+DmPPcegolpOUkVNeBHRQ/tOZw/nLsQD5q42hYxai2EhVaxtutjTb/4G4YUsp5n0N5fpv+wVsnHU6NmUp/qOeJncUFBOeNEcl+nkyy/IOdukY4PKzF164bqlHhHMeRayaq/ZfzyU5IfaBEgsCaZozxXAb6D2oRpMZTlNY4O4gSGSXMyHZj6IBKykqvEXsl07aQH3Ql5ktcmC5th/LtIe7IHpSf4g5JWQRkcYXemq74btrGhHum0z0VYg0cgmuXLibvxvgzWB9xeL5OfEdTSy7bWeo5uuPJR1Hv7b1hKHSMyB1uXmWioVbKxmEe/Av855NN//e6Y9/X/UyMEO5KLXudDJh1/fcXnaLSBrIiyurB5BfaNXdCsMX9T2zAg5Ewfi2Jxgsb7SKb3nIZPNCm4akZDD5FEWDqcrN0E3raFzRoZbOHJJ2y22KKezmF+3nrSXtvmo3b506lvLrjGOl8l7WwaznvJzeNLkO6+zLWwTCxHtL/fMU=
+before_install:
+- git config --global user.email "travis@travis-ci.org"
+- git config --global user.name "Travis"
 before_script:
-- npm install -g gulp jspm
+- npm install -g gulp jspm gh-pages
 install:
 - npm install
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
@@ -23,4 +26,4 @@ install:
 script:
 - gulp
 after_success:
-- npm run deploy
+  - npm run deploy
