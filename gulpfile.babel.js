@@ -15,8 +15,8 @@
 // Config
 // =============================================================================
 
-import siteData from './config/site.js';
-import dirs     from './config/dirs.js';
+import dirs     from './lib/dirs.js';
+import siteData from './lib/site.js';
 
 // =============================================================================
 // Requires

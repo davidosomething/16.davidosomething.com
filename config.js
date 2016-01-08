@@ -36,7 +36,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:necolas/normalize.css@3.0.3": {
-      "css": "github:systemjs/plugin-css@0.1.19"
+      "css": "github:systemjs/plugin-css@0.1.20"
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
