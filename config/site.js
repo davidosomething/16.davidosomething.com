@@ -1,23 +1,4 @@
-const dirs = {};
-dirs.dist = './public/';
-dirs.templates = {
-  source: `./hbs`,
-};
-dirs.assets = {
-  source: `./assets`,
-  dist:   `${dirs.dist}/assets`,
-};
-dirs.jspm = `${dirs.assets.source}/jspm`,
-dirs.css = {
-  source: `${dirs.assets.source}/scss`,
-  dist:   `${dirs.assets.dist}/css`,
-};
-dirs.js = {
-  source: `${dirs.assets.source}/js`,
-  dist:   `${dirs.assets.dist}/js`,
-};
-
-const siteData = {
+export default {
   avatarUrl: '/assets/img/avatar.png',
   buildDate: new Date(),
   fbAppId:   '285126294854913',
@@ -39,5 +20,3 @@ const siteData = {
     ],
   },
 };
-
-export { dirs, siteData };
