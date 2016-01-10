@@ -330,7 +330,7 @@ var metalsmithAssignPermalink = (files, metalsmith, done) => {
   Object.keys(files).forEach((file) => {
     var data = files[file];
 
-    files[file].permalink = `${siteData.site.url}/${data.path || ''}`;
+    files[file].permalink = `${siteData.site.url}/${data.path || ''}/`;
 
     log(`assignPermalink ${file}`);
     log(`  - path:      ${files[file].path}`);
