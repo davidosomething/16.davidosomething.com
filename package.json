@@ -267,7 +267,7 @@
     "helper-moment": "^0.1.0",
     "highlight.js": "^9.1.0",
     "imagemin-pngquant": "^4.2.0",
-    "jspm": "^0.16.19",
+    "jspm": "^0.16.20",
     "lodash.defaultsdeep": "^3.10.0",
     "lodash.omit": "^3.1.0",
     "merge-stream": "^1.0.0",
