@@ -97,6 +97,8 @@ Some notable options in this case are:
     - This is a git mirror of [Ryan Fabella's indent script]
     - It mostly detects closing brackets and parentheses and indents based on
       that.
+- [jiangmiao/simple-javascript-indenter]
+    - An indent plugin with an option for alignment under functions.
 
 Since I use `othree/yajs.vim` for my syntax, I tack on pangloss's indent via the
 `gavocanov/vim-js-indent plugin`.
@@ -267,6 +269,7 @@ files.
 [sheerun/yajs.vim]: https://github.com/sheerun/yajs.vim
 [gavocanov/vim-js-indent]: https://github.com/gavocanov/vim-js-indent
 [itspriddle/vim-javascript-indent]: https://github.com/itspriddle/vim-javascript-indent
+[jiangmiao/simple-javascript-indenter]: https://github.com/jiangmiao/simple-javascript-indenter
 [Ryan Fabella's indent script]: http://www.vim.org/scripts/script.php?script%5Fid=1936
 [othree/es.next.syntax.vim]: https://github.com/othree/es.next.syntax.vim
 [actually supports any of them]: https://github.com/mxw/vim-jsx/commit/80dbab7588c615126f47e50fa4d9c329d080ff95#diff-604ad63592f45d351d97cdc9eeae21a3R28
