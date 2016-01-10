@@ -252,6 +252,16 @@ it isn't easily configurable as a lint-runner.
 If you're running Neovim, [neomake](https://github.com/benekastah/neomake) is
 an option.
 
+## Formatting
+
+Vim has a built-in reformatter for whitespace. Visually select some text and
+use the `=` key to re-indent all of it.
+
+For minified JS, there's a vim plugin, [vim-jsbeautify], that can run your code
+through jsbeautifier for you. I personally don't use this and prefer to go to
+the jsbeautifier website, copying and pasting it there if I need to un-minify
+something.
+
 ## My Vim setup
 
 You can dig through [my Vim configuration on GitHub]. The plugins I use are
@@ -289,5 +299,6 @@ files.
 [osyo-manga/vim-watchdogs]: https://github.com/osyo-manga/vim-watchdogs
 [Shougo/vimproc.vim]: https://github.com/Shougo/vimproc.vim
 [tpope/vim-dispatch]: https://github.com/tpope/vim-dispatch
+[vim-jsbeautify]: https://github.com/maksimr/vim-jsbeautify
 [my Vim configuration on GitHub]: https://github.com/davidosomething/dotfiles/tree/master/vim
 
