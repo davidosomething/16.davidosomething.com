@@ -1,14 +1,15 @@
 ---
+slug:           grunt-wendy-casperjs
 title:          "grunt-wendy – CasperJS for GruntJS"
 subheader:      "A super customizable CasperJS test runner with output filtering"
 datePublished:  2015-09-19T00:00:07+00:00
+image:          "/assets/img/posts/wendy.png"
 tags:
   - casperjs
   - e2e
   - grunt
   - phantomjs
   - testing
-slug: grunt-wendy-casperjs
 ---
 <img src="/assets/img/posts/wendy.png" class="image--left" alt="grunt-wendy logo">
 [grunt-wendy](https://github.com/davidosomething/grunt-wendy) is my latest Grunt

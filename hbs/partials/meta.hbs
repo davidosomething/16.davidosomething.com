@@ -13,9 +13,9 @@
 	<meta name="twitter:description" property="og:description" content="{{{ description }}}">
 {{/if}}
 {{#if image}}
-	<meta name="twitter:image" property="og:image" content="{{ image }}">
+	<meta name="twitter:image" property="og:image" content="{{ site.url }}/{{ image }}">
 {{/if}}
 {{#if tags}}
-	<meta name="keywords" content="{{#each tags}}{{this}}{{#unless @last}},{{/unless}}{{/each}}">
+	<meta name="keywords" content="{{#each tags}}{{ this }}{{#unless @last}},{{/unless}}{{/each}}">
 {{/if}}
 <meta itemprop="dateModified" content="{{ moment dateModified toISOString=null }}">

@@ -1,13 +1,14 @@
 ---
+slug:           vim-for-javascript
 title:          "Setting up Vim for JavaScript development"
 subheader:      "Comparisons and information for useful JavaScript-specific plugins"
 datePublished:  2016-01-09
+image:          "/assets/img/posts/Vimlogo.svg.png"
 tags:
   - vim
   - plugins
   - javascript
   - tern
-slug: vim-for-javascript
 ---
 
 ## Installing plugins
