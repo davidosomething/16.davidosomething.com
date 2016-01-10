@@ -1,6 +1,6 @@
 ---
 title:          "Setting up Vim for JavaScript development"
-subheader:      "Comparison and information on useful JavaScript-specific plugins"
+subheader:      "Comparisons and information for useful JavaScript-specific plugins"
 datePublished:  2016-01-09
 tags:
   - vim
