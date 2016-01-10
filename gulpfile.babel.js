@@ -367,7 +367,7 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
         itemtype: 'https://schema.org/WebPage',
       },
       widgets: {
-        aboutMe:   true,
+        aboutMe:   false,
         allPosts:  true,
       },
     };
@@ -400,6 +400,9 @@ gulp.task('html', (cb) => {
     // Read markdown into {{ content }} and change sources to **.html
     // metadata added here is attached to the main post object
     .use(metalsmithMarkdown({
+      gfm:    true,
+      tables: true,
+
       /**
        * marked doesn't add this to parsed code blocks since it doesn't assume
        * highlighting is for highlight.js
@@ -409,10 +412,8 @@ gulp.task('html', (cb) => {
 
       // This options key gets passed to marked (whereas the parent object is
       // the options key for the metalsmith-marked plugin)
-      options: {
-        highlight: function  (lang, code) {
-          return hljs.highlightAuto(lang, code).value;
-        },
+      highlight: function  (code, lang) {
+        return hljs.highlightAuto(code).value;
       },
     }))
 
@@ -422,20 +423,32 @@ gulp.task('html', (cb) => {
         maxLength: 500,
       }))
       .use(metalsmithFormatPost)
-      .use(metalsmithPermalinks({
-        pattern:  'blog/:slug',
-        relative: 'off',
-      }))
-      .use(metalsmithAssignPermalink)
       .use(metalsmithBranchDebugger({ suffix: 'posts' }))
     )
 
     // Pages -- note the blog/ path due to permalinks()
     .use(metalsmithBranch('!blog/**/*.html')
       .use(metalsmithFormatPage)
-      .use(metalsmithAssignPermalink)
       .use(metalsmithBranchDebugger({ suffix: 'pages' }))
     )
+
+    .use(metalsmithPermalinks({
+      pattern:  'blog/:slug',
+      relative: 'off',
+      linksets: [
+        {
+          match: { type: 'post' },
+          pattern:  'blog/:slug',
+          relative: 'off',
+        },
+        {
+          match: { type: 'page' },
+          pattern:  ':title',
+          relative: 'off',
+        },
+      ],
+    }))
+    .use(metalsmithAssignPermalink)
 
     .use(metalsmithBranchDebugger({ suffix: 'all' }))
 
@@ -534,6 +547,7 @@ gulp.task('sync', () => {
   });
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
+  gulp.watch(`${dirs.markdown.source}/**/*.md`, [ 'html' ]);
   gulp.watch(`${dirs.templates.source}/**/*.hbs`, [ 'html' ]);
 
 });
