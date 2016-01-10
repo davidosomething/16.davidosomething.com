@@ -20,7 +20,7 @@ $colors: (
   primary-bg:            #fafaf4,
   primary-text:          #3f3a30,
   primary-aside:         #988,
-  primary-link:          inherit,
+  primary-link:          #27a,
   primary-link--hover:   #38b,
   primary-divider:       #eee,
 
@@ -275,8 +275,6 @@ a {
 }
 
 %link--underlined {
-  border-bottom: 1px map-get($colors, 'primary-text') dotted;
-  &:hover { border-bottom: 1px map-get($colors, 'primary-link--hover') dotted; }
 }
 
 h1,
@@ -611,10 +609,11 @@ body:not(.slug--home) .globalHeader {
   text-align: center;
 
   a {
-    @extend %link--underlined;
+    border-bottom: 1px map-get($colors, 'primary-text') dotted;
+    color: inherit;
 
     &:hover {
-      border-color: lighten(map-get($colors, 'primary-link--hover'), 25%);
+      border-bottom: 1px lighten(map-get($colors, 'primary-link--hover'), 25%) dotted;
       color: lighten(map-get($colors, 'primary-link--hover'), 25%);
     }
   }
@@ -834,8 +833,8 @@ body:not(.slug--home) .globalHeader {
   margin-left: 0.5em;
   max-width: $readable-body-width;
 
-  a {
-    @extend %link--underlined;
+  a:hover {
+    text-decoration: underline;
   }
 
   ol,
