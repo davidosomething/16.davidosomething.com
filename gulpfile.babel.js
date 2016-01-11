@@ -299,6 +299,7 @@ var metalsmithFormatPost = (files, metalsmith, done) => {
       widgets: {
         sharePost:    true,
         aboutMe:      true,
+        allPosts:     false,
         latestPosts:  true,
       },
     };
@@ -367,8 +368,10 @@ var metalsmithFormatPage = (files, metalsmith, done) => {
         itemtype: 'https://schema.org/WebPage',
       },
       widgets: {
-        aboutMe:   false,
-        allPosts:  true,
+        sharePost:   false,
+        aboutMe:     true,
+        allPosts:    true,
+        latestPosts: false,
       },
     };
 
