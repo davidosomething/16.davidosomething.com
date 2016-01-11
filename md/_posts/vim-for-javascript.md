@@ -16,6 +16,8 @@ tags:
 I recommend using [vim-plug] to install plugins. It's simple, works on both Vim
 and Neovim, and can perform operations asynchronously.
 
+- [vim-plug]
+
 ## Syntax
 
 Vim comes with a JavaScript syntax file. It is automatically loaded when you
@@ -77,8 +79,9 @@ Plug 'othree/yajs.vim`, { 'for': 'javascript' }
 ```
 
 The additional requirement at the end makes sure the syntax plugin is loaded in
-a Vim autocommand based on filetype detection. This way the main Vim syntax
-plugin will have already run, and the plugin's syntax will override it.
+a Vim autocommand based on filetype detection (as opposed to relying on Vim's
+`runtimepath` based sourcing mechanism. This way the main Vim syntax plugin
+will have already run, and the plugin's syntax will override it.
 
 ### Plugins that provide better indentation support
 
@@ -106,11 +109,16 @@ Since I use `othree/yajs.vim` for my syntax, I tack on pangloss's indent via the
 
 ## Related syntaxes
 
+During JavaScript development you may find yourself editing a lot of other
+filetypes that plain JavaScript.
+
 ### es.next / ES2016 / ES7 support
 
 othree has a syntax plugin that provides support for planned, but not-yet-final
 EcmaScript features: [othree/es.next.syntax.vim]. I personally don't use it
 since I currently stick to the ES2015 at most.
+
+- [othree/es.next.syntax.vim]
 
 ### JSX support for React
 
@@ -125,17 +133,19 @@ This plugin requires a JavaScript syntax plugin from above to define certain
 JavaScript regions. It specifically mentions pangloss' extension in the docs but
 [actually supports any of them].
 
-During JavaScript development you may find yourself editing a lot of other
-filetypes that JavaScript.
+- [mxw/vim-jsx]
 
 ### JSON
 
 A lot of things use JSON for configuration, so I recommend [elzr/vim-json] for
-that:
+that. Check out its options, I don't like some of the defaults so I turn them
+off, but you might want them:
 
 ```viml
 Plug 'elzr/vim-json'
 ```
+
+- [elzr/vim-json]
 
 ### JSDoc
 
@@ -144,12 +154,16 @@ already. There's a plugin called `othree/jsdoc-syntax.vim` that pulls that
 support out of `othree/yajs.vim`, but it is only for adding JSDoc support to
 _other_ languages like TypeScript.
 
+- [othree/jsdoc-syntax.vim]
+
 ### jQuery Plugins
 
 Files named `jquery.*.js` are typically jQuery plugins. There's a specific
 syntax highlighting plugin for such files: `itspriddle/vim-jquery`, but it's
 pretty old and you'll have better support combining an up-to-date syntax plugin
 with the JavaScript libraries plugin in the next section.
+
+- [itspriddle/vim-jquery]
 
 ### JavaScript libraries
 
@@ -159,6 +173,8 @@ such as jQuery, lodash, React, Handlebars, Chai, etc. For an extensive list, see
 the README at the plugin's homepage.
 
 I personally do use this plugin.
+
+- [othree/javascript-libraries-syntax.vim]
 
 ## JavaScript code completion for Vim
 
@@ -181,7 +197,7 @@ though, so whatever might be missing in one can probably be configured into it.
 ### Code-analysis based completion via TernJS
 
 TernJS is kind of like IntelliSense if you've ever used Visual Studio, or like
-the autocompletion for many very robust IDEs. It parses your code you extracts
+the autocompletion for many very robust IDEs. It parses your code and extracts
 various symbols, like function names, variable names, and values, and provides
 those to Vim's auto-completion engine.
 
@@ -202,6 +218,8 @@ in the background while you're editing).
 I use this plugin with many of its extra features turned off, just keeping the
 completion.
 
+- [marijnh/tern_for_vim]
+
 ### Function parameter completion
 
 othree has a plugin called JavaScript Parameter Complete that detects when
@@ -215,6 +233,8 @@ suggestions it provides in its [GitHub source](https://github.com/othree/jspc.vi
 Plug 'othree/jspc.vim'
 ```
 
+- [othree/jspc.vim]
+
 ## Code navigation
 
 ### Jumping between CommonJS modules
@@ -226,6 +246,8 @@ CommonJS `require` statements.
 Plug 'moll/vim-node'
 ```
 
+- [moll/vim-node]
+
 ### CTags - Symbol based navigation
 
 CTags are lists of all symbols in your projects (function names, variable names,
@@ -233,10 +255,13 @@ filenames, etc.). Vim provides ctag support by default, with keybindings to jump
 to declarations and definitions, and there are a slew of plugins (e.g.
 [ludovicchabant/vim-gutentags]) that can auto-generate the tags file for you.
 Using [majutsushi/tagbar], [Shougo/unite.vim], [ctrlpvim/ctrlp.vim], or a bunch
-of other plugins, you can browse through those tags.
+of other plugins (and plugins that work with them -- plugin-plugins), you can
+browse through those tags.
 
 Of particular note on the generation side is [ramitos/jsctags], which will
 generate ctags using TernJS.
+
+- [ramitos/jsctags]
 
 ## Linting
 
@@ -253,6 +278,8 @@ it isn't easily configurable as a lint-runner.
 If you're running Neovim, [neomake](https://github.com/benekastah/neomake) is
 an option.
 
+- [scrooloose/syntastic]
+
 ## Formatting
 
 Vim has a built-in reformatter for whitespace. Visually select some text and
@@ -263,12 +290,16 @@ through jsbeautifier for you. I personally don't use this and prefer to go to
 the jsbeautifier website, copying and pasting it there if I need to un-minify
 something.
 
+- [vim-jsbeautify]
+
 ## My Vim setup
 
 You can dig through [my Vim configuration on GitHub]. The plugins I use are
 all in the main `vimrc` file, and their configurations are interspersed into
 `plugin/`, `ftplugin/`, and `after/*/` to cope with the order in which Vim loads
 files.
+
+- [my Vim configuration on GitHub]
 
 
 
@@ -283,12 +314,17 @@ files.
 [jiangmiao/simple-javascript-indenter]: https://github.com/jiangmiao/simple-javascript-indenter
 [Ryan Fabella's indent script]: http://www.vim.org/scripts/script.php?script%5Fid=1936
 [othree/es.next.syntax.vim]: https://github.com/othree/es.next.syntax.vim
+[mxw/vim-jsx]: https://github.com/mxw/vim-jsx
 [actually supports any of them]: https://github.com/mxw/vim-jsx/commit/80dbab7588c615126f47e50fa4d9c329d080ff95#diff-604ad63592f45d351d97cdc9eeae21a3R28
 [elzr/vim-json]: https://github.com/elzr/vim-json
+[othree/jsdoc-syntax.vim]: https://github.com/othree/jsdoc-syntax.vim
+[itspriddle/vim-jquery]: https://github.com/itspriddle/vim-jquery
 [othree/javascript-libraries-syntax.vim]: https://github.com/othree/javascript-libraries-syntax.vim
 [Shougo/neocomplete.vim]: https://github.com/Shougo/neocomplete.vim
 [Valloric/YouCompleteMe]: https://github.com/Valloric/YouCompleteMe
 [Shougo/deoplete.nvim]: https://github.com/Shougo/deoplete.nvim
+[marijnh/tern_for_vim]: https://github.com/marijnh/tern_for_vim
+[othree/jspc.vim]: https://github.com/othree/jspc.vim
 [moll/vim-node]: https://github.com/moll/vim-node
 [ludovicchabant/vim-gutentags]: https://github.com/ludovicchabant/vim-gutentags
 [majutsushi/tagbar]: https://github.com/majutsushi/tagbar
