@@ -100,14 +100,14 @@ $fw__heading: 900;
 // Font - Sizes
 $fontsizes: (
   default: (
+    h1: 1.5em,
+    h2: 1.4em,
+    h3: 1.3em,
+    h4: 1.2em,
+    h5: 1.2em,
     globalSiteTitle: 0.66rem,
     bio__author:     1.4rem,
     bio__links:      1.6rem,
-    h1: 1.66em,
-    h2: 1.6em,
-    h3: 1.4em,
-    h4: 1.3em,
-    h5: 1.2em,
     nav:             1em,
     postlist:        0.66em,
     article__meta:   0.66em,
@@ -116,16 +116,21 @@ $fontsizes: (
     footer:          0.8em,
   ),
   small: (
+    h1: 1.66em,
+    h2: 1.6em,
+    h3: 1.4em,
+    h4: 1.3em,
+    h5: 1.2em,
     bio__author:     2rem,
     bio__links:      2rem,
+    article__body: 1em,
+  ),
+  medium: (
     h1: 2.4em,
     h2: 2em,
     h3: 1.8em,
     h4: 1.5em,
     h5: 1.2em,
-    article__body: 1em,
-  ),
-  medium: (
   ),
   middle: (
     bio__author: 2.8rem,
@@ -892,16 +897,17 @@ body:not(.slug--home) .globalHeader {
   }
 
   h3 {
-    @include fs('h4');
+    @include fs('h3');
+    font-weight: $fw__body;
   }
 
   h4 {
-    @include fs('h5');
+    @include fs('h4');
   }
 
   h5 {
-    @include fs('h5');
-    color: lighten(map-get($colors, 'primary-text'), 50%);
+    @include fs('h4');
+    font-weight: $fw__body;
   }
 
   a:hover {
@@ -975,25 +981,6 @@ body:not(.slug--home) .globalHeader {
     > .article__subheader {
       @include fs('h3');
       font-weight: $fw__body;
-    }
-  }
-
-  .article__body {
-    h2 {
-      @include fs('h2');
-    }
-
-    h3 {
-      @include fs('h3');
-    }
-
-    h4 {
-      @include fs('h4');
-    }
-
-    h5 {
-      @include fs('h4');
-      color: lighten(map-get($colors, 'primary-text'), 50%);
     }
   }
 }
