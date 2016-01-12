@@ -11,6 +11,12 @@ tags:
   - tern
 ---
 
+### Updates
+
+- Jan 11, 2016
+    > Update omni-completion with basic info on how `omnifunc` works and
+    > added [1995eaton/vim-better-javascript-completion].
+
 ## Installing plugins
 
 I recommend using [vim-plug] to install plugins. It's simple, works on both Vim
@@ -182,28 +188,53 @@ I personally do use this plugin.
 
 I won't go into too much detail about this since it isn't JavaScript specific.
 
-Vim includes basic code completion built in. See [this wikia article](http://vim.wikia.com/wiki/Omni_completion) for information on how to use that.
+Vim includes basic code completion built in. See [this wikia article] for
+information on how to use that. The gist is that the completion system will
+run a function, the `omnifunc`, to populate the pop-up it with results.
+
+To use the default completion function, add this to your `vimrc`:
+
+```viml
+set omnifunc=javascriptcomplete#CompleteJS
+```
 
 For even better completion, consider using a plugin like
 [Shougo/neocomplete.vim] or [Valloric/YouCompleteMe]. On Neovim, an option is
-[Shougo/deoplete.nvim]. This will add features like automatically popping up the
-completion menu, caching of keywords, and integration with other sources of
-completion than what's in the current Vim buffer.
+[Shougo/deoplete.nvim].  
+These plugins will add features like automatically popping up the completion
+menu, caching of keywords, and integration with other sources of completion
+(allowing for multiple `omnifunc`s) than what's in the current Vim buffer.
 
 For portability across my systems without needing a recompile, I use
 `Shougo/neocomplete.vim`. They're both offer roughly the same feature set,
 though, so whatever might be missing in one can probably be configured into it.
 
+### Extended omni-completion
+
+The plugin [1995eaton/vim-better-javascript-completion] provides a somewhat
+up-to-date JavaScript with HTML5 methods (e.g. `localStorage` and `canvas`
+methods).
+
+This plugin creates a new omni-completion function, `js#CompleteJS`, and
+replaces your current JS omnifunc with that. That means you'll have to use
+a completion plugin or write some VimL yourself if you want to use it in
+conjunction with another `omnifunc` like TernJS in the next section.
+
+- [1995eaton/vim-better-javascript-completion]
+
 ### Code-analysis based completion via TernJS
 
 TernJS is kind of like IntelliSense if you've ever used Visual Studio, or like
 the autocompletion for many very robust IDEs. It parses your code and extracts
-various symbols, like function names, variable names, and values, and provides
-those to Vim's auto-completion engine.
+various symbols, like function names, variable names, and values.
 
 The official vim plugin can also show you function signatures (what parameters
 parameters it expects) and can extract values from related files if you
 configure it to do so (via a `.tern-project`).
+
+The completion is provided to Vim's auto-completion engine via an `omnifunc`,
+`tern#Complete`. Again, you'll have to setup your `omnifunc` appropriately to
+use TernJS results instead of the default omni-completion results.
 
 Installing via [vim-plug], which can run additional commands before plugin
 installation, is done like this:
@@ -227,11 +258,18 @@ you're inside a function argument and provides some common autocomplete
 suggestions for it. This is not a feature that TernJS provides, since Tern only
 adds existing symbols. For example, if you're writing an event listener, it'll
 suggest things like `click`, and `mouseover` for you. You can see all the
-suggestions it provides in its [GitHub source](https://github.com/othree/jspc.vim/blob/master/autoload/jspc/javascript.vim). Install the plugin via:
+suggestions it provides in its [GitHub source](https://github.com/othree/jspc.vim/blob/master/autoload/jspc/javascript.vim).
+Install the plugin via:
 
 ```viml
 Plug 'othree/jspc.vim'
 ```
+
+On load, the jspc.vim plugin automatically detects whatever `omnifunc` you
+already have set as your default. It wraps it with the parameter completion,
+and falls back to your default if you are not in a parameter completion.
+Because of this you should specify `jspc#omni` _instead_ of whatever your
+default completion is (typically `javascriptcomplete#CompleteJS`).
 
 - [othree/jspc.vim]
 
@@ -320,8 +358,10 @@ files.
 [othree/jsdoc-syntax.vim]: https://github.com/othree/jsdoc-syntax.vim
 [itspriddle/vim-jquery]: https://github.com/itspriddle/vim-jquery
 [othree/javascript-libraries-syntax.vim]: https://github.com/othree/javascript-libraries-syntax.vim
+[this wikia article]: http://vim.wikia.com/wiki/Omni_completion
 [Shougo/neocomplete.vim]: https://github.com/Shougo/neocomplete.vim
 [Valloric/YouCompleteMe]: https://github.com/Valloric/YouCompleteMe
+[1995eaton/vim-better-javascript-completion]: https://github.com/1995eaton/vim-better-javascript-completion
 [Shougo/deoplete.nvim]: https://github.com/Shougo/deoplete.nvim
 [marijnh/tern_for_vim]: https://github.com/marijnh/tern_for_vim
 [othree/jspc.vim]: https://github.com/othree/jspc.vim
