@@ -35,8 +35,9 @@ script:
 - gulp lint:js
 - gulp
 after_success:
-- echo "Build \#${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/davidosomething.github.io/commit/${TRAVIS_COMMIT}"
 - |
+  export GITHUB_PAGES_COMMIT_MESSAGE="Deploy build #${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/16.davidosomething.com/commit/${TRAVIS_COMMIT}"
+  echo $GITHUB_PAGES_COMMIT_MESSAGE
   if [ "$TRAVIS_BRANCH" = "master" ]; then
     npm run deploy-surge &
 
@@ -44,7 +45,7 @@ after_success:
     chmod u=rw,og= ~/.ssh/id_rsa
     echo "Host github.com"              >> ~/.ssh/config
     echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
-    GITHUB_PAGES_COMMIT_MESSAGE="Deploy build ${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/davidosomething.github.io/commit/${TRAVIS_COMMIT}" npm run travis-deploy-github
+    npm run travis-deploy-github
 
     wait
   fi
