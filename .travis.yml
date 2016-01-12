@@ -18,6 +18,7 @@ env:
 branches:
   only:
   - master
+  - dev
 before_install:
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "Travis"
@@ -28,7 +29,8 @@ install:
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 - jspm install
 script:
+- gulp lint:css
+- gulp lint:js
 - gulp
 after_success:
-- npm run deploy
-- wait
+- [ "$TRAVIS_BRANCH" == "master" ] && npm run deploy && wait

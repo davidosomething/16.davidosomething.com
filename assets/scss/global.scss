@@ -285,9 +285,6 @@ a {
   &:hover { color: lighten(map-get($colors, 'primary-link--hover'), 25%); }
 }
 
-%link--underlined {
-}
-
 h1,
 h2,
 h3,
@@ -363,23 +360,16 @@ th {
   }
 }
 
-td {
-  &:nth-child(even) {
-    background-color: darken(map-get($colors, 'primary-bg'), 2%);
-  }
+td:nth-child(even) {
+  background-color: darken(map-get($colors, 'primary-bg'), 2%);
 }
 
-tr {
-  &:nth-child(even) {
-    background-color: darken(map-get($colors, 'primary-bg'), 2%);
+tr:nth-child(even) {
+  background-color: darken(map-get($colors, 'primary-bg'), 2%);
 
-    td {
-      &:nth-child(even) {
-        background-color: darken(map-get($colors, 'primary-bg'), 4%);
-      }
-    }
+  td:nth-child(even) {
+    background-color: darken(map-get($colors, 'primary-bg'), 4%);
   }
-
 }
 
 
