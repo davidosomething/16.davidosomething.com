@@ -1,16 +1,16 @@
 {
   "name": "16-davidosomething-com",
-  "homepage": "http://davidosomething.com",
+  "homepage": "https://davidosomething.com",
   "version": "1.0.0",
   "description": "davidosomething.com - 2016 version",
   "license": "UNLICENSED",
   "author": {
     "name": "David O'Trakoun",
     "email": "me@davidosomething.com",
-    "url": "http://davidosomething.com"
+    "url": "https://davidosomething.com"
   },
   "contributors": [
-    "David O'Trakoun <me@davidosomething.com> (http://davidosomething.com/)"
+    "David O'Trakoun <me@davidosomething.com> (https://davidosomething.com/)"
   ],
   "repository": {
     "type": "git",
