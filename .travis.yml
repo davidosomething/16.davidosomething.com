@@ -23,8 +23,8 @@ branches:
   - master
   - dev
 before_install:
-- git config user.name "TravisCI"
-- git config user.email "travis@travis-ci.org"
+- git config --global user.name "TravisCI"
+- git config --global user.email "travis@travis-ci.org"
 install:
 - npm install
 - npm run travis-jspm-config
@@ -38,7 +38,7 @@ script:
 after_success:
 - |
   if [ "$TRAVIS_BRANCH" = "master" ]; then
-    npm run deploy-surge &
+    npm run travis-deploy-surge &
 
     openssl aes-256-cbc -K $encrypted_157bbe5ff2f8_key -iv $encrypted_157bbe5ff2f8_iv -in lib/id_rsa.enc -out ~/.ssh/id_rsa -d
     chmod u=rw,og= ~/.ssh/id_rsa
