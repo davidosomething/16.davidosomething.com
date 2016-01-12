@@ -13,6 +13,12 @@ tags:
 
 ### Updates
 
+- Jan 12, 2016 ([diff]())
+    > Make sure plugin names are all linkified. Add more notes on what the
+    > indent plugins do.
+    > Added example of multi-omni-completion for neocomplete.
+    > Some language changes.
+
 - Jan 11, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/0eb309472728f5855823d4d1b35bf4e52e524d7b))
     > Update omni-completion with basic info on how `omnifunc` works and
     > added [1995eaton/vim-better-javascript-completion].
@@ -64,19 +70,19 @@ There are quite a few options:
     - Does not include custom indent settings
     - Updated about once a month according to the GitHub contributors graph
 - [othree/yajs.vim]
-    - This is a fork of `jelera/vim-javascript-syntax`
+    - This is a fork of [jelera/vim-javascript-syntax]
     - Does not include custom indent settings
-    - Updated very often
+    - Updated very often to keep in line with ES specifications
 - [sheerun/vim-polyglot], or [sheerun/yajs.vim]
     - This is a plugin that bundles a bunch of language syntax plugins into one.
       It particularly includes `sheerun/yajs.vim`, which is an outdated mirror
       of `othree/yajs.vim`.
 
-All of these provide ES2015 (ES6) and JSDoc support to varying degrees. Of
-these, I personally use and recommend `othree/yajs.vim` since it has most
-up-to-date language support. The author also writes a few other plugins that can
-be used in conjunction with it (although they may work with the other syntaxes
-too.
+**All of these provide ES2015 (ES6) and JSDoc support to varying degrees**,
+which Vim lacks be default. I personally use and recommend [othree/yajs.vim]
+since it has most up-to-date language support. The author also writes a few
+other plugins that can be used in conjunction with it (although they may work
+with the other syntaxes too).
 
 Using [vim-plug], I recommend installing the plugin like this:
 
@@ -92,7 +98,7 @@ will have already run, and the plugin's syntax will override it.
 ### Plugins that provide better indentation support
 
 Vim's bundled JavaScript indent may be enough for you, especially if you use
-a strictly C-style whitespace (Vim's indent options even call themselves
+a strictly C-style whitespace (Vim's C-style indent options is even called
 `cindent`).
 
 Some notable options in this case are:
@@ -100,18 +106,26 @@ Some notable options in this case are:
 - [pangloss/vim-javascript]
     - Using this entire syntax plugin will provide you with a more JavaScripty
       indent for things like switch/case and multi-line var declarations.
+    - This indent plugin has a side-effect in that it also changes the format
+      expression -- that is, if you highlight a block and use `gq` to reformat
+      it, it will re-indent the code using this plugin as well.
 - [gavocanov/vim-js-indent]
-    - This is the indent portion of `pangloss/vim-javascript`, ripped out into
+    - This is the indent portion of [pangloss/vim-javascript], ripped out into
       its own plugin.
+    - There are modifications to it, diverging it from
+      [pangloss/vim-javascript], notably support for the syntax group names in
+      [othree/yajs.vim]. That helps it pick out keywords and when you are
+      inside comments if you are using [othree/yajs.vim].
+    - The format expression from the original has been removed.
 - [itspriddle/vim-javascript-indent]
     - This is a git mirror of [Ryan Fabella's indent script]
     - It mostly detects closing brackets and parentheses and indents based on
-      that.
+      what it finds.
 - [jiangmiao/simple-javascript-indenter]
     - An indent plugin with an option for alignment under functions.
 
-Since I use `othree/yajs.vim` for my syntax, I tack on pangloss's indent via the
-`gavocanov/vim-js-indent plugin`.
+Since I use [othree/yajs.vim] for my syntax, I use [gavocanov/vim-js-indent]
+for improved indenting.
 
 ## Related syntaxes
 
@@ -156,8 +170,8 @@ Plug 'elzr/vim-json'
 ### JSDoc
 
 If you document using JSDoc, all of the syntax plugins above support JSDoc
-already. There's a plugin called `othree/jsdoc-syntax.vim` that pulls that
-support out of `othree/yajs.vim`, but it is only for adding JSDoc support to
+already. There's a plugin called [othree/jsdoc-syntax.vim] that pulls that
+support out of [othree/yajs.vim], but it is only for adding JSDoc support to
 _other_ languages like TypeScript.
 
 - [othree/jsdoc-syntax.vim]
@@ -165,7 +179,7 @@ _other_ languages like TypeScript.
 ### jQuery Plugins
 
 Files named `jquery.*.js` are typically jQuery plugins. There's a specific
-syntax highlighting plugin for such files: `itspriddle/vim-jquery`, but it's
+syntax highlighting plugin for such files: [itspriddle/vim-jquery], but it's
 pretty old and you'll have better support combining an up-to-date syntax plugin
 with the JavaScript libraries plugin in the next section.
 
@@ -206,8 +220,18 @@ menu, caching of keywords, and integration with other sources of completion
 (allowing for multiple `omnifunc`s) than what's in the current Vim buffer.
 
 For portability across my systems without needing a recompile, I use
-`Shougo/neocomplete.vim`. They're both offer roughly the same feature set,
+[Shougo/neocomplete.vim]. They're both offer roughly the same feature set,
 though, so whatever might be missing in one can probably be configured into it.
+
+With [Shougo/neocomplete.vim], using multiple sources of completion can be done
+by providing a list of function names like so:
+
+```viml
+  let g:neocomplete#sources#omni#functions.javascript = [
+        \   'jspc#omni',
+        \   'tern#Complete',
+        \ ]
+```
 
 ### Extended omni-completion
 
@@ -277,7 +301,7 @@ default completion is (typically `javascriptcomplete#CompleteJS`).
 
 ### Jumping between CommonJS modules
 
-The plugin [moll/vim-node] adds keybindings for jumping to files in your
+The plugin [moll/vim-node] adds keybindings like for jumping to files in your
 CommonJS `require` statements.
 
 ```viml
@@ -320,7 +344,7 @@ an option.
 
 ## Formatting
 
-Vim has a built-in reformatter for whitespace. Visually select some text and
+Vim has a built-in re-formatter for whitespace. Visually select some text and
 use the `=` key to re-indent all of it.
 
 For minified JS, there's a vim plugin, [vim-jsbeautify], that can run your code
@@ -334,8 +358,8 @@ something.
 
 You can dig through [my Vim configuration on GitHub]. The plugins I use are
 all in the main `vimrc` file, and their configurations are interspersed into
-`plugin/`, `ftplugin/`, and `after/*/` to cope with the order in which Vim loads
-files.
+`plugin/`, `ftplugin/`, and `after/*/` to cope with the order in which Vim
+loads files.
 
 - [my Vim configuration on GitHub]
 
