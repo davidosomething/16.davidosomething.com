@@ -2,7 +2,7 @@ sudo: false
 language: node_js
 cache:
   directories:
-  - $(npm config get prefix)
+  - "$(npm config get prefix)"
   - assets/jspm
   - node_modules
 addons:
@@ -13,26 +13,37 @@ addons:
     - g++-4.8
 env:
   global:
-  - CXX=g++-4.8
+  - CXX="g++-4.8"
+  - GITHUB_PAGES_REPO="https://github.com/davidosomething/davidosomething.github.io.git"
   - secure: foSclTYU3qgST+Oot0QgnI8cTOvbGLCjcDubP9bN1Nts5VB9PAk/YFq817prmkpSlfvDUkCT5uf8pOvboN3Ufa9ZRhKW8CcqXlaUpgrAhvbDp/OO3WgFxWZVPBPtNZveaJcrYoiMtOSdpizo6X43EGgp+pao3qK0fTYekM+nluLg2o3T9einDCKSbf9+sp0rb8TwKmy6WQNtK3PMtDrwJufCPiwTg8ZlkZ7SfRkd1LqV6+OWUDr++AOCFk4xf2v7dknFykzYj4fZAUi+c/ifz+38tPEwCLUNRtA81hH0hOc1xwk/zYxQ0lSEdvKAehnP2fEkhZYFrl/e3h8QsI7y0NnO3Yq3S7cW6sLwWLsz9ugW6M6tlpARVsn708yInpU/zFlq8zDMMFDQ8lpcBdElIcC4mkxrSIulbWBZVINuVgVXjVLXkUxMRi5HOeHOcAZWggzxmAsVqQenc6yn2Ewo5I8DyftipVtfs0gghz64czyC58bXv3iUzfJb879mtDGGJlbuHpTNt8BhOx205KKDWNVv3cieDJD2nyEBLpO5b4lrQui5p6+oZ2AdUyBzbYnBr1/pudFOxLAmnEjdeJEilgkspNGvOLBGPlRAcfdKFOn/D9URqBdG+rc1xOp9cJ2ZMFlPo2Iy9PoyTtMC1Fm0JO1dmkD9PFNIdo9xAQ62SPc=
-  - secure: pQEfW4m952h4FplQVPTr2kau/hjTIjupFZN0fx0gYMNagP4ms3QrnpKoC5BeRZOx1GP6iEJxE/2imHXpL8YfdNpnsrdarshUXVNY894CmG7dO7XHrH4BtdV4eSCSQvcj1Cvbv8cC4RJfIt/eDb3CUjao0vyS+jTarKTEl/u0iFiJbm24cqH+WYf1eX+DmPPcegolpOUkVNeBHRQ/tOZw/nLsQD5q42hYxai2EhVaxtutjTb/4G4YUsp5n0N5fpv+wVsnHU6NmUp/qOeJncUFBOeNEcl+nkyy/IOdukY4PKzF164bqlHhHMeRayaq/ZfzyU5IfaBEgsCaZozxXAb6D2oRpMZTlNY4O4gSGSXMyHZj6IBKykqvEXsl07aQH3Ql5ktcmC5th/LtIe7IHpSf4g5JWQRkcYXemq74btrGhHum0z0VYg0cgmuXLibvxvgzWB9xeL5OfEdTSy7bWeo5uuPJR1Hv7b1hKHSMyB1uXmWioVbKxmEe/Av855NN//e6Y9/X/UyMEO5KLXudDJh1/fcXnaLSBrIiyurB5BfaNXdCsMX9T2zAg5Ewfi2Jxgsb7SKb3nIZPNCm4akZDD5FEWDqcrN0E3raFzRoZbOHJJ2y22KKezmF+3nrSXtvmo3b506lvLrjGOl8l7WwaznvJzeNLkO6+zLWwTCxHtL/fMU=
 branches:
   only:
   - master
   - dev
 before_install:
-- git config --global user.email "travis@travis-ci.org"
-- git config --global user.name "Travis"
 before_script:
-- npm install -g gulp jspm gh-pages
+- npm install -g gulp
 install:
 - npm install
-- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-- jspm install
+- npm run travis-jspm-config
+- npm run travis-jspm-install
 script:
 - gulp lint:css
 - gulp lint:js
 - gulp
 after_success:
-- if [ "$TRAVIS_BRANCH" = "master" ]; then npm run deploy; fi
-- wait
+- echo "Build \#${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/davidosomething.github.io/commit/${TRAVIS_COMMIT}"
+- |
+  if [ "$TRAVIS_BRANCH" = "master" ]; then
+    npm run deploy-surge &
+
+    openssl aes-256-cbc -K $encrypted_157bbe5ff2f8_key -iv $encrypted_157bbe5ff2f8_iv -in lib/id_rsa.enc -out ~/.ssh/id_rsa -d
+    chmod u=rw,og= ~/.ssh/id_rsa
+    echo "Host github.com"              >> ~/.ssh/config
+    echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+    git config user.name "TravisCI"
+    git config user.email "travis@travis-ci.org"
+    GITHUB_PAGES_COMMIT_MESSAGE="Deploy build ${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/davidosomething.github.io/commit/${TRAVIS_COMMIT}" npm run travis-deploy-github
+
+    wait
+  fi
