@@ -5,6 +5,7 @@
 [![Upstream][upstreamBadge]][upstreamLink]
 [![David dependency status][davidBadge]][davidLink]
 [![Development Dependency Status][davidDevBadge]][davidDevLink]
+[![Build Status][travisDevBadge]][travisLink]
 
 [![screenshot][screenshot]][screenshot]
 
@@ -30,13 +31,7 @@ gulp
 
 ## Deploy
 
-There are scripts configured in package.json to deploy:
-
-- `deploy-surge` will deploy to surge
-- `deploy-github` will deploy to GitHub Pages
-    - An environment variable, GITHUB_TOKEN with public_repo permissions is
-      expected to exist for this task.
-- `deploy` will run both
+There are scripts configured in package.json to deploy via Travis CI
 
 Output is generated in `public/`
 
@@ -65,3 +60,5 @@ Output is generated in `public/`
 [davidDevLink]:  https://david-dm.org/davidosomething/16.davidosomething.com#info=devDependencies
 [upstreamBadge]: https://img.shields.io/badge/upstream-GitHub-lightgrey.svg
 [upstreamLink]:  https://github.com/davidosomething/16.davidosomething.com
+[travisLink]: https://travis-ci.org/davidosomething/16.davidosomething.com
+[travisDevBadge]: https://travis-ci.org/davidosomething/16.davidosomething.com.svg?branch=dev
