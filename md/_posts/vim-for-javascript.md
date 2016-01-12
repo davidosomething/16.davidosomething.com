@@ -13,7 +13,7 @@ tags:
 
 ### Updates
 
-- Jan 12, 2016 ([diff]())
+- Jan 12, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/ee240b48380070a4f68c1063c29b79b6a724c8f6))
     > Make sure plugin names are all linkified. Add more notes on what the
     > indent plugins do.
     > Added example of multi-omni-completion for neocomplete.
