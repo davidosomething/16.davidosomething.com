@@ -1,6 +1,6 @@
 ////
 /// global.scss
-//
+///
 /// Global styles for davidosomething.com
 ///
 /// @author David O'Trakoun <me@davidosomething.com>
@@ -50,6 +50,9 @@ $breakpoints: (
   xxlarge: 1650px,
 );
 
+/// @content Rules to apply when within media-query parameters
+/// @param {null|string} $min [null] - min-width
+/// @param {null|string} $max [null] - max-width
 @mixin mq($min: null, $max: null) {
   $mq: 'screen';
 

@@ -15,8 +15,9 @@
 // Config
 // =============================================================================
 
-import dirs     from './lib/dirs.js';
-import siteData from './lib/site.js';
+//import packageJson  from './package.json';
+import dirs         from './lib/dirs.js';
+import siteData     from './lib/site.js';
 
 // =============================================================================
 // Requires
@@ -35,7 +36,6 @@ const exec = require('child_process').exec;
 const debug        = require('debug'); // DEBUG      = gulp gulp to output
 const defaultsDeep = require('lodash.defaultsdeep');
 const del          = require('del');
-const merge        = require('merge-stream');
 
 // -----------------------------------------------------------------------------
 // Require: Gulp generics
@@ -50,7 +50,6 @@ const sourcemaps = require('gulp-sourcemaps');
 // -----------------------------------------------------------------------------
 
 const browserSync = require('browser-sync').create();
-const htmlInjector = require('bs-html-injector');
 
 // -----------------------------------------------------------------------------
 // Require: Images
@@ -64,10 +63,9 @@ const pngquant = require('imagemin-pngquant');
 // -----------------------------------------------------------------------------
 
 const sassLint     = require('gulp-sass-lint');
+const sassdoc      = require('sassdoc');
 const sass         = require('gulp-sass');
-const postcss      = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano      = require('cssnano');
+const cssnano      = require('gulp-cssnano');
 
 // -----------------------------------------------------------------------------
 // Require: JS
@@ -155,32 +153,29 @@ gulp.task('lint:css', () => {
 
 gulp.task('css', () => {
 
-  var globalSass = gulp.src(`${dirs.css.source}/global.scss`)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
+  const SASSDOC_OPTIONS = {
+    dest:             `${dirs.dist}/docs/sassdoc`,
+    basePath:         'https://github.com/davidosomething/16.davidosomething.com/tree/master/assets/scss',
+    shortcutIcon:     `${dirs.dist}/favicon.ico`,
+    googleAnalytics:  siteData.gaId,
+    descriptionPath:  './README.md',
+  };
 
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(postcss([
-      autoprefixer({
-        browsers: ['last 2 versions'],
-      }),
-    ]))
-    .pipe(sourcemaps.write());
+  const CSSNANO_OPTIONS = {
+    safe: true,
+    autoprefixer: { browsers: [ 'last 2 versions' ] },
+  };
 
-  var vendor = gulp.src([
+  return gulp.src([
     `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`,
-  ]);
-
-  return merge(vendor, globalSass)
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    `${dirs.css.source}/global.scss`,
+  ])
+    .pipe(sassdoc(SASSDOC_OPTIONS)) // sassdoc() while stream is still SCSS
+    .pipe(sourcemaps.init())
     .pipe(concat('global.css'))
-    .pipe(sourcemaps.write())
-
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(postcss([ cssnano ]))
-    .pipe(sourcemaps.write('./'))
-
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssnano(CSSNANO_OPTIONS))
+    .pipe(sourcemaps.write('./', { sourceRoot: '/sources/css/' }))
     .pipe(gulp.dest(`${dirs.css.dist}/`))
     .pipe(browserSync.stream({ match: '**/*.css' }));
 
@@ -492,15 +487,15 @@ gulp.task('html', (cb) => {
      * @see {@link https://github.com/tj/consolidate.js/blob/master/lib/consolidate.js#L709}
      */
     .use(metalsmithLayouts({
-      engine:    'handlebars',
-      directory: 'hbs/layouts/',
-      partials:  'hbs/partials/',
+      'engine':    'handlebars',
+      'directory': 'hbs/layouts/',
+      'partials':  'hbs/partials/',
       'default':   'default.hbs',
-      helpers: {
+      'helpers': {
         moment:     hbsHelperMoment,
         uriencode:  hbsUriEncode,
       },
-      preventIndent: true,
+      'preventIndent': true,
     }))
 
     // Transform final HTML
@@ -543,10 +538,6 @@ gulp.task('sync', () => {
     server: {
       baseDir: './public',
     },
-  });
-
-  browserSync.use(htmlInjector, {
-    files: './public/**/*.html',
   });
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
