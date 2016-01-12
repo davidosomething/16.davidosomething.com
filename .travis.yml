@@ -2,6 +2,7 @@ sudo: false
 language: node_js
 cache:
   directories:
+  - $(npm config get prefix)
   - assets/jspm
   - node_modules
 addons:
@@ -33,5 +34,5 @@ script:
 - gulp lint:js
 - gulp
 after_success:
-- npm run deploy
+- if [ "$TRAVIS_BRANCH" = "master" ]; then npm run deploy; fi
 - wait
