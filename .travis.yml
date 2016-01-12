@@ -16,7 +16,7 @@ env:
   global:
   - CXX="g++-4.8"
   - GITHUB_PAGES_REPO="git@github.com:davidosomething/davidosomething.github.io.git"
-  - GITHUB_PAGES_COMMIT_MESSAGE="Deploy build #${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/16.davidosomething.com/commit/${TRAVIS_COMMIT}"
+  - GITHUB_PAGES_COMMIT_MESSAGE="Build ${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/16.davidosomething.com/commit/${TRAVIS_COMMIT}"
   - secure: foSclTYU3qgST+Oot0QgnI8cTOvbGLCjcDubP9bN1Nts5VB9PAk/YFq817prmkpSlfvDUkCT5uf8pOvboN3Ufa9ZRhKW8CcqXlaUpgrAhvbDp/OO3WgFxWZVPBPtNZveaJcrYoiMtOSdpizo6X43EGgp+pao3qK0fTYekM+nluLg2o3T9einDCKSbf9+sp0rb8TwKmy6WQNtK3PMtDrwJufCPiwTg8ZlkZ7SfRkd1LqV6+OWUDr++AOCFk4xf2v7dknFykzYj4fZAUi+c/ifz+38tPEwCLUNRtA81hH0hOc1xwk/zYxQ0lSEdvKAehnP2fEkhZYFrl/e3h8QsI7y0NnO3Yq3S7cW6sLwWLsz9ugW6M6tlpARVsn708yInpU/zFlq8zDMMFDQ8lpcBdElIcC4mkxrSIulbWBZVINuVgVXjVLXkUxMRi5HOeHOcAZWggzxmAsVqQenc6yn2Ewo5I8DyftipVtfs0gghz64czyC58bXv3iUzfJb879mtDGGJlbuHpTNt8BhOx205KKDWNVv3cieDJD2nyEBLpO5b4lrQui5p6+oZ2AdUyBzbYnBr1/pudFOxLAmnEjdeJEilgkspNGvOLBGPlRAcfdKFOn/D9URqBdG+rc1xOp9cJ2ZMFlPo2Iy9PoyTtMC1Fm0JO1dmkD9PFNIdo9xAQ62SPc=
 branches:
   only:
@@ -38,6 +38,8 @@ script:
 after_success:
 - |
   if [ "$TRAVIS_BRANCH" = "master" ]; then
+    echo $GITHUB_PAGES_COMMIT_MESSAGE
+
     npm run travis-deploy-surge &
 
     openssl aes-256-cbc -K $encrypted_157bbe5ff2f8_key -iv $encrypted_157bbe5ff2f8_iv -in lib/id_rsa.enc -out ~/.ssh/id_rsa -d
@@ -47,7 +49,6 @@ after_success:
     npm run travis-deploy-github
 
     wait
-    echo $GITHUB_PAGES_COMMIT_MESSAGE
   fi
 notifications:
   email:
