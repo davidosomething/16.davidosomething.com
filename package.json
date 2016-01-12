@@ -27,7 +27,7 @@
   },
   "scripts": {
     "bundle": "jspm bundle-sfx assets/js/global public/assets/js/global.js",
-    "deploy": "npm run deploy-surge & npm run deploy-github",
+    "deploy": "if [ \"$TRAVIS_BRANCH\" == \"master\" ]; then npm run deploy-surge & npm run deploy-github; fi",
     "deploy-surge": "surge ./public",
     "deploy-github": "gh-pages -d ./public -r https://$GITHUB_TOKEN@github.com/davidosomething/davidosomething.github.io.git -b master"
   },

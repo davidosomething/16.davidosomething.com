@@ -33,4 +33,5 @@ script:
 - gulp lint:js
 - gulp
 after_success:
-- [ "$TRAVIS_BRANCH" == "master" ] && npm run deploy && wait
+- npm run deploy
+- wait
