@@ -13,7 +13,7 @@ tags:
 
 ### Updates
 
-- Jan 11, 2016 [diff](https://github.com/davidosomething/16.davidosomething.com/commit/0eb309472728f5855823d4d1b35bf4e52e524d7b)
+- Jan 11, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/0eb309472728f5855823d4d1b35bf4e52e524d7b))
     > Update omni-completion with basic info on how `omnifunc` works and
     > added [1995eaton/vim-better-javascript-completion].
 
