@@ -30,7 +30,7 @@
     "travis-deploy-surge": "surge ./public",
     "travis-jspm-config": "jspm config registries.github.auth ${JSPM_GITHUB_AUTH_TOKEN}",
     "travis-jspm-install": "jspm install",
-    "travis-deploy-github": "gh-pages -d ./public -r https://github.com/davidosomething/davidosomething.github.io.git -b master"
+    "travis-deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master"
   },
   "eslintConfig": {
     "env": {
