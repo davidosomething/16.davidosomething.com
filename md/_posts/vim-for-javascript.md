@@ -216,7 +216,7 @@ up-to-date JavaScript with HTML5 methods (e.g. `localStorage` and `canvas`
 methods).
 
 This plugin creates a new omni-completion function, `js#CompleteJS`, and
-replaces your current JS omnifunc with that. That means you'll have to use
+replaces your current JS `omnifunc` with that. That means you'll have to use
 a completion plugin or write some VimL yourself if you want to use it in
 conjunction with another `omnifunc` like TernJS in the next section.
 
