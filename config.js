@@ -19,7 +19,6 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "highlight.js": "npm:highlight.js@8.9.1",
     "jquery": "github:components/jquery@2.1.4",
-    "normalize-scss": "npm:normalize-scss@4.0.3",
     "normalize.css": "github:necolas/normalize.css@3.0.3",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -66,18 +65,11 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:normalize-scss@4.0.3": {
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "support-for": "npm:support-for@1.0.3"
-    },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
-    },
-    "npm:support-for@1.0.3": {
-      "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",

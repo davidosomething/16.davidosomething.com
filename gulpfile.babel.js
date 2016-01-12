@@ -173,7 +173,7 @@ gulp.task('css', () => {
     .pipe(sassdoc(SASSDOC_OPTIONS)) // sassdoc() while stream is still SCSS
     .pipe(sourcemaps.init())
     .pipe(concat('global.css'))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ includePaths: `${dirs.css.source}/` }).on('error', sass.logError))
     .pipe(cssnano(CSSNANO_OPTIONS))
     .pipe(sourcemaps.write('./', { sourceRoot: '/sources/css/' }))
     .pipe(gulp.dest(`${dirs.css.dist}/`))
