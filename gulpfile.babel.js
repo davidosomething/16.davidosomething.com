@@ -145,7 +145,10 @@ gulp.task('clean', () => {
 
 gulp.task('lint:css', () => {
 
-  return gulp.src([ `${dirs.css.source}/**/*.scss`, `!${dirs.css.source}/vendor/**/*.scss` ])
+  return gulp.src([
+    `${dirs.css.source}/**/*.scss`,
+    `!${dirs.css.source}/vendor/**/*.scss`,
+  ])
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
@@ -188,7 +191,7 @@ gulp.task('css', () => {
   return gulp.src([
     `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`,
     `${dirs.css.source}/global.scss`,
-  ])
+  ], { base: `${dirs.assets}` })
     .pipe(sourcemaps.init())
     .pipe(concat('global.css'))
     .pipe(sass(SASS_OPTIONS).on('error', onSassError))
