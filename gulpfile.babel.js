@@ -546,10 +546,10 @@ gulp.task('html', (cb) => {
 });
 
 // -----------------------------------------------------------------------------
-// Task: Watch and Sync
+// Task: Watch and Sync, or just serve
 // -----------------------------------------------------------------------------
 
-gulp.task('sync', () => {
+gulp.task('serve', () => {
 
   browserSync.init({
     open: false,
@@ -557,6 +557,11 @@ gulp.task('sync', () => {
       baseDir: './public',
     },
   });
+
+});
+
+
+gulp.task('sync', [ 'serve' ], () => {
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
   gulp.watch(`${dirs.markdown.source}/**/*.md`, [ 'html' ]);
