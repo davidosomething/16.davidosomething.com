@@ -144,14 +144,16 @@ gulp.task('clean', () => {
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:css', () => {
+
   return gulp.src([ `${dirs.css.source}/**/*.scss`, `!${dirs.css.source}/vendor/**/*.scss` ])
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
+
 });
 
 
-gulp.task('css', () => {
+gulp.task('css:doc', [ 'static' ], () => {
 
   const SASSDOC_OPTIONS = {
     dest:             `${dirs.dist}/docs/sassdoc`,
@@ -159,6 +161,23 @@ gulp.task('css', () => {
     shortcutIcon:     `${dirs.dist}/favicon.ico`,
     googleAnalytics:  siteData.gaId,
     descriptionPath:  './README.md',
+  };
+
+  return gulp.src([ `${dirs.css.source}/global.scss` ])
+    .pipe(sassdoc(SASSDOC_OPTIONS));
+
+});
+
+
+gulp.task('css', () => {
+
+  const SASS_OPTIONS = {
+    includePaths: `${dirs.css.source}/`,
+  };
+
+  const onSassError = (error) => {
+    sass.logError(error);
+    process.exit(1);
   };
 
   const CSSNANO_OPTIONS = {
@@ -170,10 +189,9 @@ gulp.task('css', () => {
     `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`,
     `${dirs.css.source}/global.scss`,
   ])
-    .pipe(sassdoc(SASSDOC_OPTIONS)) // sassdoc() while stream is still SCSS
     .pipe(sourcemaps.init())
     .pipe(concat('global.css'))
-    .pipe(sass({ includePaths: `${dirs.css.source}/` }).on('error', sass.logError))
+    .pipe(sass(SASS_OPTIONS).on('error', onSassError))
     .pipe(cssnano(CSSNANO_OPTIONS))
     .pipe(sourcemaps.write('./', { sourceRoot: '/sources/css/' }))
     .pipe(gulp.dest(`${dirs.css.dist}/`))
@@ -550,5 +568,12 @@ gulp.task('sync', () => {
 // Task: Default
 // -----------------------------------------------------------------------------
 
-gulp.task('default', [ 'js', 'css', 'assets', 'html', 'static' ]);
+gulp.task('default', [
+  'static',
+  'js',
+  'css',
+  'assets',
+  'html',
+  'css:doc',
+]);
 
