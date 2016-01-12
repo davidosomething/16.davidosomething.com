@@ -236,7 +236,6 @@
       "packages": "assets/jspm"
     },
     "dependencies": {
-      "jquery": "github:components/jquery@^2.1.4",
       "normalize.css": "github:necolas/normalize.css@^3.0.3"
     },
     "devDependencies": {
