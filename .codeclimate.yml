@@ -22,8 +22,11 @@ ratings:
   - "**.module"
 exclude_paths:
 - 'bin/**/*'
-- 'md/**/*'
 - 'assets/fonts/**/*'
 - 'assets/img/**/*'
 - 'assets/jspm/**/*'
+- 'assets/scss/vendor/**/*'
+- 'hbs/**/*.hbs'
+- 'static/**/*'
+- '**/*.md'
 - 'config.js'
