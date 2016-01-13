@@ -18,13 +18,13 @@ branches:
 before_install:
 - git config --global user.name "TravisCI"
 - git config --global user.email "travis@travis-ci.org"
-- npm install -g npm@latest
+- npm install --no-progress --global npm@latest
 install:
-- npm install --production
-- npm run travis-jspm-config
-- npm run travis-jspm-install
+- npm install --no-progress --production
+- npm run ci-jspm-config
+- npm run ci-jspm-install
 before_script:
-- npm install -g gulp
+- npm install --no-progress --global gulp
 script:
 - gulp lint
 - gulp

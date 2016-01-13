@@ -11,27 +11,32 @@
 
 ## Stack
 
-Requires node >= 4.2.0 for ES6 (I recommend using
-[nvm](https://github.com/creationix/nvm), for which `nvm use` will
-read `.nvmrc` and use the version of node specified there. The package
-[avn](https://github.com/wbyoung/avn) can auto-switch upon entering directory if
-installed).
+Requires node >= 4.2.0 for ES6 (I recommend using [nvm], for which `nvm use`
+will read `.nvmrc` and use the version of node specified there. The package
+[avn] can auto-switch upon entering directory if installed).
 
 NOTE: g++ version 4.8 or higher is required for node-gyp compilation on node 4.
 This particularly applies to the Travis-CI deployment.
 
 ## Build
 
+Install dependencies:
+
 ```bash
-npm i
-npm i -g gulp jspm
+npm install --global gulp jspm
+npm install
 jspm install
-gulp
 ```
+
+And run `gulp` to build.
+
+Note that `jspm` is installed globally for local dev, whereas the CI-deployment
+scripts all use `npm run` so the `jspm` bin is provided by the local node
+module.
 
 ## Deploy
 
-There are scripts configured in `package.json` to deploy via Travis CI.  
+There are scripts configured in `package.json` to deploy via CI.  
 Output is generated to `public/` and, if running on `master` from Travis,
 deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
 
@@ -62,14 +67,16 @@ deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
 
 
 [davidosomething.com]: https://davidosomething.com
-[screenshot]:    https://raw.githubusercontent.com/davidosomething/16.davidosomething.com/dev/meta/screenshot.jpg
 [davidBadge]:    https://david-dm.org/davidosomething/16.davidosomething.com.png?theme=shields.io
 [davidLink]:     https://david-dm.org/davidosomething/16.davidosomething.com#info=dependencies
 [davidDevBadge]: https://david-dm.org/davidosomething/16.davidosomething.com/dev-status.png?theme=shields.io
 [davidDevLink]:  https://david-dm.org/davidosomething/16.davidosomething.com#info=devDependencies
 [upstreamBadge]: https://img.shields.io/badge/upstream-GitHub-lightgrey.svg
 [upstreamLink]:  https://github.com/davidosomething/16.davidosomething.com
-[travisLink]: https://travis-ci.org/davidosomething/16.davidosomething.com
 [travisDevBadge]: https://travis-ci.org/davidosomething/16.davidosomething.com.svg?branch=dev
+[travisLink]: https://travis-ci.org/davidosomething/16.davidosomething.com
+[screenshot]:    https://raw.githubusercontent.com/davidosomething/16.davidosomething.com/dev/meta/screenshot.jpg
+[nvm]: https://github.com/creationix/nvm
+[avn]: https://github.com/wbyoung/avn
 [GitHub Pages repo]: https://github.com/davidosomething/davidosomething.github.io
 
