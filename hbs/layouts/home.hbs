@@ -7,7 +7,7 @@
 	<header class="pageHeader">
 		<h1 class="pageHeader__title" itemprop="name">Latest Posts</h1>
 	</header>
-	{{#each collections.latestPosts}}
+	{{#each collections.homePosts}}
 		<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
 			<header class="article__header">
 				<h2 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h2>
