@@ -11,6 +11,8 @@ engines:
     enabled: true
   phpmd:
     enabled: false
+  scss-lint:
+    enabled: true
 ratings:
   paths:
   - "**.js"
