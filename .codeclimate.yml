@@ -5,6 +5,8 @@ engines:
     config:
       languages:
       - javascript
+    exclude_fingerprints:
+    - f1a0faef7683a713d0a8f63bc6c4b123
   eslint:
     enabled: true
   fixme:
@@ -12,10 +14,16 @@ engines:
   phpmd:
     enabled: false
   scss-lint:
-    enabled: true
+    enabled: false
 ratings:
   paths:
   - "**.js"
   - "**.jsx"
   - "**.module"
-exclude_paths: [ 'bin/', 'assets/fonts/', 'assets/img/', 'assets/jspm/' ]
+exclude_paths:
+- 'bin/**/*'
+- 'md/**/*'
+- 'assets/fonts/**/*'
+- 'assets/img/**/*'
+- 'assets/jspm/**/*'
+- 'config.js'
