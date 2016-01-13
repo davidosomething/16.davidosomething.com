@@ -6,7 +6,12 @@
 /// @author David O'Trakoun <me@davidosomething.com>
 ////
 
-@import 'vendor/higlightjs.scss';
+@import 'normalize/_import-now.scss';
+
+/*! ./vendor/highlightjs.scss */
+@import './vendor/higlightjs.scss';
+
+/*! global.scss */
 
 // =============================================================================
 // Config
@@ -16,6 +21,7 @@
 // Colors
 // -----------------------------------------------------------------------------
 
+/// @group colors
 $colors: (
   primary-bg:            #fafaf4,
   primary-text:          #3f3a30,
@@ -41,6 +47,7 @@ $colors: (
 // Media Queries
 // -----------------------------------------------------------------------------
 
+/// @group media
 $breakpoints: (
   small:   480px,
   medium:  640px,
@@ -50,6 +57,9 @@ $breakpoints: (
   xxlarge: 1650px,
 );
 
+/// Media-query mixin
+///
+/// @group media
 /// @content Rules to apply when within media-query parameters
 /// @param {null|string} $min [null] - min-width
 /// @param {null|string} $max [null] - max-width
@@ -69,7 +79,8 @@ $breakpoints: (
   @media #{$mq} { @content; }
 }
 
-// Hide below large, flexbox compatible
+/// Hide below large, flexbox compatible
+/// @group media
 .mq--large {
   @include mq(null, 'large') {
     body & {
@@ -86,21 +97,61 @@ $breakpoints: (
 // Typography
 // -----------------------------------------------------------------------------
 
+/// Width of header before wrapping
+/// @group typography
+/// @type FontSize
 $readable-header-width: 48rem;
+
+/// Width of body content before wrapping
+/// @group typography
+/// @type FontSize
 $readable-body-width: 40em;
 
+//
 // Font - Typeface
+//
+
+/// Typeface for heading
+/// @group typography
+/// @type FontFamily
 $typeface__heading:        'Source Sans Pro';
+
+/// Typeface for body
+/// @group typography
+/// @type FontFamily
 $typeface__body:           $typeface__heading;
+
+/// Typeface for body when custom font not available
+/// @group typography
+/// @type FontFamily
 $typeface__body--fallback: sans-serif;
 
+//
 // Font - Weights
+//
+
+/// Font weight for body copy
+/// @group typography
+/// @type FontWeight
 $fw__body:    300;
+
+/// Font weight for strong body copy
+/// @group typography
+/// @type FontWeight
 $fw__strong:  600;
+
+/// Font weight for bold body copy
+/// @group typography
+/// @type FontWeight
 $fw__bold:    700;
+
+/// Font weight for headings
+/// @group typography
+/// @type FontWeight
 $fw__heading: 900;
 
-// Font - Sizes
+/// Font - Sizes
+/// @group typography
 $fontsizes: (
   default: (
     h1: 1.5em,
@@ -151,7 +202,11 @@ $fontsizes: (
   )
 );
 
-@mixin bpfs($breakpoint, $size) {
+/// Helper for fs() mixin to get a fontsize for a particular breakpoint
+///
+/// @access private
+/// @group typography
+@mixin _bpfs($breakpoint, $size) {
   $fontsizes-for-breakpoint: map-get($fontsizes, $breakpoint);
   @if $fontsizes-for-breakpoint {
     $fontsize: map-get($fontsizes-for-breakpoint, $size);
@@ -159,14 +214,18 @@ $fontsizes: (
   }
 }
 
+/// Named-breakpoint font-size mixin
+///
+/// @group typography
+/// @param {string} $el target element in breakpoint to get sizes for
 @mixin fs($el) {
-  @include bpfs('default', $el);
-  @include mq('small') { @include bpfs('small', $el); }
-  @include mq('medium') { @include bpfs('medium', $el); }
-  @include mq('middle') { @include bpfs('middle', $el); }
-  @include mq('large') { @include bpfs('large', $el); }
-  @include mq('xlarge') { @include bpfs('xlarge', $el); }
-  @include mq('xxlarge') { @include bpfs('xxlarge', $el); }
+  @include _bpfs('default', $el);
+  @include mq('small') {    @include _bpfs('small', $el); }
+  @include mq('medium') {   @include _bpfs('medium', $el); }
+  @include mq('middle') {   @include _bpfs('middle', $el); }
+  @include mq('large') {    @include _bpfs('large', $el); }
+  @include mq('xlarge') {   @include _bpfs('xlarge', $el); }
+  @include mq('xxlarge') {  @include _bpfs('xxlarge', $el); }
 }
 
 
@@ -174,6 +233,7 @@ $fontsizes: (
 // Z-Indices
 // -----------------------------------------------------------------------------
 
+/// @group zindex
 $z: (
   siteHeader: 1,
 );
@@ -212,6 +272,7 @@ body {
 // Icon before element
 // -----------------------------------------------------------------------------
 
+/// @group icons
 @mixin icon-before {
   position: relative;
 
@@ -223,6 +284,7 @@ body {
   }
 }
 
+/// @group icons
 @mixin link-icon-before {
   @include icon-before;
 

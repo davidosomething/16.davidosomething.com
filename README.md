@@ -31,15 +31,16 @@ gulp
 
 ## Deploy
 
-There are scripts configured in package.json to deploy via Travis CI
-
-Output is generated in `public/`
+There are scripts configured in `package.json` to deploy via Travis CI.  
+Output is generated to `public/` and, if running on `master` from Travis,
+deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
 
 ## TODO
 
 - CSS
-    - [ ] missing sassdoc annotations
+    - [ ] lint status to code climate
 - JS
+    - [ ] codecoverage to codecov.io
     - [ ] jsdoc generation (use esdoc?)
     - [ ] can further refactor share link popups
     - [ ] react view for each article and widget
@@ -62,3 +63,5 @@ Output is generated in `public/`
 [upstreamLink]:  https://github.com/davidosomething/16.davidosomething.com
 [travisLink]: https://travis-ci.org/davidosomething/16.davidosomething.com
 [travisDevBadge]: https://travis-ci.org/davidosomething/16.davidosomething.com.svg?branch=dev
+[GitHub Pages repo]: https://github.com/davidosomething/davidosomething.github.io
+

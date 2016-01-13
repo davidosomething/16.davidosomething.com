@@ -18,7 +18,6 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "highlight.js": "npm:highlight.js@8.9.1",
-    "normalize.css": "github:necolas/normalize.css@3.0.3",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -33,9 +32,6 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
-    },
-    "github:necolas/normalize.css@3.0.3": {
-      "css": "github:systemjs/plugin-css@0.1.20"
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"

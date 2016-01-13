@@ -33,6 +33,7 @@ before_script:
 script:
 - gulp lint
 - gulp
+- gulp docs
 after_success:
 - |
   if [ "$TRAVIS_BRANCH" = "master" ]; then

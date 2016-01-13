@@ -42,7 +42,6 @@ const del          = require('del');
 // -----------------------------------------------------------------------------
 
 const gulp       = require('gulp');
-const concat     = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
 // -----------------------------------------------------------------------------
@@ -65,6 +64,7 @@ const pngquant = require('imagemin-pngquant');
 const sassLint     = require('gulp-sass-lint');
 const sassdoc      = require('sassdoc');
 const sass         = require('gulp-sass');
+const Eyeglass     = require('eyeglass').Eyeglass;
 const cssnano      = require('gulp-cssnano');
 
 // -----------------------------------------------------------------------------
@@ -101,11 +101,9 @@ const metalsmithWidow          = require('metalsmith-widow');
 const hbsHelperMoment = require('./hbs/helpers/moment.js');
 const hbsUriEncode    = require('./hbs/helpers/uriencode.js');
 
-
 // =============================================================================
 // Tasks
 // =============================================================================
-
 
 // -----------------------------------------------------------------------------
 // Task: Clean
@@ -116,7 +114,6 @@ gulp.task('clean:css', () => {
     `${dirs.css.dist}/**/*`,
   ]);
 });
-
 
 gulp.task('clean:js', () => {
   return del([
@@ -131,13 +128,17 @@ gulp.task('clean:assets', () => {
   ]);
 });
 
+gulp.task('clean:docs', () => {
+  return del([
+    `${dirs.docs}/**/*`,
+  ]);
+});
 
 gulp.task('clean', () => {
   return del([
     `${dirs.dist}/**/*`,
   ]);
 });
-
 
 // -----------------------------------------------------------------------------
 // Task: CSS
@@ -156,7 +157,7 @@ gulp.task('lint:css', () => {
 });
 
 
-gulp.task('css:doc', [ 'static' ], () => {
+gulp.task('docs:css', [ 'static' ], () => {
 
   const SASSDOC_OPTIONS = {
     dest:             `${dirs.dist}/docs/sassdoc`,
@@ -178,6 +179,8 @@ gulp.task('css', () => {
     includePaths: `${dirs.css.source}/`,
   };
 
+  const eyeglass = new Eyeglass(SASS_OPTIONS);
+
   const onSassError = (error) => {
     sass.logError(error);
     process.exit(1);
@@ -188,13 +191,9 @@ gulp.task('css', () => {
     autoprefixer: { browsers: [ 'last 2 versions' ] },
   };
 
-  return gulp.src([
-    `${dirs.jspm}/github/necolas/normalize.css@3.0.3/normalize.css`,
-    `${dirs.css.source}/global.scss`,
-  ], { base: `${dirs.assets}` })
+  return gulp.src(`${dirs.css.source}/*.scss`)
     .pipe(sourcemaps.init())
-    .pipe(concat('global.css'))
-    .pipe(sass(SASS_OPTIONS).on('error', onSassError))
+    .pipe(sass(eyeglass.sassOptions()).on('error', onSassError))
     .pipe(cssnano(CSSNANO_OPTIONS))
     .pipe(sourcemaps.write('./', { sourceRoot: '/sources/css/' }))
     .pipe(gulp.dest(`${dirs.css.dist}/`))
@@ -212,6 +211,12 @@ gulp.task('lint:js', () => {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
+
+});
+
+gulp.task('docs:js', (cb) => {
+
+  return cb();
 
 });
 
@@ -251,7 +256,6 @@ gulp.task('assets', () => {
 
 });
 
-
 // -----------------------------------------------------------------------------
 // Task: Static
 // -----------------------------------------------------------------------------
@@ -262,7 +266,6 @@ gulp.task('static', () => {
     .pipe(gulp.dest(`${dirs.dist}/`));
 
 });
-
 
 // -----------------------------------------------------------------------------
 // Task: HTML
@@ -548,7 +551,6 @@ gulp.task('html', (cb) => {
 
 });
 
-
 // -----------------------------------------------------------------------------
 // Task: Watch and Sync, or just serve
 // -----------------------------------------------------------------------------
@@ -573,7 +575,6 @@ gulp.task('sync', [ 'serve' ], () => {
 
 });
 
-
 // -----------------------------------------------------------------------------
 // Task: Lint multitask
 // -----------------------------------------------------------------------------
@@ -584,6 +585,14 @@ gulp.task('lint', [
   'lint:md',
 ]);
 
+// -----------------------------------------------------------------------------
+// Task: Docs multitask
+// -----------------------------------------------------------------------------
+
+gulp.task('docs', [
+  'docs:css',
+  'docs:js',
+]);
 
 // -----------------------------------------------------------------------------
 // Task: Default
@@ -595,6 +604,5 @@ gulp.task('default', [
   'css',
   'assets',
   'html',
-  'css:doc',
 ]);
 
