@@ -61,10 +61,7 @@ rules:
       max-depth: 2
   border-zero: 1
   brace-style: 1
-  clean-import-paths:
-    - 1
-    -
-      filename-extension: true
+  clean-import-paths: 0
   empty-args: 1
   hex-length: 1
   hex-notation: 1
