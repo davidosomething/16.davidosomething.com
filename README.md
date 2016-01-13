@@ -12,8 +12,8 @@
 ## Stack
 
 Requires node >= 4.2.0 for ES6 (I recommend using [nvm], for which `nvm use`
-will read `.nvmrc` and use the version of node specified there. The package
-[avn] can auto-switch upon entering directory if installed).
+(or `nvm install`) will read `.nvmrc` and use the version of node specified
+there. The package [avn] can auto-switch upon entering directory if installed).
 
 NOTE: g++ version 4.8 or higher is required for node-gyp compilation on node 4.
 This particularly applies to the Travis-CI deployment.
