@@ -2,10 +2,6 @@ sudo: false
 language: node_js
 node_js:
 - "4.2.3"
-cache:
-  directories:
-  - assets/jspm
-  - node_modules
 addons:
   apt:
     sources:
@@ -34,6 +30,10 @@ script:
 - gulp lint
 - gulp
 - gulp docs
+cache:
+  directories:
+  - assets/jspm
+  - node_modules
 after_success:
 - |
   if [ "$TRAVIS_BRANCH" = "master" ]; then
