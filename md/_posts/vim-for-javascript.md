@@ -79,7 +79,7 @@ There are quite a few options:
       of `othree/yajs.vim`.
 
 **All of these provide ES2015 (ES6) and JSDoc support to varying degrees**,
-which Vim lacks be default. I personally use and recommend [othree/yajs.vim]
+which Vim lacks by default. I personally use and recommend [othree/yajs.vim]
 since it has most up-to-date language support. The author also writes a few
 other plugins that can be used in conjunction with it (although they may work
 with the other syntaxes too).
