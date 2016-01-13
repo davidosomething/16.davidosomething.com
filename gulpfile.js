@@ -10,7 +10,7 @@
 
 'use strict';
 
-import dirs from './lib/dirs.js';
+const dirs = require('./lib/dirs.js');
 
 // =============================================================================
 // Global requires
