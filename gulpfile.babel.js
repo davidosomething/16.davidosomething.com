@@ -23,6 +23,8 @@ import siteData     from './lib/site.js';
 // Requires
 // =============================================================================
 
+const optional = require('optional');
+
 // -----------------------------------------------------------------------------
 // Node
 // -----------------------------------------------------------------------------
@@ -48,14 +50,14 @@ const sourcemaps = require('gulp-sourcemaps');
 // Require: BrowserSync
 // -----------------------------------------------------------------------------
 
-const browserSync = require('browser-sync').create();
+const BrowserSync = optional('browser-sync');
 
 // -----------------------------------------------------------------------------
 // Require: Images
 // -----------------------------------------------------------------------------
 
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
+const imagemin = optional('gulp-imagemin');
+const pngquant = optional('imagemin-pngquant');
 
 // -----------------------------------------------------------------------------
 // Require: CSS
@@ -104,6 +106,8 @@ const hbsUriEncode    = require('./hbs/helpers/uriencode.js');
 // =============================================================================
 // Tasks
 // =============================================================================
+
+const browserSync = BrowserSync ? BrowserSync.create() : null;
 
 // -----------------------------------------------------------------------------
 // Task: Clean
@@ -199,13 +203,18 @@ gulp.task('css', () => {
     autoprefixer: { browsers: [ 'last 2 versions' ] },
   };
 
-  return gulp.src(`${dirs.css.source}/*.scss`)
+  let stream = gulp.src(`${dirs.css.source}/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass(eyeglass.sassOptions()).on('error', onSassError))
     .pipe(cssnano(CSSNANO_OPTIONS))
     .pipe(sourcemaps.write('./', { sourceRoot: '/sources/css/' }))
-    .pipe(gulp.dest(`${dirs.css.dist}/`))
-    .pipe(browserSync.stream({ match: '**/*.css' }));
+    .pipe(gulp.dest(`${dirs.css.dist}/`));
+
+  if (BrowserSync) {
+    stream.pipe(browserSync.stream({ match: '**/*.css' }));
+  }
+
+  return stream;
 
 });
 
