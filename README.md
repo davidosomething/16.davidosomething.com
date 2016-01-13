@@ -37,6 +37,14 @@ deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
 
 ## TODO
 
+- Deployment workflow:
+    - [x] Push branch to GH
+    - [x] Validation services use GH status API to validate
+    - [ ] Open PR with branch, validation services validate
+    - [ ] Travis builds PR, marks using GH status API
+    - [ ] Merge PR into master, Travis builds, webhook to DeployBot
+    - [ ] DeployBot builds and deploys, reports to GH Deployments API
+
 - CSS
     - [ ] lint status to code climate
 - JS
