@@ -1,6 +1,4 @@
 /**
- * gulpfile.babel.js
- *
  * Build tasks for davidosomething.com
  *
  * @author David O'Trakoun <me@davidosomething.com>
@@ -34,19 +32,19 @@ const browserSync = BrowserSync ? BrowserSync.create() : null;
 // Task: CSS
 // -----------------------------------------------------------------------------
 
-gulp.task('clean:css', require('./lib/gulp/clean.js').css);
-gulp.task('lint:css', require('./lib/gulp/lint-css.js'));
+gulp.task('clean:css',              require('./lib/gulp/clean.js').css);
+gulp.task('lint:css',               require('./lib/gulp/lint-css.js'));
 gulp.task('docs:css', [ 'static' ], require('./lib/gulp/docs-css.js'));
-gulp.task('css', require('./lib/gulp/build-css.js')(browserSync));
+gulp.task('css',                    require('./lib/gulp/build-css.js')(browserSync));
 
 // -----------------------------------------------------------------------------
 // Task: JS
 // -----------------------------------------------------------------------------
 
 gulp.task('clean:js', require('./lib/gulp/clean.js').js);
-gulp.task('lint:js', require('./lib/gulp/lint-js.js'));
-gulp.task('docs:js', require('./lib/gulp/docs-js.js'));
-gulp.task('js', require('./lib/gulp/build-js.js'));
+gulp.task('lint:js',  require('./lib/gulp/lint-js.js'));
+gulp.task('docs:js',  require('./lib/gulp/docs-js.js'));
+gulp.task('js',       require('./lib/gulp/build-js.js'));
 
 // -----------------------------------------------------------------------------
 // Task: Assets
@@ -110,8 +108,10 @@ gulp.task('serve', () => {
 gulp.task('sync', [ 'serve' ], () => {
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
-  gulp.watch(`${dirs.markdown.source}/**/*.md`, [ 'html' ]);
-  gulp.watch(`${dirs.templates.source}/**/*.hbs`, [ 'html' ]);
+  gulp.watch([
+    `${dirs.markdown.source}/**/*.md`,
+    `${dirs.templates.source}/**/*.hbs`,
+  ], [ 'html' ]);
 
 });
 
