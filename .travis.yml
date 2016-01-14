@@ -23,12 +23,10 @@ install:
 - npm install --no-progress --production
 - npm run ci-jspm-config
 - npm run ci-jspm-install
-before_script:
-- npm install --no-progress --global gulp
 script:
-- gulp lint
-- gulp
-- gulp docs
+- npm run ci-gulp-lint
+- npm run ci-gulp-build
+- npm run ci-gulp-docs
 cache:
   directories:
   - assets/jspm

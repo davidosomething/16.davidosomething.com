@@ -27,6 +27,9 @@
   },
   "scripts": {
     "bundle": "jspm bundle-sfx assets/js/global public/assets/js/global.js",
+    "ci-gulp-build": "gulp",
+    "ci-gulp-docs": "gulp docs",
+    "ci-gulp-lint": "gulp lint",
     "ci-jspm-config": "jspm config registries.github.auth ${JSPM_GITHUB_AUTH_TOKEN}",
     "ci-jspm-install": "jspm install",
     "deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master",

@@ -30,31 +30,31 @@ jspm install
 
 And run `gulp` to build.
 
-Note that `jspm` is installed globally for local dev, whereas the CI-deployment
-scripts all use `npm run` so the `jspm` bin is provided by the local node
-module.
+Note that `gulp` and `jspm` are only installed globally when using for local
+dev, whereas the CI-deployment uses `npm run` so the binaries in
+`node_modules/.bin/` are in the path. You could technically use
+`npm run ci-gulp-build` if you don't want to install gulp globally.
 
 ## Deploy
 
-There are scripts configured in `package.json` to deploy via CI.  
+There are npm scripts in `package.json` to build via CI.
+
 Output is generated to `public/` and, if running on `master` from Travis,
-deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
+the directory is deployed to [surge.sh] and the [GitHub Pages repo].
+
+Deployment from Travis CI is configured in `bin/travis-deploy.sh`.
 
 ## TODO
 
 - Deployment workflow:
-    - [x] Push branch to GH
-    - [x] Validation services use GH status API to validate
     - [ ] Open PR with branch, validation services validate
     - [ ] Travis builds PR, marks using GH status API
     - [ ] Merge PR into master, Travis builds, webhook to DeployBot
     - [ ] DeployBot builds and deploys, reports to GH Deployments API
-
 - CSS
     - [ ] lint status to code climate
 - JS
     - [ ] codecoverage to codecov.io
-    - [ ] jsdoc generation (use esdoc?)
     - [ ] can further refactor share link popups
     - [ ] react view for each article and widget
     - [ ] hot module reload
@@ -78,5 +78,6 @@ deployed to [surge.sh](https://surge.sh/) and my [GitHub Pages repo].
 [screenshot]:    https://raw.githubusercontent.com/davidosomething/16.davidosomething.com/dev/meta/screenshot.jpg
 [nvm]: https://github.com/creationix/nvm
 [avn]: https://github.com/wbyoung/avn
+[surge.sh]: https://surge.sh/
 [GitHub Pages repo]: https://github.com/davidosomething/davidosomething.github.io
 
