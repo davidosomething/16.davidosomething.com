@@ -25,7 +25,7 @@ install:
 - npm run --silent jspm install
 script:
 - npm run --silent gulp lint
-- npm run --silent gulp build
+- npm run --silent gulp
 - npm run --silent gulp docs
 cache:
   directories:
