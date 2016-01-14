@@ -130,6 +130,10 @@
       2,
       "always"
     ],
+    "object-shorthand": [
+      2,
+      "never"
+    ],
     "one-var": [
       2,
       "never"
