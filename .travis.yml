@@ -21,12 +21,12 @@ before_install:
 - npm install --no-progress --global npm@latest
 install:
 - npm install --no-progress --production
-- npm run ci-jspm-config
-- npm run ci-jspm-install
+- npm run --silent jspm config registries.github.auth ${JSPM_GITHUB_AUTH_TOKEN}
+- npm run --silent jspm install
 script:
-- npm run ci-gulp-lint
-- npm run ci-gulp-build
-- npm run ci-gulp-docs
+- npm run --silent gulp lint
+- npm run --silent gulp build
+- npm run --silent gulp docs
 cache:
   directories:
   - assets/jspm
