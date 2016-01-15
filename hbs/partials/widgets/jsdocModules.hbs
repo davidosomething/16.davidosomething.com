@@ -1,0 +1,11 @@
+{{! 10 latest posts widgets }}
+<aside class="widget widget--jsdocModules">
+	<header class="widget__header">
+		<h2 class="widget__title">Modules</h2>
+	</header>
+	<div class="widget__body">
+		<ol class="widget__postlist">
+			{{#each collections.jsdoc}}<li>{{> articleTile--titleOnly}}</li>{{/each}}
+		</ol>
+	</div>
+</aside>

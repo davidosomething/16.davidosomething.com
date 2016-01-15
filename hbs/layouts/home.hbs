@@ -11,7 +11,7 @@
 		<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
 			<header class="article__header">
 				<h2 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h2>
-				{{#if subheader}}<h2 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h2>{{/if}}
+				{{#if subheader}}<h3 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h3>{{/if}}
 				<div class="article__meta">
 					<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
 				</div>

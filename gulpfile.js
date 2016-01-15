@@ -133,7 +133,7 @@ gulp.task('clean:docs', require('./lib/gulp/clean.js').docs);
 
 gulp.task('docs', [
   'docs:css',
-  //'docs:js',
+  'docs:js',
 ]);
 
 // -----------------------------------------------------------------------------

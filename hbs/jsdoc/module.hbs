@@ -1,7 +1,3 @@
-{{!
-	@see https://github.com/jsdoc2md/dmd/tree/master/partials
-	@see https://github.com/jsdoc2md/dmd/tree/master/partials/all-docs/docs/body
-}}
 {{#orphans}}
 ---
 layout:     'jsdoc-module.hbs'
@@ -12,56 +8,35 @@ collection: 'jsdoc'
 type:       'jsdoc'
 private:    true           # sitemap plugin already adds root
 ---
-
-## DOCS
-
-{{> docs}}
-
-## HEADER
-
-{{> header}}
-
-### AUTHORS
-
-{{> authors}}
-
-## BODY
-
-{{> body}}
-
-## MEMBER-INDEX
-
-{{> member-index}}
-
-## SEPARATOR
-
-{{> separator}}
-
-## MEMBERS
-
-{{> members}}
-
 {{/orphans}}
 
-## (outside of orphans scope)
+{{> all-docs }}
 
-### GLOBAL INDEX
+{{!
+	@see https://github.com/jsdoc2md/dmd/tree/master/partials
+	@see https://github.com/jsdoc2md/dmd/tree/master/partials/all-docs/docs/body
+	{{#orphans
+		## DOCS {{> docs
 
-{{> global-index }}
+		## HEADER {{> header
 
-### MODULE INDEX
+		### AUTHORS {{> authors
 
-{{> module-index }}
+		## BODY {{> body
 
-### MAIN INDEX
+		## MEMBER-INDEX {{> member-index
 
-{{> main-index }}
+		## SEPARATOR {{> separator
 
-### MAIN
+		## MEMBERS {{> members
+	{{/orphans
 
-{{> main }}
+	## (outside of orphans scope)
+	### GLOBAL INDEX {{> global-index
 
-### ALL-DOCS
+	### MODULE INDEX {{> module-index
 
-{{> all-docs}}
+	### MAIN INDEX {{> main-index
 
+	### ALL-DOCS {{> all-docs
+}}

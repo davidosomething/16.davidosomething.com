@@ -1,6 +1,10 @@
 {{> head }}
 <body id="top" class="type--{{ type }} section--{{ section }} {{#if slug}}slug--{{slug}}{{/if}}">
-	{{> siteHeader }}
+	<header class="siteHeader">
+		<div class="siteHeader__title">
+			<a href="/" class="siteHeader__siteName">{{ site.title }}</a>{{#if title}}<span class="siteHeader__separator"> | </span><a href="#main" class="siteHeader__pageTitle">{{{ title }}}</a>{{/if}}
+		</div>
+	</header>
 	<div class="globalBody">
 		<header class="globalHeader">{{> bio }}</header>
 		<div class="globalContent">
