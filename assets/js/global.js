@@ -1,11 +1,12 @@
 /**
  * @author David O'Trakoun <me@davidosomething.com>
  * @module global
+ * @requires module:shareIntent
  */
 
-import { configs, shareIntent } from './shareIntent.js';
+import { configs, bindSharePopup } from './shareIntent.js';
 
-shareIntent(configs.facebook);
-shareIntent(configs.google);
-shareIntent(configs.twitter);
+bindSharePopup(configs.facebook);
+bindSharePopup(configs.google);
+bindSharePopup(configs.twitter);
 

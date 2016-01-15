@@ -1,15 +1,29 @@
 /**
  * Web intents for sharing
  * Adapted from twitter's code
- * @see {@link https://dev.twitter.com/web/intents#follow-intent}
  *
+ * @see {@link https://dev.twitter.com/web/intents#follow-intent}
  * @module shareIntent
  */
 
-const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
-
 /**
  * @constant
+ * @type {String}
+ */
+const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
+
+
+/**
+ * @typedef {Object} IntentProvider
+ * @property {RegExp} intentRegex matches an HREF
+ * @property {Number} width of pop-up window
+ * @property {Number} height of pop-up window
+ */
+
+/**
+ * Settings for each share pop-up provider
+ * @constant
+ * @type {Object.<String, IntentProvider>}
  */
 export const configs = {
   facebook: {
@@ -32,12 +46,9 @@ export const configs = {
 /**
  * shareIntent opens a popup window to share a ShareIntent
  *
- * @param {Object} config
- * @param {RegExp} config.intentRegex
- * @param {Number} config.height
- * @param {Number} config.width
+ * @param {IntentProvider} config
  */
-export function shareIntent(config) {
+export function bindPopup(config) {
   var winHeight = screen.height;
   var winWidth = screen.width;
 
