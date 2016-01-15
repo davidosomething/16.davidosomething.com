@@ -30,7 +30,8 @@
     "deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master",
     "deploy-surge": "surge ./public",
     "gulp": "gulp",
-    "jspm": "jspm"
+    "jspm": "jspm",
+    "test": "gulp lint"
   },
   "jspm": {
     "directories": {
