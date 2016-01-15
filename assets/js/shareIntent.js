@@ -48,7 +48,7 @@ export const configs = {
  *
  * @param {IntentProvider} config
  */
-export function bindPopup(config) {
+export function bindSharePopup(config) {
   var winHeight = screen.height;
   var winWidth = screen.width;
 
