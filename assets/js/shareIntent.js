@@ -2,10 +2,15 @@
  * Web intents for sharing
  * Adapted from twitter's code
  * @see {@link https://dev.twitter.com/web/intents#follow-intent}
+ *
+ * @module shareIntent
  */
 
 const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
 
+/**
+ * @constant
+ */
 export const configs = {
   facebook: {
     intentRegex: /facebook\.com\/dialog\/share\?(\w+)/,
@@ -24,6 +29,14 @@ export const configs = {
   },
 };
 
+/**
+ * shareIntent opens a popup window to share a ShareIntent
+ *
+ * @param {Object} config
+ * @param {RegExp} config.intentRegex
+ * @param {Number} config.height
+ * @param {Number} config.width
+ */
 export function shareIntent(config) {
   var winHeight = screen.height;
   var winWidth = screen.width;

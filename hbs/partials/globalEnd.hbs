@@ -2,6 +2,7 @@
 			{{> nav }}
 		</div>
 		<footer class="globalFooter">
+			{{#if pages}}<ul class="globalFooter__links">{{#each pages}}<li><a href="{{ permalink }}">{{ title }}</a></li>{{/each}}</ul>{{/if}}
 			<div>
 				<span class="globalFooter__copyright">
 					Copyright &copy; <a href="mailto:me@davidosomething.com" rel="me">David O'Trakoun</a>.

@@ -1,0 +1,19 @@
+{{!
+	JSDoc Home
+	Listing of posts with excerpts for home layout
+}}
+{{> globalStart }}
+<section>
+	<header class="pageHeader">
+		<h1 class="pageHeader__title">JavaScript Documentation</h1>
+	</header>
+	{{#each collections.jsdoc}}
+		<article class="article article--excerpt">
+			<header class="article__header">
+				<h2 class="article__title"><a class="article__header__link" href="/{{ path }}">{{{ title }}}</a></h2>
+				{{#if subheader}}<h2 class="article__subheader">{{{ subheader }}}</h2>{{/if}}
+			</header>
+		</article>
+	{{/each}}
+</section>
+{{> globalEnd }}

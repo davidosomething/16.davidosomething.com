@@ -1,0 +1,11 @@
+{{! offset all posts widgets }}
+<aside class="widget widget--homeMorePosts mq--large">
+	<header class="widget__header">
+		<h2 class="widget__title">More Posts</h2>
+	</header>
+	<div class="widget__body">
+		<ol class="widget__postlist">
+			{{#eachFrom collections.posts 5}}<li>{{> articleTile}}</li>{{/eachFrom}}
+		</ol>
+	</div>
+</aside>

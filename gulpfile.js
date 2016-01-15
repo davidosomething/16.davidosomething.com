@@ -109,8 +109,8 @@ gulp.task('sync', [ 'serve' ], () => {
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
   gulp.watch([
-    `${dirs.markdown.source}/**/*.md`,
-    `${dirs.templates.source}/**/*.hbs`,
+    `${dirs.markdown}/**/*.md`,
+    `${dirs.templates}/**/*.hbs`,
   ], [ 'html' ]);
 
 });
@@ -133,7 +133,7 @@ gulp.task('clean:docs', require('./lib/gulp/clean.js').docs);
 
 gulp.task('docs', [
   'docs:css',
-  'docs:js',
+  //'docs:js',
 ]);
 
 // -----------------------------------------------------------------------------

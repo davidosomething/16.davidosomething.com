@@ -4,6 +4,8 @@ node_modules/
 npm-debug.*
 
 # generated
+md/docs/jsdoc/*.md
+!md/docs/jsdoc/index.md
 public/
 
 # private

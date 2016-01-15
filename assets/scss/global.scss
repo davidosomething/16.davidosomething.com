@@ -733,10 +733,26 @@ body:not(.slug--home) .globalHeader {
   }
 }
 
+.globalFooter__links {
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 1em;
+  }
+}
+
 
 // =============================================================================
 // Global layout
 // =============================================================================
+
+.globalBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 
 .globalContent {
   clear: both;
