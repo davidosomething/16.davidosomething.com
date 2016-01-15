@@ -31,7 +31,8 @@
     "deploy-surge": "surge ./public",
     "gulp": "gulp",
     "jspm": "jspm",
-    "test": "gulp lint"
+    "test": "gulp lint",
+    "start": "gulp sync"
   },
   "jspm": {
     "directories": {
