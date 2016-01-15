@@ -574,6 +574,7 @@ body:not(.slug--home) .globalHeader {
 
 .bio__author__name {
   font-weight: 900;
+  text-rendering: optimizeLegibility;
 }
 
 .bio__avatar {
@@ -936,12 +937,14 @@ body:not(.slug--home) .globalHeader {
   > .article__title {
     @include fs('h2');
     margin: 0 0 0.2em;
+    text-rendering: optimizeLegibility;
   }
 
   > .article__subheader {
     @include fs('h4');
     font-weight: $fw__body;
     margin: 0 0 0.2em;
+    text-rendering: optimizeLegibility;
   }
 
   > .article__meta {
