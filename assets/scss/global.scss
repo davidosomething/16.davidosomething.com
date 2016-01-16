@@ -963,7 +963,7 @@ body:not(.slug--home) .globalHeader {
   color: map-get($colors, 'primary-aside');
   display: flex;
   justify-content: space-between;
-  margin: 0.2em 0;
+  margin: 0.2em 0.5em;
 
   time {
     border: 1px transparent solid;
@@ -977,6 +977,7 @@ body:not(.slug--home) .globalHeader {
     @include mq('medium') {
       display: inline-block;
       list-style: none;
+      padding: 0;
       vertical-align: middle;
 
       > li {
