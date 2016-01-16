@@ -14,7 +14,7 @@
 				{{#if subheader}}<h3 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h3>{{/if}}
 				<div class="article__meta">
 					{{#if changelog~}}
-						<span>Updated <time datetime="{{ moment changelog.[1].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[1].date format="MMMM DD, YYYY" }}</time></span>
+						<span>Updated <time datetime="{{ moment changelog.[0].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[0].date format="MMMM DD, YYYY" }}</time></span>
 					{{~^~}}
 						<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
 					{{~/if}}

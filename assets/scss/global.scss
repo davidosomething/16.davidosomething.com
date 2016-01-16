@@ -1028,11 +1028,17 @@ body:not(.slug--home) .globalHeader {
 }
 
 .article__footer {
+  margin-top: 2em;
   max-width: $readable-header-width;
 
   > section {
+    border-top: 2px solid map-get($colors, 'primary-divider');
     margin: 0 0 2em 0.5em;
     padding-top: 2em;
+
+    h2:first-child {
+      margin-top: 0;
+    }
   }
 }
 

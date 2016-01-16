@@ -9,7 +9,7 @@
 		{{#if subheader}}<h2 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h2>{{/if}}
 		<div class="article__meta">
 			<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
-			{{#if changelog}}<span>Updated <time datetime="{{ moment changelog.[1].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[1].date format="MMMM DD, YYYY" }}</time>(<a href="#changelog">log</a>)</span>{{/if}}
+			{{#if changelog}}<span>Updated <time datetime="{{ moment changelog.[0].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[0].date format="MMMM DD, YYYY" }}</time>(<a href="#changelog">log</a>)</span>{{/if}}
 			{{> article__tags }}
 		</div>
 	</header>
