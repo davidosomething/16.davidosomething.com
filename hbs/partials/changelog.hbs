@@ -1,0 +1,11 @@
+{{#if changelog }}
+	<section id="changelog" class="article__changelog">
+		<h2>Changelog</h2>
+		<dl>
+			{{#changelog}}
+				<dt>{{ moment date format="MMM D, YYYY" }} {{#if diff }}(<a href="{{ diff }}">diff</a>){{/if}}</dt>
+				<dd>{{#markdown body}}{{ . }}{{/markdown}}</dd>
+			{{/changelog}}
+		</dl>
+	</section>
+{{/if}}
