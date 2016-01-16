@@ -18,4 +18,4 @@
 {{#if tags}}
 	<meta name="keywords" content="{{#each tags}}{{ this }}{{#unless @last}},{{/unless}}{{/each}}">
 {{/if}}
-<meta itemprop="dateModified" content="{{ moment dateModified toISOString=null }}">
+{{^changelog}}<meta itemprop="dateModified" content="{{ moment dateModified toISOString=null }}">{{/changelog}}

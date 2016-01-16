@@ -933,48 +933,6 @@ body:not(.slug--home) .globalHeader {
   margin-bottom: 1em;
   max-width: $readable-header-width;
   position: relative;
-
-  > .article__title {
-    @include fs('h2');
-    margin: 0 0 0.2em;
-    text-rendering: optimizeLegibility;
-  }
-
-  > .article__subheader {
-    @include fs('h4');
-    font-weight: $fw__body;
-    margin: 0 0 0.2em;
-    text-rendering: optimizeLegibility;
-  }
-
-  > .article__meta {
-    @include fs('article__meta');
-    align-items: flex-start;
-    color: map-get($colors, 'primary-aside');
-    display: flex;
-    justify-content: space-between;
-    margin: 0.2em 0;
-
-    time {
-      border: 1px transparent solid;
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    .article__tags {
-      display: none;
-
-      @include mq('medium') {
-        display: inline-block;
-        list-style: none;
-        vertical-align: middle;
-
-        > li {
-          display: inline-block;
-        }
-      }
-    }
-  }
 }
 
 .article__header__link {
@@ -985,6 +943,49 @@ body:not(.slug--home) .globalHeader {
 .article__header__link--permalink {
   @include link-icon-before;
 }
+
+.article__title {
+  @include fs('h2');
+  margin: 0 0 0.2em;
+  text-rendering: optimizeLegibility;
+}
+
+.article__subheader {
+  @include fs('h4');
+  font-weight: $fw__body;
+  margin: 0 0 0.2em;
+  text-rendering: optimizeLegibility;
+}
+
+.article__meta {
+  @include fs('article__meta');
+  align-items: flex-start;
+  color: map-get($colors, 'primary-aside');
+  display: flex;
+  justify-content: space-between;
+  margin: 0.2em 0;
+
+  time {
+    border: 1px transparent solid;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  > .article__tags {
+    display: none;
+
+    @include mq('medium') {
+      display: inline-block;
+      list-style: none;
+      vertical-align: middle;
+
+      > li {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 
 .article__body {
   @include fs('article__body');
@@ -1026,8 +1027,25 @@ body:not(.slug--home) .globalHeader {
 }
 
 .article__footer {
-  margin-top: 2em;
   max-width: $readable-header-width;
+
+  > section {
+    margin: 0 0 2em 0.5em;
+    padding-top: 2em;
+  }
+}
+
+.article__changelog {
+  @include fs('block');
+
+  dd {
+    margin: 0.5em 0 0.5em 1.4em;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 
