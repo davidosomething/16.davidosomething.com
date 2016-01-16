@@ -14,16 +14,16 @@ tags:
 ### Updates
 
 - Jan 16, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/2e232bdf72ee1b703c361bebead7a3267402c602))
-    > Clean up some grammar.
-    > Added heavenshell/vim-jsdoc
-    > Change omnifunc example to ensure copypasters don't set global omnifunc
-    > More on linters
+    > Clean up some grammar.  
+    > Added heavenshell/vim-jsdoc  
+    > Change omnifunc example to ensure copypasters don't set global omnifunc  
+    > More on linters  
 
 - Jan 12, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/ee240b48380070a4f68c1063c29b79b6a724c8f6))
-    > Make sure plugin names are all linkified. Add more notes on what the
-    > indent plugins do.
-    > Added example of multi-omni-completion for neocomplete.
-    > Some language changes.
+    > Make sure plugin names are all linkified. Add more notes on what th
+    > indent plugins do.  
+    > Added example of multi-omni-completion for neocomplete.  
+    > Some language changes.  
 
 - Jan 11, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/0eb309472728f5855823d4d1b35bf4e52e524d7b))
     > Update omni-completion with basic info on how `omnifunc` works and
