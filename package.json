@@ -87,5 +87,20 @@
     "browser-sync": "^2.11.0",
     "gulp-imagemin": "^2.4.0",
     "imagemin-pngquant": "^4.2.0"
+  },
+  "jscsConfig": {
+    "jsDoc": {
+        "checkAnnotations": "jsdoc3",
+        "checkParamExistence": true,
+        "checkParamNames": true,
+        "requireParamTypes": true,
+        "checkRedundantParams": true,
+        "checkReturnTypes": true,
+        "checkTypes": true,
+        "checkRedundantAccess": "enforceLeadingUnderscore",
+        "leadingUnderscoreAccess": true,
+        "enforceExistence": "exceptExports",
+        "requireNewlineAfterDescription": true
+    }
   }
 }

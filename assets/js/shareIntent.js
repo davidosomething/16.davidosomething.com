@@ -52,6 +52,11 @@ export function bindSharePopup(config) {
   var winHeight = screen.height;
   var winWidth = screen.width;
 
+  /**
+   * handleIntent
+   *
+   * @param {Event} e
+   */
   var handleIntent = (e) => {
     e = e || window.event;
     var target = e.target || e.srcElement;
