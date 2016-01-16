@@ -13,7 +13,7 @@ tags:
 
 ### Updates
 
-- Jan 16, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/))
+- Jan 16, 2016 ([diff](https://github.com/davidosomething/16.davidosomething.com/commit/2e232bdf72ee1b703c361bebead7a3267402c602))
     > Clean up some grammar.
     > Added heavenshell/vim-jsdoc
     > Change omnifunc example to ensure copypasters don't set global omnifunc
