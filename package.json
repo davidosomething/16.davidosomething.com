@@ -90,17 +90,17 @@
   },
   "jscsConfig": {
     "jsDoc": {
-        "checkAnnotations": "jsdoc3",
-        "checkParamExistence": true,
-        "checkParamNames": true,
-        "requireParamTypes": true,
-        "checkRedundantParams": true,
-        "checkReturnTypes": true,
-        "checkTypes": true,
-        "checkRedundantAccess": "enforceLeadingUnderscore",
-        "leadingUnderscoreAccess": true,
-        "enforceExistence": "exceptExports",
-        "requireNewlineAfterDescription": true
+      "checkAnnotations": "jsdoc3",
+      "checkParamExistence": true,
+      "checkParamNames": true,
+      "requireParamTypes": true,
+      "checkRedundantParams": true,
+      "checkReturnTypes": true,
+      "checkTypes": true,
+      "checkRedundantAccess": "enforceLeadingUnderscore",
+      "leadingUnderscoreAccess": true,
+      "enforceExistence": "exceptExports",
+      "requireNewlineAfterDescription": true
     }
   }
 }
