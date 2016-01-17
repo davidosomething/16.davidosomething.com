@@ -32,10 +32,10 @@ const browserSync = BrowserSync ? BrowserSync.create() : null;
 // Task: CSS
 // -----------------------------------------------------------------------------
 
-gulp.task('clean:css',              require('./lib/gulp/clean.js').css);
-gulp.task('lint:css',               require('./lib/gulp/lint-css.js'));
-gulp.task('docs:css', [ 'static' ], require('./lib/gulp/docs-css.js'));
-gulp.task('css',                    require('./lib/gulp/build-css.js')(browserSync));
+gulp.task('clean:css', require('./lib/gulp/clean.js').css);
+gulp.task('lint:css',  require('./lib/gulp/lint-css.js'));
+gulp.task('docs:css',  require('./lib/gulp/docs-css.js'));
+gulp.task('css',       require('./lib/gulp/build-css.js')(browserSync));
 
 // -----------------------------------------------------------------------------
 // Task: JS
@@ -59,36 +59,30 @@ gulp.task('clean:assets', require('./lib/gulp/clean.js').assets);
 gulp.task('images', require('./lib/gulp/build-images.js'));
 
 // Copy from assets from source to dist
-gulp.task('assets', () => {
-
-  return gulp.src(dirs.assets.source + '/{fonts,img}/**')
-    .pipe(gulp.dest(`${dirs.assets.dist}/`));
-
-});
+gulp.task('assets', require('./lib/gulp/copy-assets.js'));
 
 // -----------------------------------------------------------------------------
 // Task: Static
 // -----------------------------------------------------------------------------
 
-gulp.task('static', () => {
-
-  return gulp.src('./static/**')
-    .pipe(gulp.dest(`${dirs.dist}/`));
-
-});
+gulp.task('static', require('./lib/gulp/copy-static.js'));
 
 // -----------------------------------------------------------------------------
 // Task: HTML
 // -----------------------------------------------------------------------------
 
 gulp.task('lint:md', require('./lib/gulp/lint-md.js'));
-gulp.task('html', require('./lib/gulp/build-html.js'));
+gulp.task('build:html', require('./lib/gulp/build-html.js'));
+gulp.task('html', [ 'docs' ], require('./lib/gulp/build-html.js'));
 
 // -----------------------------------------------------------------------------
 // Task: Watch and Sync, or just serve
 // -----------------------------------------------------------------------------
 
-gulp.task('serve', () => {
+/**
+ * Start a browserSync server
+ */
+gulp.task('serve', function serve() {
 
   browserSync.init({
     open: false,
@@ -100,7 +94,10 @@ gulp.task('serve', () => {
 });
 
 
-gulp.task('sync', [ 'serve' ], () => {
+/**
+ * Start a browserSync server and watch for changes
+ */
+gulp.task('sync', [ 'serve' ], function sync() {
 
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
   gulp.watch([
@@ -119,6 +116,12 @@ gulp.task('lint', [
   'lint:js',
   'lint:md',
 ]);
+
+gulp.task('lint:ci', [
+  'lint:css',
+  'lint:js',
+]);
+
 
 // -----------------------------------------------------------------------------
 // Task: Docs multitask
@@ -142,6 +145,7 @@ gulp.task('default', [
   'js',
   'css',
   'assets',
+  'docs',
   'html',
 ]);
 
