@@ -1,7 +1,7 @@
 ---
 slug:           whitespace-in-vim
 title:          "Whitespace settings in Vim"
-subheader:      "Getting whitespace to behave in using Vim settings and plugins"
+subheader:      "Getting whitespace to behave in Vim using settings and plugins"
 datePublished:  2016-01-12
 image:          "/assets/img/posts/Vimlogo.svg.png"
 tags:
@@ -32,7 +32,7 @@ autocommand or `ftplugin` instead of `set` to make the setting specific to the
 buffer. Example of using an autocommand to set `shiftwidth` on JavaScript files
 only:
 
-```viml
+```vim
 autocmd FileType javascript setlocal shiftwidth=2
 ```
 
@@ -60,7 +60,7 @@ window.
 
 My options are:
 
-```viml
+```vim
 set list
 set listchars=""                      " reset
 set listchars=tab:→\ 
@@ -70,7 +70,7 @@ set listchars+=trail:·
 Note there is a trailing space after the backslash on the tab line (for
 escaping the literal space symbol). So 4-character-wide tabs look like this:
 
-```
+```handlebars
     normal code indented with 4 spaces and no trailing spaces
 →░░░→░░░code indented with two tabs and with two trailing spaces··
   normal code indented with 2 spaces and no trailing spaces
@@ -80,13 +80,13 @@ escaping the literal space symbol). So 4-character-wide tabs look like this:
 
 A real tab will be this wide. E.g. `set tabstop=4`:
 
-```
+```handlebars
 →░░░text
 ```
 
 With `set tabstop=8`:
 
-```
+```handlebars
 →░░░░░░░text
 ```
 
@@ -94,13 +94,13 @@ With `set tabstop=8`:
 
 The `wrap` setting affects display lines. When it is off, text appears like so:
 
-```
+```handlebars
 This option changes how text is displayed.  It doesn't change the text in the buffer, see 'textwidth' for that.
 ```
 
 When it is on, text is displayed as:
 
-```
+```handlebars
 This option changes how text is displayed.  It doesn't change the text in the
 buffer, see 'textwidth' for that.
 ```
@@ -116,19 +116,19 @@ These settings affect the actual text content of the file.
 
 This affects what backspace deletes. With the following settings:
 
-```viml
+```vim
 set backspace=indent,eol,start
 ```
 
 Before backspace:
 
-```
+```handlebars
 →░░░→░░░Code that was indented with two tabs
 ```
 
 After backspace:
 
-```
+```handlebars
 →░░░Code that was indented with two tabs
 ```
 
@@ -152,14 +152,14 @@ This affects all of the auto-indenting settings like `cindent`. When you use
 
 Before:
 
-```
+```handlebars
     Unindented when sw=2
     Unindented when sw=4
 ```
 
 After:
 
-```
+```handlebars
   Unindented when sw=2
 Unindented when sw=4
 ```
@@ -173,7 +173,7 @@ into a single tab.
 
 Example when `softtabstop=2` and for varying values of `tabstop`:
 
-```
+```handlebars
   Indented once, ts=4 sts=2
 →░░░Indented twice, ts=4 sts=2
     Indented twice, ts=8 sts=2
@@ -193,14 +193,14 @@ spaces to the nearest `shiftwidth`.
 
 Example of when `shiftround` is on, before:
 
-```
+```handlebars
    Three spaces with shiftwidth=4, indent me
 ```
 
 After, the line gets indented to 4 spaces since that was the nearest
 `shiftwidth`:
 
-```
+```handlebars
     Three spaces with shiftwidth=4, indent me
 ```
 
@@ -229,20 +229,20 @@ When you press `gj` in normal mode, vim takes the line below and moves it to
 the end of the current line. With this setting on, Vim inserts spaces after
 punctuation.
 
-```
+```handlebars
 Before text. _
 After text.
 ```
 
 Becomes:
 
-```
+```handlebars
 Before text._  After text.
 ```
 
 When the `cpoptions` flag has J, it will become:
 
-```
+```handlebars
 Before text. After text._
 ```
 
@@ -256,14 +256,14 @@ You probably want to turn this off so you don't get extra spaces when coding.
 
 Starting from insert mode with:
 
-```
+```handlebars
     Indented line 1_
 ```
 
 Pressing `<CR>` (Return/Enter) will put you at the next line, same indent
 level:
 
-```
+```handlebars
     Indented line 1
     _
 ```
@@ -283,13 +283,13 @@ good reason, in my opinion.
 
 Before:
 
-```
+```handlebars
     if (true) {_
 ```
 
 After:
 
-```
+```handlebars
     if (true) {
         _
 ```
@@ -333,20 +333,20 @@ when it comes to whitespace, the mix is probably intentional.
 
 When using `autoindent` and the `copyindent` setting is on:
 
-```
+```handlebars
 ░░░░ ░░░░ code_
 ```
 
 Will yield the following on the next line:
 
-```
+```handlebars
 ░░░░ ░░░░ code
 ░░░░ ░░░░ another line
 ```
 
 When off, you'll get Vim's attempt to reconstruct the whitespace:
 
-```
+```handlebars
 ░░░░ ░░░░ code
 ░░░░░░░░  another line
 ```
@@ -357,7 +357,7 @@ This is a good setting to keep on if you like to control your own whitespace.
 
 When this is on:
 
-```
+```handlebars
 ░░░░ ░░░░ unindentme
 ░░░░ ░░░░ indentme
 ░░░░  ░░░░ indentme
@@ -365,7 +365,7 @@ When this is on:
 
 And you un-indent your code using `<<` or `>>`, you get:
 
-```
+```handlebars
 ░░░░ unindentme
 ░░░░ ░░░░ ░░░░ indentme
 ░░░░  ░░░░ ░░░░ indentme
@@ -393,7 +393,7 @@ for other languages, Vim supports indent plugins. There are many indent plugins
 that come bundled with vim, and to automatically enable them use this line in
 your vimrc:
 
-```
+```vim
 filetype indent on
 ```
 

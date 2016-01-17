@@ -48,7 +48,7 @@ By default Vim doesn't automatically detect filetypes, so if you aren't using
 [vim-plug] (for which the call to `call plug#end()` enables this), you'll need
 to enable it manually by adding this to your vimrc:
 
-```viml
+```vim
 filetype plugin indent on
 ```
 
@@ -59,7 +59,7 @@ You may also need to enable syntax highlighting in your vimrc file if you're not
 using [vim-plug]. To manually enable syntax highlighting, add the following line
 to your vimrc file:
 
-```viml
+```vim
 syntax enable
 ```
 
@@ -95,7 +95,7 @@ with the other syntaxes too).
 
 Using [vim-plug], I recommend installing the plugin like this:
 
-```viml
+```vim
 Plug 'othree/yajs.vim`, { 'for': 'javascript' }
 ```
 
@@ -154,7 +154,7 @@ since I currently stick to the ES2015 feature set at most.
 If you write React and use its optional JSX syntax, adding the following plugin
 will provide you with syntax highlighting for those inline XML-nodes:
 
-```viml
+```vim
 Plug 'mxw/vim-jsx'
 ```
 
@@ -170,7 +170,7 @@ A lot of things use JSON for configuration, so I recommend [elzr/vim-json] for
 that. Check out its options, though; I don't like some of the defaults so
 I turn them off, but you might want them. Install with:
 
-```viml
+```vim
 Plug 'elzr/vim-json'
 ```
 
@@ -228,7 +228,7 @@ run a function, the `omnifunc`, to populate autocompletion pop-up with results.
 
 To use the default completion function, add this to your vimrc:
 
-```viml
+```vim
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 ```
 
@@ -247,7 +247,7 @@ be configured into it.
 With [Shougo/neocomplete.vim], using multiple sources of completion can be done
 by providing a list of function names like so:
 
-```viml
+```vim
   let g:neocomplete#sources#omni#functions.javascript = [
         \   'jspc#omni',
         \   'tern#Complete',
@@ -284,7 +284,7 @@ use TernJS results instead of the default omni-completion results.
 Installing via [vim-plug], which can run additional commands before plugin
 installation, is done like this:
 
-```viml
+```vim
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 ```
 
@@ -306,7 +306,7 @@ suggest things like `click`, and `mouseover` for you. You can see all the
 suggestions it provides in its [GitHub source](https://github.com/othree/jspc.vim/blob/master/autoload/jspc/javascript.vim).
 Install the plugin via:
 
-```viml
+```vim
 Plug 'othree/jspc.vim'
 ```
 
@@ -325,7 +325,7 @@ default completion is (typically `javascriptcomplete#CompleteJS`).
 The plugin [moll/vim-node] adds keybindings like for jumping to files in your
 CommonJS `require` statements.
 
-```viml
+```vim
 Plug 'moll/vim-node'
 ```
 
