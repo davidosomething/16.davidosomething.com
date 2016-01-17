@@ -11,6 +11,11 @@ tags:
   - tern
 changelog:
   -
+    date: 2016-01-17o
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/2e232bdf72ee1b703c361bebead7a3267402c602"
+    body: |
+      - More on `makeprg` and linting
+  -
     date: 2016-01-16
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/2e232bdf72ee1b703c361bebead7a3267402c602"
     body: |
@@ -375,11 +380,19 @@ Syntastic's pitfalls are that it is large (it is essentially a linter
 framework for Vim) and it doesn't run asynchronously (doesn't mean it is slow
 though -- depends on the speed of the lint program).
 
-You could alternatively use Vim's built-in makeprg, which can run any program
-against your file. Syntastic actually uses that under the covers. There's
-[osyo-manga/vim-watchdogs], which runs linters asynchronously, but the docs are
-only in Japanese. The plugins [Shougo/vimproc.vim] and [tpope/vim-dispatch] can
-run any tool async, but they aren't easily configurable as lint-runners.
+You could alternatively use Vim's built-in `makeprg`, which can run any program
+and output the results to Vim, but you miss out on things like using multiple
+`makeprg`s at a time (e.g. JSCS, eslint, and the flow type checker at once)
+and grouping results. Syntastic actually uses makeprg under the covers, so
+besides the minimal overhead of configuring some variables it really isn't
+any slower.
+
+There's [osyo-manga/vim-watchdogs], which runs linters asynchronously, but the
+docs are only in Japanese. The plugins [Shougo/vimproc.vim] and
+[tpope/vim-dispatch] can run any tool async, but they aren't easily
+configurable as lint-runners. If you follow modern JS design patterns, your
+JavaScript files should ideally be small modules so running linters
+asynchronously won't provide noticeable benefit.
 
 If you're running Neovim, [neomake](https://github.com/benekastah/neomake) is
 an option that's gaining popularity. It makes full use of Neovim's asynchronous
