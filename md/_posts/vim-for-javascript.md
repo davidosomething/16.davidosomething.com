@@ -18,6 +18,7 @@ changelog:
       - Added heavenshell/vim-jsdoc
       - Change omnifunc example to ensure copypasters don't set global omnifunc
       - More on linters
+      - Added Chiel92/vim-autoformat to formatters
   -
     date: 2016-01-12
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/ee240b48380070a4f68c1063c29b79b6a724c8f6"
@@ -388,7 +389,12 @@ through jsbeautifier for you. I personally don't use this and prefer to go to
 the jsbeautifier website, copying and pasting it there if I need to un-minify
 something.
 
+There's also [Chiel92/vim-autoformat], which supports formatters for many
+different languages. Of note is [jscs](http://jscs.info/) and
+[js-beautifier](https://github.com/einars/js-beautify) support.
+
 - [vim-jsbeautify]
+- [Chiel92/vim-autoformat]
 
 ## My Vim setup
 
@@ -439,5 +445,6 @@ loads files.
 [Shougo/vimproc.vim]: https://github.com/Shougo/vimproc.vim
 [tpope/vim-dispatch]: https://github.com/tpope/vim-dispatch
 [vim-jsbeautify]: https://github.com/maksimr/vim-jsbeautify
+[Chiel92/vim-autoformat]: https://github.com/Chiel92/vim-autoformat
 [my Vim configuration on GitHub]: https://github.com/davidosomething/dotfiles/tree/master/vim
 
