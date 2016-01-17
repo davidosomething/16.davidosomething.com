@@ -410,10 +410,18 @@ so don't include the line in your vimrc or things will load twice!
 ### editorconfig
 
 I recommend this plugin for anyone working in open source or collaborating with
-others. It lets you define whitespace standards by file extension (but it's not
-[a linting plugin]!), and it will set the `expandtab`, `shiftwidth`, `tabstop`,
-`softtabstop`, and other settings for you after you open a file with
-a definition in the `.editorconfig` file you provide.
+others.
+
+Editorconfig lets you define whitespace standards in an `.editorconfig` file
+(but it's not [a linting plugin]!).  
+The rules are grouped by file extension , and it will set the `expandtab`,
+`shiftwidth`, `tabstop`, `softtabstop`, and other settings for you after you
+open a file with a definition in the `.editorconfig` file you provide.
+
+Many non-Vim text editors and IDEs support editorconfig, too. This is
+especially nice because you can keep the file along with your project and other
+editorconfig users will automatically be conforming to your whitespace
+standards.
 
 This plugin requires vim to be compiled with Python support (or takes some
 configuration to use a binary), so check in command mode (`:has('python')` or
