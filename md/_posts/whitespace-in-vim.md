@@ -44,7 +44,8 @@ decides to use that same autocommand to change the `shiftwidth` later, it will
 override your. That is why I recommend you using an ftplugin instead.
 
 For the ftplugin version, put the line `setlocal shiftwidth=2` into the file
-`~/.vim/after/ftplugin/javascript.vim`, which is how FileType plugins work.
+`~/.vim/after/ftplugin/javascript.vim`, where `javascript` is the name of the
+filetype you're changing settings for.
 
 A good understanding of the order in which Vim runs files and commands will
 help you debug rogue whitespace settings.
