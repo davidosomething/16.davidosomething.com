@@ -81,12 +81,7 @@ gulp.task('static', () => {
 // Task: HTML
 // -----------------------------------------------------------------------------
 
-gulp.task('lint:md', (cb) => {
-
-  cb();
-
-});
-
+gulp.task('lint:md', require('./lib/gulp/lint-md.js'));
 gulp.task('html', require('./lib/gulp/build-html.js'));
 
 // -----------------------------------------------------------------------------

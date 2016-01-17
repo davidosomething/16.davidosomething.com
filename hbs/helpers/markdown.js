@@ -3,7 +3,7 @@
 /**
  * markdownHelper
  *
- * @TODO [].filter options.hash into marked options
+ * @TODO [].filter options.hash into options
  * @param {Object} context
  * @param {Object} options
  * @return {String}
@@ -20,8 +20,9 @@
  * {{/changelog}}
  */
 const markdownHelper = function (context, options) {
-  const marked = require('marked');
-  return marked(context);
+  const remark = require('remark');
+  const remarkHtml = require('remark-html');
+  return remark.use(remarkHtml).process(context);
 };
 
 module.exports = markdownHelper;

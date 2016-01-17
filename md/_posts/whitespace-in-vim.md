@@ -184,7 +184,7 @@ Example when `softtabstop=2` and for varying values of `tabstop`:
     Indented twice, ts=8 sts=2
 ```
 
-When the __NUMBER__ is negative (e.g. -1 or -2 or whatever), this will use the
+When the **NUMBER** is negative (e.g. -1 or -2 or whatever), this will use the
 value of `shiftwidth`. Since I use a `shiftwidth` of 2, I keep it at
 `softtabstop=-2` so I know how much it counts for, even though it is using the
 value from `shiftwidth`. This may have side effects on 3rd party plugins that
