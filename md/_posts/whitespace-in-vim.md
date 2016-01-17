@@ -36,10 +36,15 @@ only:
 autocmd FileType javascript setlocal shiftwidth=2
 ```
 
-Or, ideally, just put `setlocal shiftwidth=2` into the file
-`~/.vim/after/ftplugin/javascript.vim`, which is how FileType plugins work. A
-good understanding of the order in which runs commands and files will help you
-debug rogue whitespace settings.
+Note that autocommands are executed in the order they are added, so if a plugin
+decides to use that same autocommand to change the `shiftwidth` later, it will
+override your. That is why I recommend you using an ftplugin instead.
+
+For the ftplugin version, put the line `setlocal shiftwidth=2` into the file
+`~/.vim/after/ftplugin/javascript.vim`, which is how FileType plugins work.
+
+A good understanding of the order in which Vim runs files and commands will
+help you debug rogue whitespace settings.
 
 > Don't just copy settings from someone else without understanding what they
 > do.
@@ -412,7 +417,11 @@ a definition in the `.editorconfig` file you provide.
 
 This plugin requires vim to be compiled with Python support (or takes some
 configuration to use a binary), so check in command mode (`:has('python')` or
-`:has('python3')`) or via `vim --version`.
+`:has('python3')`) or starting vim with the `--version` flag:
+
+```bash
+vim --version
+```
 
 - [editorconfig/editorconfig-vim]
 
@@ -424,26 +433,23 @@ determine what `expandtab`, `shiftwidth`, etc. settings were used on them
 during creation and set those on the current file. Another option is
 [ciaranm/detectindent].
 
-- [tpope/vim-sleuth]
-- [ciaranm/detectindent]
+- [tpope/vim-sleuth] detects and applies settings on file open
+- [ciaranm/detectindent] detects when you run `:DetectIndent`
 
 ### Better indent visibility
 
-The listchars option is helpful, but sometimes it gets hard to look at symbols,
-or you need a better way to distinguish your current indent level. There are
-two _good_ plugins that can provide you with this. Check the links to their
-GitHub repos for screenshots.
+The `listchars` option is helpful, but sometimes it gets hard to look at
+symbols, or you need a better way to distinguish your current indent level.
+There are two _good_ plugins that can provide you with this. Check the links to
+their GitHub repos for screenshots.
 
-[nathanaelkane/vim-indent-guides] changes the background color at each level of
+- [nathanaelkane/vim-indent-guides] changes the background color at each level of
 indent. I use this one and toggle it on/off as desired using its built-in
 commands.
 
-[Yggdroot/indentLine] actually inserts symbols at the start of each indent.
+- [Yggdroot/indentLine] actually inserts symbols at the start of each indent.
 This may have some performance problems on large files though, so I'd be wary
 of it.
-
-- [nathanaelkane/vim-indent-guides]
-- [Yggdroot/indentLine]
 
 ### Line splitting
 
@@ -470,6 +476,7 @@ whitespace to align things together. See each page for examples:
 
 
 
+[vim-plug]: https://github.com/junegunn/vim-plug
 [indent plugin code for pangloss/vim-javascript]: https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim
 [a linting plugin]: https://github.com/sirbrillig/mixedindentlint
 [editorconfig/editorconfig-vim]: https://github.com/editorconfig/editorconfig-vim
