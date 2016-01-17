@@ -27,10 +27,13 @@ setting affects editing. (Why the Vim help pages don't include this? I don't
 know.)
 
 To turn a setting on or off, use `set settingname` or `set nosettingname` or
-(`set settingname=0` to turn off numeric settings). Use `setlocal` in an
-autocommand or `ftplugin` instead of `set` to make the setting specific to the
-buffer. Example of using an autocommand to set `shiftwidth` on JavaScript files
-only:
+(`set settingname=0` to turn off numeric settings).
+
+## Filetype-local settings
+
+Use `setlocal` in an autocommand or `ftplugin` instead of `set` to make the
+setting specific to the buffer. Example of using an autocommand to set
+`shiftwidth` on JavaScript files only:
 
 ```vim
 autocmd FileType javascript setlocal shiftwidth=2
@@ -49,6 +52,25 @@ help you debug rogue whitespace settings.
 > Don't just copy settings from someone else without understanding what they
 > do.
 > <div class="citation">&mdash; <cite>Everyone in #vim on Freenode</cite></div>
+
+## Persistent file-local settings
+
+To make special cases for a specific file, you can either make an autocommand
+specifically to match the filename, or use Vim's `modeline` feature. You need
+`set modeline` somewhere in your vimrc to make sure the feature is enabled.
+
+A `modeline` is a comment (in the current syntax) at the beginning or end of
+your file that Vim will parse commands from and execute. By default, Vim
+assumes the command is `set`. Here's an example of setting the `modeline` in
+a vimrc file:
+
+```vim
+" vim: set ai sw=4:
+```
+
+The double quote at the beginning indicates a VimL comment. This will set `set
+autoindent` and `set shiftwidth=4` for the buffer. The use of the short form is
+optional.
 
 ### Display options
 
