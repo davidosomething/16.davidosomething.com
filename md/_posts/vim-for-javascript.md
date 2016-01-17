@@ -8,11 +8,14 @@ tags:
   - vim
   - plugins
   - javascript
+  - syntax
+  - completion
+  - linting
   - tern
 changelog:
   -
-    date: 2016-01-17o
-    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/2e232bdf72ee1b703c361bebead7a3267402c602"
+    date: 2016-01-17
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/348ee68aee9e6c0e9d00f1754a2507a4d6be347f"
     body: |
       - More on `makeprg` and linting
   -
