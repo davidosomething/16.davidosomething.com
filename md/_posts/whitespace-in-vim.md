@@ -481,6 +481,14 @@ whitespace to align things together. See each page for examples:
 - [junegunn/vim-easy-align]
 - [godlygeek/tabular]
 
+## My Vim setup
+
+You can dig through [my Vim configuration on GitHub]. My whitespace settings
+and the plugins I use are all in the main vimrc file, and their configurations
+are interspersed into `plugin/`, `ftplugin/`, and `after/*/` to cope with the
+order in which Vim loads files.
+
+- [my Vim configuration on GitHub]
 
 
 
@@ -496,4 +504,5 @@ whitespace to align things together. See each page for examples:
 [tommcdo/vim-lion]: https://github.com/tommcdo/vim-lion
 [junegunn/vim-easy-align]: https://github.com/junegunn/vim-easy-align
 [godlygeek/tabular]: https://github.com/godlygeek/tabular
+[my Vim configuration on GitHub]: https://github.com/davidosomething/dotfiles/tree/master/vim
 
