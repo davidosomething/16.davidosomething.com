@@ -88,7 +88,7 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.11.0",
+    "browser-sync": "^2.11.1",
     "gulp-imagemin": "^2.4.0",
     "imagemin-pngquant": "^4.2.0"
   },
