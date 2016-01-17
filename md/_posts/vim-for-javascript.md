@@ -19,6 +19,7 @@ changelog:
       - Change omnifunc example to ensure copypasters don't set global omnifunc
       - More on linters
       - Added Chiel92/vim-autoformat to formatters
+      - Added vim-js-context-coloring
   -
     date: 2016-01-12
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/ee240b48380070a4f68c1063c29b79b6a724c8f6"
@@ -87,12 +88,21 @@ There are quite a few options:
     - This is a plugin that bundles a bunch of language syntax plugins into one.
       It particularly includes `sheerun/yajs.vim`, which is an outdated mirror
       of `othree/yajs.vim`.
+- [bigfish/vim-js-context-coloring]
+    - This is an interesting new method of syntax highlighting. It picks out
+      function scopes from your program by runningg it through a node.js binary
+      that runs a JavaScript parser and assigns a color to the scope. Things
+      within that scope are assigned a color. Because it requires in-depth
+      parsing of your code, it may not color your code when it is incomplete
+      (i.e., the syntax is not yet valid).
+    - This syntax plugin can be used in combination with any of the above, and
+      you can toggle it on and off.
 
-**All of these provide ES2015 (ES6) and JSDoc support to varying degrees**,
-which Vim lacks by default. I personally use and recommend [othree/yajs.vim]
-since it has most up-to-date language support. The author also writes a few
-other plugins that can be used in conjunction with it (although they may work
-with the other syntaxes too).
+With the exception of vim-js-context-coloring, **all of these provide ES2015
+(ES6) and JSDoc support to varying degrees**, which Vim lacks by default.
+I personally use and recommend [othree/yajs.vim] since it has most up-to-date
+language support. The author also writes a few other plugins that can be used
+in conjunction with it (although they may work with the other syntaxes too).
 
 Using [vim-plug], I recommend installing the plugin like this:
 
@@ -413,6 +423,7 @@ loads files.
 [othree/yajs.vim]: https://github.com/othree/yajs.vim
 [sheerun/vim-polyglot]: https://github.com/sheerun/vim-polyglot
 [sheerun/yajs.vim]: https://github.com/sheerun/yajs.vim
+[bigfish/vim-js-context-coloring]: https://github.com/bigfish/vim-js-context-coloring
 [gavocanov/vim-js-indent]: https://github.com/gavocanov/vim-js-indent
 [itspriddle/vim-javascript-indent]: https://github.com/itspriddle/vim-javascript-indent
 [jiangmiao/simple-javascript-indenter]: https://github.com/jiangmiao/simple-javascript-indenter
