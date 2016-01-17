@@ -396,10 +396,18 @@ hr {
 blockquote {
   border-left: 0.4em darken(map-get($colors, 'primary-divider'), 2%) solid;
   margin: 1em 0;
+  overflow: hidden;
   padding: 0.2em 0 0.2em 1em;
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  .citation {
+    border-right: 0.4em darken(map-get($colors, 'primary-divider'), 2%) solid;
+    display: block;
+    padding-right: 1em;
+    text-align: right;
   }
 }
 
