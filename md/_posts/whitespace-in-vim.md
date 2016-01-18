@@ -482,6 +482,15 @@ commands.
 This may have some performance problems on large files though, so I'd be wary
 of it.
 
+### Better whitespace visibility
+
+The plugin [ntpeters/vim-better-whitespace], similar to
+[nathanaelkane/vim-indent-guides], uses syntax groups to match whitespace. This
+plugin can set up very visible background colors for whitespace, making sure
+you don't miss anything.
+
+- [ntpeters/vim-better-whitespace]
+
 ### Line splitting
 
 For a bunch of programming languages, you can put code all on one line. Using
@@ -523,6 +532,7 @@ order in which Vim loads files.
 [ciaranm/detectindent]: https://github.com/ciaranm/detectindent
 [nathanaelkane/vim-indent-guides]: https://github.com/nathanaelkane/vim-indent-guides
 [Yggdroot/indentLine]: https://github.com/Yggdroot/indentLine
+[ntpeters/vim-better-whitespace]: https://github.com/ntpeters/vim-better-whitespace
 [AndrewRadev/splitjoin.vim]: https://github.com/AndrewRadev/splitjoin.vim
 [tommcdo/vim-lion]: https://github.com/tommcdo/vim-lion
 [junegunn/vim-easy-align]: https://github.com/junegunn/vim-easy-align
