@@ -5,7 +5,7 @@
 			{{#if pages}}<ul class="globalFooter__links">{{#each pages}}<li><a href="/{{ path }}">{{ title }}</a></li>{{/each}}</ul>{{/if}}
 			<div>
 				<span class="globalFooter__copyright">
-					Copyright &copy; <a href="mailto:me@davidosomething.com" rel="me">David O'Trakoun</a>.
+					Copyright &copy; <a href="mailto:{{ pkg.author.email }}" rel="me">{{ pkg.author.name }}</a>.
 				</span>
 				(<a rel="alternate" type="application/rss+xml" href="/rss.xml">RSS</a>)
 			</div>
