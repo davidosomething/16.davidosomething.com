@@ -18,7 +18,7 @@ there. The package [avn] can auto-switch upon entering directory if installed).
 NOTE: g++ version 4.8 or higher is required for node-gyp compilation on node 4.
 This particularly applies to the Travis-CI deployment.
 
-## Build
+## Install
 
 Install dependencies:
 
@@ -28,12 +28,26 @@ npm install
 jspm install
 ```
 
-And run `gulp` to build.
-
 Note that `gulp` and `jspm` are only installed globally when using for local
 dev, whereas the CI-deployment uses `npm run` so the binaries in
 `node_modules/.bin/` are in the path. You could technically use
 `npm run ci-gulp-build` if you don't want to install gulp globally.
+
+## Lint
+
+- `gulp lint` will run all lint tasks
+- `gulp lint:js` will run all lint tasks
+- `gulp ci:lint` will run all lint tasks except markdown, this is for CI
+  servers
+
+The JS lint task uses jscs AND eslint. JSDoc is linted via jscs since it has
+more rules for JSDoc than eslint. In general, prefer plugins with most rules,
+then use the linter with the most rules, finally fall back to eslint for rules
+that exist in both jscs and eslint.
+
+## Build
+
+And run `gulp` to build.
 
 ## Deploy
 

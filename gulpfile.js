@@ -42,7 +42,9 @@ gulp.task('css',       require('./lib/gulp/build-css.js')(browserSync));
 // -----------------------------------------------------------------------------
 
 gulp.task('clean:js', require('./lib/gulp/clean.js').js);
-gulp.task('lint:js',  require('./lib/gulp/lint-js.js'));
+gulp.task('lint:js:eslint',  require('./lib/gulp/lint-js-eslint.js'));
+gulp.task('lint:js:jscs',  require('./lib/gulp/lint-js-jscs.js'));
+gulp.task('lint:js', [ 'lint:js:eslint', 'lint:js:jscs' ]);
 gulp.task('docs:js',  require('./lib/gulp/docs-js.js'));
 gulp.task('js',       require('./lib/gulp/build-js.js'));
 
@@ -117,7 +119,7 @@ gulp.task('lint', [
   'lint:md',
 ]);
 
-gulp.task('lint:ci', [
+gulp.task('ci:lint', [
   'lint:css',
   'lint:js',
 ]);
