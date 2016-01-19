@@ -24,7 +24,7 @@ install:
 - npm run --silent jspm config registries.github.auth ${JSPM_GITHUB_AUTH_TOKEN}
 - npm run --silent jspm install
 before_script:
-- npm run --silent gulp lint:ci
+- npm run --silent gulp ci:lint
 script:
 - npm run --silent gulp
 cache:
