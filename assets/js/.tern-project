@@ -1,0 +1,11 @@
+{
+  "libs": [
+  ],
+  "loadEagerly": [
+  ],
+  "plugins": {
+    "complete_strings": {},
+    "es_modules": {},
+    "modules": {}
+  }
+}
