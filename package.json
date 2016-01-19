@@ -86,11 +86,11 @@
     "remark-lint": "^2.2.1",
     "sassdoc": "^2.1.19",
     "slug": "^0.9.1",
-    "surge": "^0.17.4",
+    "surge": "^0.17.6",
     "through2": "^2.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.11.0",
+    "browser-sync": "^2.11.1",
     "gulp-imagemin": "^2.4.0",
     "imagemin-pngquant": "^4.2.0"
   }
