@@ -4,6 +4,11 @@
   "loadEagerly": [
   ],
   "plugins": {
+    "complete_strings": {},
+    "doc_comment": {
+      "strong": true
+    },
+    "es_modules": {},
     "node": {}
   }
 }
