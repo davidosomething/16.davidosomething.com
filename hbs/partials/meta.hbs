@@ -11,6 +11,8 @@
 {{#if description}}
 	<meta name="description" content="{{{ description }}}">
 	<meta name="twitter:description" property="og:description" content="{{{ description }}}">
+{{~^~}}
+	<meta name="description" content="{{{ site.description }}}">
 {{/if}}
 {{#if image}}
 	<meta name="twitter:image" property="og:image" content="{{ site.url }}/{{ image }}">
