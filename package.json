@@ -1,7 +1,7 @@
 {
   "name": "16-davidosomething-com",
   "homepage": "https://davidosomething.com",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "davidosomething.com - 2016 version",
   "license": "UNLICENSED",
   "author": {
@@ -26,7 +26,7 @@
     "node": ">=4.2.0"
   },
   "scripts": {
-    "bundle": "jspm bundle-sfx assets/js/global public/assets/js/global.js",
+    "bundle": "jspm bundle-sfx --minify --source-map-contents assets/js/main public/assets/js/main.min.js",
     "deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master",
     "deploy-surge": "surge ./public",
     "gulp": "gulp",
