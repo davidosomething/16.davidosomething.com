@@ -18,7 +18,7 @@ var analytics = {};
  */
 analytics.event = (description, data) => {
   if (!window.ga) {
-    return false;
+    return this;
   }
 
   switch (description) {
@@ -54,6 +54,8 @@ analytics.event = (description, data) => {
       break;
 
   }
+
+  return this;
 };
 
 export default analytics;
