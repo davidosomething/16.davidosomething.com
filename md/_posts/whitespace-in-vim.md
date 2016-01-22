@@ -41,7 +41,7 @@ autocmd FileType javascript setlocal shiftwidth=2
 
 Note that autocommands are executed in the order they are added, so if a plugin
 decides to use that same autocommand to change the `shiftwidth` later, it will
-override your. That is why I recommend you using an ftplugin instead.
+override yours. That is why I recommend you using an ftplugin instead.
 
 For the ftplugin version, put the line `setlocal shiftwidth=2` into the file
 `~/.vim/after/ftplugin/javascript.vim`, where `javascript` is the name of the
