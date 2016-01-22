@@ -84,7 +84,7 @@
     "remark-highlight.js": "^2.0.0",
     "remark-html": "^2.0.2",
     "remark-lint": "^2.2.1",
-    "sassdoc": "^2.1.19",
+    "sassdoc": "^2.1.20",
     "slug": "^0.9.1",
     "surge": "^0.17.7",
     "through2": "^2.0.0"
