@@ -1,10 +1,13 @@
 /**
- * Web intents for sharing
- * Adapted from twitter's code
+ * Web intents for sharing. Adapted from twitter's code.
  *
  * @see {@link https://dev.twitter.com/web/intents#follow-intent}
  * @module shareIntent
  */
+
+
+import analytics from './analytics.js';
+
 
 /**
  * @constant
@@ -27,16 +30,19 @@ const windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes';
  */
 export const configs = {
   facebook: {
+    intentName: 'Facebook',
     intentRegex: /facebook\.com\/dialog\/share\?(\w+)/,
     width: 600,
     height: 500,
   },
   google: {
+    intentName: 'Google+',
     intentRegex: /plus\.google\.com\/share\?(\w+)/,
     width: 500,
     height: 525,
   },
   twitter: {
+    intentName: 'Twitter',
     intentRegex: /twitter\.com\/intent\/(\w+)/,
     width: 550,
     height: 420,
@@ -49,8 +55,6 @@ export const configs = {
  * @param {IntentProvider} config
  */
 export function bindSharePopup(config) {
-  var winHeight = screen.height;
-  var winWidth = screen.width;
 
   /**
    * handleIntent
@@ -59,10 +63,12 @@ export function bindSharePopup(config) {
    */
   var handleIntent = (e) => {
     e = e || window.event;
-    var target = e.target || e.srcElement;
-    var m;
-    var left;
-    var top;
+    const winHeight = window.screen.height;
+    const winWidth = window.screen.width;
+    let target = e.target || e.srcElement;
+    let m;
+    let left;
+    let top;
 
     while (target && target.nodeName.toLowerCase() !== 'a') {
       target = target.parentNode;
@@ -71,6 +77,9 @@ export function bindSharePopup(config) {
     if (target && target.nodeName.toLowerCase() === 'a' && target.href) {
       m = target.href.match(config.intentRegex);
       if (m) {
+
+        analytics.event('Clicked share button', config.intentName);
+
         left = Math.round((winWidth / 2) - (config.width / 2));
         top = 0;
 
