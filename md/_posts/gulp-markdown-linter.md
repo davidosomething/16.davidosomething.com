@@ -1,6 +1,6 @@
 ---
 slug:           "gulp-markdown-linter"
-title:          "Lint your markdown files with gulp&#8209;remark&#8209;lint&#8209;dko"
+title:          "Lint your markdown files with gulp‑remark‑lint‑dko"
 subheader:      "A gulp plugin to lint markdown using remark-lint"
 datePublished:  2016-01-22
 image:          "/assets/img/posts/gulp.png"
