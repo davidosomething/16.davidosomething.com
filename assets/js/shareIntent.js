@@ -49,39 +49,35 @@ export const configs = {
   },
 };
 
+const winHeight = window.screen.height;
+const winWidth = window.screen.width;
+
 /**
  * shareIntent opens a popup window to share a ShareIntent
  *
  * @param {IntentProvider} config
  */
 export function bindSharePopup(config) {
-
   /**
    * handleIntent
    *
    * @param {Event} e
    */
-  var handleIntent = (e) => {
-    e = e || window.event;
-    const winHeight = window.screen.height;
-    const winWidth = window.screen.width;
+  var handleIntent = (e = window.event) => {
     let target = e.target || e.srcElement;
-    let m;
-    let left;
-    let top;
 
     while (target && target.nodeName.toLowerCase() !== 'a') {
       target = target.parentNode;
     }
 
     if (target && target.nodeName.toLowerCase() === 'a' && target.href) {
-      m = target.href.match(config.intentRegex);
+      let m = target.href.match(config.intentRegex);
       if (m) {
 
         analytics.event('Clicked share button', config.intentName);
 
-        left = Math.round((winWidth / 2) - (config.width / 2));
-        top = 0;
+        let left = Math.round((winWidth / 2) - (config.width / 2));
+        let top = 0;
 
         if (winHeight > config.height) {
           top = Math.round((winHeight / 2) - (config.height / 2));
@@ -95,11 +91,6 @@ export function bindSharePopup(config) {
     }
   };
 
-  if (document.addEventListener) {
-    document.addEventListener('click', handleIntent, false);
-  }
-  else if (document.attachEvent) {
-    document.attachEvent('onclick', handleIntent);
-  }
+  document.addEventListener('click', handleIntent, false);
 }
 
