@@ -25,7 +25,6 @@
 $colors: (
   primary-bg:            #fafaf4,
   primary-text:          #3f3a30,
-  primary-aside:         #988,
   primary-link:          #27a,
   primary-link--hover:   #38b,
   primary-divider:       #eee,
@@ -40,6 +39,8 @@ $colors: (
   globalSiteTitle-text: #fff,
 
   avatar-bg: rgba(255,255,255,0.75),
+
+  article__meta: #766,
 );
 
 
@@ -968,7 +969,7 @@ body:not(.slug--home) .globalHeader {
 .article__meta {
   @include fs('article__meta');
   align-items: flex-start;
-  color: map-get($colors, 'primary-aside');
+  color: map-get($colors, 'article__meta');
   display: flex;
   justify-content: space-between;
   margin: 0.2em 0.5em;
