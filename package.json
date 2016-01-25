@@ -91,7 +91,7 @@
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "gulp-imagemin": "^2.4.0",
-    "gulp-remark-lint-dko": "^1.0.0",
+    "gulp-remark-lint-dko": "^1.0.2",
     "imagemin-pngquant": "^4.2.0"
   }
 }
