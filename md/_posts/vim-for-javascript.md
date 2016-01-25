@@ -14,6 +14,11 @@ tags:
   - tern
 changelog:
   -
+    date: 2016-01-25
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/10fa0c69759d390905ee31a7dc3a108ddeea6e7e"
+    body: |
+      - Found a new indent script
+  -
     date: 2016-01-17
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/348ee68aee9e6c0e9d00f1754a2507a4d6be347f"
     body: |
