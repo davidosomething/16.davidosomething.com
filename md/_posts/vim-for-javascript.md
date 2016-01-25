@@ -151,9 +151,17 @@ Some notable options in this case are:
       what it finds.
 - [jiangmiao/simple-javascript-indenter]
     - An indent plugin with an option for alignment under functions.
+- [jason0x43/vim-js-indent]
+    - This is a somewhat new (last updated 2014, as of this writing) indent
+      script that also has some TypeScript support. It is based on an
+      [older indent script by Tye Zdrojewski] and the default JS-in-HTML indent
+      logic that comes with Vim.
+    - The indent logic starts with normal `cindent` styles and adds special
+      cases for comments, JSDoc, arrays, and switch/case.
 
 Since I use [othree/yajs.vim] for my syntax, I use [gavocanov/vim-js-indent]
-for improved indenting.
+for improved indenting. Your best bet with any of these is to try it out and
+see if you like the indent style it provides over what Vim provides by default.
 
 ## Related syntaxes
 
@@ -444,6 +452,8 @@ loads files.
 [itspriddle/vim-javascript-indent]: https://github.com/itspriddle/vim-javascript-indent
 [jiangmiao/simple-javascript-indenter]: https://github.com/jiangmiao/simple-javascript-indenter
 [Ryan Fabella's indent script]: http://www.vim.org/scripts/script.php?script%5Fid=1936
+[jason0x43/vim-js-indent]: https://github.com/jason0x43/vim-js-indent
+[older indent script by Tye Zdrojewski]: http://www.vim.org/scripts/script.php?script_id=1840
 [othree/es.next.syntax.vim]: https://github.com/othree/es.next.syntax.vim
 [mxw/vim-jsx]: https://github.com/mxw/vim-jsx
 [actually supports any of them]: https://github.com/mxw/vim-jsx/commit/80dbab7588c615126f47e50fa4d9c329d080ff95#diff-604ad63592f45d351d97cdc9eeae21a3R28
