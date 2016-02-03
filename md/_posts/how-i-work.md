@@ -1,26 +1,14 @@
 ---
-title: "How I Work"
+title: "How I Work (2014)"
 subheader: "The things I do for web projects."
 datePublished: 2014-06-11T21:35:24+00:00
 tags:
-  - bower
-  - branches
-  - bundler
-  - composer
-  - dependency
   - development
-  - docker
-  - gem
-  - npm
-  - package
-  - projects
-  - structure
   - tooling
   - vagrant
-  - vm
-  - web
 slug: how-i-work
 ---
+
 Creating a website is just not as simple as it used to be. In order to do things
 right, I need all kinds of tools: compilers, linters, package managers,
 optimizers and minifiers, etc. Aside from that I need to consider things like
@@ -139,9 +127,10 @@ by side. I just change the VM&#8217;s port for the branch clone.
 
 I run a local DNS to map my local dev sites, so that&#8217;s one challenging
 thing to manage. In order to remedy that I will eventually set up dokku or
-a PaaS-like platform such as [LayerVault&#8217;s
-Divergence](http://cosmos.layervault.com/divergence.html). These would allow me
-to reach my branches at dev subdomains like `newfeature.mysite.dev`.
+a PaaS-like platform such as
+[LayerVault&#8217;s Divergence](http://cosmos.layervault.com/divergence.html).
+These would allow me to reach my branches at dev subdomains like
+`newfeature.mysite.dev`.
 
 ## Directory structure
 
@@ -162,6 +151,7 @@ a mission critical app).
 This is what I use for single-server WordPress sites. For multi-server, or when
 other kinds of scaling are involved, I&#8217;d break it up even more.
 
+```markdown
 - .git/
 - assets/  -- PSDs and stuff (versioned separately or symlinked to dropbox)
 - sqldump/ -- backups (generated on deploy and kept in S3, glacier, dropbox,
@@ -219,4 +209,5 @@ etc.)
 - .gitignore
 - README.md
 - TODO.md
+```
 
