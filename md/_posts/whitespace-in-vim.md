@@ -9,6 +9,12 @@ tags:
   - settings
   - plugins
   - whitespace
+changelog:
+  -
+    date: 2016-02-05
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/"
+    body: |
+      - EditorConfig linking and unofficial VimScript version
 ---
 
 For any good programmer, consistent whitespace is a measure of code-quality.
@@ -430,31 +436,38 @@ filetype related plugins, so that's fine. If you're using [vim-plug] to manage
 plugins, it will automatically turn the setting on after plugins have loaded,
 so don't include the line in your vimrc or things will load twice!
 
-### editorconfig
+### EditorConfig
 
-I recommend this plugin for anyone working in open source or collaborating with
-others.
+I recommend using the [EditorConfig] standard for anyone working in open-source
+or collaborating with others.
 
-Editorconfig lets you define whitespace standards in an `.editorconfig` file
+EditorConfig lets you define whitespace standards in an `.editorconfig` file
 (but it's not [a linting plugin]!).  
 The rules are grouped by file extension , and it will set the `expandtab`,
 `shiftwidth`, `tabstop`, `softtabstop`, and other settings for you after you
 open a file with a definition in the `.editorconfig` file you provide.
 
-Many non-Vim text editors and IDEs support editorconfig, too. This is
+Many non-Vim text editors and IDEs support EditorConfig, too. This is
 especially nice because you can keep the file along with your project and other
-editorconfig users will automatically be conforming to your whitespace
+EditorConfig users will automatically be conforming to your whitespace
 standards.
 
-This plugin requires vim to be compiled with Python support (or takes some
-configuration to use a binary), so check in command mode (`:has('python')` or
-`:has('python3')`) or starting vim with the `--version` flag:
+There are two EditorConfig plugins for Vim. The official one,
+[editorconfig/editorconfig-vim] requires Vim to be compiled with Python support
+(or takes some configuration to use a binary), so check in command mode
+(`:has('python')` or `:has('python3')`) or starting vim with the `--version`
+flag:
 
 ```bash
 vim --version
 ```
 
-- [editorconfig/editorconfig-vim]
+The unofficial one, [sgur/vim-editorconfig], is written in pure VimScript so it
+is technically slower, but for something so simple it is unnoticable. I use
+this one myself.
+
+- [editorconfig/editorconfig-vim] is the official plugin
+- [sgur/vim-editorconfig] is the unofficial one that I use
 
 ### Auto-determine whitespace settings
 
@@ -527,7 +540,9 @@ order in which Vim loads files.
 [vim-plug]: https://github.com/junegunn/vim-plug
 [indent plugin code for pangloss/vim-javascript]: https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim
 [a linting plugin]: https://github.com/sirbrillig/mixedindentlint
+[EditorConfig]: http://editorconfig.org
 [editorconfig/editorconfig-vim]: https://github.com/editorconfig/editorconfig-vim
+[sgur/vim-editorconfig]: https://github.com/sgur/vim-editorconfig
 [tpope/vim-sleuth]: https://github.com/tpope/vim-sleuth
 [ciaranm/detectindent]: https://github.com/ciaranm/detectindent
 [nathanaelkane/vim-indent-guides]: https://github.com/nathanaelkane/vim-indent-guides
