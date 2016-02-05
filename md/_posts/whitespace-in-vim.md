@@ -12,7 +12,7 @@ tags:
 changelog:
   -
     date: 2016-02-05
-    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/"
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/8b464edcc24f3768af8cc1e86e1a87fb82e4b6a4"
     body: |
       - EditorConfig linking and unofficial VimScript version
 ---
