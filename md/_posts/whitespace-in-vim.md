@@ -471,14 +471,18 @@ An unofficial one, [sgur/vim-editorconfig], is written in pure VimScript so it
 is technically slower, but for something so simple it is unnoticable. I use
 this one myself.
 
-There is another, newer unofficial EditorConfig vim plugin written in pure
-VimScript: [dahu/EditorConfig] -- but it is in alpha and the implementation is
-not complete (e.g. does not fully support `trim_trailing_whitespace` and
-`insert_final_newline`). I've checked out the source code (as I have for all
-plugins I use) and it's quite well written, so is worth keeping an eye on.
+There is another unofficial EditorConfig vim plugin written in pure VimScript:
+[dahu/EditorConfig] -- but it is in alpha and the implementation does not
+include all the EditorConfig features. Instead, it provides a `autocmd` hooks
+so you can implement your own interpretation for things it does not implement
+like `trim_trailing_whitespace` and `insert_final_newline`. I've checked out
+the source code (as I have for all plugins I use) and it's quite well written
+so if you want to implement the other features (or don't need them), it is a
+viable option.
 
 - [editorconfig/editorconfig-vim] is the official plugin
 - [sgur/vim-editorconfig] is the unofficial one that I use
+- [dahu/EditorConfig] is another unofficial one with `autocmd` hooks
 
 ### Auto-determine whitespace settings
 
