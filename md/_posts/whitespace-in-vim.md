@@ -11,6 +11,11 @@ tags:
   - whitespace
 changelog:
   -
+    date: 2016-02-06
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/"
+    body: |
+      - Found another EditorConfig plugin
+  -
     date: 2016-02-05
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/8b464edcc24f3768af8cc1e86e1a87fb82e4b6a4"
     body: |
@@ -452,7 +457,7 @@ especially nice because you can keep the file along with your project and other
 EditorConfig users will automatically be conforming to your whitespace
 standards.
 
-There are two EditorConfig plugins for Vim. The official one,
+There are three EditorConfig plugins for Vim. The official one,
 [editorconfig/editorconfig-vim] requires Vim to be compiled with Python support
 (or takes some configuration to use a binary), so check in command mode
 (`:has('python')` or `:has('python3')`) or starting vim with the `--version`
@@ -462,9 +467,15 @@ flag:
 vim --version
 ```
 
-The unofficial one, [sgur/vim-editorconfig], is written in pure VimScript so it
+An unofficial one, [sgur/vim-editorconfig], is written in pure VimScript so it
 is technically slower, but for something so simple it is unnoticable. I use
 this one myself.
+
+There is another, newer unofficial EditorConfig vim plugin written in pure
+VimScript: [dahu/EditorConfig] -- but it is in alpha and the implementation is
+not complete (e.g. does not fully support `trim_trailing_whitespace` and
+`insert_final_newline`). I've checked out the source code (as I have for all
+plugins I use) and it's quite well written, so is worth keeping an eye on.
 
 - [editorconfig/editorconfig-vim] is the official plugin
 - [sgur/vim-editorconfig] is the unofficial one that I use
@@ -543,6 +554,7 @@ order in which Vim loads files.
 [EditorConfig]: http://editorconfig.org
 [editorconfig/editorconfig-vim]: https://github.com/editorconfig/editorconfig-vim
 [sgur/vim-editorconfig]: https://github.com/sgur/vim-editorconfig
+[dahu/EditorConfig]: https://github.com/dahu/EditorConfig
 [tpope/vim-sleuth]: https://github.com/tpope/vim-sleuth
 [ciaranm/detectindent]: https://github.com/ciaranm/detectindent
 [nathanaelkane/vim-indent-guides]: https://github.com/nathanaelkane/vim-indent-guides
