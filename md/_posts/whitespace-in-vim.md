@@ -12,7 +12,7 @@ tags:
 changelog:
   -
     date: 2016-02-06
-    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/"
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/717bbe2c1ebe6514da5d3ade5d860f47ac1db7c6"
     body: |
       - Found another EditorConfig plugin
   -
