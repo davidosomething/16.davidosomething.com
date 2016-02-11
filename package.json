@@ -23,7 +23,7 @@
   "keywords": [],
   "private": true,
   "engines": {
-    "node": ">=4.2.0"
+    "node": ">=4.3.0"
   },
   "scripts": {
     "bundle": "jspm bundle-sfx --minify --source-map-contents assets/js/main public/assets/js/main.min.js",
