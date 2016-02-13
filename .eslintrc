@@ -4,10 +4,11 @@
     "es6": true,
     "node": true
   },
-  "ecmaFeatures": {
-    "modules": true
-  },
   "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
   "rules": {
     "arrow-body-style": [
       2,
@@ -58,6 +59,7 @@
         "SwitchCase": 1
       }
     ],
+    "keyword-spacing": 2,
     "max-nested-callbacks": [
       1,
       3
@@ -161,7 +163,6 @@
         "after": true
       }
     ],
-    "space-after-keywords": 2,
     "space-before-blocks": 2,
     "space-before-function-paren": [
       1,
@@ -170,17 +171,12 @@
         "named": "never"
       }
     ],
-    "space-before-keywords": [
-      2,
-      "always"
-    ],
     "space-infix-ops": [
       2,
       {
         "int32Hint": false
       }
     ],
-    "space-return-throw-case": 2,
     "space-unary-ops": 2,
     "valid-typeof": 2,
     "wrap-iife": [
