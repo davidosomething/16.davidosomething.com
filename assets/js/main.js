@@ -38,3 +38,4 @@ const clickedFooterLink = (e) => {
   analytics.event('Clicked footer link',  e.target.text);
 };
 document.body.addEventListener('click', clickedFooterLink);
+
