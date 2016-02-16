@@ -121,7 +121,9 @@ a pre-purchase inspection checklist that applies to scooters: [Motorcycle Bill
 of Sale](http://www.free-legal-document.com/motorcycle-bill-of-sale.html)
 (inspection checklist).
 
-The odometer on a Honda Metropolitan only goes up to 9999 and then rolls over, so the only way to tell if a scooter has 100 miles or 10100 miles is to inspect it thoroughly!
+The odometer on a Honda Metropolitan only goes up to 9999 and then rolls over,
+so the only way to tell if a scooter has 100 miles or 10100 miles is to inspect
+it thoroughly!
 
 ### That Stupid Law
 
@@ -271,8 +273,8 @@ and you’re all set.
 Regular maintenance includes changing the oil every 1000 miles or year,
 whichever comes more often. Many of the posts on urbanscootin.com agree to use
 a synthetic oil (but the effect is not much different from non-synthetic), such
-as Amsoil Synthetic 10w40 or Castrol Syntec 10w40\. Just make sure it’s 10w40
-and NON energy conserving. Oil should cost around $9.00\. Here are some guides:
+as Amsoil Synthetic 10w40 or Castrol Syntec 10w40. Just make sure it’s 10w40
+and NON energy conserving. Oil should cost around $9.00. Here are some guides:
 
 - [Oil changes](http://www.urbanscootin.com/forum/viewtopic.php?f=2&t=857&start=15)
 - [HONDA MET:Oil Change/Level Check, Screen Maintenance](http://www.urbanscootin.com/forum/viewtopic.php?f=15&t=8074)
@@ -315,7 +317,7 @@ Some rules:
 - Don’t charge from a car if the car is on. This will just plain kill your
   battery.
 
-##### The Deltran Battery Tender Jr.
+##### The Deltran Battery Tender Jr
 
 This is a float charger that delivers a current of 0.75 amps. This rating is
 safe for the Honda Metropolitan battery. This battery maintainer is _the_
@@ -334,7 +336,7 @@ Leaving a wire attached is referred to as pigtailing.
 Most issues revolve around starting the Honda Met. Here’s what you should be
 checking:
 
-#### Battery
+#### Battery issues
 
 If your scooter dies/stalls after starting, check your battery. You can use
 a multimeter if you know how, or just take the battery out to an auto shop. They
@@ -387,6 +389,7 @@ might even want to check it before the battery.
 
 If your scooter is old, it might be overheating so the coolant needs to be
 replaced. Here’s some resources:
+
 - [View of Coolant Bottle for Metropolitans](http://www.urbanscootin.com/forum/viewtopic.php?f=2&t=13898)
 - [YouTube – Coolant Change (Honda metropolitan)](http://www.youtube.com/watch?v=1fESFEjrGao&feature=related)
 

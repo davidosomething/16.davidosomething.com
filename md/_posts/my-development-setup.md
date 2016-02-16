@@ -71,27 +71,27 @@ but doesn’t allow for seamless integration.
 
 ### Setting up the host computer
 
-1.  Allow Wake-on-LAN
-    1.  Enable BIOS setting
-    2.  Enable NIC card setting in Windows Device Manager
-    3.  Set up router port forwarding
-2.  Install TightVNC Server
-    1.  Run as service
-    2.  Forward ports on router: 5800 for java client, 5900 for vnc clients
+1. Allow Wake-on-LAN
+    1. Enable BIOS setting
+    1. Enable NIC card setting in Windows Device Manager
+    1. Set up router port forwarding
+1. Install TightVNC Server
+    1. Run as service
+    1. Forward ports on router: 5800 for java client, 5900 for vnc clients
 
 ### Setting up the Virtual Machine
 
-1.  Install Ubuntu Server Edition into new VirtualBox virtual machine
-    1.  Use default LAMP settings
-    2.  Install OpenSSH
-2.  Configure VRDP on Port 4000 instead of port 3389\. This way, RDPing into
+1. Install Ubuntu Server Edition into new VirtualBox virtual machine
+    1. Use default LAMP settings
+    1. Install OpenSSH
+1. Configure VRDP on Port 4000 instead of port 3389\. This way, RDPing into
     3389 allows you to access the host, 4000 the VM. Forward the ports to the
     computer with the router.
-3.  Create a shared drive to interact with the host computer, follow this:
+1. Create a shared drive to interact with the host computer, follow this:
     [http://ipggi.wordpress.com/2010/03/11/virtualbox-shared-folders-with-ubuntu-server-guest/](http://ipggi.wordpress.com/2010/03/11/virtualbox-shared-folders-with-ubuntu-server-guest/)
-4.  Since the machine runs headless most of the time, the VM is opened using
+1. Since the machine runs headless most of the time, the VM is opened using
     VBoxHeadlessTray: http://www.toptensoftware.com/VBoxHeadlessTray/
-5.  Install the following tools:
+1. Install the following tools:
     - emacs (or whatever you want for text editing)
     - curl
     - wget
@@ -120,39 +120,39 @@ Regular install, then edit the config file in /etc/ and change some permissions:
 
 1. Add default user to group www-data (apache default group): <kbd>sudo usermod
    -a -G www-data username</kbd>
-2. chmod /var/www, allowing group read and write
-3. Allow owner and group and write using local_umask = 002
-4. Set the default FTP path to /var/www
+1. chmod /var/www, allowing group read and write
+1. Allow owner and group and write using local_umask = 002
+1. Set the default FTP path to /var/www
 
 ### Setting up Mercurial
 
 1. Follow this to get apt-add-repository [https://help.ubuntu.com/community/Repositories/CommandLine#Adding Launchpad PPA Repositories](https://help.ubuntu.com/community/Repositories/CommandLine#Adding Launchpad PPA Repositories)
-2. Then, follow this to add the mercurial repository and install it
+1. Then, follow this to add the mercurial repository and install it
    [http://icephoenix.us/linuxunix/installing-mercurial-1-5-or-1-6-on-ubuntu-lucid-lynx-10-04/](http://icephoenix.us/linuxunix/installing-mercurial-1-5-or-1-6-on-ubuntu-lucid-lynx-10-04/).
    TortoiseHg is not needed since we’re doing everything from the commandline.
-3. I didn’t want to use bitbucket, so I installed hg cgi server (hg serve only
+1. I didn’t want to use bitbucket, so I installed hg cgi server (hg serve only
    allows one unsecured connection at a time) to create my own web based
    repository:
     1. Get the mercurial source tar.gz using wget or elinks
-    2. Copy hgweb.cgi and all the folders from /templates/ to
+    1. Copy hgweb.cgi and all the folders from /templates/ to
        /var/hg (chmod -R g+w www-data:www-data)
-    3. Edit hgweb.cgi, set:
+    1. Edit hgweb.cgi, set:
        `config = "/var/hg/hgweb.config"`
-    4. Put the repo paths/collections on the drive that is shared with the host
+    1. Put the repo paths/collections on the drive that is shared with the host
        (this way the files aren’t stored in the virtual hard disk–you can back
        them up easily). I mounted my share drive at <samp>/mnt/share</samp> and
        created the <var>repos</var> folder in there. Because the share is on
        a windows host, the permissions are always 777 chowned to root:root
-    5.  More help here:
+    1.  More help here:
         [http://mercurial.selenic.com/wiki/HgWebDirStepByStep#Directory_Structure](http://mercurial.selenic.com/wiki/HgWebDirStepByStep#Directory_Structure)
-4. I had some existing local repositories on my Windows development PC that
+1. I had some existing local repositories on my Windows development PC that
    I wanted centralized onto this computer so I cloned them:
     1. Use hg serve on the development PC (can be done through TortoiseHg!)
-    2. From the VM, hg clone the existing repos (use the development PC’s IP as
+    1. From the VM, hg clone the existing repos (use the development PC’s IP as
        the source URL)
-5. Currently the repositories are all unsecured, so to secure them:
+1. Currently the repositories are all unsecured, so to secure them:
     1. Use apache to password protect repository (no native security in hg, use basic or digest auth. SSH can be used, too, but then why bother with hgweb?)
-    2. Under directory directive of main.conf in /etc/apache/hg/
+    1. Under directory directive of main.conf in /etc/apache/hg/
 
         ```apache
         <Location /hg>
@@ -163,9 +163,9 @@ Regular install, then edit the config file in /etc/ and change some permissions:
         </Location>
         ```
 
-    3. See more on Apache security here:
+    1. See more on Apache security here:
        [http://httpd.apache.org/docs/2.0/howto/auth.html](http://httpd.apache.org/docs/2.0/howto/auth.html)
-    4. Allow push using http by following the troubleshooting instructions here:
+    1. Allow push using http by following the troubleshooting instructions here:
        [http://mercurial.selenic.com/wiki/PublishingRepositories#Troubleshooting](http://mercurial.selenic.com/wiki/PublishingRepositories#Troubleshooting)
 
 ### Setting up Railo for ColdFusion
@@ -178,32 +178,32 @@ The only thing to note here is that Ubuntu no longer uses
 
 1. <kbd>sudo apt-get install mongodb-stable</kbd> (not mongodb, they’re
    different).
-2. Set up for PHP/Apache using php’s PECL (need php-dev for phpize and php-pear
+1. Set up for PHP/Apache using php’s PECL (need php-dev for phpize and php-pear
    for pecl)
-3. If mongod won’t start, make sure the default dbpath isn’t locked.
+1. If mongod won’t start, make sure the default dbpath isn’t locked.
 
 ### Setting up node.js
 
 1. Set up a la [http://www.codediesel.com/linux/installing-node-js-on-ubuntu-10-04/](http://www.codediesel.com/linux/installing-node-js-on-ubuntu-10-04/)
-2. After cloning the git repo, check out a stable tag:
+1. After cloning the git repo, check out a stable tag:
     - To list tags: <kbd>git tag -l</kbd>
     - To checkout a tag: <kbd>git checkout v0.2.4</kbd>
-3. Node.js can be set up to run as a daemon following this: [http://howtonode.org/deploying-node-upstart-monit](http://howtonode.org/deploying-node-upstart-monit)
-4. See the related post on how to install npm safely (link at bottom).
+1. Node.js can be set up to run as a daemon following this: [http://howtonode.org/deploying-node-upstart-monit](http://howtonode.org/deploying-node-upstart-monit)
+1. See the related post on how to install npm safely (link at bottom).
 
 ### Hummingbird
 
 1. Requires STABLE version of node.js
-2. Install via
+1. Install via
    [https://github.com/mnutt/hummingbird/blob/master/README.md](https://github.com/mnutt/hummingbird/blob/master/README.md)
    – the instructions on the Hummingbird site website are outdated.
 
 ### Icinga
 
 1. <kbd>sudo apt-get install icinga</kbd>
-2. Use NO CONFIG for postfix when it comes to it. You’ll have to set this up
+1. Use NO CONFIG for postfix when it comes to it. You’ll have to set this up
    later if you want e-mail notifications.
-3. The instance will be available at http://localhost/icinga – username is
+1. The instance will be available at http://localhost/icinga – username is
    icingaadmin
 
 ### Final router configuration
@@ -212,13 +212,13 @@ The only thing to note here is that Ubuntu no longer uses
    the host’s network IP to a new IP so any previous port forwarding or virtual
    servers will have to point to the new IP.
     1. Select host and VirtualBox connection
-    2. Bridge connections
-2. Router: Port forwarding
+    1. Bridge connections
+1. Router: Port forwarding
     1. Finding your IP addresses:
         1. From the host machine, go to whatismyip.com for the router / external IP.
-        2. From the host machine, run cmd > ipconfig for the bridged network IP.
+        1. From the host machine, run cmd > ipconfig for the bridged network IP.
         3. From the VM, type ifconfig for the VM’s network IP.
-    2. Final port forwarding configuration:
+    1. Final port forwarding configuration:
         - 21 to VM for FTP
         - 22 to VM for SSH
         - 80 to VM for HTTP
