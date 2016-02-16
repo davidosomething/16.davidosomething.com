@@ -19,6 +19,7 @@ const events = {
 
 /**
  * @namespace
+ * @type {Object}
  */
 var analytics = {};
 

@@ -16,26 +16,26 @@ those tutorials the web has too many of.
 
 ### Contents
 
-1.  [Photoshop Techniques](#tffpthc_1)
-    1.  [Save for Web](#tffpthc_2)
-    2.  [Convert to Smart Object](#tffpthc_3)
-    3.  [Selecting Layers](#tffpthc_4)
-    4.  [Copy merged](#tffpthc_5)
-    5.  [Slicing’s other use](#tffpthc_6)
-    6.  [Actions](#tffpthc_7)
-    7.  [Text](#tffpthc_8)
-    8.  [Flattened Versions](#tffpthc_9)
-2.  [Creating the HTML and CSS](#tffpthc_10)
-    1.  [Frameworks and Resets](#tffpthc_11)
-    2.  [Quickly get Image Dimensions](#tffpthc_12)
-3.  [Design in Firefox](#tffpthc_13)
-    1.  [HTML Validator](#tffpthc_14)
-    2.  [Web Developer](#tffpthc_15)
-    3.  [Computed Sizes with Firebug](#tffpthc_16)
-    4.  [In Place CSS Editing with Firebug and the Arrow Keys](#tffpthc_17)
-    5.  [Pixel Perfect and Inverted Overlays](#tffpthc_18)
-4.  [Closing](#tffpthc_19)
-5.  [References](#tffpthc_20)
+1. [Photoshop Techniques](#tffpthc_1)
+    1. [Save for Web](#tffpthc_2)
+    1. [Convert to Smart Object](#tffpthc_3)
+    1. [Selecting Layers](#tffpthc_4)
+    1. [Copy merged](#tffpthc_5)
+    1. [Slicing’s other use](#tffpthc_6)
+    1. [Actions](#tffpthc_7)
+    1. [Text](#tffpthc_8)
+    1. [Flattened Versions](#tffpthc_9)
+1. [Creating the HTML and CSS](#tffpthc_10)
+    1. [Frameworks and Resets](#tffpthc_11)
+    1. [Quickly get Image Dimensions](#tffpthc_12)
+1. [Design in Firefox](#tffpthc_13)
+    1. [HTML Validator](#tffpthc_14)
+    1. [Web Developer](#tffpthc_15)
+    1. [Computed Sizes with Firebug](#tffpthc_16)
+    1. [In Place CSS Editing with Firebug and the Arrow Keys](#tffpthc_17)
+    1. [Pixel Perfect and Inverted Overlays](#tffpthc_18)
+1. [Closing](#tffpthc_19)
+1. [References](#tffpthc_20)
 
 ### Photoshop Techniques
 
@@ -175,7 +175,10 @@ element. Press the keys again to finish.
 
 #### Computed Sizes with Firebug
 
-As I mentioned before in the Photoshop Slicing section, sometimes I’ll slice the document and have Photoshop generate HTML for me. I then open the generated document in Firefox and use [Firebug](http://getfirebug.com/) to get the computed sizes for block level elements.
+As I mentioned before in the Photoshop Slicing section, sometimes I’ll slice
+the document and have Photoshop generate HTML for me. I then open the generated
+document in Firefox and use [Firebug](http://getfirebug.com/) to get the
+computed sizes for block level elements.
 
 #### In Place CSS Editing with Firebug and the Arrow Keys
 
@@ -223,6 +226,6 @@ a comment!
 ### References
 
 1. [Firebug](http://getfirebug.com/)
-2. Pixel Perfect Firefox Extension
-3. [Using Actions to Automate Tasks in Photoshop](http://morris-photographics.com/photoshop/tutorials/actions.html)
+1. Pixel Perfect Firefox Extension
+1. [Using Actions to Automate Tasks in Photoshop](http://morris-photographics.com/photoshop/tutorials/actions.html)
 

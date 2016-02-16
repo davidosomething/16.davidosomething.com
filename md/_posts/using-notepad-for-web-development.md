@@ -36,13 +36,13 @@ Subversion, WebEdit, and XML Tools. Here are some tips regarding plugins:
 
 1. Enable the Explorer and MultiClipboard plugins in their respective menus in
    the Plugins menu. Check the settings for these plugins to see what they can do.
-2. If you use Subversion, the Compare plugin can do quick checks against the
+1. If you use Subversion, the Compare plugin can do quick checks against the
    base. Or, with any of the Tortoise versioning tools and the Explorer plugin,
    you never need to leave NP++ to do your version control.
-3. Turn on the Console Dialog if you need to do anything from the command line.
+1. Turn on the Console Dialog if you need to do anything from the command line.
    It even has special variables you can use (type ‘help’). If you type `cmd`
    from the console, you get a standard DOS prompt.
-4. WebEdit gives you buttons that turn NP++ to a web editor with code wrapping.
+1. WebEdit gives you buttons that turn NP++ to a web editor with code wrapping.
    Use it by highlighting some text and clicking a button. The text will
    automatically be wrapped in tags. Read the instructions in
    Notepad++pluginsdocWebEditWebEdit.txt to learn how to add more.

@@ -1,6 +1,7 @@
 {
   "libs": [
-    "browser"
+    "browser",
+    "ecma6"
   ],
   "loadEagerly": [
   ],

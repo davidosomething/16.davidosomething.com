@@ -51,11 +51,11 @@ games. I am looking forward to jQuery being the new QBASIC.
 ### References
 
 1. [jQuery Browser Compatibility](http://docs.jquery.com/Browser_Compatibility)
-2. Acid Browser Tests
-3. [gameQuery](http://gamequery.onaluf.org/)
-4. [jQuery Video Game Remake: T&C Surf](http://jonraasch.com/blog/jquery-video-game-remake-tc-surf-designs)
-5. [Javascript jQuery Hotkeys Plugin](http://code.google.com/p/js-hotkeys/)
-6. JQuery Sprite Animation Plugin
-7. [jParallax](http://stephband.info/jparallax/)
-8. [Scrolling Parallax jQuery Plugin](http://dev.jonraasch.com/scrolling-parallax/examples/scrolling-parallax)
+1. Acid Browser Tests
+1. [gameQuery](http://gamequery.onaluf.org/)
+1. [jQuery Video Game Remake: T&C Surf](http://jonraasch.com/blog/jquery-video-game-remake-tc-surf-designs)
+1. [Javascript jQuery Hotkeys Plugin](http://code.google.com/p/js-hotkeys/)
+1. JQuery Sprite Animation Plugin
+1. [jParallax](http://stephband.info/jparallax/)
+1. [Scrolling Parallax jQuery Plugin](http://dev.jonraasch.com/scrolling-parallax/examples/scrolling-parallax)
 
