@@ -74,7 +74,7 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.5.4",
     "metalsmith-permalinks": "^0.4.1",
-    "metalsmith-remark": "davidosomething/metalsmith-remark#remark-4",
+    "metalsmith-remark": "^3.0.0",
     "metalsmith-sitemap": "^1.0.0",
     "metalsmith-snippet": "^2.0.0",
     "metalsmith-widow": "^1.1.1",
