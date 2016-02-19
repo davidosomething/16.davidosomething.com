@@ -4,8 +4,6 @@
  * @author David O'Trakoun <me@davidosomething.com>
  */
 
-/*eslint-env node*/
-
 'use strict';
 
 const dirs = require('./lib/dirs.js');
