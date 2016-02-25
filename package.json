@@ -63,7 +63,7 @@
     "handlebars": "^4.0.5",
     "helper-moment": "^0.1.0",
     "jscs-jsdoc": "^1.3.1",
-    "jspm": "^0.16.29",
+    "jspm": "^0.16.30",
     "lodash.defaultsdeep": "^4.3.0",
     "lodash.omit": "^4.1.0",
     "metalsmith": "^2.1.0",
