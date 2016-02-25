@@ -73,7 +73,7 @@
     "metalsmith-feed": "^0.2.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.6.4",
-    "metalsmith-permalinks": "^0.4.1",
+    "metalsmith-permalinks": "^0.5.0",
     "metalsmith-remark": "^3.0.0",
     "metalsmith-sitemap": "^1.0.0",
     "metalsmith-snippet": "^2.0.0",
