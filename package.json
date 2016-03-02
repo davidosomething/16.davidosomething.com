@@ -48,7 +48,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "del": "^2.2.0",
-    "eyeglass": "0.7.1",
+    "eyeglass": "0.8.3",
     "eyeglass-highlightjs": "^0.0.1",
     "gh-pages": "^0.10.0",
     "gulp": "^3.9.1",
