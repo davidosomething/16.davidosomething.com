@@ -1,0 +1,27 @@
+{{!
+	Tag
+	Listing of posts tagged with `groupedPage.name`
+}}
+{{> globalStart }}
+<section itemscope itemtype="http://schema.org/Blog">
+	<header class="pageHeader">
+		<h1 class="pageHeader__title" itemprop="name">Posts tagged "{{ groupedPage.name }}"</h1>
+	</header>
+	{{#each groupedPage.files}}
+			<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
+				<header class="article__header">
+					<h2 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h2>
+					{{#if subheader}}<h3 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h3>{{/if}}
+					<div class="article__meta">
+						{{#if changelog~}}
+							<span>Updated <time datetime="{{ moment changelog.[0].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[0].date format="MMMM DD, YYYY" }}</time></span>
+						{{~^~}}
+							<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
+						{{~/if}}
+					</div>
+				</header>
+				<section class="article__body">{{{ excerpt }}}</section>
+			</article>
+	{{/each}}
+</section>
+{{> globalEnd }}
