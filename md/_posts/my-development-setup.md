@@ -5,20 +5,14 @@ datePublished: 2010-11-29T20:35:48+00:00
 tags:
   - apache
   - bitbucket
-  - commandline
   - cygwin
   - development
-  - DNS
-  - FTP
   - LAMP
-  - Linux
   - Mercurial
   - MongoDB
   - mysql
-  - node.js
+  - node
   - php
-  - router
-  - SSH
   - Ubuntu
   - virtualbox
 slug: my-development-setup
