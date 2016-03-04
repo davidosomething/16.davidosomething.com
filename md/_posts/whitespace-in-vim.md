@@ -6,7 +6,6 @@ datePublished:  2016-01-12
 image:          "/assets/img/posts/Vimlogo.svg.png"
 tags:
   - vim
-  - settings
   - plugins
   - whitespace
 changelog:
