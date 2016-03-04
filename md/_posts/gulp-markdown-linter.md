@@ -8,7 +8,7 @@ tags:
   - gulp
   - markdown
   - plugins
-  - lint
+  - linting
   - remark
 ---
 

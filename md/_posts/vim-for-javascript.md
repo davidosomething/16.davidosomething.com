@@ -8,8 +8,6 @@ tags:
   - vim
   - plugins
   - javascript
-  - syntax
-  - completion
   - linting
   - tern
 changelog:

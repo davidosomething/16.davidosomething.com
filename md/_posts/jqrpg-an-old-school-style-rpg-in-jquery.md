@@ -3,11 +3,10 @@ title: "jQRPG — An Old-School Style RPG in jQuery"
 subheader: "A really old post I resurrected about making a browser-based RPG using jQuery"
 datePublished: 2010-02-19T13:55:19+00:00
 tags:
-  - css
+  - development
   - games
   - javascript
   - jquery
-  - programming
 slug: jqrpg-an-old-school-style-rpg-in-jquery
 ---
 JavaScript/[jQuery](http://docs.jquery.com/Browser_Compatibility) and CSS
