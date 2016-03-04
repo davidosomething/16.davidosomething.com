@@ -5,7 +5,7 @@
 {{> globalStart }}
 <section itemscope itemtype="http://schema.org/Blog">
 	<header class="pageHeader">
-		<h1 class="pageHeader__title" itemprop="name">Posts tagged "{{ groupedPage.name }}"</h1>
+		<h1 class="pageHeader__title" itemprop="name">Posts tagged "{{ groupedPage.name }}" ({{ groupedPage.files.length }})</h1>
 	</header>
 	{{#each groupedPage.files}}
 			<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
