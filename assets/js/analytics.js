@@ -1,7 +1,8 @@
 /**
  * Analytics tracking
  *
- * @module analytics
+ * @author David O'Trakoun <me@davidosomething.com>
+ * @module site/analytics
  */
 
 

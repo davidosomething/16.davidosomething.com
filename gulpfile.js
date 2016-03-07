@@ -1,6 +1,7 @@
 /**
  * Build tasks for davidosomething.com
  *
+ * @module gulp/gulpfile
  * @author David O'Trakoun <me@davidosomething.com>
  */
 
@@ -82,30 +83,28 @@ gulp.task('html', [ 'docs' ], require('./lib/gulp/build-html.js'));
 /**
  * Start a browserSync server
  */
-gulp.task('serve', function serve() {
-
+const serve = () => {
   browserSync.init({
     open: false,
     server: {
       baseDir: './public',
     },
   });
-
-});
+};
+gulp.task('serve', serve);
 
 
 /**
  * Start a browserSync server and watch for changes
  */
-gulp.task('sync', [ 'serve' ], function sync() {
-
+const sync = () => {
   gulp.watch(`${dirs.css.source}/**/*.scss`, [ 'css' ]);
   gulp.watch([
     `${dirs.markdown}/**/*.md`,
     `${dirs.templates}/**/*.hbs`,
   ], [ 'html' ]);
-
-});
+};
+gulp.task('sync', [ 'serve' ], sync);
 
 // -----------------------------------------------------------------------------
 // Task: Lint multitask

@@ -2,7 +2,7 @@
  * Web intents for sharing. Adapted from twitter's code.
  *
  * @see {@link https://dev.twitter.com/web/intents#follow-intent}
- * @module shareIntent
+ * @module site/shareIntent
  */
 
 
