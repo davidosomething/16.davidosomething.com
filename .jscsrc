@@ -1,4 +1,7 @@
 {
+  "requireDollarBeforejQueryAssignment": true,
+  "requireNamedUnassignedFunctions": true,
+  "requirePaddingNewLinesAfterUseStrict": true,
   "jsDoc": {
     "checkAnnotations": "jsdoc3",
     "checkParamExistence": true,
@@ -6,10 +9,16 @@
     "requireParamTypes": true,
     "checkRedundantParams": true,
     "checkReturnTypes": true,
-    "checkTypes": true,
+    "checkRedundantReturns": true,
+    "checkTypes": "capitalizedNativeCase",
     "checkRedundantAccess": "enforceLeadingUnderscore",
     "leadingUnderscoreAccess": true,
-    "enforceExistence": "exceptExports",
+    "enforceExistence": {
+      "allExcept": [
+        "exports",
+        "expressions"
+      ]
+    },
     "requireNewlineAfterDescription": true
   }
 }
