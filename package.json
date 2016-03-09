@@ -95,9 +95,11 @@
   },
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "chalk": "^1.1.1",
     "gulp-imagemin": "^2.4.0",
     "gulp-remark-lint-dko": "^1.0.2",
     "handlebars-helpers": "^0.5.8",
-    "imagemin-pngquant": "^4.2.2"
+    "imagemin-pngquant": "^4.2.2",
+    "markdownlint": "^0.1.1"
   }
 }

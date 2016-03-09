@@ -175,16 +175,8 @@ I did there)?
 
 ### Cited
 
-##### Typeface != Font
-
-[http://jontangerine.com/log/2008/08/typeface–font](http://jontangerine.com/log/2008/08/typeface--font)
-
-##### Font Squirrel | Free Font Aurulent Sans by Stephen G. Hartke
-
-[http://www.fontsquirrel.com/fonts/Aurulent-Sans](http://www.fontsquirrel.com/fonts/Aurulent-Sans)
-
-##### beautiful fonts with @font-face
-
-[http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/](http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/)
+- Typeface != Font <http://jontangerine.com/log/2008/08/typeface–font>
+- Font Squirrel | Free Font Aurulent Sans by Stephen G. Hartke <http://www.fontsquirrel.com/fonts/Aurulent-Sans>
+- beautiful fonts with @font-face <http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/>
 
 

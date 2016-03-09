@@ -79,9 +79,9 @@ a vimrc file:
 " vim: set ai sw=4:
 ```
 
-The double quote at the beginning indicates a VimL comment. This will set `set
-autoindent` and `set shiftwidth=4` for the buffer. The use of the short form is
-optional.
+The double quote at the beginning indicates a VimL comment. This will set
+`set autoindent` and `set shiftwidth=4` for the buffer. The use of the short
+form is optional.
 
 ### Display options
 
@@ -501,13 +501,12 @@ symbols, or you need a better way to distinguish your current indent level.
 There are two _good_ plugins that can provide you with this. Check the links to
 their GitHub repos for screenshots.
 
-- [nathanaelkane/vim-indent-guides] changes the background color at each level of
-indent. I use this one and toggle it on/off as desired using its built-in
-commands.
-
+- [nathanaelkane/vim-indent-guides] changes the background color at each level
+  of indent. I use this one and toggle it on/off as desired using its built-in
+  commands.
 - [Yggdroot/indentLine] actually inserts symbols at the start of each indent.
-This may have some performance problems on large files though, so I'd be wary
-of it.
+  This may have some performance problems on large files though, so I'd be wary
+  of it.
 
 ### Better whitespace visibility
 

@@ -72,7 +72,9 @@ gulp.task('static', require('./lib/gulp/copy-static.js'));
 // Task: HTML
 // -----------------------------------------------------------------------------
 
-gulp.task('lint:md', require('./lib/gulp/lint-md.js'));
+gulp.task('lint:md:markdownlint', require('./lib/gulp/lint-md-markdownlint.js'));
+gulp.task('lint:md:remark', require('./lib/gulp/lint-md-remark.js'));
+gulp.task('lint:md', [ 'lint:md:markdownlint', 'lint:md:remark' ]);
 gulp.task('build:html', require('./lib/gulp/build-html.js'));
 gulp.task('html', [ 'docs' ], require('./lib/gulp/build-html.js'));
 
