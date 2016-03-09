@@ -28,16 +28,18 @@ npm install
 jspm install
 ```
 
-Note that `gulp` and `jspm` are only installed globally when using for local
-dev, whereas the CI-deployment uses `npm run` so the binaries in
-`node_modules/.bin/` are in the path. You could technically use
-`npm run ci-gulp-build` if you don't want to install gulp globally.
+Note that `gulp` and `jspm` are only installed globally for local dev, whereas
+the CI-deployment uses `npm run` so the binaries in `node_modules/.bin/` are in
+the path. You could technically use `npm run ci-gulp-build` if you don't want
+to install gulp globally.
 
 ## Lint
 
 - `gulp lint` will run all lint tasks
 - `gulp lint:js` will run all lint tasks
-- `gulp ci:lint` will run all lint tasks except markdown, this is for CI
+- `gulp lint:md:markdownlint` will run markdownlint on the `md/` directory.
+  Markdown linting is not a build step and is done on demand only.
+- `gulp ci:lint` will run all lint tasks (except markdown), this is for CI
   servers
 
 The JS lint task uses jscs AND eslint. JSDoc is linted via jscs since it has
@@ -47,7 +49,9 @@ that exist in both jscs and eslint.
 
 ## Build
 
-And run `gulp` to build.
+- Run `gulp` to build.
+- Run `gulp serve` to start a local development server (via browser-sync)
+- Run `npm start` to start an on-going browser-sync session
 
 ## Deploy
 
@@ -60,11 +64,6 @@ Deployment from Travis CI is configured in `bin/travis-deploy.sh`.
 
 ## TODO
 
-- Deployment workflow:
-    - [ ] Open PR with branch, validation services validate
-    - [ ] Travis builds PR, marks using GH status API
-    - [ ] Merge PR into master, Travis builds, webhook to DeployBot
-    - [ ] DeployBot builds and deploys, reports to GH Deployments API
 - CSS
     - [ ] lint status to code climate
 - JS

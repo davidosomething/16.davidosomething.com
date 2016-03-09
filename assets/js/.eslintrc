@@ -9,7 +9,20 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
+  "plugins": [
+    "import"
+  ],
   "rules": {
+    "import/no-unresolved": [
+      2,
+      { "commonjs": true }
+    ],
+    "import/named": 2,
+    "import/default": 2,
+    "import/namespace": 2,
+    "import/export": 2,
+    "import/imports-first": 2,
+    "import/no-duplicates": 2,
     "arrow-body-style": [
       2,
       "always"

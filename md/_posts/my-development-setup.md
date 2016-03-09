@@ -82,9 +82,9 @@ but doesn’t allow for seamless integration.
     3389 allows you to access the host, 4000 the VM. Forward the ports to the
     computer with the router.
 1. Create a shared drive to interact with the host computer, follow this:
-    [http://ipggi.wordpress.com/2010/03/11/virtualbox-shared-folders-with-ubuntu-server-guest/](http://ipggi.wordpress.com/2010/03/11/virtualbox-shared-folders-with-ubuntu-server-guest/)
+    <http://ipggi.wordpress.com/2010/03/11/virtualbox-shared-folders-with-ubuntu-server-guest/>
 1. Since the machine runs headless most of the time, the VM is opened using
-    VBoxHeadlessTray: http://www.toptensoftware.com/VBoxHeadlessTray/
+    VBoxHeadlessTray: <http://www.toptensoftware.com/VBoxHeadlessTray/>
 1. Install the following tools:
     - emacs (or whatever you want for text editing)
     - curl
@@ -100,13 +100,13 @@ config is not bad for development purposes.
 ### Setting up phpMyAdmin
 
 You can basically just let the aptitude installer do everything. The instance
-will be accessible at http://localhost/phpmyadmin
+will be accessible at `http://localhost/phpmyadmin`
 
 1. <kbd>sudo apt-get install phpmyadmin</kbd>
 
 ### Setting up awstats
 
-Follow http://maestric.com/doc/ubuntu/awstats
+Follow <http://maestric.com/doc/ubuntu/awstats>
 
 ### Setting up the file system and vsftpd
 
@@ -120,9 +120,9 @@ Regular install, then edit the config file in /etc/ and change some permissions:
 
 ### Setting up Mercurial
 
-1. Follow this to get apt-add-repository [https://help.ubuntu.com/community/Repositories/CommandLine#Adding Launchpad PPA Repositories](https://help.ubuntu.com/community/Repositories/CommandLine#Adding Launchpad PPA Repositories)
+1. Follow this to get apt-add-repository <https://help.ubuntu.com/community/Repositories/CommandLine#Adding%20Launchpad%20PPA%20Repositories>
 1. Then, follow this to add the mercurial repository and install it
-   [http://icephoenix.us/linuxunix/installing-mercurial-1-5-or-1-6-on-ubuntu-lucid-lynx-10-04/](http://icephoenix.us/linuxunix/installing-mercurial-1-5-or-1-6-on-ubuntu-lucid-lynx-10-04/).
+   <http://icephoenix.us/linuxunix/installing-mercurial-1-5-or-1-6-on-ubuntu-lucid-lynx-10-04/>.
    TortoiseHg is not needed since we’re doing everything from the commandline.
 1. I didn’t want to use bitbucket, so I installed hg cgi server (hg serve only
    allows one unsecured connection at a time) to create my own web based
@@ -137,8 +137,8 @@ Regular install, then edit the config file in /etc/ and change some permissions:
        them up easily). I mounted my share drive at <samp>/mnt/share</samp> and
        created the <var>repos</var> folder in there. Because the share is on
        a windows host, the permissions are always 777 chowned to root:root
-    1.  More help here:
-        [http://mercurial.selenic.com/wiki/HgWebDirStepByStep#Directory_Structure](http://mercurial.selenic.com/wiki/HgWebDirStepByStep#Directory_Structure)
+    1. More help here:
+       <http://mercurial.selenic.com/wiki/HgWebDirStepByStep#Directory_Structure>
 1. I had some existing local repositories on my Windows development PC that
    I wanted centralized onto this computer so I cloned them:
     1. Use hg serve on the development PC (can be done through TortoiseHg!)
@@ -158,9 +158,9 @@ Regular install, then edit the config file in /etc/ and change some permissions:
         ```
 
     1. See more on Apache security here:
-       [http://httpd.apache.org/docs/2.0/howto/auth.html](http://httpd.apache.org/docs/2.0/howto/auth.html)
+       <http://httpd.apache.org/docs/2.0/howto/auth.html>
     1. Allow push using http by following the troubleshooting instructions here:
-       [http://mercurial.selenic.com/wiki/PublishingRepositories#Troubleshooting](http://mercurial.selenic.com/wiki/PublishingRepositories#Troubleshooting)
+       <http://mercurial.selenic.com/wiki/PublishingRepositories#Troubleshooting>
 
 ### Setting up Railo for ColdFusion
 
@@ -197,7 +197,7 @@ The only thing to note here is that Ubuntu no longer uses
 1. <kbd>sudo apt-get install icinga</kbd>
 1. Use NO CONFIG for postfix when it comes to it. You’ll have to set this up
    later if you want e-mail notifications.
-1. The instance will be available at http://localhost/icinga – username is
+1. The instance will be available at `http://localhost/icinga` – username is
    icingaadmin
 
 ### Final router configuration
@@ -211,7 +211,7 @@ The only thing to note here is that Ubuntu no longer uses
     1. Finding your IP addresses:
         1. From the host machine, go to whatismyip.com for the router / external IP.
         1. From the host machine, run cmd > ipconfig for the bridged network IP.
-        3. From the VM, type ifconfig for the VM’s network IP.
+        1. From the VM, type ifconfig for the VM’s network IP.
     1. Final port forwarding configuration:
         - 21 to VM for FTP
         - 22 to VM for SSH
@@ -222,7 +222,7 @@ The only thing to note here is that Ubuntu no longer uses
         - 5800 to Host PC for VNC
         - 5900 to Host PC for VNC
         - 8000-8888 to VM for node.js, Hummingbird, Tomcat and Railo
-    3. DynDNS setup should be done via router, otherwise forward all to Host
+    1. DynDNS setup should be done via router, otherwise forward all to Host
        machine and use DynDNS updater software on host machine, have host
        machine forward to VM.
 

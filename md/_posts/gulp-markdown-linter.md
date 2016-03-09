@@ -16,7 +16,7 @@ I've just [published on npm][npm], my gulp plugin to lint markdown files using
 [remark] and [remark-lint]. It's fully functional right now, and you can
 install it from npm to start using it in your gulpfile:
 
-```
+```bash
 npm install --save-dev gulp-remark-lint-dko
 ```
 

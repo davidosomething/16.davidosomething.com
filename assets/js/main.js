@@ -1,6 +1,6 @@
 /**
  * @author David O'Trakoun <me@davidosomething.com>
- * @module global
+ * @module site/global
  * @requires module:shareIntent
  */
 
