@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/davidosomething
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://davidosomething.com
+  * I am davidosomething (https://keybase.io/davidosomething) on keybase.
+  * I have a public key with fingerprint 54A4 98C8 429C C549 08A0  8F30 20DD 3828 8CA0 D3F4
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101b8f92f4efdd60cdc2958805d367e43a8a247c833d5eebb24516e0ec38ecdfc360a",
+            "fingerprint": "54a498c8429cc54908a08f3020dd38288ca0d3f4",
+            "host": "keybase.io",
+            "key_id": "20dd38288ca0d3f4",
+            "kid": "0101b8f92f4efdd60cdc2958805d367e43a8a247c833d5eebb24516e0ec38ecdfc360a",
+            "uid": "dffd2d975ea8d66921fee2f5539c7b19",
+            "username": "davidosomething"
+        },
+        "service": {
+            "hostname": "davidosomething.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1458246150,
+    "expire_in": 157680000,
+    "prev": "169a1931bfa114e827fdc73e504a02c3c62b180bf36e7e3ecb10aa4a4e5265d0",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.51
+Comment: https://keybase.io/crypto
+
+yMIrAnicrZJbSBVBHMaPndISIku7WBo1RUWIzO7s7pk9D1b6UkZRKF1APc3OzOqm
+nj3urkdFpV4KKcnUB63oRvpkUaQRRFHZMYl6SMqHyC5vkUZhXiqpbFfqzcfmZZiZ
+7/vN95/5xxb6fYlxSXfuj7UKOafjnj7srPTtG1kSXws0k9WAYC0o5TMTL2PcdkKl
+BgNBAAUoaFhXRV3iOmMKpIyKqowxlBlSAlxCBBNRClCMEJM51zRRkgWFQ04R5pTp
+FCmQgAygG+FibkUsI+y4WFkikooplkSVUllSISYQ6wiKkDGERYwpgQzpkmssMW3P
+4YbTiM0zDdPdcxehmXiz6P9z7soZHNN1JjI1IHOCmaKooqBzLuqyjFQa0ATVE9rc
+CpNy7qlJ1GCmbZZzp8QtG9RnAPcwalDuva9X0OzCTGqWu6SIZTomNctcQYnjROyg
+B3BqIp6jimuhv6yQZoSZh88AUW7ZhhkGQcFVUsfw4IIkY1FSBBlmAF4dMSweMjyF
+HFAwdId3D4+6SEFRiaAiQdOJIEgciwGd0QDiMpQIFCmiiqgJGGo6UniAI041ARLi
+fiCXRUVmEHjVVYRNEJTcmKTYRdpGcZg4lRYH9b0PCub64hJ98fPmeN3mS1yQ9K8H
+azYk/Jzffjz1Q/RAwe8rZ6+earnp3Fvliya3tnZ2Nqb4l8febrnweVNL/c7cge5D
+2nhOX9abqtFY/6XupRVfhovOdS/p3134/mVd8+v+1ncnnqBXtz41oGRLXrFbeXSo
+Pbp6+sftoz5ws2/l9a43A8s6qi2zLeXF/pRfeZtHbn1NbyxdvPdbtCi/42zPnvyp
+hGtgNAYiE3ra9m7r0X5pKjb4uKK39Ly/4uDrmsqt6XEnh693VU8Mpd09NjmZFlm/
+cTJxgu/oHzPqPk4sqr/hNH3H7+2E8bKLae/i120rbMs+MJQ1VNjz7Hlu85q+y9lN
+/pTMHpbqzx98vmHX2jPTDVlH2g5XX8xr/APEFku9
+=vXTZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/davidosomething
+
+==================================================================
