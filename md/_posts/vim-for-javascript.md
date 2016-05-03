@@ -13,7 +13,7 @@ tags:
 changelog:
   -
     date: 2016-05-03
-    diff: 
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/4e84c59ea266aae491cf58bc0662985204c23c88"
     body: |
       - Updated pangloss/vim-javascript and sheerun/vim-polyglot descriptions
   -
