@@ -12,6 +12,11 @@ tags:
   - tern
 changelog:
   -
+    date: 2016-05-03
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/4e84c59ea266aae491cf58bc0662985204c23c88"
+    body: |
+      - Updated pangloss/vim-javascript and sheerun/vim-polyglot descriptions
+  -
     date: 2016-01-25
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/10fa0c69759d390905ee31a7dc3a108ddeea6e7e"
     body: |
@@ -86,8 +91,16 @@ There are quite a few options:
 - [pangloss/vim-javascript]
     - Includes custom indent settings
     - Adds special concealing symbols so to make your code pretty at a glance
-    - Not frequently updated (maybe once a month with many months in between
-      periods of activity).
+    - Last updated April 2016 with additional ES2015 support (better arrow
+      function and highlighting among other things) and some regex performance
+      updates.
+- [sheerun/vim-polyglot]
+    - This is a plugin that bundles a bunch of language syntax plugins into
+      one. It includes [pangloss/vim-javascript] at the latest version, as well
+      as some other plugins like [vim-jsx]. Worth checking out if you don't
+      want to maintain syntax plugins on your own, but you should double-check
+      to make sure you aren't manually adding the bundled plugins outside of
+      the pack (resulting in having the plugin twice).
 - [jelera/vim-javascript-syntax]
     - Does not include custom indent settings
     - Updated about once a month according to the GitHub contributors graph
@@ -95,10 +108,6 @@ There are quite a few options:
     - This is a fork of [jelera/vim-javascript-syntax]
     - Does not include custom indent settings
     - Updated very often to keep in line with ES specifications
-- [sheerun/vim-polyglot], or [sheerun/yajs.vim]
-    - This is a plugin that bundles a bunch of language syntax plugins into one.
-      It particularly includes `sheerun/yajs.vim`, which is an outdated mirror
-      of `othree/yajs.vim`.
 - [bigfish/vim-js-context-coloring]
     - This is an interesting new method of syntax highlighting. It picks out
       function scopes from your program by runningg it through a node.js binary
