@@ -6,8 +6,6 @@
 	<header class="article__header">
 		<h1 class="article__title"><a rel="bookmark" class="article__header__link article__header__link--permalink" href="{{ permalink }}">{{{ title }}}</a></h1>
 	</header>
-	<section class="article__body">
-		{{{ contents }}}{{! see hbs/jsdoc/module.hbs }}
-	</section>
+	<div class="article__body">{{{ contents }}}{{! see hbs/jsdoc/module.hbs }}</div>
 </article>
 {{> globalEnd }}

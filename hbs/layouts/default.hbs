@@ -8,9 +8,7 @@
 		<h1 class="article__title" itemprop="headline"><a rel="bookmark" class="article__header__link article__header__link--permalink" href="{{ permalink }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
 		{{#if subheader}}<h2 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h2>{{/if}}
 	</header>
-	<section class="article__body" itemprop="articleBody">{{{ contents }}}</section>
-	<footer class="article__footer">
-		{{> changelog }}
-	</footer>
+	<div class="article__body" itemprop="articleBody">{{{ contents }}}</div>
+	<footer class="article__footer">{{> changelog }}</footer>
 </article>
 {{> globalEnd }}
