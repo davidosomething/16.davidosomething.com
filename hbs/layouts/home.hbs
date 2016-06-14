@@ -10,8 +10,8 @@
 	{{#each collections.homePosts}}
 		<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
 			<header class="article__header">
-				<h2 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h2>
-				{{#if subheader}}<h3 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h3>{{/if}}
+				<h1 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
+				{{#if subheader}}<p class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</p>{{/if}}
 				<div class="article__meta">
 					{{#if changelog~}}
 						<span>Updated <time datetime="{{ moment changelog.[0].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[0].date format="MMMM DD, YYYY" }}</time></span>

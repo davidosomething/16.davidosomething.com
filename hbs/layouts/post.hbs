@@ -6,7 +6,7 @@
 	<meta itemprop="name" content="{{ slug }}">
 	<header class="article__header">
 		<h1 class="article__title" itemprop="headline"><a rel="bookmark" class="article__header__link article__header__link--permalink" href="{{ permalink }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
-		{{#if subheader}}<h2 class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</h2>{{/if}}
+		{{#if subheader}}<p class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</p>{{/if}}
 		<div class="article__meta">
 			<time datetime="{{ moment datePublished toISOString=null }}" itemprop="datePublished">{{ moment datePublished format="MMMM DD, YYYY" }}</time>
 			{{#if changelog}}<span>Updated <time datetime="{{ moment changelog.[0].date toISOString=null }}" itemprop="dateModified">{{ moment changelog.[0].date format="MMMM DD, YYYY" }}</time>(<a href="#changelog">log</a>)</span>{{/if}}
