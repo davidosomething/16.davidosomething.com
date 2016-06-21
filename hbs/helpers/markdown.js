@@ -22,7 +22,7 @@
 const markdownHelper = function (context, options) {
   const remark = require('remark');
   const remarkHtml = require('remark-html');
-  return remark.use(remarkHtml).process(context);
+  return remark().use(remarkHtml).process(context);
 };
 
 module.exports = markdownHelper;
