@@ -1,6 +1,6 @@
 {{! <meta> tags for site }}
 {{#each site.meta}}
-	<meta {{#each this as |v k|}}{{k}}="{{{v}}}"{{/each}}>
+	<meta{{#each this as |v k|}} {{k}}="{{{v}}}"{{/each}}>
 {{/each}}
 {{! <meta> tags for post }}
 <meta name="robots" content="{{#if robots}}{{robots}}{{else}}index,noodp,follow{{/if}}">
