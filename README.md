@@ -42,11 +42,6 @@ to install gulp globally.
 - `gulp ci:lint` will run all lint tasks (except markdown), this is for CI
   servers
 
-The JS lint task uses jscs AND eslint. JSDoc is linted via jscs since it has
-more rules for JSDoc than eslint. In general, prefer plugins with most rules,
-then use the linter with the most rules, finally fall back to eslint for rules
-that exist in both jscs and eslint.
-
 ## Build
 
 - Run `gulp` to build.
