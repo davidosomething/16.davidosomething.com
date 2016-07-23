@@ -10,6 +10,7 @@
       "strong": true
     },
     "es_modules": {},
+    "jspm": {},
     "node": {}
   }
 }

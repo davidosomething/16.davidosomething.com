@@ -38,6 +38,7 @@
     "directories": {
       "packages": "assets/jspm"
     },
+    "configFile": "jspm.config.js",
     "dependencies": {},
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.38",
@@ -99,6 +100,7 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-remark-lint-dko": "^1.0.2",
     "imagemin-pngquant": "^5.0.0",
-    "markdownlint": "^0.2.0"
+    "markdownlint": "^0.2.0",
+    "tern-jspm": "^0.1.0"
   }
 }
