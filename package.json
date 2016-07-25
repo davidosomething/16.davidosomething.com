@@ -70,7 +70,7 @@
     "lodash.get": "^4.3.0",
     "lodash.has": "^4.4.0",
     "lodash.isarray": "^4.0.0",
-    "lodash.omit": "^4.3.0",
+    "lodash.omit": "^4.4.0",
     "lodash.orderby": "^4.4.0",
     "metalsmith": "^2.1.0",
     "metalsmith-branch": "0.0.4",
