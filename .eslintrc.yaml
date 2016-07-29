@@ -1,0 +1,13 @@
+---
+  extends:
+    - "eslint:recommended"
+    - "eslint-config-davidosomething"
+  env:
+    commonjs: true
+    es6:      true
+    node:     true
+  parserOptions:
+    ecmaVersion:    6
+    # in case we turn off babelify, still want devs to `use strict` and run in
+    # strict
+    impliedStrict:  false
