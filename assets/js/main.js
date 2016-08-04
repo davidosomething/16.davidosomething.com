@@ -1,7 +1,8 @@
 /**
  * @author David O'Trakoun <me@davidosomething.com>
  * @module site/global
- * @requires module:shareIntent
+ * @requires module:site/analytics
+ * @requires module:site/shareIntent
  */
 
 import analytics from './analytics.js';
