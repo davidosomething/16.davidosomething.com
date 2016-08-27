@@ -50,7 +50,7 @@
     "debug": "^2.2.0",
     "del": "^2.2.1",
     "eslint-config-davidosomething": "^1.1.0",
-    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsdoc": "^2.3.1",
     "eyeglass": "^0.8.3",
     "eyeglass-highlightjs": "^1.0.0",
