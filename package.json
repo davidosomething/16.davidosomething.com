@@ -28,7 +28,6 @@
   "scripts": {
     "bundle": "jspm bundle-sfx --minify --source-map-contents assets/js/main public/assets/js/main.min.js",
     "deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master",
-    "deploy-surge": "surge ./public",
     "gulp": "gulp",
     "jspm": "jspm",
     "test": "gulp lint",
@@ -86,12 +85,11 @@
     "metalsmith-widow": "^1.1.1",
     "normalize-scss": "^5.0.3",
     "optional": "^0.1.3",
-    "remark": "^5.0.1",
+    "remark": "^6.0.0",
     "remark-highlight.js": "^4.0.0",
     "remark-html": "^5.0.0",
     "sassdoc": "^2.1.20",
     "slug": "^0.9.1",
-    "surge": "^0.18.0",
     "through2": "^2.0.1"
   },
   "devDependencies": {
