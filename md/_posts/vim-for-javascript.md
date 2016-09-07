@@ -13,7 +13,7 @@ tags:
 changelog:
   -
     date: 2016-09-06
-    diff: ""
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/8a351757ac4434faffc7ddc188ef63573c9093e0"
     body: |
       - Updated what I use and fixed a backtick
   -
