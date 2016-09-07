@@ -12,6 +12,11 @@ tags:
   - tern
 changelog:
   -
+    date: 2016-09-06
+    diff: ""
+    body: |
+      - Updated what I use and fixed a backtick
+  -
     date: 2016-05-03
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/4e84c59ea266aae491cf58bc0662985204c23c88"
     body: |
@@ -120,14 +125,22 @@ There are quite a few options:
 
 With the exception of vim-js-context-coloring, **all of these provide ES2015
 (ES6) and JSDoc support to varying degrees**, which Vim lacks by default.
-I personally use and recommend [othree/yajs.vim] since it has most up-to-date
-language support. The author also writes a few other plugins that can be used
-in conjunction with it (although they may work with the other syntaxes too).
+I personally use and recommend [pangloss/vim-javascript] purely because it has
+started active development again. I have not experienced any issues since
+switching to this from [othree/yajs.vim].
+
+[othree/yajs.vim] with
+[es.next.syntax.vim](https://github.com/othree/es.next.syntax.vim) might better
+suit your needs if you use ES2016 (ES7). The author also writes a few other
+plugins that can be used in conjunction with it (although they may work with
+the other syntaxes, too, depending on the syntax groups provided). I've used
+this plugin extensively in place of the default syntax and haven't had any
+problems.
 
 Using [vim-plug], I recommend installing the plugin like this:
 
 ```vim
-Plug 'othree/yajs.vim`, { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 ```
 
 The additional requirement at the end makes sure the syntax plugin is loaded in
@@ -171,7 +184,7 @@ Some notable options in this case are:
     - The indent logic starts with normal `cindent` styles and adds special
       cases for comments, JSDoc, arrays, and switch/case.
 
-Since I use [othree/yajs.vim] for my syntax, I use [gavocanov/vim-js-indent]
+When I used [othree/yajs.vim] for my syntax, I used [gavocanov/vim-js-indent]
 for improved indenting. Your best bet with any of these is to try it out and
 see if you like the indent style it provides over what Vim provides by default.
 
