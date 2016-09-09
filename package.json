@@ -51,7 +51,7 @@
     "eslint-config-davidosomething": "^1.1.0",
     "eslint-plugin-import": "^1.12.0",
     "eslint-plugin-jsdoc": "^2.3.1",
-    "eyeglass": "^0.8.3",
+    "eyeglass": "^1.0.0",
     "eyeglass-highlightjs": "^1.0.0",
     "gh-pages": "^0.11.0",
     "gulp": "^3.9.1",
