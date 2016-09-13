@@ -12,6 +12,12 @@ tags:
   - tern
 changelog:
   -
+    date: 2016-09-13
+    diff: ""
+    body: |
+      - vim-javascript's indent is now part up upstream! Thanks for the heads
+        up @bounceme!
+  -
     date: 2016-09-06
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/8a351757ac4434faffc7ddc188ef63573c9093e0"
     body: |
@@ -94,7 +100,10 @@ want more features such as ES2015 support, or better distinguishing of keywords.
 There are quite a few options:
 
 - [pangloss/vim-javascript]
-    - Includes custom indent settings
+    - Includes custom indent settings. These indent settings are also the ones
+      included in the Vim default runtime now, and the one in the plugin may
+      be trailing what comes with Vim (i.e., Vim has a newer version of the same
+      indent file!)
     - Adds special concealing symbols so to make your code pretty at a glance
     - Last updated April 2016 with additional ES2015 support (better arrow
       function and highlighting among other things) and some regex performance
@@ -107,11 +116,11 @@ There are quite a few options:
       to make sure you aren't manually adding the bundled plugins outside of
       the pack (resulting in having the plugin twice).
 - [jelera/vim-javascript-syntax]
-    - Does not include custom indent settings
+    - Does not include custom indent settings (not that you need them...)
     - Updated about once a month according to the GitHub contributors graph
 - [othree/yajs.vim]
     - This is a fork of [jelera/vim-javascript-syntax]
-    - Does not include custom indent settings
+    - Does not include custom indent settings (again, you might not need one)
     - Updated very often to keep in line with ES specifications
 - [bigfish/vim-js-context-coloring]
     - This is an interesting new method of syntax highlighting. It picks out
@@ -152,17 +161,25 @@ will have already run, and the plugin's syntax will override it.
 
 Vim's bundled JavaScript indent may be enough for you, especially if you use
 a strictly C-style whitespace (Vim's C-style indent options is even called
-`cindent`).
+`cindent`). Vim, as of August 26, 2016, comes with a modified version of the
+[pangloss/vim-javascript] indent rules that does not include the reformatting
+`gq` action. This means 99% of people probably won't need to change their indent
+file.
 
 Some notable options in this case are:
 
 - [pangloss/vim-javascript]
-    - Using this entire syntax plugin will provide you with a more JavaScripty
+    - Using this entire syntax plugin will provide you with a more JavaScript-y
       indent for things like switch/case and multi-line var declarations.
     - This indent plugin has a side-effect in that it also changes the format
       expression -- that is, if you highlight a block and use `gq` to reformat
       it, it will re-indent the code using this plugin as well.
+    - The Vim runtime (stuff that comes with Vim) may include a newer version of
+      this indent file that does not have the modified `gq`.
 - [gavocanov/vim-js-indent]
+    - I don't recommend this one, but I've listed it here because you'll
+      probably find it and have questions. The author no longer uses it, so it
+      should not be considered.
     - This is the indent portion of [pangloss/vim-javascript], ripped out into
       its own plugin.
     - There are modifications to it, diverging it from
@@ -184,9 +201,10 @@ Some notable options in this case are:
     - The indent logic starts with normal `cindent` styles and adds special
       cases for comments, JSDoc, arrays, and switch/case.
 
-When I used [othree/yajs.vim] for my syntax, I used [gavocanov/vim-js-indent]
-for improved indenting. Your best bet with any of these is to try it out and
-see if you like the indent style it provides over what Vim provides by default.
+Your best bet is to stick with what comes with Vim by default, and only try
+out the others if your coding style does not match what the rest of the
+JavaScript community is converging towards. If there's a quirk, it is probably
+better to submit an issue with the [pangloss/vim-javascript] repo.
 
 ## Related syntaxes
 
