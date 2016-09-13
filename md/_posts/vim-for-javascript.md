@@ -13,7 +13,7 @@ tags:
 changelog:
   -
     date: 2016-09-13
-    diff: ""
+    diff: "9d66de11d8c69350e2f9284c2c0b85e0b2cd25c7"
     body: |
       - vim-javascript's indent is now part up upstream! Thanks for the heads
         up @bounceme!
