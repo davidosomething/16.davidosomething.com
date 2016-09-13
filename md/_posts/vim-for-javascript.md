@@ -111,7 +111,7 @@ There are quite a few options:
 - [sheerun/vim-polyglot]
     - This is a plugin that bundles a bunch of language syntax plugins into
       one. It includes [pangloss/vim-javascript] at the latest version, as well
-      as some other plugins like [vim-jsx]. Worth checking out if you don't
+      as some other plugins like [mxw/vim-jsx]. Worth checking out if you don't
       want to maintain syntax plugins on your own, but you should double-check
       to make sure you aren't manually adding the bundled plugins outside of
       the pack (resulting in having the plugin twice).
