@@ -29,6 +29,7 @@
     "bundle": "jspm bundle-sfx --minify --source-map-contents assets/js/main public/assets/js/main.min.js",
     "deploy-github": "gh-pages -d ./public -r git@github.com:davidosomething/davidosomething.github.io.git -b master",
     "gulp": "gulp",
+    "jcu": "jspm-check-updates",
     "jspm": "jspm",
     "test": "gulp lint",
     "start": "gulp sync"
@@ -49,7 +50,7 @@
     "debug": "^2.2.0",
     "del": "^2.2.1",
     "eslint-config-davidosomething": "^1.1.0",
-    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsdoc": "^2.3.1",
     "eyeglass": "^1.0.0",
     "eyeglass-highlightjs": "^1.0.1",
@@ -98,6 +99,7 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-remark-lint-dko": "^1.0.2",
     "imagemin-pngquant": "^5.0.0",
+    "jspm-check-updates": "^1.1.2",
     "markdownlint": "^0.2.0",
     "tern-jspm": "^0.1.0"
   }
