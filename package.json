@@ -54,7 +54,7 @@
     "eslint-plugin-jsdoc": "^2.3.1",
     "eyeglass": "^1.0.0",
     "eyeglass-highlightjs": "^1.0.1",
-    "gh-pages": "^0.11.0",
+    "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^3.0.1",
