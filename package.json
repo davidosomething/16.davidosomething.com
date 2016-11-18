@@ -54,7 +54,7 @@
     "eslint-plugin-jsdoc": "^2.3.1",
     "eyeglass": "^1.0.0",
     "eyeglass-highlightjs": "^1.0.1",
-    "gh-pages": "^0.11.0",
+    "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^3.0.1",
@@ -62,7 +62,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.2.0",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^2.2.0",
     "handlebars": "^4.0.5",
     "helper-date": "^0.2.2",
     "jspm": "^0.16.41",
@@ -84,7 +84,7 @@
     "metalsmith-sitemap": "^1.1.0",
     "metalsmith-snippet": "^2.0.0",
     "metalsmith-widow": "^1.1.1",
-    "normalize-scss": "^5.0.3",
+    "normalize-scss": "^6.0.0",
     "optional": "^0.1.3",
     "remark": "^6.0.1",
     "remark-highlight.js": "^4.0.0",
@@ -100,7 +100,7 @@
     "gulp-remark-lint-dko": "^1.0.2",
     "imagemin-pngquant": "^5.0.0",
     "jspm-check-updates": "^1.1.2",
-    "markdownlint": "^0.2.0",
+    "markdownlint": "^0.3.1",
     "tern-jspm": "^0.1.0"
   }
 }
