@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "davidosomething.com",
+ "short_name": "davidosomething.com",
+ "start_url": ".",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
