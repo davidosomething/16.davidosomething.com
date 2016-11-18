@@ -134,7 +134,7 @@ $typeface__body--fallback: sans-serif;
 /// Font weight for body copy
 /// @group typography
 /// @type FontWeight
-$fw__body:    300;
+$fw__body:    400;
 
 /// Font weight for strong body copy
 /// @group typography
@@ -1050,6 +1050,10 @@ body:not(.slug--home) .globalHeader {
 .article__changelog {
   @include fs('block');
 
+  dt:not(:first-child) {
+    margin-top: 1em;
+  }
+
   dd {
     margin: 0.5em 0 0.5em 1.4em;
   }
@@ -1058,6 +1062,11 @@ body:not(.slug--home) .globalHeader {
     margin: 0;
     padding: 0;
   }
+
+  li {
+    line-height: 1.2;
+  }
+
 }
 
 

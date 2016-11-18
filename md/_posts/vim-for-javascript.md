@@ -1,7 +1,7 @@
 ---
 slug:           "vim-for-javascript"
 title:          "Setting up Vim for JavaScript development"
-subheader:      "Comparisons and information for useful JavaScript-specific plugins"
+subheader:      "Setting up Vim and comparisons of JavaScript-specific Vim plugins"
 datePublished:  2016-01-09
 image:          "/assets/img/posts/Vimlogo.svg.png"
 tags:
@@ -11,6 +11,11 @@ tags:
   - linting
   - tern
 changelog:
+  -
+    date: 2016-11-17
+    diff: ""
+    body: |
+      - Added a preface in case any n00bs run into this article.
   -
     date: 2016-09-13
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/9d66de11d8c69350e2f9284c2c0b85e0b2cd25c7"
@@ -60,6 +65,17 @@ changelog:
     body: |
       - Update omni-completion with basic info on how `omnifunc` works and added vim-better-javascript-completion.
 ---
+
+Before you read any of this I will caveat with the fact that Vim is perfectly
+adequate for modern JavaScript development _without_ plugins. The Vim runtime
+comes with syntax highlighting and omni-completion already, and you can even
+configure Vim as a task runner without plugins.
+
+This is geared towards people who already know how to use Vim. E.g., if you
+understand minutiae like the difference between `set autoindent` and
+`set indentexpr`, and have found neither to your liking, then read on.
+Otherwise, I highly advise you learn a little more about what the standard
+Vim runtime comes with.
 
 ## Installing plugins
 
