@@ -65,7 +65,7 @@
     "gulp-sourcemaps": "^2.2.0",
     "handlebars": "^4.0.5",
     "helper-date": "^0.2.2",
-    "jspm": "^0.16.41",
+    "jspm": "^0.16.46",
     "lodash.defaultsdeep": "^4.5.0",
     "lodash.get": "^4.4.0",
     "lodash.has": "^4.5.0",
