@@ -13,7 +13,7 @@ tags:
 changelog:
   -
     date: 2016-11-17
-    diff: ""
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/5f0086be063229030c1d75832bdd2c26f14118dd"
     body: |
       - Added a preface in case any n00bs run into this article.
   -
