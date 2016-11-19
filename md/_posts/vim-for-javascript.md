@@ -140,7 +140,7 @@ There are quite a few options:
     - Updated very often to keep in line with ES specifications
 - [bigfish/vim-js-context-coloring]
     - This is an interesting new method of syntax highlighting. It picks out
-      function scopes from your program by runningg it through a node.js binary
+      function scopes from your program by running it through a node.js binary
       that runs a JavaScript parser and assigns a color to the scope. Things
       within that scope are assigned a color. Because it requires in-depth
       parsing of your code, it may not color your code when it is incomplete
