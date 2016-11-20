@@ -23,7 +23,7 @@
 
 /// @group colors
 $colors: (
-  primary-bg:            #fafaf4,
+  primary-bg:            #fcfcf9,
   primary-text:          #3f3a30,
   primary-link:          #27a,
   primary-link--hover:   #38b,
@@ -149,7 +149,7 @@ $fw__bold:    700;
 /// Font weight for headings
 /// @group typography
 /// @type FontWeight
-$fw__heading: 900;
+$fw__heading: 400;
 
 /// Font - Sizes
 /// @group typography
@@ -166,7 +166,7 @@ $fontsizes: (
     nav:             1em,
     postlist:        0.66em,
     article__meta:   0.66em,
-    article__body:   0.94em,
+    article__body:   1.2em,
     block:           0.88em,
     footer:          0.8em,
   ),
@@ -178,7 +178,6 @@ $fontsizes: (
     h5: 1.2em,
     bio__author:     2rem,
     bio__links:      2rem,
-    article__body: 1em,
   ),
   medium: (
     h1: 2.4em,
@@ -524,6 +523,11 @@ tr:nth-child(even) {
   }
 }
 
+.siteHeader__changelog,
+.siteHeader__comments {
+  margin-left: 1em;
+}
+
 
 // =============================================================================
 // Global Header
@@ -644,6 +648,7 @@ body:not(.slug--home) .globalHeader {
 
 .widget {
   @include fs('nav');
+  line-height: 1.5;
   margin: 0 0 3rem;
 
   @include mq('small') {
@@ -894,6 +899,7 @@ body:not(.slug--home) .globalHeader {
 
 .article {
   margin: 0 auto 4em;
+  max-width: $readable-body-width;
 
   @include mq('large') {
     margin-left: 0;
@@ -973,6 +979,7 @@ body:not(.slug--home) .globalHeader {
   time {
     border: 1px transparent solid;
     display: inline-block;
+    margin-right: 0.2em;
     white-space: nowrap;
   }
 
@@ -995,9 +1002,8 @@ body:not(.slug--home) .globalHeader {
 
 .article__body {
   @include fs('article__body');
-  line-height: 1.5;
+  line-height: 1.6;
   margin-left: 0.5em;
-  max-width: $readable-body-width;
 
   h2 {
     @include fs('h3');
@@ -1065,7 +1071,8 @@ body:not(.slug--home) .globalHeader {
   }
 
   li {
-    line-height: 1.2;
+    line-height: 1.4;
+    margin-bottom: 0.5em;
   }
 
 }
@@ -1125,6 +1132,7 @@ body:not(.slug--home) .globalHeader {
     > .article__subheader {
       @include fs('h3');
       font-weight: $fw__body;
+      line-height: 1.24;
     }
   }
 }
@@ -1144,6 +1152,7 @@ body:not(.slug--home) .globalHeader {
     > .article__subheader {
       @include fs('h4');
       font-weight: $fw__body;
+      line-height: 1.24;
     }
   }
 }

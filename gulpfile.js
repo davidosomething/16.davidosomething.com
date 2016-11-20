@@ -129,10 +129,7 @@ gulp.task('ci:lint', [
 
 gulp.task('clean:docs', require('./lib/gulp/clean.js').docs);
 
-gulp.task('docs', [
-  'docs:css',
-  'docs:js',
-]);
+gulp.task('docs', [ 'docs:css', 'docs:js' ]);
 
 // -----------------------------------------------------------------------------
 // Task: Default
@@ -145,7 +142,7 @@ gulp.task('default', [
   'js',
   'css',
   'assets',
-  'docs',
+  //'docs', // html triggers docs
   'html',
 ]);
 

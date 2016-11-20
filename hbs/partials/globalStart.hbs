@@ -2,7 +2,13 @@
 <body id="top" class="type--{{ type }} section--{{ section }} {{#if slug}}slug--{{slug}}{{/if}}">
 	<header class="siteHeader">
 		<div class="siteHeader__title">
-			<a href="/" class="siteHeader__siteName">{{ site.title }}</a>{{#if title}}<span class="siteHeader__separator"> | </span><a href="#main" class="siteHeader__pageTitle">{{{ title }}}</a>{{/if}}
+			<a href="/" class="siteHeader__siteName">{{ site.title }}</a>
+			{{#if title}}
+				<span class="siteHeader__separator"> | </span>
+				<a href="#main" class="siteHeader__pageTitle">{{{ title }}}</a>
+				{{#if changelog}}<a href="#changelog" class="siteHeader__changelog">#changelog (upd <time>{{ moment changelog.[0].date format="YYYY-MM-DD" }}</time>)</a>{{/if}}
+				{{#if tags}}<a href="#comments" class="siteHeader__comments">#comments</a>{{/if}}
+			{{/if}}
 		</div>
 	</header>
 	<div class="globalBody">
