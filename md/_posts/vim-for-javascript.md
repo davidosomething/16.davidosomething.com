@@ -1,7 +1,7 @@
 ---
 slug:           "vim-for-javascript"
 title:          "Setting up Vim for JavaScript development"
-subheader:      "Setting up Vim and comparisons of JavaScript-specific Vim plugins"
+subheader:      "Configuring Vim and comparisons of JavaScript-specific Vim plugins"
 datePublished:  2016-01-09
 image:          "/assets/img/posts/Vimlogo.svg.png"
 tags:
@@ -11,6 +11,12 @@ tags:
   - linting
   - tern
 changelog:
+  -
+    date: 2016-11-20
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/3686c4d83d51538d96d28c991a1766e6ea4f76d9"
+    body: |
+      - Updated general completion details and caveat that I've moved on to
+        Neovim.
   -
     date: 2016-11-17
     diff: "https://github.com/davidosomething/16.davidosomething.com/commit/5f0086be063229030c1d75832bdd2c26f14118dd"
@@ -302,7 +308,14 @@ I personally do use this plugin.
 
 - [othree/javascript-libraries-syntax.vim]
 
-## JavaScript code completion for Vim
+## Code completion for Vim
+
+This is what you might know as "autocomplete" or "Intellisense."
+
+Vim has a built-in completion feature that you can trigger by just using
+`<C-X>` (that's the `control-x` key) and then another control-key sequence like
+`<C-F>` to complete filenames or `<C-O>` to trigger omni-completion. You should
+try it before trying to install a bunch of plugins to modify this behavior.
 
 ### Omni completion
 
@@ -312,11 +325,15 @@ Vim includes basic code completion built in. See [this wikia article] for
 information on how to use that. The gist is that the completion system will
 run a function, the `omnifunc`, to populate autocompletion pop-up with results.
 
-To use the default completion function, add this to your vimrc:
+To use the default completion function, you may need to add this to your
+`.vimrc` file:
 
 ```vim
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 ```
+
+You might not need to add it if the `<C-X><C-O>` trigger already works for you,
+it depends on what version of Vim and the Vim runtime you have.
 
 For even better completion, consider using a plugin like
 [Shougo/neocomplete.vim] or [Valloric/YouCompleteMe]. On Neovim, an option is
@@ -339,6 +356,10 @@ by providing a list of function names like so:
         \   'tern#Complete',
         \ ]
 ```
+
+I won't guarantee that the above works, since the plugins get updated regularly
+and neocomplete does not like `omnifunc`s that move the cursor around when the
+function is executed.
 
 ### Extended omni-completion
 
@@ -371,7 +392,7 @@ Installing via [vim-plug], which can run additional commands before plugin
 installation, is done like this:
 
 ```vim
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 ```
 
 This will install its npm dependencies for you (Tern runs a node-based analyzer
@@ -380,7 +401,7 @@ in the background while you're editing).
 I use this plugin with many of its extra features turned off, just keeping the
 completion.
 
-- [marijnh/tern_for_vim]
+- [ternjs/tern_for_vim]
 
 ### Function parameter completion
 
@@ -491,10 +512,12 @@ different languages. Of note is [jscs](http://jscs.info/) and
 
 ## My Vim setup
 
-You can dig through [my Vim configuration on GitHub]. The plugins I use are
-all in the main vimrc file, and their configurations are interspersed into
-`plugin/`, `ftplugin/`, and `after/*/` to cope with the order in which Vim
-loads files.
+You can dig through [my Vim configuration on GitHub]. Please note that this
+article was written a while ago, and since then I've completely switched over
+to Neovim so a lot of the configuration may not apply to you. The plugins
+I use are all in the main vimrc file, and their configurations are
+interspersed into `plugin/`, `ftplugin/`, and `after/*/` to cope with the
+order in which Vim loads files.
 
 - [my Vim configuration on GitHub]
 
@@ -526,7 +549,7 @@ loads files.
 [Valloric/YouCompleteMe]: https://github.com/Valloric/YouCompleteMe
 [1995eaton/vim-better-javascript-completion]: https://github.com/1995eaton/vim-better-javascript-completion
 [Shougo/deoplete.nvim]: https://github.com/Shougo/deoplete.nvim
-[marijnh/tern_for_vim]: https://github.com/marijnh/tern_for_vim
+[ternjs/tern_for_vim]: https://github.com/ternjs/tern_for_vim
 [othree/jspc.vim]: https://github.com/othree/jspc.vim
 [moll/vim-node]: https://github.com/moll/vim-node
 [ludovicchabant/vim-gutentags]: https://github.com/ludovicchabant/vim-gutentags
