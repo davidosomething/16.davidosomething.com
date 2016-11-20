@@ -13,7 +13,7 @@ tags:
 changelog:
   -
     date: 2016-11-20
-    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/"
+    diff: "https://github.com/davidosomething/16.davidosomething.com/commit/3686c4d83d51538d96d28c991a1766e6ea4f76d9"
     body: |
       - Updated general completion details and caveat that I've moved on to
         Neovim.
