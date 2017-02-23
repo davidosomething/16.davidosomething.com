@@ -86,7 +86,7 @@
     "metalsmith-widow": "^1.1.1",
     "normalize-scss": "^6.0.0",
     "optional": "^0.1.3",
-    "remark": "^6.0.1",
+    "remark": "^7.0.0",
     "remark-highlight.js": "^4.0.0",
     "remark-html": "^5.0.0",
     "sassdoc": "^2.1.20",
