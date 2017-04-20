@@ -94,7 +94,7 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.15.0",
+    "browser-sync": "^2.17.0",
     "chalk": "^1.1.3",
     "gulp-imagemin": "^3.0.1",
     "gulp-remark-lint-dko": "^1.0.2",
