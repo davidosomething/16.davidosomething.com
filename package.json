@@ -49,7 +49,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "del": "^2.2.1",
-    "eslint-config-davidosomething": "^1.1.0",
+    "eslint-config-davidosomething": "^1.2.0",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsdoc": "^3.0.0",
     "eyeglass": "^1.0.0",
