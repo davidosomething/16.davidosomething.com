@@ -1,5 +1,7 @@
 # davidosomething.com for 2016
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/davidosomething/16.davidosomething.com.svg)](https://greenkeeper.io/)
+
 > Static generated site for [davidosomething.com]
 
 [![Upstream][upstreamBadge]][upstreamLink]
