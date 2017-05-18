@@ -33,7 +33,6 @@ const browserSync = BrowserSync ? BrowserSync.create() : null;
 
 gulp.task('clean:css', require('./lib/gulp/clean.js').css);
 gulp.task('lint:css',  require('./lib/gulp/lint-css.js'));
-gulp.task('docs:css',  require('./lib/gulp/docs-css.js'));
 gulp.task('css',       require('./lib/gulp/build-css.js')(browserSync));
 
 // -----------------------------------------------------------------------------
@@ -43,7 +42,6 @@ gulp.task('css',       require('./lib/gulp/build-css.js')(browserSync));
 gulp.task('clean:js', require('./lib/gulp/clean.js').js);
 gulp.task('lint:js:eslint',  require('./lib/gulp/lint-js-eslint.js'));
 gulp.task('lint:js', [ 'lint:js:eslint' ]);
-gulp.task('docs:js',  require('./lib/gulp/docs-js.js'));
 gulp.task('js',       require('./lib/gulp/build-js.js'));
 
 // -----------------------------------------------------------------------------
@@ -75,7 +73,7 @@ gulp.task('lint:md:markdownlint', require('./lib/gulp/lint-md-markdownlint.js'))
 gulp.task('lint:md:remark', require('./lib/gulp/lint-md-remark.js'));
 gulp.task('lint:md', [ 'lint:md:markdownlint', 'lint:md:remark' ]);
 gulp.task('build:html', require('./lib/gulp/build-html.js'));
-gulp.task('html', [ 'docs' ], require('./lib/gulp/build-html.js'));
+gulp.task('html', require('./lib/gulp/build-html.js'));
 
 // -----------------------------------------------------------------------------
 // Task: Watch and Sync, or just serve
@@ -122,15 +120,6 @@ gulp.task('ci:lint', [
   'lint:js',
 ]);
 
-
-// -----------------------------------------------------------------------------
-// Task: Docs multitask
-// -----------------------------------------------------------------------------
-
-gulp.task('clean:docs', require('./lib/gulp/clean.js').docs);
-
-gulp.task('docs', [ 'docs:css', 'docs:js' ]);
-
 // -----------------------------------------------------------------------------
 // Task: Default
 // -----------------------------------------------------------------------------
@@ -142,7 +131,6 @@ gulp.task('default', [
   'js',
   'css',
   'assets',
-  //'docs', // html triggers docs
   'html',
 ]);
 
