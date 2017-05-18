@@ -10,7 +10,7 @@
 	{{#each collections.homePosts}}
 		<article class="article article--excerpt" itemprop="blogPost" itemscope itemtype="{{ schema.itemtype }}">
 			<header class="article__header">
-				<h1 class="article__title" itemprop="headline"><a class="article__header__link" href="/{{ path }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
+				<h1 class="article__title" itemprop="headline"><a class="article__header__link" href="{{ permalink }}" itemprop="mainEntityOfPage url">{{{ title }}}</a></h1>
 				{{#if subheader}}<p class="article__subheader" itemprop="alternativeHeadline">{{{ subheader }}}</p>{{/if}}
 				<div class="article__meta">
 					{{#if changelog~}}
