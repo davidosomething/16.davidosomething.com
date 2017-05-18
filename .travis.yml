@@ -19,6 +19,7 @@ branches:
   only:
   - master
   - dev
+  - /^greenkeeper/.*$/
 before_install:
 - git config --global user.name "TravisCI"
 - git config --global user.email "travis@travis-ci.org"

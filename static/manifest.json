@@ -1,6 +1,6 @@
 {
  "name": "davidosomething.com",
- "short_name": "davidosomething.com",
+ "short_name": "davidosomething",
  "start_url": ".",
  "icons": [
   {
@@ -39,5 +39,7 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ]
+ ],
+ "background_color": "#fcfcf9",
+ "theme_color": "#27a"
 }
