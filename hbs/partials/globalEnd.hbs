@@ -2,7 +2,7 @@
 			{{> nav }}
 		</div>
 		<footer class="globalFooter">
-			{{#if pages}}<ul class="globalFooter__links">{{#each pages}}<li><a href="/{{ path }}">{{ title }}</a></li>{{/each}}</ul>{{/if}}
+			{{#if pages}}<ul class="globalFooter__links">{{#each pages}}<li><a href="{{ permalink }}">{{ title }}</a></li>{{/each}}</ul>{{/if}}
 			<div>
 				<span class="globalFooter__copyright">
 					Copyright &copy; <a href="mailto:{{ pkg.author.email }}" rel="me">{{ pkg.author.name }}</a>.

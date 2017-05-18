@@ -6,7 +6,7 @@
 	<div class="widget__body">
 		<ul class="widget__taglist">
 			{{#each groupedPages.tags as |tag|}}
-				<li><a href="/{{tag.path}}/">{{tag.groupedPage.name}}</a> ({{tag.groupedPage.files.length}})</li>
+				<li><a href="{{tag.permalink}}">{{tag.groupedPage.name}}</a> ({{tag.groupedPage.files.length}})</li>
 			{{/each}}
 		</ul>
 	</div>
