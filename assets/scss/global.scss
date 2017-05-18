@@ -166,7 +166,6 @@ $fontsizes: (
     nav:             1em,
     postlist:        0.66em,
     article__meta:   0.66em,
-    article__body:   1.2em,
     block:           0.88em,
     footer:          0.8em,
   ),
@@ -182,8 +181,8 @@ $fontsizes: (
   medium: (
     h1: 2.4em,
     h2: 2em,
-    h3: 1.8em,
-    h4: 1.5em,
+    h3: 1.5em,
+    h4: 1.4em,
     h5: 1.2em,
   ),
   middle: (
@@ -191,11 +190,9 @@ $fontsizes: (
   ),
   large: (
     globalSiteTitle: 0.66rem,
-    body: 1.1em,
     nav:  0.8em,
   ),
   xlarge: (
-    body: 1.2em,
     nav:  0.9em,
   ),
   xxlarge: (
@@ -765,7 +762,7 @@ body:not(.slug--home) .globalHeader {
 
   a {
     border-bottom: 1px map-get($colors, 'primary-text') dotted;
-    color: inherit;
+    color: map-get($colors, 'primary-bg');
 
     &:hover {
       border-bottom: 1px lighten(map-get($colors, 'primary-link--hover'), 25%) dotted;
