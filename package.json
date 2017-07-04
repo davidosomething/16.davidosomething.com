@@ -63,7 +63,7 @@
     "gulp-sass-lint": "^1.2.0",
     "gulp-sourcemaps": "^2.2.0",
     "handlebars": "^4.0.5",
-    "helper-date": "^0.2.2",
+    "helper-date": "^1.0.0",
     "jspm": "^0.16.53",
     "lodash.defaultsdeep": "^4.5.0",
     "lodash.get": "^4.4.0",
