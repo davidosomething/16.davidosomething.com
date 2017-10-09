@@ -85,9 +85,10 @@
     "metalsmith-widow": "^1.1.1",
     "normalize-scss": "^7.0.0",
     "optional": "^0.1.4",
+    "rehype-stringify": "^3.0.0",
     "remark": "^8.0.0",
     "remark-highlight.js": "^5.0.0",
-    "remark-html": "^6.0.1",
+    "remark-rehype": "^2.0.1",
     "slug": "^0.9.1",
     "through2": "^2.0.3"
   },
