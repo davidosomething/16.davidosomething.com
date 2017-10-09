@@ -21,8 +21,13 @@
  */
 const markdownHelper = function (context, options) {
   const remark = require('remark');
-  const remarkHtml = require('remark-html');
-  return remark().use(remarkHtml).process(context);
+  const toRehype = require('remark-rehype');
+  const toHtml = require('rehype-stringify');
+  const result = remark()
+    .use(toRehype)
+    .use(toHtml)
+    .processSync(context);
+  return result.contents;
 };
 
 module.exports = markdownHelper;
