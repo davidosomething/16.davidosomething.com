@@ -86,7 +86,7 @@
     "normalize-scss": "^7.0.0",
     "optional": "^0.1.4",
     "rehype-stringify": "^3.0.0",
-    "remark": "^8.0.0",
+    "remark": "^9.0.0",
     "remark-highlight.js": "^5.0.0",
     "remark-rehype": "^3.0.0",
     "slug": "^0.9.1",
