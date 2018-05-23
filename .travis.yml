@@ -3,7 +3,6 @@ sudo: false
 language: node_js
 env:
   global:
-  - CXX="g++-4.8"
   - GITHUB_PAGES_COMMIT_MESSAGE="Build ${TRAVIS_BUILD_NUMBER} of https://github.com/davidosomething/16.davidosomething.com/commit/${TRAVIS_COMMIT}"
   - secure: foSclTYU3qgST+Oot0QgnI8cTOvbGLCjcDubP9bN1Nts5VB9PAk/YFq817prmkpSlfvDUkCT5uf8pOvboN3Ufa9ZRhKW8CcqXlaUpgrAhvbDp/OO3WgFxWZVPBPtNZveaJcrYoiMtOSdpizo6X43EGgp+pao3qK0fTYekM+nluLg2o3T9einDCKSbf9+sp0rb8TwKmy6WQNtK3PMtDrwJufCPiwTg8ZlkZ7SfRkd1LqV6+OWUDr++AOCFk4xf2v7dknFykzYj4fZAUi+c/ifz+38tPEwCLUNRtA81hH0hOc1xwk/zYxQ0lSEdvKAehnP2fEkhZYFrl/e3h8QsI7y0NnO3Yq3S7cW6sLwWLsz9ugW6M6tlpARVsn708yInpU/zFlq8zDMMFDQ8lpcBdElIcC4mkxrSIulbWBZVINuVgVXjVLXkUxMRi5HOeHOcAZWggzxmAsVqQenc6yn2Ewo5I8DyftipVtfs0gghz64czyC58bXv3iUzfJb879mtDGGJlbuHpTNt8BhOx205KKDWNVv3cieDJD2nyEBLpO5b4lrQui5p6+oZ2AdUyBzbYnBr1/pudFOxLAmnEjdeJEilgkspNGvOLBGPlRAcfdKFOn/D9URqBdG+rc1xOp9cJ2ZMFlPo2Iy9PoyTtMC1Fm0JO1dmkD9PFNIdo9xAQ62SPc=
 cache:
