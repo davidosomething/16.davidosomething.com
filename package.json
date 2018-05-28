@@ -102,7 +102,7 @@
     "gulp-remark-lint-dko": "^1.0.2",
     "imagemin-pngquant": "^5.1.0",
     "jspm-check-updates": "^1.1.2",
-    "markdownlint": "^0.9.0",
+    "markdownlint": "^0.10.0",
     "tern-jspm": "^0.1.0"
   }
 }
