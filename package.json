@@ -83,7 +83,7 @@
     "metalsmith-layouts": "^2.1.0",
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-remark": "^5.0.0",
-    "metalsmith-sitemap": "^1.2.0",
+    "metalsmith-sitemap": "^1.2.2",
     "metalsmith-snippet": "^2.0.0",
     "metalsmith-widow": "^1.1.1",
     "normalize-scss": "^7.0.0",
