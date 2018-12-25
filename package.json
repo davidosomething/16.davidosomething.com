@@ -100,7 +100,7 @@
     "chalk": "^2.4.1",
     "gulp-imagemin": "^4.0.0",
     "gulp-remark-lint-dko": "^1.0.2",
-    "imagemin-pngquant": "^6.0.0",
+    "imagemin-pngquant": "^6.0.1",
     "jspm-check-updates": "^1.1.2",
     "markdownlint": "^0.11.0",
     "tern-jspm": "^0.1.0"
