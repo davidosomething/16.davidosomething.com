@@ -62,7 +62,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sass-lint": "^1.4.0",
     "gulp-sourcemaps": "^2.6.1",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.1.2",
     "helper-date": "^0.2.3",
     "jspm": "^0.16.53",
     "jstransformer-handlebars": "^1.1.0",
