@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "debug": "^4.0.0",
-    "del": "^3.0.0",
+    "del": "^4.1.1",
     "eslint-config-davidosomething": "^3.0.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsdoc": "^4.0.0",
